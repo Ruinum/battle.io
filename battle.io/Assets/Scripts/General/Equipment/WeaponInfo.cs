@@ -6,4 +6,6 @@ public class WeaponInfo : ScriptableObject
     public GameObject Prefab;
     public float Damage;
     public float Speed;
+    public bool RightHanded;
+    public bool LeftHanded;
 }

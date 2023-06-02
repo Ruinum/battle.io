@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df86678ad483af844ab117e1fdcced82, type: 3}
-  m_Name: SmallSword_Weapon
+  m_Name: MeduimSword_Weapon
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3519058675054263144, guid: 618c28a919ee7a84a9c430dee8fb3528, type: 3}
+  Prefab: {fileID: 7926881182184309057, guid: cdd6d6d902c10ac41967b32b120830a0, type: 3}
   Damage: 0
   Speed: 0
+  RightHanded: 1
+  LeftHanded: 0
