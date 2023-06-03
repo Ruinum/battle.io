@@ -5,7 +5,7 @@ public class WeaponInfo : ScriptableObject
 {
     public GameObject Prefab;
     public float Damage;
-    public float Speed;
-    public bool RightHanded;
-    public bool LeftHanded;
+    public float MovementModifier;
+    public WeaponType Type;
+    public WeaponHandType HandType;
 }

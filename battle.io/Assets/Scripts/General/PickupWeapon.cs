@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ruinum.Utils;
 
 public class PickupWeapon : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class PickupWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.TryGetComponent<WeaponInventory>(out var weaponInventory)) return;
+        if (!collision.gameObject.TryGetComponentInObject(out WeaponInventory weaponInventory)) return;
         weaponInventory.EquipWeapon(_weaponInfo);
     }
 }

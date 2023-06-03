@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7570791563358353172, guid: 0b09c87487bea714c84cf1b7f342f3a1, type: 3}
   Damage: 0
-  Speed: 0
-  RightHanded: 0
-  LeftHanded: 1
+  MovementModifier: 1
+  Type: 2
+  HandType: 1
