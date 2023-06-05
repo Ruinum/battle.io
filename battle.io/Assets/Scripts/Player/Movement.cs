@@ -7,12 +7,10 @@ public class Movement : Executable
      
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
-    private float _currentSpeed;
 
     public override void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _currentSpeed = _speed;
         
         base.Start();
     }
@@ -24,6 +22,6 @@ public class Movement : Executable
 
     private void FixedUpdate()
     {        
-        _rigidbody2D.velocity = new Vector2(_direction.x * _currentSpeed, _direction.y * _speed);
+        _rigidbody2D.velocity = new Vector2(_direction.x * _speed, _direction.y * _speed);
     }
 }

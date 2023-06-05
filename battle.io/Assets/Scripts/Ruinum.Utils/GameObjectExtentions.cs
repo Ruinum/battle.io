@@ -29,6 +29,11 @@ namespace Ruinum.Utils
             return null;
         }
 
+        public static T GetComponentInObject<T>(this MonoBehaviour monoBehaviour) where T : Component
+        {
+            return monoBehaviour.gameObject.GetComponentInObject<T>();
+        }
+
         public static bool TryGetComponentInObject<T>(this GameObject gameObject, out T component) where T : Component
         {
             component = GetComponentInObject<T>(gameObject);
