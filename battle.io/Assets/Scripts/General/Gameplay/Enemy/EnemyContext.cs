@@ -9,6 +9,7 @@ public class EnemyContext
         Transform = enemy.transform;
         Rigidbody = enemy.GetComponent<Rigidbody2D>();
         Movement = new EnemyMovement(Rigidbody, _enemy.MovementSpeed);
+        ScaleView = new ScaleView(enemy.transform);
         
         VisionRadius = _enemy.VisionRadius;
     }
@@ -18,6 +19,7 @@ public class EnemyContext
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public EnemyMovement Movement { get; private set; }
+    public ScaleView ScaleView { get; private set; }
     public float VisionRadius { get; private set; }
 
     public EnemyBaseState SearchState() => new EnemySearch();

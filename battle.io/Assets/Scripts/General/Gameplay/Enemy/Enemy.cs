@@ -1,6 +1,6 @@
 using Ruinum.Core;
 
-public class Enemy : Executable
+public class Enemy : Executable, IPlayer
 {
     public float VisionRadius;
     public float MovementSpeed;
@@ -32,4 +32,7 @@ public class Enemy : Executable
     }
 
     public void SwitchState(EnemyBaseState state) { _currentState = state; _currentState.EnterState(_context); }
+
+    public IMovement GetMovement() => _context.Movement;
+    public ScaleView GetScaleView() => _context.ScaleView;
 }
