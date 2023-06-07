@@ -9,21 +9,44 @@ public class Level : MonoBehaviour
 
     public Action<int> OnLevelChange;
     public Action<float> OnExpChange;
-    public Action<float> OnLevelUp;
+    public Action<float> OnNextExpChange;
+
+    private void Start()
+    {
+        InvokeEvents();
+    }
 
     public void AddExp(float value)
     {
         _currentExp += value;
         OnExpChange?.Invoke(_currentExp);
-        
-        if (_currentExp >= _nextLevelExp)
-        {
-            _currentExp = 0;
-            _currentLevel += 1;
 
-            OnLevelUp?.Invoke(_nextLevelExp);
-            OnLevelChange?.Invoke(_currentLevel);
-            OnExpChange?.Invoke(_currentExp);
-        }
+        if (_currentExp < _nextLevelExp) return;
+
+        _currentExp = 0;
+        _currentLevel += 1;
+
+        InvokeEvents();
+    }
+
+    public void RemoveExp(float value)
+    {
+        _currentExp -= value;
+        OnExpChange?.Invoke(_currentExp);
+        
+        if (_currentLevel >= 0) return;
+
+        _currentExp = 0;
+        _currentLevel -= 1;
+        _nextLevelExp = 100;
+
+        InvokeEvents();
+    }
+
+    private void InvokeEvents()
+    {
+        OnNextExpChange?.Invoke(_nextLevelExp);
+        OnLevelChange?.Invoke(_currentLevel);
+        OnExpChange?.Invoke(_currentExp);
     }
 }

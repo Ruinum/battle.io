@@ -1,7 +1,7 @@
 ﻿using Ruinum.Core;
 using UnityEngine;
 
-public class Player : Executable
+public class Player : Executable, IPlayer
 {
     [SerializeField] private PlayerAnimatorController _animationController;
     [SerializeField] private WeaponInventory _inventory;
@@ -10,11 +10,13 @@ public class Player : Executable
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
 
+    private ScaleView _scaleView;
     private Magnite _magnite;
 
     public override void Start()
     {
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
+        _scaleView = new ScaleView(transform);
 
         base.Start();
     }
@@ -35,4 +37,7 @@ public class Player : Executable
             _animationController.PlayAttackAnimation(weaponInfo);
         }
     }
+
+    public IMovement GetMovement() => _movement;
+    public ScaleView GetScaleView() => _scaleView;
 }

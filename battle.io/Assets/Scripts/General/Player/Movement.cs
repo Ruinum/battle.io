@@ -1,12 +1,16 @@
 using Ruinum.Core;
 using UnityEngine;
 
-public class Movement : Executable
+public class Movement : Executable, IMovement
 {
     [SerializeField] private float _speed;
      
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
+    private float _modifier = 1;
+
+    public float Speed => _speed * Modifier;
+    public float Modifier { get => _modifier; set { _modifier = value; } }
 
     public override void Start()
     {
@@ -21,7 +25,12 @@ public class Movement : Executable
     }
 
     private void FixedUpdate()
-    {        
-        _rigidbody2D.velocity = new Vector2(_direction.x * _speed, _direction.y * _speed);
+    {
+        Move();
+    }
+
+    public void Move()
+    {
+        _rigidbody2D.velocity = new Vector2(_direction.x * Speed, _direction.y * Speed);
     }
 }

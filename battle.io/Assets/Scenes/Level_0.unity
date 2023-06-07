@@ -7712,12 +7712,12 @@ GameObject:
   - component: {fileID: 122960704}
   - component: {fileID: 122960709}
   - component: {fileID: 122960712}
+  - component: {fileID: 122960713}
   - component: {fileID: 122960711}
   - component: {fileID: 122960708}
   - component: {fileID: 122960705}
   - component: {fileID: 122960707}
   - component: {fileID: 122960714}
-  - component: {fileID: 122960713}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7876,11 +7876,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 122960703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce43537b8cb39344aab99c292a7f2eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ac6062bf53a26b4a99d905c877dca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
 --- !u!114 &122960714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8086,10 +8084,10 @@ GameObject:
   - component: {fileID: 289323833}
   - component: {fileID: 289323832}
   - component: {fileID: 289323827}
+  - component: {fileID: 289323825}
   - component: {fileID: 289323830}
   - component: {fileID: 289323829}
   - component: {fileID: 289323826}
-  - component: {fileID: 289323825}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -8106,11 +8104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 289323824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce43537b8cb39344aab99c292a7f2eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ac6062bf53a26b4a99d905c877dca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
 --- !u!114 &289323826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8556,6 +8552,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
   _text: {fileID: 0}
+  _level: {fileID: 0}
+  _maxFillAmount: 0
 --- !u!114 &733834731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8569,6 +8567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _health: {fileID: 0}
+  _maxFillAmount: 0
 --- !u!1 &939451279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10032,6 +10032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
   _text: {fileID: 0}
+  _level: {fileID: 0}
+  _maxFillAmount: 0
 --- !u!114 &1305407457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10045,6 +10047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _health: {fileID: 0}
+  _maxFillAmount: 0
 --- !u!1 &1310694666
 GameObject:
   m_ObjectHideFlags: 0
