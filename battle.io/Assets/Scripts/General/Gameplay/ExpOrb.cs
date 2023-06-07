@@ -10,6 +10,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
         level.AddExp(_expAmount);
         Destroy(gameObject);
+        OnInteract?.Invoke();
     }
 
     public void SetExp(float value)

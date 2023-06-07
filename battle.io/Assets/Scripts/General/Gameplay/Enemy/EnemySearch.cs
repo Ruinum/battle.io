@@ -9,6 +9,8 @@ public class EnemySearch : EnemyBaseState
     private float _currentDistance = 0f;
     private float _visionRadius;
 
+    private float _currentVisionRadius;
+
     public override void CheckSwitchConditions(EnemyContext context)
     {
         
@@ -19,24 +21,38 @@ public class EnemySearch : EnemyBaseState
         _transform = context.Transform;
         _movement = context.Movement;
         _visionRadius = context.VisionRadius;
+
+        _currentVisionRadius = _visionRadius;
     }
 
     public override void UpdateState(EnemyContext context)
     {
-        var colliders = Physics2D.OverlapCircleAll(_transform.position, _visionRadius);     
+        if (_interestPoint == null) 
+        { 
+            _currentVisionRadius = _visionRadius * 3; 
+            FindInterestPoint();
+
+            return;
+        }
+
+        _movement.Move();
+        _movement.SetPoint(_interestPoint.position);
+    }
+
+    private void FindInterestPoint()
+    {
+        var colliders = Physics2D.OverlapCircleAll(_transform.position, _currentVisionRadius);
 
         foreach (var collider in colliders)
         {
-            if (!collider.TryGetComponent<IInterestPoint>(out var interestPoint)) continue;
+            if (!collider.TryGetComponent(out IInterestPoint interestPoint)) continue;
 
             float distance = Vector2.Distance(collider.transform.position, _transform.position);
             if (_currentDistance <= distance)
             {
                 _interestPoint = collider.transform;
-                _movement.SetPoint(_interestPoint.position);
+                _currentVisionRadius = _visionRadius;
             }
         }
-
-        _movement.Move();
     }
 }
