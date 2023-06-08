@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     public Action<int> OnLevelChange;
     public Action<float> OnExpChange;
     public Action<float> OnNextExpChange;
+    public Action<float> OnExpRemove;
 
     private void Start()
     {
@@ -32,8 +33,10 @@ public class Level : MonoBehaviour
     public void RemoveExp(float value)
     {
         _currentExp -= value;
+
         OnExpChange?.Invoke(_currentExp);
-        
+        OnExpRemove?.Invoke(value);
+
         if (_currentLevel >= 0) return;
 
         _currentExp = 0;

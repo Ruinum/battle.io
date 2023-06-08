@@ -40,7 +40,6 @@ public class PlayerView : MonoBehaviour
         _currentLevelExp = currentExpAmount;    
 
         _scaleView.ChangeScale(1 + CalculateModifier(_scaleModifier) - _scaleModifier);
-        _movement.Modifier = Mathf.Max(0.2f, 1 - CalculateModifier(_speedModifier) + _speedModifier);
-        Debug.Log(_movement.Modifier);
-    } 
+        _movement.Modifier = Mathf.Max(0.8f, 1 - CalculateModifier(_speedModifier) + _speedModifier);
+    }
 }

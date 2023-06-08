@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponInfo", menuName = "Data/Weapon" + nameof(WeaponInfo))]
+[CreateAssetMenu(fileName = "WeaponInfo", menuName = "Ruinum/Weapon" + nameof(WeaponInfo))]
 public class WeaponInfo : ScriptableObject
 {
     public GameObject Prefab;
