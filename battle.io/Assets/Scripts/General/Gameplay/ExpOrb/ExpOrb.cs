@@ -17,6 +17,8 @@ public class ExpOrb : Interactable, IInterestPoint
         }
     }
 
+    public Transform Transform => transform;
+
     protected override void Interact(Collider2D collision)
     {
         if (!collision.TryGetComponent<Level>(out var level)) return;

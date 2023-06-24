@@ -4,7 +4,10 @@ public class EnemyRotateToPoint
 {
     private Transform _transform;
     private Quaternion _rotation;
-    private float _speed = 250f;
+    private float _speed = 225f;
+
+    private float _baseSpeed = 100f; 
+    private float _maxRandomSpeed = 250f;
 
     public EnemyRotateToPoint(Transform transform)
     {
@@ -19,5 +22,6 @@ public class EnemyRotateToPoint
     public void SetPoint(Vector3 point)
     {
         _rotation = Quaternion.LookRotation(point - _transform.position, new Vector3(0, 0, 1));
+        _speed = Random.Range(_baseSpeed, _maxRandomSpeed);
     }
 }

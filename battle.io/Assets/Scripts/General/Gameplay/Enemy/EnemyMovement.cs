@@ -22,7 +22,7 @@ public class EnemyMovement : IMovement
     }
 
     public void SetPoint(Vector2 point) => _point = point; 
-    public void Move()
+    public void Execute()
     {
         if (Vector2.Distance(rigidbody.position, _point) <= _magnitude) OnDestination?.Invoke();
 

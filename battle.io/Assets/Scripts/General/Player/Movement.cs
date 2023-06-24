@@ -29,7 +29,7 @@ public class Movement : Executable, IMovement
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         _rigidbody2D.velocity = new Vector2(_direction.x * Speed, _direction.y * Speed);
     }

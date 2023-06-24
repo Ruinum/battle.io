@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public int PlayerLevel => _currentLevel;
+
     private int _currentLevel = 1;
     private float _currentExp = 0;
     private float _nextLevelExp = 100;

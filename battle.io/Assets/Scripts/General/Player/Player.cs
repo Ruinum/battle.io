@@ -10,11 +10,16 @@ public class Player : Executable, IPlayer
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
 
+    private Level _level;
     private ScaleView _scaleView;
     private Magnite _magnite;
 
+    public Transform Transform => transform;
+    public Level Level => _level;
+
     public override void Start()
     {
+        _level = GetComponent<Level>();
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Ruinum.Utils;
+using System;
 
 public class WeaponInventory : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WeaponInventory : MonoBehaviour
 
     private RightArm _rightArm;
     private LeftArm _leftArm;
+
+    public Action<WeaponInfo> OnWeaponChange;
 
     private void Start()
     {
@@ -33,6 +36,8 @@ public class WeaponInventory : MonoBehaviour
         _currentRightWeaponInfo = weaponInfo;
 
         _rightArm.SetWeaponPosition(createdWeapon.transform, rightPosition);
+
+        OnWeaponChange?.Invoke(_currentRightWeaponInfo);
     }
 
     private void EquipLeft(WeaponInfo weaponInfo)
@@ -49,7 +54,7 @@ public class WeaponInventory : MonoBehaviour
 
     private GameObject CreateWeapon(WeaponInfo weaponInfo)
     {
-        return Object.Instantiate(weaponInfo.Prefab, Vector3.zero, transform.rotation, transform);
+        return UnityEngine.Object.Instantiate(weaponInfo.Prefab, Vector3.zero, transform.rotation, transform);
     }
 
     public bool TryGetRightWeapon(out WeaponInfo weaponInfo)

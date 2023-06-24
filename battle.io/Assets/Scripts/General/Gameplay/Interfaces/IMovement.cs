@@ -3,5 +3,5 @@
     float Speed { get; }
     float Modifier { get; set; }
     
-    void Move();
+    void Execute();
 }

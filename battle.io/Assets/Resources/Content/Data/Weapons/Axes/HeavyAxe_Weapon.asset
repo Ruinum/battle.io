@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8815451474283073128, guid: 7472a7f94090ffb4fa27a49553bda101, type: 3}
   Damage: 0
-  MovementModifier: 0.95
+  Distance: 2.5
   Type: 3
   HandType: 2

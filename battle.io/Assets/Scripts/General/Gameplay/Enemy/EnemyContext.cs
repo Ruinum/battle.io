@@ -7,24 +7,33 @@ public class EnemyContext
         _enemy = enemy;
 
         Transform = enemy.transform;
+        Level = enemy.Level;
+
         Rigidbody = enemy.GetComponent<Rigidbody2D>();
+        Animator = enemy.GetComponent<PlayerAnimatorController>();
+        Inventory = enemy.GetComponent<WeaponInventory>();
+
         Movement = new EnemyMovement(Rigidbody, _enemy.MovementSpeed);
         Rotate = new EnemyRotateToPoint(Transform);
         ScaleView = new ScaleView(enemy.transform);
         
         VisionRadius = _enemy.VisionRadius;
+        DangerLevel = 2;
     }
 
     private Enemy _enemy;
-
+    
+    public EnemyVision Vision => _enemy.Vision;
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
+    public PlayerAnimatorController Animator { get; private set; }
+    public WeaponInventory Inventory { get; private set; }
+    public Level Level { get; private set; }
     public EnemyMovement Movement { get; private set; }
     public EnemyRotateToPoint Rotate { get; private set; }
-    public ScaleView ScaleView { get; private set; }
+    public ScaleView ScaleView { get; private set; }    
     public float VisionRadius { get; private set; }
+    public int DangerLevel { get; private set; }
 
-    public EnemyBaseState SearchState() => new EnemySearch();
-
-    public void SwitchState(EnemyBaseState state) => _enemy.SwitchState(state);
+    public EnemyBaseState CurrentState { get { return _enemy.CurrentState; } set { _enemy.CurrentState = value; } }
 }
