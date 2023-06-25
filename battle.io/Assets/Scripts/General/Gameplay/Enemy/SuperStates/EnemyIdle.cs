@@ -2,8 +2,8 @@
 {
     public EnemyIdle(EnemyContext context, EnemyStateFactory factory) : base(context, factory)
     {
-        InitializeSubState();
         _isRootState = true;
+        InitializeSubState();
     }
 
     public override void InitializeSubState()

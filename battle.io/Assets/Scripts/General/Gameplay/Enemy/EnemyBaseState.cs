@@ -42,7 +42,7 @@
 
     protected void SwitchState(EnemyBaseState state)
     {
-        ExitState();
+        ExitStates();
 
         state.EnterState();
 
@@ -55,6 +55,10 @@
         {
             _subState.ExitStates();
             _subState.SetSubState(state);
+        } 
+        else if (_superState != null)
+        {            
+            _superState.SetSubState(state);
         }
     }
 

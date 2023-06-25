@@ -6,6 +6,7 @@
 
     public EnemyAggresive(EnemyContext context, EnemyStateFactory factory) : base(context, factory)
     {
+        _isRootState = true;
         InitializeSubState();
 
         _vision = context.Vision;
@@ -40,6 +41,6 @@
 
     public override void InitializeSubState()
     {
-        SetSubState(_factory.EnemyAgressiveIdleState());
+        SetSubState(_factory.AggresiveIdleState());
     }
 }

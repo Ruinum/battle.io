@@ -14,7 +14,7 @@ public sealed class EnemyAware : EnemyBaseState
 
     public override void CheckSwitchConditions()
     {
-        if (Vector2.Distance(_nearestEnemy.Transform.position, _transform.position) <= _fleaDistance) SwitchState(_factory.EnemyFleaState());
+        if (Vector2.Distance(_nearestEnemy.Transform.position, _transform.position) <= _fleaDistance) SwitchState(_factory.FleaState());
     }
 
     public override void EnterState()

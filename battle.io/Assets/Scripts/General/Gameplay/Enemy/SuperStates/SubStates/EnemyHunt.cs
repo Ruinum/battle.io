@@ -9,8 +9,8 @@ public sealed class EnemyHunt : EnemyBaseState
     private IPlayer _nearestEnemy;
 
     private int _dangerLevel;
-    private float _minRandom = -5f;
-    private float _maxRandom = 5f;
+    private float _minRandom = -3f;
+    private float _maxRandom = 3f;
 
     public EnemyHunt(EnemyContext context, EnemyStateFactory factory) : base(context, factory)
     {
@@ -40,9 +40,6 @@ public sealed class EnemyHunt : EnemyBaseState
 
     public override void UpdateState()
     {
-        FindPoint();
-
-        _movement.SetPoint(_nearestEnemy.Transform.position);
         _movement.Execute();
 
         _nearestEnemy = _vision.NearestEnemy;
@@ -56,6 +53,6 @@ public sealed class EnemyHunt : EnemyBaseState
 
     public override void CheckSwitchConditions()
     {
-        if (_nearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.EnemyAwareState()); 
+        if (_nearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.AwareState()); 
     }
 }
