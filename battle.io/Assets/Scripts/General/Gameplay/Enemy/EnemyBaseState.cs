@@ -10,6 +10,8 @@
     { 
         _context = context;
         _factory = factory;
+
+        UnityEngine.Debug.Log(this);
     } 
 
     public abstract void EnterState();
@@ -21,7 +23,7 @@
     public void UpdateStates()
     {
         UpdateState();
-        
+
         if (_subState == null) return;
         _subState.UpdateStates();
     }
@@ -46,10 +48,12 @@
 
         if (_isRootState)
         {
+            ExitStates();
             _context.CurrentState = state;
         } 
         else if (_subState != null)
         {
+            _subState.ExitStates();
             _subState.SetSubState(state);
         }
     }

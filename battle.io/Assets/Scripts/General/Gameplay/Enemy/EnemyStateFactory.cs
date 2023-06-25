@@ -12,5 +12,6 @@
     public EnemyBaseState AggresiveState() => new EnemyAggresive(_context, this);
     public EnemyBaseState EnemyAgressiveIdleState() => new EnemyAggresiveIdle(_context, this);
     public EnemyBaseState EnemyHuntState() => new EnemyHunt(_context, this);
-    public EnemyBaseState EnemyAwareState() => new EnemyAwareState(_context, this);
+    public EnemyBaseState EnemyAwareState() => new EnemyAware(_context, this);
+    public EnemyBaseState EnemyFleaState() => new EnemyFlea(_context, this);
 }

@@ -26,6 +26,7 @@
 
     public override void UpdateState()
     {
+        CheckSwitchConditions();
     }
 
     public override void CheckSwitchConditions()

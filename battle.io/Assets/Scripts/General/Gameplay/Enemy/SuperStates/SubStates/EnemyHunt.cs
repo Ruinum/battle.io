@@ -4,7 +4,6 @@ public sealed class EnemyHunt : EnemyBaseState
 {
     private EnemyVision _vision;
     private EnemyMovement _movement;
-    private EnemyRotateToPoint _rotate;
     private Level _level;
     
     private IPlayer _nearestEnemy;
@@ -18,7 +17,6 @@ public sealed class EnemyHunt : EnemyBaseState
         _vision = _context.Vision;
         _movement = _context.Movement;
         _level = _context.Level;
-        _rotate = _context.Rotate;
 
         _movement.OnDestination += FindPoint;
     }
@@ -31,6 +29,8 @@ public sealed class EnemyHunt : EnemyBaseState
     {
         _nearestEnemy = _vision.NearestEnemy;
         _dangerLevel = _context.DangerLevel;
+
+        FindPoint();
     }
 
     public override void ExitState()
@@ -42,9 +42,8 @@ public sealed class EnemyHunt : EnemyBaseState
     {
         FindPoint();
 
+        _movement.SetPoint(_nearestEnemy.Transform.position);
         _movement.Execute();
-        _rotate.SetPoint(_nearestEnemy.Transform.position);
-        _rotate.Execute();
 
         _nearestEnemy = _vision.NearestEnemy;
     }
@@ -57,6 +56,6 @@ public sealed class EnemyHunt : EnemyBaseState
 
     public override void CheckSwitchConditions()
     {
-        if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.EnemyAwareState());
+        if (_nearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.EnemyAwareState()); 
     }
 }

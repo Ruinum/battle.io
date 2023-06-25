@@ -21,9 +21,6 @@ public sealed class EnemyAttack
         _inventory.TryGetRightWeapon(out _weapon);
     }
 
-    public void SetEnemy(IPlayer enemy) => _enemy = enemy;
-    private void SetWeapon(WeaponInfo weaponInfo) => _weapon = weaponInfo;
-
     public void Execute()
     {
         if (CheckAttack() && !_isAttacking)
@@ -40,4 +37,7 @@ public sealed class EnemyAttack
         
         return false;
     }
+
+    public void SetEnemy(IPlayer enemy) => _enemy = enemy;
+    private void SetWeapon(WeaponInfo weaponInfo) => _weapon = weaponInfo;
 }

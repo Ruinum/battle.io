@@ -14,11 +14,14 @@ public class EnemyContext
         Inventory = enemy.GetComponent<WeaponInventory>();
 
         Movement = new EnemyMovement(Rigidbody, _enemy.MovementSpeed);
+        Attack = new EnemyAttack(this);
         Rotate = new EnemyRotateToPoint(Transform);
         ScaleView = new ScaleView(enemy.transform);
         
         VisionRadius = _enemy.VisionRadius;
         DangerLevel = 2;
+        FleaDistance = 2f;
+        CalmDistance = 3f;
     }
 
     private Enemy _enemy;
@@ -30,10 +33,13 @@ public class EnemyContext
     public WeaponInventory Inventory { get; private set; }
     public Level Level { get; private set; }
     public EnemyMovement Movement { get; private set; }
+    public EnemyAttack Attack { get; private set; }
     public EnemyRotateToPoint Rotate { get; private set; }
     public ScaleView ScaleView { get; private set; }    
     public float VisionRadius { get; private set; }
     public int DangerLevel { get; private set; }
+    public float FleaDistance { get; private set; }
+    public float CalmDistance { get; private set; }
 
     public EnemyBaseState CurrentState { get { return _enemy.CurrentState; } set { _enemy.CurrentState = value; } }
 }

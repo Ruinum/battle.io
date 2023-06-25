@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyVision
@@ -17,6 +18,9 @@ public class EnemyVision
 
     private float _visionRadius;
     private float _distance;
+
+    public Action<IInterestPoint> OnNearestInterestChange;
+    public Action<IPlayer> OnNearestEnemyChange;
 
     public EnemyVision(Transform transform, float visionRadius)
     {
@@ -47,24 +51,30 @@ public class EnemyVision
     private void FindNearestPoint()
     {
         if (_interestPoints.Count <= 0) return;
-
         _nearestInterest = null;
+
         _distance = _visionRadius + 1;
-        for (int i = 0; i < _interestPoints.Capacity; i++)
+        for (int i = 0; i < _interestPoints.Count; i++)
         {
-            if (Vector2.Distance(_interestPoints[i].Transform.position, _transform.position) <= _distance) _nearestInterest = _interestPoints[i];
+            if (Vector2.Distance(_interestPoints[i].Transform.position, _transform.position) > _distance) continue;
+            
+            _nearestInterest = _interestPoints[i];
+            OnNearestInterestChange?.Invoke(_nearestInterest);
         }
-    }
+    } 
 
     private void FindNearestEnemy()
     {
         if (_enemies.Count <= 0) return;
-
         _nearestEnemy = null;
+
         _distance = _visionRadius + 1;
-        for (int i = 0; i < _enemies.Capacity; i++)
+        for (int i = 0; i < _enemies.Count; i++)
         {
-            if (Vector2.Distance(_enemies[i].Transform.position, _transform.position) <= _distance) _nearestEnemy = _enemies[i];
+            if (Vector2.Distance(_enemies[i].Transform.position, _transform.position) > _distance) continue;
+            
+            _nearestEnemy = _enemies[i];
+            OnNearestEnemyChange?.Invoke(_nearestEnemy);
         }
     }
 }

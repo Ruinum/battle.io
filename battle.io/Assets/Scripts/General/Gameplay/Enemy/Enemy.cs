@@ -41,7 +41,6 @@ public class Enemy : Executable, IPlayer
     public override void Execute()
     {
         _currentState.UpdateStates();
-        _currentState.CheckSwitchConditions();
 
         _vision.Execute();
         _magnite.Execute();
