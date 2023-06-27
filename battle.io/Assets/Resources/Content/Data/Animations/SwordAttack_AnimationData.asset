@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6acf6f6bd1794ed4b8011cda4029668d, type: 3}
-  m_Name: AnimationData
+  m_Name: SwordAttack_AnimationData
   m_EditorClassIdentifier: 
-  Clip: {fileID: 7400000, guid: 291a61c5146f6e641bbfa124f8e1a1e4, type: 2}
-  AnimationTimeline:
+  Clip: {fileID: 7400000, guid: dd403f99352cee54296fd717cf1fe6fc, type: 2}
+  NextAnimation: {fileID: 0}
+  _animationTimeline:
     Data:
       TimelineKeys:
-      - Name: On Destroy
-        KeyType: 3
-        KeyTime: 2
+      - Name: Hitbox Enable
+        Type: 1
+        Time: 0.4

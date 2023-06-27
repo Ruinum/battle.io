@@ -7849,6 +7849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 122960710}
+  _animationDatas:
+  - {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
 --- !u!114 &122960712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7864,6 +7866,7 @@ MonoBehaviour:
   _animationController: {fileID: 122960711}
   _inventory: {fileID: 122960708}
   _movement: {fileID: 122960705}
+  _data: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
   _magniteRadius: 1.1
   _magniteSpeed: 1
 --- !u!114 &122960713
@@ -8159,6 +8162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 289323834}
+  _animationDatas: []
 --- !u!58 &289323832
 CircleCollider2D:
   m_ObjectHideFlags: 0

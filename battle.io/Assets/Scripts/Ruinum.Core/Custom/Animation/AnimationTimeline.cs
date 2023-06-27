@@ -5,28 +5,47 @@ using System.Collections.Generic;
 public sealed class AnimationTimeline
 {
     public AnimationTimelineData Data;
+    public Action<string, AnimationData> CallbackEvent;
+    
+    private AnimationData _data;
+    private List<AnimationTimelineKey> _timelineKeys;
 
-    private Dictionary<float, AnimationTimelineKey> _timelineKeys;
-    private float _duration;
-
-    public void Initialize(float duration, AnimationData data)
+    public void Initialize(AnimationData data)
     {
-        _timelineKeys = new Dictionary<float, AnimationTimelineKey>();
-        _duration = duration;
+        _timelineKeys = new List<AnimationTimelineKey>();
 
         AnimationTimelineKey[] timelineKeys = Data.TimelineKeys;
         for (int i = 0; i < timelineKeys.Length; i++)
         {
-            timelineKeys[i].SetID(i);
-            _timelineKeys.Add(timelineKeys[i].KeyTime, timelineKeys[i]);
+            _timelineKeys.Add(timelineKeys[i]);
         }
 
-        data.OnAnimationTimeChange += OnTimeChange;
+        _data = data;
+        _data.OnAnimationTimeChange += OnTimeChange;
     }
 
     private void OnTimeChange(float currentTime)
     {
-        if (!_timelineKeys.TryGetValue(currentTime, out AnimationTimelineKey timelineKey)) return;        
-        
+        for (int i = 0; i < _timelineKeys.Count; i++)
+        {
+            if (currentTime >= _timelineKeys[i].Time) InvokeKey(_timelineKeys[i]);
+        }
     }
+
+    private void InvokeKey(AnimationTimelineKey key)
+    {
+        UnityEngine.Debug.LogWarning(key.Name);
+        switch (key.Type)
+        {
+            case AnimationTimelineKeyType.Event:
+                key.OnKeyInvoke?.Invoke();
+                UnityEngine.Debug.Log($"{key.Name}, {_data.Clip}");
+                CallbackEvent?.Invoke(key.Name, _data);
+                break;
+        }
+
+        _timelineKeys.Remove(key);
+    }
+
+    public List<AnimationTimelineKey> GetTimelineKeys() => _timelineKeys;
 }

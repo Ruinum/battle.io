@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -6,20 +7,21 @@ using UnityEngine;
 public sealed class AnimationData : ScriptableObject
 {
     public AnimationClip Clip;
-    public AnimationTimeline AnimationTimeline;
+    public AnimationData NextAnimation;
+    public AnimationTimeline _animationTimeline;
 
-    private float _animationDuration;
-    
     public Action<float> OnAnimationTimeChange;
 
-    private void Initialize()
+    public void Initialize()
     {
-        _animationDuration = Clip.length;
-        AnimationTimeline.Initialize(_animationDuration, this);
+        _animationTimeline.Initialize(this);
     }
 
-    public void Play(Animator animator)
+    public void SubscribeOnCallback(Action<string, AnimationData> callback)
     {
-        
+        _animationTimeline.CallbackEvent += callback;
+        Debug.Log("Subscribed on callback event");
     }
+
+    public List<AnimationTimelineKey> GetTimelineKeys() => _animationTimeline.GetTimelineKeys();
 }

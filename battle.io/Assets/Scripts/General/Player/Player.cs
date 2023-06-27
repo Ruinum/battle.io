@@ -7,6 +7,8 @@ public class Player : Executable, IPlayer
     [SerializeField] private WeaponInventory _inventory;
     [SerializeField] private Movement _movement;
 
+    [SerializeField] private AnimationData _data;
+
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
 
@@ -23,6 +25,8 @@ public class Player : Executable, IPlayer
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
 
+        _animationController.SubscribeOnTimelineEvent(_data, "HitBox Enable", HitBoxEnable);
+
         base.Start();
     }
 
@@ -33,14 +37,19 @@ public class Player : Executable, IPlayer
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!_inventory.TryGetRightWeapon(out var weaponInfo)) return;
-            _animationController.TryPlayAttackAnimation(weaponInfo);
+            _animationController.PlayAnimation(weaponInfo.Type + " Attack");
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
-            _animationController.TryPlayAttackAnimation(weaponInfo);
+            _animationController.PlayAnimation(weaponInfo.Type + " Attack");
         }
+    }
+
+    private void HitBoxEnable()
+    {
+        Debug.LogWarning("hit box enable");
     }
 
     public IMovement GetMovement() => _movement;
