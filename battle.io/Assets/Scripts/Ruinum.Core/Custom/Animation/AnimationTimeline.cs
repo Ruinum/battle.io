@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [Serializable]
-public sealed class AnimationTimeline
+public struct AnimationTimeline
 {
     public AnimationTimelineData Data;
     public Action<string, AnimationData> CallbackEvent;
@@ -34,7 +34,6 @@ public sealed class AnimationTimeline
 
     private void InvokeKey(AnimationTimelineKey key)
     {
-        UnityEngine.Debug.LogWarning(key.Name);
         switch (key.Type)
         {
             case AnimationTimelineKeyType.Event:

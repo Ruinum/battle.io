@@ -12,7 +12,7 @@ public class WeaponInventory : MonoBehaviour
     private RightArm _rightArm;
     private LeftArm _leftArm;
 
-    public Action<WeaponInfo> OnWeaponChange;
+    public Action<WeaponInfo, GameObject> OnWeaponChange;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class WeaponInventory : MonoBehaviour
 
         _rightArm.SetWeaponPosition(createdWeapon.transform, rightPosition);
 
-        OnWeaponChange?.Invoke(_currentRightWeaponInfo);
+        OnWeaponChange?.Invoke(_currentRightWeaponInfo, _currentRightWeapon);
     }
 
     private void EquipLeft(WeaponInfo weaponInfo)

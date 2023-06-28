@@ -6,24 +6,47 @@ using UnityEngine;
 public class PlayerAnimatorController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] AnimationData[] _animationDatas;
 
     private AnimationData _currentAnimationData;
-    private Dictionary<AnimationClip, AnimationData> _animationClips;
-    private Dictionary<AnimationData, List<TimelineEvent>> _animationEvents;
+
+    private AnimationData[] _animationDatas;
+    private Dictionary<AnimationClip, AnimationTimeline> _clipTimelines;
+    private Dictionary<string, List<TimelineEvent>> _timelinesKeyEvents;
 
     private float _currentTime;
     private float _clipDuration;
 
-    private void Start()
+    private void Awake()
     {
-        _animationEvents = new Dictionary<AnimationData, List<TimelineEvent>>();
-        _animationClips = new Dictionary<AnimationClip, AnimationData>();
+        _timelinesKeyEvents = new Dictionary<string, List<TimelineEvent>>();
+        _clipTimelines = new Dictionary<AnimationClip, AnimationTimeline>();
+    }
+
+    public void InitializeAnimations(AnimationDatasConfig animationDatasConfig)
+    {
+        InitializeAnimations(animationDatasConfig.AnimationDatas);
+    }
+
+    public void InitializeAnimations(AnimationData[] animationDatas)
+    {
+        _animationDatas = animationDatas;
         for (int i = 0; i < _animationDatas.Length; i++)
         {
-            _animationClips.Add(_animationDatas[i].Clip, _animationDatas[i]);
-            _animationDatas[i].Initialize();
+            var instance = CreateAnimationDataInstance(animationDatas[i]);
+
+            _clipTimelines.Add(instance.Clip, instance);
+            instance.Initialize();
         }
+    }
+
+    private AnimationData CreateAnimationDataInstance(AnimationData data)
+    {
+        if (data.ID == null || data.ID == default) data.ID = Guid.NewGuid().ToString();
+
+        var dataInstance = ScriptableObject.CreateInstance<AnimationData>();
+        dataInstance.name = data.name;
+        dataInstance.InitInstance(data.Clip, data.NextAnimation, data.Timeline, data.ID);
+        return dataInstance;
     }
 
     public void PlayAnimation(AnimationData data, float crossfade = 0)
@@ -40,24 +63,30 @@ public class PlayerAnimatorController : MonoBehaviour
 
     public void SubscribeOnTimelineEvent(AnimationData data, string name, Action @event)
     {
-        if (!_animationEvents.ContainsKey(data))
+        if (!_timelinesKeyEvents.ContainsKey(data.ID))
         {
-            _animationEvents.Add(data, new List<TimelineEvent>());
+            data.Initialize();
+            List<TimelineEvent> dataEvents = new List<TimelineEvent>();
+            _timelinesKeyEvents.Add(data.ID, dataEvents);
 
-            _animationEvents.TryGetValue(data, out var list2);
             var timelineKeys = data.GetTimelineKeys();
             for (int i = 0; i < timelineKeys.Count; i++)
             {
-                list2.Add(new TimelineEvent(timelineKeys[i].Name));
+                dataEvents.Add(new TimelineEvent(timelineKeys[i].Name));
+                Debug.Log($"Added an {timelineKeys[i].Name} to data {data.Clip}");
             }
 
             data.SubscribeOnCallback(CallbackTimelineEvent); 
         }
 
-        _animationEvents.TryGetValue(data, out var list);
+        _timelinesKeyEvents.TryGetValue(data.ID, out var list);
         for (int i = 0; i < list.Count; i++)
         {
-            if (list[i].Name != name) continue;
+            Debug.Log($"Try subscribe on TimelineEvent {list[i].Name}, {name}");
+
+            if (list[i].Name != name && !list[i].Name.Contains(name)) continue;
+
+            Debug.Log($"Subscribed on {list[i].Name}, {name}");
 
             list[i].OnEventInvoke.Add(@event);
         }
@@ -65,9 +94,9 @@ public class PlayerAnimatorController : MonoBehaviour
 
     public void UnSubscribeOnTimelineEvent(AnimationData data, string name, Action @event)
     {
-        if (!_animationEvents.ContainsKey(data)) return;
+        if (!_timelinesKeyEvents.ContainsKey(data.ID)) return;
 
-        _animationEvents.TryGetValue(data, out var list);
+        _timelinesKeyEvents.TryGetValue(data.ID, out var list);
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i].Name != name) continue;
@@ -78,18 +107,20 @@ public class PlayerAnimatorController : MonoBehaviour
 
     private void CallbackTimelineEvent(string name, AnimationData data)
     {
-        Debug.LogWarning(name);
-        if (!_animationEvents.TryGetValue(data, out var events)) return;
-        Debug.LogWarning(events.Count);
+        Debug.LogError("Callback Timeline Event triggered");
+        if (!_timelinesKeyEvents.TryGetValue(data.ID, out var events)) return;
         for (int i = 0; i < events.Count; i++)
         {
+            Debug.Log($"Event name: {events[i].Name}, Invoked EventName {name}");
+                    
             if (events[i].Name != name) continue;
             
             var subscribedEvents = events[i].OnEventInvoke;
+            Debug.Log($"Subscribed events on {events[i].Name} {subscribedEvents.Count}");
             for (int j = 0; j < subscribedEvents.Count; j++)
             {
                 subscribedEvents[j].Invoke();
-                Debug.Log("2");
+                Debug.Log("Invoke event");
             }
         }
     }
@@ -109,8 +140,8 @@ public class PlayerAnimatorController : MonoBehaviour
         var firstLayerAnimation = _animator.GetCurrentAnimatorClipInfo(0)[0].clip;
         var secondLayerAnimation = _animator.GetCurrentAnimatorClipInfo(1)[0].clip;
 
-        _animationClips.TryGetValue(firstLayerAnimation, out var animationData1);
-        _animationClips.TryGetValue(secondLayerAnimation, out var animationData2);
+        _clipTimelines.TryGetValue(firstLayerAnimation, out var animationData1);
+        _clipTimelines.TryGetValue(secondLayerAnimation, out var animationData2);
 
         if (animationData1 != null) _currentAnimationData = animationData1;
         if (animationData2 != null) _currentAnimationData = animationData2;
@@ -142,5 +173,6 @@ public class TimelineEvent
     public TimelineEvent(string name)
     {
         Name = name;
+        OnEventInvoke = new List<Action>();
     }
 }

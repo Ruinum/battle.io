@@ -17,7 +17,8 @@ public class EnemyContext
         Attack = new EnemyAttack(this);
         Rotate = new EnemyRotateToPoint(Transform);
         ScaleView = new ScaleView(enemy.transform);
-        
+        HitBoxController = new HitBoxController(Animator, Inventory, _enemy.AnimationsConfig.AnimationDatas);
+
         VisionRadius = _enemy.VisionRadius;
         DangerLevel = 2;
         FleaDistance = 2f;
@@ -30,6 +31,7 @@ public class EnemyContext
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerAnimatorController Animator { get; private set; }
+    public HitBoxController HitBoxController { get; private set; }
     public WeaponInventory Inventory { get; private set; }
     public Level Level { get; private set; }
     public EnemyMovement Movement { get; private set; }

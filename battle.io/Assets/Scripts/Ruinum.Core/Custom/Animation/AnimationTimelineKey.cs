@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public sealed class AnimationTimelineKey
+public struct AnimationTimelineKey
 {
     public string Name;
     public AnimationTimelineKeyType Type;
