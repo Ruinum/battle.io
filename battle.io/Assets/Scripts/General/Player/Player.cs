@@ -1,17 +1,17 @@
 ﻿using Ruinum.Core;
+using System;
 using UnityEngine;
 
 public class Player : Executable, IPlayer
 {
+    [SerializeField] private AssetsContext _context;
     [SerializeField] private PlayerAnimatorController _animationController;
     [SerializeField] private WeaponInventory _inventory;
     [SerializeField] private Movement _movement;
-    [SerializeField] private AnimationDatasConfig _animationsConfig;
-
+    
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
 
-    private HitBoxController _hitBoxController;
     private Level _level;
     private ScaleView _scaleView;
     private Magnite _magnite;
@@ -20,13 +20,14 @@ public class Player : Executable, IPlayer
     public Level Level => _level;
 
     public override void Start()
-    {
-        _animationController.InitializeAnimations(_animationsConfig);
-
+    {        
         _level = GetComponent<Level>();
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
-        _hitBoxController = new HitBoxController(_animationController, _inventory, _animationsConfig.AnimationDatas);
+
+        new HitBoxController(_animationController, _inventory);
+        new WeaponAnimation(_animationController, _inventory);
+        AssetsInjector.Inject(_context, new HitImpact(_level));
 
         base.Start();
     }
@@ -50,4 +51,20 @@ public class Player : Executable, IPlayer
 
     public IMovement GetMovement() => _movement;
     public ScaleView GetScaleView() => _scaleView;
+}
+
+public class HitImpact
+{
+    [InjectAsset("ExpOrb")] private GameObject _expOrb;
+
+    public HitImpact(Level level)
+    {
+        level.OnExpRemove += OnExpRemove;
+    }
+
+    private void OnExpRemove(float removedExp)
+    {
+        int expOrbAmount = UnityEngine.Random.Range(3, 5);
+
+    }
 }

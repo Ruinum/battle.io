@@ -4,19 +4,14 @@ public class HitBoxController
 {
     private WeaponInfo _currentWeaponInfo;
     private GameObject _currentWeapon;
-    private AnimationData[] _animationDatas;
     private HitBox[] _weaponHitBoxes;
 
-    public HitBoxController(PlayerAnimatorController controller, WeaponInventory inventory, AnimationData[] animationDatas)
+    public HitBoxController(PlayerAnimatorController controller, WeaponInventory inventory)
     {
-        _animationDatas = animationDatas;
         inventory.OnWeaponChange += OnWeaponChange;
 
-        for (int i = 0; i < _animationDatas.Length; i++)
-        {
-            controller.SubscribeOnTimelineEvent(_animationDatas[i], "HitBoxEnable", EnableHitBox);
-            controller.SubscribeOnTimelineEvent(_animationDatas[i], "HitBoxDisable", DisableHitBox);
-        }
+        controller.SubscribeOnTimelineEvent("HitBoxEnable", EnableHitBox);
+        controller.SubscribeOnTimelineEvent("HitBoxDisable", DisableHitBox);
 
         _weaponHitBoxes = new HitBox[0];
     }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: LongSword_Weapon
   m_EditorClassIdentifier: 
   Prefab: {fileID: 6755476784223365863, guid: dc1618a48a0415d41945199ca0fb2317, type: 3}
-  Damage: 0
+  Animation: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
+  Damage: 1.5
   Distance: 2.5
   Type: 1
   HandType: 2

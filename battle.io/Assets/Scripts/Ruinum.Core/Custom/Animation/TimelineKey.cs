@@ -1,11 +1,9 @@
 ﻿using System;
 
 [Serializable]
-public struct AnimationTimelineKey
+public struct TimelineKey
 {
     public string Name;
     public AnimationTimelineKeyType Type;
     public float Time;
-
-    public Action OnKeyInvoke;
 }

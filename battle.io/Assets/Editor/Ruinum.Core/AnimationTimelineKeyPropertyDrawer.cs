@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Ruinum.Core.Editor
 {
-    [CustomPropertyDrawer(typeof(AnimationTimelineKey))]
+    [CustomPropertyDrawer(typeof(TimelineKey))]
     public class AnimationTimelineKeyPropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

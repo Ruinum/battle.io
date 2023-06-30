@@ -27,7 +27,7 @@ public sealed class EnemyAttack
         if (CheckAttack() && !_isAttacking)
         {
             _isAttacking = true;
-            //TimerManager.Singleton.StartTimer(Random.Range(0, 0.15f), () => { _animator.TryPlayAttackAnimation(_weapon); _isAttacking = false; });
+            TimerManager.Singleton.StartTimer(Random.Range(0, 0.15f), () => { _animator.PlayAnimation(_weaponInfo.Type + " Attack"); _isAttacking = false; });
         }
     }
 

@@ -3,5 +3,5 @@
 [Serializable]
 public sealed class AnimationTimelineData
 {
-    public AnimationTimelineKey[] TimelineKeys;
+    public TimelineKey[] TimelineKeys;
 }

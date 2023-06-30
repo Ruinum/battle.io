@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6acf6f6bd1794ed4b8011cda4029668d, type: 3}
-  m_Name: AxeAttack_AnimationData
+  m_Name: SwordAnimationData
   m_EditorClassIdentifier: 
-  Clip: {fileID: 7400000, guid: 284d6b145c6b2ca40a771476427b1fef, type: 2}
-  NextAnimation: {fileID: 0}
+  Clip: {fileID: 7400000, guid: dd403f99352cee54296fd717cf1fe6fc, type: 2}
   Timeline:
-    Data:
-      TimelineKeys:
-      - Name: HitBoxEnable
-        Type: 1
-        Time: 1.16
-      - Name: HitBoxDisable
-        Type: 1
-        Time: 1.36
-  ID: 2
+    TimelineKeys:
+    - Name: HitBoxEnable
+      Type: 1
+      Time: 0.2
+    - Name: HitBoxDisable
+      Type: 1
+      Time: 0.5

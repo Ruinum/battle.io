@@ -7864,7 +7864,6 @@ MonoBehaviour:
   _animationController: {fileID: 122960711}
   _inventory: {fileID: 122960708}
   _movement: {fileID: 122960705}
-  _animationsConfig: {fileID: 11400000, guid: 553c3f860f80101409fd6866a9949495, type: 2}
   _magniteRadius: 1.1
   _magniteSpeed: 1
 --- !u!114 &122960713
@@ -8094,7 +8093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &289323825
 MonoBehaviour:
   m_ObjectHideFlags: 0

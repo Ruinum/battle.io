@@ -5,6 +5,8 @@ public class ExpOrb : Interactable, IInterestPoint
     [SerializeField] private float _expAmount;
 
     private Transform _rootPool;
+    private float _baseExpAmount = 5;
+    private float _scaleModifier = 0.05f;
     public Transform RootPool
     {
         get
@@ -32,6 +34,11 @@ public class ExpOrb : Interactable, IInterestPoint
     public void SetExp(float value)
     {
         _expAmount = value;
+    }
+
+    private void ChangeScale()
+    {
+        transform.localScale = new Vector2(1 + (_expAmount - _baseExpAmount) * _scaleModifier, 1);
     }
 
     public void Active(Vector3 position, Quaternion rotation)

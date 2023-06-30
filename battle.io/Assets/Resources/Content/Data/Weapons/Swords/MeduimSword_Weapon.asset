@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MeduimSword_Weapon
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7926881182184309057, guid: cdd6d6d902c10ac41967b32b120830a0, type: 3}
-  Damage: 0
+  Animation: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
+  Damage: 1.15
   Distance: 2.5
   Type: 1
   HandType: 2
