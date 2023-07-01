@@ -32,7 +32,10 @@ public class ExpOrbSystem : MonoBehaviour
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
         
         ExpOrb expOrb = _pool.GetExpOrb("ExpOrb");
-        
+
+        float expOrbExpValue = Random.Range(_baseExp, _maxRandomExp);
+        expOrb.SetExp(expOrbExpValue);
+
         expOrb.Active(position, Quaternion.identity);
         expOrb.OnInteract += RefreshAmount;
         

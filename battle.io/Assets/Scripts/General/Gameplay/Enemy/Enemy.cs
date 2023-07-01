@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Enemy : Executable, IPlayer
 {
-    [SerializeField] private AnimationDatasConfig _animationsConfig;
-
     public Transform Transform => transform;
     public Level Level => _level;
     public EnemyVision Vision => _vision;
-    public AnimationDatasConfig AnimationsConfig => _animationsConfig;
 
     public EnemyBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
+
+    public AssetsContext Context;
 
     public float VisionRadius;
     public float MovementSpeed;

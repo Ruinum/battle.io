@@ -7861,6 +7861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96bbe4d1dda9ce478a53b8a70b41534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _context: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
   _animationController: {fileID: 122960711}
   _inventory: {fileID: 122960708}
   _movement: {fileID: 122960705}
@@ -8130,7 +8131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e1608e88749fe4f9f51f2d07ff463f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationsConfig: {fileID: 11400000, guid: 553c3f860f80101409fd6866a9949495, type: 2}
+  Context: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
   VisionRadius: 5
   MovementSpeed: 1
   MagniteSpeed: 1
@@ -9693,6 +9694,7 @@ GameObject:
   - component: {fileID: 1468067434}
   - component: {fileID: 1468067433}
   - component: {fileID: 1468067432}
+  - component: {fileID: 1468067437}
   - component: {fileID: 1468067436}
   m_Layer: 0
   m_Name: GameManager
@@ -9767,8 +9769,20 @@ MonoBehaviour:
   _outsideBorderSize: {x: 15, y: 15}
   _expOrbPrefab: {fileID: 8787590743018008106, guid: 6d269daa9a5c2f7478f1efa51040f03b, type: 3}
   _maxExpOrbAmount: 75
-  _baseExp: 0
-  _maxRandomExp: 0
+  _baseExp: 4
+  _maxRandomExp: 8
+--- !u!114 &1468067437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468067431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f03304a89b5b8469edaae619d3f6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1575024975
 GameObject:
   m_ObjectHideFlags: 0

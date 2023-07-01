@@ -6,6 +6,7 @@ public class EnemyContext
     {
         _enemy = enemy;
 
+        Context = enemy.Context;
         Transform = enemy.transform;
         Level = enemy.Level;
 
@@ -20,6 +21,7 @@ public class EnemyContext
         
         new HitBoxController(Animator, Inventory);
         new WeaponAnimation(Animator, Inventory);
+        AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
 
         VisionRadius = _enemy.VisionRadius;
         DangerLevel = 2;
@@ -28,8 +30,9 @@ public class EnemyContext
     }
 
     private Enemy _enemy;
-    
+
     public EnemyVision Vision => _enemy.Vision;
+    public AssetsContext Context { get; private set; }
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerAnimatorController Animator { get; private set; }

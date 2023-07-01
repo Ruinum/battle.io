@@ -28,6 +28,7 @@ public class Level : MonoBehaviour
 
         _currentExp = 0;
         _currentLevel += 1;
+        _nextLevelExp = 100; //TODO: Level exp scaling
 
         InvokeEvents();
     }
@@ -41,9 +42,11 @@ public class Level : MonoBehaviour
 
         if (_currentLevel >= 0) return;
 
-        _currentExp = 0;
         _currentLevel -= 1;
-        _nextLevelExp = 100;
+        CheckDeath();
+
+        _currentExp = 0;
+        _nextLevelExp = 100; //TODO: Level exp scaling
 
         InvokeEvents();
     }
@@ -53,5 +56,12 @@ public class Level : MonoBehaviour
         OnNextExpChange?.Invoke(_nextLevelExp);
         OnLevelChange?.Invoke(_currentLevel);
         OnExpChange?.Invoke(_currentExp);
+    }
+
+    private void CheckDeath()
+    {
+        if (_currentLevel > 0) return;
+        Debug.Log("Player death logic");
+        Destroy(gameObject);
     }
 }

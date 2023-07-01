@@ -19,14 +19,12 @@ public class HitBox : MonoBehaviour
 
     public void Enable(float damage)
     {
-        Debug.LogError("Enable Hit box");
         _damage = damage;
         _collider.enabled = true;
     }
 
     public void Disable()
     {
-        Debug.LogError("Disable Hit box");
         _damage = 0;
         _collider.enabled = false;
     }

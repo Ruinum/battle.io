@@ -27,7 +27,7 @@ public class Player : Executable, IPlayer
 
         new HitBoxController(_animationController, _inventory);
         new WeaponAnimation(_animationController, _inventory);
-        AssetsInjector.Inject(_context, new HitImpact(_level));
+        AssetsInjector.Inject(_context, new HitImpact(_level, transform));
 
         base.Start();
     }
@@ -51,20 +51,4 @@ public class Player : Executable, IPlayer
 
     public IMovement GetMovement() => _movement;
     public ScaleView GetScaleView() => _scaleView;
-}
-
-public class HitImpact
-{
-    [InjectAsset("ExpOrb")] private GameObject _expOrb;
-
-    public HitImpact(Level level)
-    {
-        level.OnExpRemove += OnExpRemove;
-    }
-
-    private void OnExpRemove(float removedExp)
-    {
-        int expOrbAmount = UnityEngine.Random.Range(3, 5);
-
-    }
 }
