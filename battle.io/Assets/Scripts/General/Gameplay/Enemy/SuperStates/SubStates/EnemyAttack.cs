@@ -7,7 +7,6 @@ public sealed class EnemyAttack
     private PlayerAnimatorController _animator;
     private WeaponInventory _inventory;
     private WeaponInfo _weaponInfo;
-    private GameObject _weapon;
 
     private IPlayer _enemy;
     private bool _isAttacking = false;
@@ -40,5 +39,5 @@ public sealed class EnemyAttack
     }
 
     public void SetEnemy(IPlayer enemy) => _enemy = enemy;
-    private void SetWeapon(WeaponInfo weaponInfo, GameObject weapon) { _weaponInfo = weaponInfo; _weapon = weapon; }
+    private void SetWeapon(WeaponInfo weaponInfo, GameObject weapon) { _weaponInfo = weaponInfo; }
 }

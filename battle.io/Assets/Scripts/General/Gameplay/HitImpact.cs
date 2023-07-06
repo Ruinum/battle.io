@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ruinum.Core;
+using UnityEngine;
 
 public class HitImpact
 {
@@ -13,19 +14,22 @@ public class HitImpact
 
     private void OnExpRemove(float removedExp)
     {
-        int expOrbAmount = Random.Range(3, 5);
+        int expOrbAmount = Random.Range(4, 8);
         float expOrbValue = removedExp / expOrbAmount;
 
         for (int i = 0; i < expOrbAmount; i++)
         {
             ExpOrb expOrb = Object.Instantiate(_expOrb, _transform.position, Quaternion.identity, null).GetComponent<ExpOrb>();
-            expOrb.GetComponent<Collider2D>().enabled = false;
+            var collider2d = expOrb.GetComponent<Collider2D>();
+            collider2d.enabled = false;
             expOrb.SetExp(expOrbValue);
 
-            Vector2 direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
-            float randomSpeed = Random.Range(5f, 8f);
+            Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            Debug.Log(direction);
+            float randomSpeed = Random.Range(50f, 150f);
 
-            SimulatePhysicUtils.Impulse(expOrb.gameObject, direction * 10, randomSpeed);
+            SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed);
+            TimerManager.Singleton.StartTimer(0.35f, () => collider2d.enabled = true);
         }
     }
 }
