@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 5204210251708379909, guid: 03741dd4da060324ba677c633b99907e, type: 3}
   Animation: {fileID: 11400000, guid: 2d23896f9be217e49846493f81bf4714, type: 2}
-  Damage: 1.8
+  Damage: 5
   Distance: 3
   Type: 5
   HandType: 2

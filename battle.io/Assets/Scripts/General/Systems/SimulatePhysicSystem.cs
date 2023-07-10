@@ -27,7 +27,7 @@ public class SimulatePhysicSystem : BaseSingleton<SimulatePhysicSystem>
     public void ImpulseObject(GameObject gameObject, Vector3 direction, float speed)
     {
         Rigidbody2D rigidbody2d = gameObject.AddComponent<Rigidbody2D>();
-        rigidbody2d.mass = UnityEngine.Random.Range(0.5f, 2);
+        rigidbody2d.mass = Random.Range(0.5f, 2);
         rigidbody2d.gravityScale = 0;
         rigidbody2d.AddForce(direction * speed);
 

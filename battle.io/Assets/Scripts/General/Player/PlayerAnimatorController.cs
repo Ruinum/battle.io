@@ -15,6 +15,8 @@ public class PlayerAnimatorController : MonoBehaviour
 
     public void PlayAnimation(string name, float crossfade = 0)
     {
+        if (_animator == null) return;
+
         _animator.CrossFade(name, crossfade);
         StartCoroutine(StartTimeline());
     }

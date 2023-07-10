@@ -32,7 +32,7 @@ public sealed class EnemyAttack
 
     private bool CheckAttack()
     {
-        if (_enemy.Transform == null || _enemy == default || _weaponInfo == null) return false;
+        if (_enemy == null || _enemy.Transform == null || _weaponInfo == null) return false;
         if (Vector2.Distance(_transform.position, _enemy.Transform.position) <= _weaponInfo.Distance + (_transform.lossyScale.x - 1)) return true;
         
         return false;

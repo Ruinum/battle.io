@@ -25,7 +25,6 @@ public class HitImpact
             expOrb.SetExp(expOrbValue);
 
             Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            Debug.Log(direction);
             float randomSpeed = Random.Range(50f, 150f);
 
             SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed);
