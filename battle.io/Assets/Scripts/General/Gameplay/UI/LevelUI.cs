@@ -10,10 +10,10 @@ public class LevelUI : MonoBehaviour
     [SerializeField] private Transform _parent;
     [SerializeField] private TMP_Text _levelText;
     
-    private float _maxAmount;
+    private float _maxAmount = 100f;
     private float _fillDuration = 0.5f;
-    private float _shakeDuration = 0.25f;
-    private Vector3 _shakeScale = new Vector3(0.025f, 0.025f, 0.025f);
+    private float _punchDuration = 0.25f;
+    private Vector3 _punchScale = new Vector3(0.025f, 0.025f, 0.025f);
 
     private void Start()
     {
@@ -25,12 +25,13 @@ public class LevelUI : MonoBehaviour
     private void UpdateExp(float currentValue)
     {
         _image.DOFillAmount(currentValue / _maxAmount, _fillDuration);
-        _parent.DOPunchScale(_shakeScale, _shakeDuration);
+        _parent.DOPunchScale(_punchScale, _punchDuration);
     }
 
     private void UpdateLevel(int currentLevel)
     {
         _levelText.text = currentLevel.ToString();
+        _levelText.transform.DOPunchScale(_punchScale, _punchDuration);
     }
 
     private void UpdateExpAmount(float expAmount) => _maxAmount = expAmount;
