@@ -3,7 +3,7 @@
 public class Arm : MonoBehaviour
 {
     private Quaternion _startRotation;
-
+    private Transform _currentWeapon;
     private void Start()
     {
         _startRotation = transform.rotation;
@@ -11,6 +11,8 @@ public class Arm : MonoBehaviour
 
     public void SetWeaponPosition(Transform weapon, ArmPosition armPosition)
     {
+        _currentWeapon = weapon;
+
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
         weapon.parent = transform;
@@ -19,5 +21,10 @@ public class Arm : MonoBehaviour
         weapon.localRotation = transform.localRotation;
         
         transform.localRotation = _startRotation;
+    }
+
+    public void DestroyWeapon()
+    {
+        if (_currentWeapon) Destroy(_currentWeapon.gameObject);
     }
 }

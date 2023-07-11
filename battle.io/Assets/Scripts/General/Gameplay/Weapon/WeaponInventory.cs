@@ -52,6 +52,25 @@ public class WeaponInventory : MonoBehaviour
         _leftArm.SetWeaponPosition(createdWeapon.transform, leftPosition);
     }
 
+    public void Unarm(WeaponHandType handType)
+    {
+        switch (handType)
+        {
+            case WeaponHandType.None:
+                break;
+            case WeaponHandType.Left:
+                _leftArm.DestroyWeapon();
+                _currentLeftWeaponInfo = null;
+                break;
+            case WeaponHandType.Right:
+                _rightArm.DestroyWeapon();
+                _currentRightWeaponInfo = null;
+                break;
+            default:
+                break;
+        }
+    }
+
     private GameObject CreateWeapon(WeaponInfo weaponInfo)
     {
         return UnityEngine.Object.Instantiate(weaponInfo.Prefab, Vector3.zero, transform.rotation, transform);
@@ -72,4 +91,5 @@ public class WeaponInventory : MonoBehaviour
         if (!_currentLeftWeaponInfo || _currentLeftWeaponInfo == default) return false;
         return true;
     }
+
 }

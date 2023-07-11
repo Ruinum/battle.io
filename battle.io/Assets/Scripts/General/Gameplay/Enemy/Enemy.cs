@@ -1,5 +1,6 @@
 using Ruinum.Core;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Enemy : Executable, IPlayer
 {
@@ -38,6 +39,8 @@ public class Enemy : Executable, IPlayer
 
         _currentState = _states.IdleState();
         _currentState.EnterState();
+
+        Level.OnLevelChange += Progress;
     }
 
     public override void Execute()
@@ -46,6 +49,21 @@ public class Enemy : Executable, IPlayer
 
         _vision.Execute();
         _magnite.Execute();
+
+        if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(100);
+    }
+
+    private List<int> _WeaponHave = new List<int>();
+    public void Progress(int lvl)
+    {
+        
+        LevelStructure level = LevelProgressionSystem.Singleton.levelStructure.GetLevel(_WeaponHave.ToArray(),0);
+        if (level.nextLevel.Length == 0) return;
+        int rnd = Random.Range(0, level.nextLevel.Length);
+        level = level.nextLevel[rnd];
+        _WeaponHave.Add(rnd);
+        if (level.Left) { _context.Inventory.EquipWeapon(level.Left); } else { _context.Inventory.Unarm(WeaponHandType.Left); }
+        if (level.Right) { _context.Inventory.EquipWeapon(level.Right); } else { _context.Inventory.Unarm(WeaponHandType.Right); }
     }
 
     public IMovement GetMovement() => _context.Movement;
