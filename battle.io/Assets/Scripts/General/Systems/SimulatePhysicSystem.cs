@@ -20,14 +20,14 @@ public class SimulatePhysicSystem : BaseSingleton<SimulatePhysicSystem>
             float value = _deceleration * Time.deltaTime;
             rigidbody.velocity -= rigidbody.velocity - new Vector2(value, value);
 
-            if (rigidbody.velocity.x <= 0 && rigidbody.velocity.y <= 0) _rigidbodies.Remove(rigidbody);
+            if (rigidbody.velocity.x <= 0 && rigidbody.velocity.y <= 0) { _rigidbodies.Remove(rigidbody); }
         }
     }
 
     public void ImpulseObject(GameObject gameObject, Vector3 direction, float speed)
     {
         Rigidbody2D rigidbody2d = gameObject.AddComponent<Rigidbody2D>();
-        rigidbody2d.mass = UnityEngine.Random.Range(0.5f, 2);
+        rigidbody2d.mass = Random.Range(0.5f, 2);
         rigidbody2d.gravityScale = 0;
         rigidbody2d.AddForce(direction * speed);
 

@@ -9,7 +9,7 @@ public sealed class EnemyAttack
     private WeaponInfo _weaponInfo;
 
     private IPlayer _enemy;
-    private bool _isAttacking = false;
+    private bool _isAttacking;
 
     public EnemyAttack(EnemyContext context)
     {
@@ -26,13 +26,14 @@ public sealed class EnemyAttack
         if (CheckAttack() && !_isAttacking)
         {
             _isAttacking = true;
-            TimerManager.Singleton.StartTimer(Random.Range(0, 0.15f), () => { _animator.PlayAnimation(_weaponInfo.Type + " Attack"); _isAttacking = false; });
+            TimerManager.Singleton.StartTimer(Random.Range(0, 0.1f), () => { _animator.PlayAnimation(_weaponInfo.Type + " Attack"); });
+            TimerManager.Singleton.StartTimer(_weaponInfo.Animation.Clip.length, () => _isAttacking = false);
         }
     }
 
     private bool CheckAttack()
     {
-        if (_enemy.Transform == null || _enemy == default || _weaponInfo == null) return false;
+        if (_enemy == null || _enemy.Transform == null || _weaponInfo == null) return false;
         if (Vector2.Distance(_transform.position, _enemy.Transform.position) <= _weaponInfo.Distance + (_transform.lossyScale.x - 1)) return true;
         
         return false;

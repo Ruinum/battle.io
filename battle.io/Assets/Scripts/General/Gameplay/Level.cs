@@ -40,7 +40,7 @@ public class Level : MonoBehaviour
         OnExpChange?.Invoke(_currentExp);
         OnExpRemove?.Invoke(value);
 
-        if (_currentLevel >= 0) return;
+        if (_currentExp >= 0) return;
 
         _currentLevel -= 1;
         CheckDeath();
