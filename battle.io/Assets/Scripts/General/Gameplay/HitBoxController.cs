@@ -25,7 +25,7 @@ public class HitBoxController
     {
         for (int i = 0; i < _weaponHitBoxes.Length; i++)
         {
-            _weaponHitBoxes[i].Enable(_currentWeaponInfo.Damage);
+            _weaponHitBoxes[i].Enable(_currentWeaponInfo.Damage, _currentWeaponInfo.RandomDamage);
         }
     }
 

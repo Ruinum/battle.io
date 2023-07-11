@@ -5,6 +5,7 @@ public class HitBox : MonoBehaviour
 {
     private Collider2D _collider => GetComponent<Collider2D>();
     private float _damage;
+    private int _randomDamage;
 
     private void Start()
     {
@@ -14,12 +15,16 @@ public class HitBox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.TryGetComponent<Level>(out var level)) return;
-        level.RemoveExp(_damage);
+        var damage = _damage + Random.Range(0, _randomDamage);
+        level.RemoveExp(damage);
+
+        ImpactUtils.CreatePopUp(damage.ToString(), collision.transform.position);    
     }
 
-    public void Enable(float damage)
+    public void Enable(float damage, float randomDamage)
     {
         _damage = damage;
+        _randomDamage = (int)randomDamage;
         _collider.enabled = true;
     }
 
