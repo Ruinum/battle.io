@@ -27,6 +27,8 @@ public class Player : Executable, IPlayer
 
         new HitBoxController(_animationController, _inventory);
         new WeaponAnimation(_animationController, _inventory);
+        new AudioController(_animationController, _inventory);
+
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
 
         base.Start();

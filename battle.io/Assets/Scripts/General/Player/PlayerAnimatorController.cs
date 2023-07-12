@@ -21,7 +21,7 @@ public class PlayerAnimatorController : MonoBehaviour
         StartCoroutine(StartTimeline());
     }
 
-    public void AddTimeline(AnimationData data)
+    public void AddTimeline(AnimationDataConfig data)
     {
         _timelineInvoker.AddTimeline(data);
     }

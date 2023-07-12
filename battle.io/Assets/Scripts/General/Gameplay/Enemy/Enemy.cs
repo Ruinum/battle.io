@@ -55,8 +55,7 @@ public class Enemy : Executable, IPlayer
 
     private List<int> _WeaponHave = new List<int>();
     public void Progress(int lvl)
-    {
-        
+    {       
         LevelStructure level = LevelProgressionSystem.Singleton.levelStructure.GetLevel(_WeaponHave.ToArray(),0);
         if (level.nextLevel.Length == 0) return;
         int rnd = Random.Range(0, level.nextLevel.Length);

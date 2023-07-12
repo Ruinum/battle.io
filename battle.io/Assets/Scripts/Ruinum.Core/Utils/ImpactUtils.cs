@@ -9,9 +9,9 @@ public static class ImpactUtils
         AssetsContext assetsContext = Resources.Load<AssetsContext>("Content/Data/AssetsContext");
         if (assetsContext == null) { Debug.LogWarning("Can't create PopUp because there is no AssetsContext in {Content/Data/}"); return null; }
 
-        var popUpObject = Object.Instantiate(assetsContext.GetObjectOfType(typeof(GameObject), "PopUp"), position, Quaternion.identity, null) as GameObject;
+        var popUpObject = Object.Instantiate(assetsContext.GetObjectOfType(typeof(GameObject), "PopUp")) as GameObject;
         popUpObject.GetComponent<Canvas>().sortingOrder = 5;
-        popUpObject.transform.position = position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        popUpObject.transform.position = position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 1);
 
         var textMeshPro = popUpObject.GetComponentInChildren<TMP_Text>();
         textMeshPro.text = text;

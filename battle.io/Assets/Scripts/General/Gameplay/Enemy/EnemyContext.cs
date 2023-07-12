@@ -21,6 +21,8 @@ public class EnemyContext
         
         new HitBoxController(Animator, Inventory);
         new WeaponAnimation(Animator, Inventory);
+        new AudioController(Animator, Inventory);
+
         AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
 
         VisionRadius = _enemy.VisionRadius;

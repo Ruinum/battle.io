@@ -39,7 +39,7 @@ public class TimelineInvoker
         events.Remove(@event);
     }
 
-    public void AddTimelines(AnimationData[] datas)
+    public void AddTimelines(AnimationDataConfig[] datas)
     {
         for (int i = 0; i < datas.Length; i++)
         {
@@ -47,7 +47,7 @@ public class TimelineInvoker
         }
     }
     
-    public void AddTimeline(AnimationData data)
+    public void AddTimeline(AnimationDataConfig data)
     {
         if (_timelines.ContainsKey(data.Clip))
         {

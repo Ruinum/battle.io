@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 3519058675054263144, guid: 618c28a919ee7a84a9c430dee8fb3528, type: 3}
   Animation: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
+  Audio: {fileID: 11400000, guid: 8ece7d8c4af4caf46a922c17c67ecf64, type: 2}
   Damage: 1
+  RandomDamage: 0
   Distance: 2
   Type: 1
   HandType: 2
