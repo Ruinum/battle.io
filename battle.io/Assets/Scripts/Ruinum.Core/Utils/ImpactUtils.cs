@@ -17,7 +17,7 @@ public static class ImpactUtils
         textMeshPro.text = text;
 
         popUpObject.transform.DOPunchScale(new Vector3(0.15f, 0.15f, 0.15f), 0.3f);
-        textMeshPro.DOFade(0, 1.25f);
+        textMeshPro.DOFade(0, 1.25f).OnComplete(() => Object.Destroy(popUpObject));
 
         return popUpObject;
     }
