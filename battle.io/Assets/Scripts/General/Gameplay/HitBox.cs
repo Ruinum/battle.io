@@ -18,7 +18,7 @@ public class HitBox : MonoBehaviour
         var damage = _damage + Random.Range(0, _randomDamage);
         level.RemoveExp(damage);
 
-        ImpactUtils.CreatePopUp(damage.ToString(), collision.transform.position);    
+        ImpactUtils.CreatePopUp(damage.ToString(), collision.transform.position, Color.red);    
     }
 
     public void Enable(float damage, float randomDamage)

@@ -25,7 +25,7 @@ public class LevelUI : MonoBehaviour
     private void UpdateExp(float currentValue)
     {
         _image.DOFillAmount(currentValue / _maxAmount, _fillDuration);
-        _parent.DOPunchScale(_punchScale, _punchDuration);
+        _parent.DOPunchScale(_punchScale, _punchDuration).OnComplete(() => _parent.DOScale(1, _punchDuration));
     }
 
     private void UpdateLevel(int currentLevel)
