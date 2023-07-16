@@ -28,9 +28,10 @@ public class Player : Executable, IPlayer
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
 
-        new HitBoxController(_animationController, _inventory);
+        new HitBoxEvents(_animationController, _inventory);
         new WeaponAnimation(_animationController, _inventory);
-        new AudioController(_animationController, _inventory);
+        new AudioEvent(_animationController, _inventory);
+        new Invulnerability(_level);
 
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
 
