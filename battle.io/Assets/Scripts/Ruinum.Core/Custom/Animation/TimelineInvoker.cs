@@ -76,7 +76,7 @@ public class TimelineInvoker
     {
         if (!_timelines.TryGetValue(clip, out Timeline timeline))
         {
-            Debug.LogError($"Didn't have Timeline for {clip}");
+            Debug.LogWarning($"Didn't have Timeline for {clip}");
             return;
         }
 

@@ -10,6 +10,7 @@ public class HitBox : MonoBehaviour
     private void Start()
     {
         _collider.enabled = false;
+        gameObject.layer = 6; //Layer HitBox
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

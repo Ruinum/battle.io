@@ -19,9 +19,11 @@ public class EnemyContext
         Rotate = new EnemyRotateToPoint(Transform);
         ScaleView = new ScaleView(enemy.transform);
         
-        new HitBoxController(Animator, Inventory);
+        new HitBoxEvents(Animator, Inventory);
         new WeaponAnimation(Animator, Inventory);
-        new AudioController(Animator, Inventory);
+        new AudioEvent(Animator, Inventory);
+        new SpecialEvent(Animator, Inventory);
+        new Invulnerability(Level);
 
         AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
 

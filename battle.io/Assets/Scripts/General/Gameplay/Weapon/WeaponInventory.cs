@@ -24,6 +24,35 @@ public class WeaponInventory : MonoBehaviour
     {
         if (weaponInfo.HandType == WeaponHandType.Left) EquipLeft(weaponInfo);
         if (weaponInfo.HandType == WeaponHandType.Right) EquipRight(weaponInfo);
+        if (weaponInfo.HandType == WeaponHandType.Both) EquipBoth(weaponInfo);
+    }
+
+    private void EquipBoth(WeaponInfo weaponInfo)
+    {
+        var createdWeapon = CreateWeapon(weaponInfo);
+
+        _currentRightWeaponInfo = weaponInfo;
+        _currentLeftWeaponInfo = weaponInfo;
+        
+        Destroy(_currentLeftWeapon);
+        _currentLeftWeapon = createdWeapon;
+        
+        Destroy(_currentRightWeapon);
+        _currentRightWeapon = createdWeapon;
+
+        if (weaponInfo.MainHandType == WeaponMainHandType.Right)
+        {
+            if (!createdWeapon.TryGetComponentInObject(out RightArmPosition rightPosition)) return;
+            _rightArm.SetWeaponPosition(createdWeapon.transform, rightPosition);
+            OnWeaponChange?.Invoke(weaponInfo, createdWeapon);
+        }
+
+        if (weaponInfo.MainHandType == WeaponMainHandType.Left)
+        {
+            if (!createdWeapon.TryGetComponentInObject(out LeftArmPosition leftArmPosition)) return;
+            _leftArm.SetWeaponPosition(createdWeapon.transform, leftArmPosition);
+            OnWeaponChange?.Invoke(weaponInfo, createdWeapon);
+        }
     }
 
     private void EquipRight(WeaponInfo weaponInfo)
@@ -65,6 +94,12 @@ public class WeaponInventory : MonoBehaviour
             case WeaponHandType.Right:
                 _rightArm.DestroyWeapon();
                 _currentRightWeaponInfo = null;
+                break;
+            case WeaponHandType.Both:
+                _rightArm.DestroyWeapon();
+                _leftArm.DestroyWeapon();
+                _currentLeftWeapon = null;
+                _currentRightWeapon = null;
                 break;
             default:
                 break;

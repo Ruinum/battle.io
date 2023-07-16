@@ -6,7 +6,6 @@ public class PlayerAnimatorController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     private TimelineInvoker _timelineInvoker;
-    private AnimationClip _lastAnimation;
 
     private void Awake()
     {
@@ -44,17 +43,15 @@ public class PlayerAnimatorController : MonoBehaviour
 
         AnimationClip animation = _animator.GetCurrentAnimatorClipInfo(0)[0].clip;
         if (animation != null)
+        {
+            _timelineInvoker.PlayAnimation(animation);
+        }
 
-            if (animation != null) 
-            { 
-                _timelineInvoker.PlayAnimation(animation);
-                _lastAnimation = animation;
-            }
-            else
-            {
-                Debug.LogWarning($"Can't take animation from 0 layer of {_animator}, {this}");
-                if (_lastAnimation != null) _timelineInvoker.PlayAnimation(_lastAnimation);
-            }
+        animation = _animator.GetCurrentAnimatorClipInfo(1)[0].clip;
+        if(animation != null)
+        {
+            _timelineInvoker.PlayAnimation(animation);
+        }
     }
 
     private void Update()
