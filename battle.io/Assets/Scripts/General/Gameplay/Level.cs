@@ -5,8 +5,8 @@ public class Level : MonoBehaviour
 {
     public int PlayerLevel => _currentLevel;
 
-    private int _currentLevel = 1;
-    private float _currentExp = 0;
+    [SerializeField] private int _currentLevel = 1;
+    [SerializeField]private float _currentExp = 0;
     private float _nextLevelExp = 100;
 
     public Action<int> OnLevelChange;

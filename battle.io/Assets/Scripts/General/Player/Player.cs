@@ -1,6 +1,7 @@
 ﻿using Ruinum.Core;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Player : Executable, IPlayer
 {
@@ -11,6 +12,8 @@ public class Player : Executable, IPlayer
     
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
+
+    [SerializeField]private List<int> _takedWeapon = new List<int>();
 
     private Level _level;
     private ScaleView _scaleView;
@@ -31,6 +34,8 @@ public class Player : Executable, IPlayer
 
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
 
+        Level.OnLevelChange += LevelUp;
+
         base.Start();
     }
 
@@ -49,6 +54,19 @@ public class Player : Executable, IPlayer
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
             _animationController.PlayAnimation(weaponInfo.Type + " Attack");
         }
+    }
+
+    public void LevelUp(int i)
+    {
+        LevelStructure structure = LevelProgressionSystem.Singleton.levelStructure.GetLevel(_takedWeapon.ToArray(), 0);
+        WeaponChooseUI.Singleton.GetChoose(structure);
+    }
+
+    public void TakeLevel(LevelStructure level,int i)
+    {
+        _takedWeapon.Add(i);
+        if (level.Left) { _inventory.EquipWeapon(level.Left); } else { _inventory.Unarm(WeaponHandType.Left); }
+        if (level.Right) { _inventory.EquipWeapon(level.Right); } else { _inventory.Unarm(WeaponHandType.Right); }
     }
 
     public IMovement GetMovement() => _movement;

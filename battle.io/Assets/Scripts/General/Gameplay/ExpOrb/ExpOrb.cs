@@ -23,8 +23,8 @@ public class ExpOrb : Interactable, IInterestPoint
     {
         if (!collision.TryGetComponent<Level>(out var level)) return;
 
-        level.AddExp(_expAmount);
         ReturnToPool();
+        level.AddExp(_expAmount);
 
         OnInteract?.Invoke();
         ImpactUtils.CreatePopUp(Mathf.RoundToInt(_expAmount).ToString(), collision.transform.position, Color.black);
