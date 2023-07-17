@@ -106,6 +106,11 @@ public class WeaponInventory : MonoBehaviour
         }
     }
 
+    public void UnarmAll()
+    {
+        Unarm(WeaponHandType.Both);
+    }
+
     private GameObject CreateWeapon(WeaponInfo weaponInfo)
     {
         return UnityEngine.Object.Instantiate(weaponInfo.Prefab, Vector3.zero, transform.rotation, transform);

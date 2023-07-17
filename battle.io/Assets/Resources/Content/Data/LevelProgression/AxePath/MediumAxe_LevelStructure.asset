@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
+  m_Name: MediumAxe_LevelStructure
+  m_EditorClassIdentifier: 
+  Icon: {fileID: -1418988371499025352, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  MainWeapon: {fileID: 11400000, guid: c1c31e95ee5438d41ae5cbbb179d66aa, type: 2}
+  AdditionalWeapon: {fileID: 0}
+  NextLevel:
+  - {fileID: 11400000, guid: 408e078fb1b7cc74fbb7515d8a779b86, type: 2}

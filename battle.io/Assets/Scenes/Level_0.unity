@@ -11805,7 +11805,6 @@ MonoBehaviour:
   _movement: {fileID: 122960705}
   _magniteRadius: 1.1
   _magniteSpeed: 1
-  _takedWeapon: 
 --- !u!114 &122960713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12684,7 +12683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 281.0991}
+  m_AnchoredPosition: {x: 0, y: 256}
   m_SizeDelta: {x: 800, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682720707
@@ -14804,43 +14803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0842becfb3579649b9cd54e9a7cdb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelStructure:
-    Left: {fileID: 0}
-    Right: {fileID: 0}
-    nextLevel:
-    - Left: {fileID: 0}
-      Right: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
-      nextLevel:
-      - Left: {fileID: 0}
-        Right: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
-        nextLevel:
-        - Left: {fileID: 0}
-          Right: {fileID: 11400000, guid: 2b2c51f16fa52014ca38a6edf133bbb9, type: 2}
-          nextLevel: []
-      - Left: {fileID: 11400000, guid: 69879dd99ecc7a548ab72df2424ffa11, type: 2}
-        Right: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
-        nextLevel:
-        - Left: {fileID: 11400000, guid: 69879dd99ecc7a548ab72df2424ffa11, type: 2}
-          Right: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
-          nextLevel: []
-    - Left: {fileID: 0}
-      Right: {fileID: 11400000, guid: 44d6b02bd8077b547a168e02e9fb31d4, type: 2}
-      nextLevel:
-      - Left: {fileID: 0}
-        Right: {fileID: 11400000, guid: a1386051e88361048aa893abe0abe730, type: 2}
-        nextLevel:
-        - Left: {fileID: 0}
-          Right: {fileID: 11400000, guid: b69863706d558df429e00aadc87819b7, type: 2}
-          nextLevel: []
-    - Left: {fileID: 0}
-      Right: {fileID: 11400000, guid: b69863706d558df429e00aadc87819b7, type: 2}
-      nextLevel:
-      - Left: {fileID: 0}
-        Right: {fileID: 11400000, guid: a1386051e88361048aa893abe0abe730, type: 2}
-        nextLevel:
-        - Left: {fileID: 0}
-          Right: {fileID: 11400000, guid: b69863706d558df429e00aadc87819b7, type: 2}
-          nextLevel: []
+  LevelStructure: {fileID: 11400000, guid: 1748dd932e800ce439714706dc78eaa2, type: 2}
 --- !u!1 &1575024975
 GameObject:
   m_ObjectHideFlags: 0

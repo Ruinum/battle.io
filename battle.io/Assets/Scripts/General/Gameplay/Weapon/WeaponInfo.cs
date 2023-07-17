@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponInfo", menuName = EditorConstants.DataPath + nameof(WeaponInfo))]
+[CreateAssetMenu(fileName = nameof(WeaponInfo), menuName = EditorConstants.DataPath + nameof(WeaponInfo))]
 public class WeaponInfo : ScriptableObject
 {
     public GameObject Prefab;
