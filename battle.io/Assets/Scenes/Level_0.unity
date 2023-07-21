@@ -37494,7 +37494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629723157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5250001, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1115396498}
@@ -42053,7 +42053,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301669405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5250001, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 118295392}
@@ -42248,7 +42248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384140112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1114423354}
@@ -42470,10 +42470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae49612af781734caeecd6014e50b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _innerBorderSize: {x: -15, y: -15}
-  _outsideBorderSize: {x: 15, y: 15}
+  _innerBorderSize: {x: -40, y: -37}
+  _outsideBorderSize: {x: 30, y: 33}
   _expOrbPrefab: {fileID: 8787590743018008106, guid: 6d269daa9a5c2f7478f1efa51040f03b, type: 3}
-  _maxExpOrbAmount: 75
+  _maxExpOrbAmount: 135
   _baseExp: 4
   _maxRandomExp: 8
 --- !u!114 &1468067437
