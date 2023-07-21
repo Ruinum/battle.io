@@ -14,6 +14,7 @@ public class Player : Executable, IPlayer
     private Level _level;
     private PlayerLevelProgression _levelProgression;
     private ScaleView _scaleView;
+    private CameraView _cameraView;
     private Magnite _magnite;
 
     public Transform Transform => transform;
@@ -27,6 +28,7 @@ public class Player : Executable, IPlayer
         _level = GetComponent<Level>();
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
+        _cameraView = new CameraView(Camera.main, _level);
         _levelProgression = new PlayerLevelProgression(_level, _inventory);
 
         new HitBoxEvents(_animationController, _inventory);
@@ -43,6 +45,7 @@ public class Player : Executable, IPlayer
     public override void Execute()
     {
         _magnite.Execute();
+        _cameraView.Execute();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
