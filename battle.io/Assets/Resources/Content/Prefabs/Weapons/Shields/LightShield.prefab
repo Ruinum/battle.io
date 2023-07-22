@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7570791563358353170}
   - component: {fileID: 7570791563358353173}
+  - component: {fileID: 5198494225328790378}
   m_Layer: 0
   m_Name: LightShield
   m_TagString: Untagged
@@ -126,3 +127,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &5198494225328790378
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570791563358353172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000000068706143, y: 0.057634898}
+  m_Size: {x: 1.0000005, y: 0.18879583}
+  m_Direction: 1

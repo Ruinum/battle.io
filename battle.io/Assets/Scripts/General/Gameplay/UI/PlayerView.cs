@@ -23,8 +23,8 @@ public class PlayerView : MonoBehaviour
         _level = this.GetComponentInObject<Level>();
         _player = GetComponent<IPlayer>();
 
-        _movement = _player.GetMovement();
-        _scaleView = _player.GetScaleView();
+        _movement = _player.Movement;
+        _scaleView = _player.ScaleView;
 
         _level.OnExpChange += ChangeView;
         _level.OnLevelChange += OnLevelChange;

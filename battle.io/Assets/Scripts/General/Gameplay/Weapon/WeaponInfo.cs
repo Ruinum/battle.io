@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponInfo", menuName = EditorConstants.DataPath + nameof(WeaponInfo))]
+[CreateAssetMenu(fileName = nameof(WeaponInfo), menuName = EditorConstants.DataPath + nameof(WeaponInfo))]
 public class WeaponInfo : ScriptableObject
 {
     public GameObject Prefab;
+    public GameObject Special;
     public AnimationDataConfig Animation;
     public AudioConfig Audio;
     public float Damage;
@@ -11,4 +12,5 @@ public class WeaponInfo : ScriptableObject
     public float Distance;
     public WeaponType Type;
     public WeaponHandType HandType;
+    public WeaponMainHandType MainHandType;
 }

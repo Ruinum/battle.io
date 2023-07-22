@@ -1,7 +1,5 @@
 ﻿using Ruinum.Core;
-using System;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class Player : Executable, IPlayer
 {
@@ -13,28 +11,33 @@ public class Player : Executable, IPlayer
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
 
-    [SerializeField]private List<int> _takedWeapon = new List<int>();
-
     private Level _level;
+    private PlayerLevelProgression _levelProgression;
     private ScaleView _scaleView;
+    private CameraView _cameraView;
     private Magnite _magnite;
 
     public Transform Transform => transform;
     public Level Level => _level;
+    public PlayerLevelProgression LevelProgression => _levelProgression;
+    public ScaleView ScaleView => _scaleView;
+    public IMovement Movement => _movement;
 
     public override void Start()
     {        
         _level = GetComponent<Level>();
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
+        _cameraView = new CameraView(Camera.main, _level);
+        _levelProgression = new PlayerLevelProgression(_level, _inventory);
 
-        new HitBoxController(_animationController, _inventory);
+        new HitBoxEvents(_animationController, _inventory);
         new WeaponAnimation(_animationController, _inventory);
-        new AudioController(_animationController, _inventory);
+        new AudioEvent(_animationController, _inventory);
+        new SpecialEvent(_animationController, _inventory);
+        new Invulnerability(_level);
 
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
-
-        Level.OnLevelChange += LevelUp;
 
         base.Start();
     }
@@ -42,6 +45,7 @@ public class Player : Executable, IPlayer
     public override void Execute()
     {
         _magnite.Execute();
+        _cameraView.Execute();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -55,20 +59,4 @@ public class Player : Executable, IPlayer
             _animationController.PlayAnimation(weaponInfo.Type + " Attack");
         }
     }
-
-    public void LevelUp(int i)
-    {
-        LevelStructure structure = LevelProgressionSystem.Singleton.levelStructure.GetLevel(_takedWeapon.ToArray(), 0);
-        WeaponChooseUI.Singleton.GetChoose(structure);
-    }
-
-    public void TakeLevel(LevelStructure level,int i)
-    {
-        _takedWeapon.Add(i);
-        if (level.Left) { _inventory.EquipWeapon(level.Left); } else { _inventory.Unarm(WeaponHandType.Left); }
-        if (level.Right) { _inventory.EquipWeapon(level.Right); } else { _inventory.Unarm(WeaponHandType.Right); }
-    }
-
-    public IMovement GetMovement() => _movement;
-    public ScaleView GetScaleView() => _scaleView;
 }

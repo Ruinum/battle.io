@@ -24,13 +24,14 @@ public class SimulatePhysicSystem : BaseSingleton<SimulatePhysicSystem>
         }
     }
 
-    public void ImpulseObject(GameObject gameObject, Vector3 direction, float speed)
+    public void ImpulseObject(GameObject gameObject, Vector3 direction, float speed, float lifeTime = 0.5f, float mass = 0)
     {
         Rigidbody2D rigidbody2d = gameObject.AddComponent<Rigidbody2D>();
-        rigidbody2d.mass = Random.Range(0.5f, 2);
+        if (mass == 0) rigidbody2d.mass = Random.Range(0.5f, 2);
+        else rigidbody2d.mass = 1;
         rigidbody2d.gravityScale = 0;
         rigidbody2d.AddForce(direction * speed);
 
-        Object.Destroy(rigidbody2d, 0.5f);
+        Object.Destroy(rigidbody2d, lifeTime);
     }
 }

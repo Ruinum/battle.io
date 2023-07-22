@@ -19,7 +19,7 @@ public class Arm : MonoBehaviour
         weapon.localPosition = Vector3.zero;
         weapon.localPosition -= new Vector3(0f, armPosition.transform.localPosition.y, 0f);
         weapon.localRotation = transform.localRotation;
-        
+
         transform.localRotation = _startRotation;
     }
 
