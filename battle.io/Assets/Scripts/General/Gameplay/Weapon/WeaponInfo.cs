@@ -4,7 +4,7 @@
 public class WeaponInfo : ScriptableObject
 {
     public GameObject Prefab;
-    public GameObject Special;
+    public GameObject Special; 
     public AnimationDataConfig Animation;
     public AudioConfig Audio;
     public float Damage;

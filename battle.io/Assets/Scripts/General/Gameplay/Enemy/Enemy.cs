@@ -10,6 +10,7 @@ public class Enemy : Executable, IPlayer
     public IMovement Movement => _context.Movement;
 
     public EnemyBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
+    public bool IsDestroyed { get; set; }
 
     public AssetsContext Context;
 
@@ -50,5 +51,11 @@ public class Enemy : Executable, IPlayer
         _magnite.Execute();
 
         if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(100);
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        IsDestroyed = true;
     }
 }

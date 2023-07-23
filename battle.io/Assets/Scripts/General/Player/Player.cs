@@ -23,6 +23,8 @@ public class Player : Executable, IPlayer
     public ScaleView ScaleView => _scaleView;
     public IMovement Movement => _movement;
 
+    public bool IsDestroyed { get; set; }
+
     public override void Start()
     {        
         _level = GetComponent<Level>();
@@ -58,5 +60,11 @@ public class Player : Executable, IPlayer
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
             _animationController.PlayAnimation(weaponInfo.Type + " Attack");
         }
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        IsDestroyed = true;
     }
 }

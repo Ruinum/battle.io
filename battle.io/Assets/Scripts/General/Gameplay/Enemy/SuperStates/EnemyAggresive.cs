@@ -25,7 +25,7 @@
     {
         _attack.Execute();
 
-        if (_vision.NearestEnemy != null && _vision.NearestEnemy != default)
+        if (_vision.NearestEnemy != null && _vision.NearestEnemy != default && !_vision.NearestEnemy.IsDestroyed)
         { 
         _rotate.SetPoint(_vision.NearestEnemy.Transform.position);
         _rotate.Execute();

@@ -9,5 +9,6 @@ public class PickupWeapon : MonoBehaviour
     {
         if (!collision.gameObject.TryGetComponentInObject(out WeaponInventory weaponInventory)) return;
         weaponInventory.EquipWeapon(_weaponInfo);
+        Destroy(gameObject);
     }
 }

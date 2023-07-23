@@ -18,6 +18,7 @@ public class ExpOrb : Interactable, IInterestPoint
     }
 
     public Transform Transform => transform;
+    public bool IsDestroyed { get; set; }
 
     protected override void Interact(Collider2D collision)
     {
@@ -51,5 +52,10 @@ public class ExpOrb : Interactable, IInterestPoint
         transform.SetParent(RootPool);
 
         if (!RootPool) Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        IsDestroyed = true;
     }
 }

@@ -47,6 +47,8 @@ public class PlayerAnimatorController : MonoBehaviour
             _timelineInvoker.PlayAnimation(animation);
         }
 
+        if (_animator.layerCount <= 1) StopCoroutine(StartTimeline());
+
         animation = _animator.GetCurrentAnimatorClipInfo(1)[0].clip;
         if(animation != null)
         {

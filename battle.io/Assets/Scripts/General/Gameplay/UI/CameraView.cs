@@ -4,8 +4,9 @@ public class CameraView
 {
     public Camera _camera;
 
-    private float _currentSize = 8;
-    private float _speed = 0.75f;
+    private float _currentSize = 7;
+    private float _maxSize = 10;
+    private float _speed = 0.15f;
 
     private float _yModifier = 1;
     private int _level = 1;
@@ -19,11 +20,13 @@ public class CameraView
 
     public void Execute()
     {
+        if (_camera.orthographicSize >= _maxSize) return;
         if (_camera.orthographicSize >= _currentSize) return;
         
         _camera.orthographicSize += _speed * Time.deltaTime;
 
         if (_camera.orthographicSize >= _currentSize) _camera.orthographicSize = _currentSize;
+        if (_camera.orthographicSize >= _maxSize) _camera.orthographicSize = _maxSize;
     }
 
     private void ChangeCameraView(float currentExpAmount)
