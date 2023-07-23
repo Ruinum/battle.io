@@ -44,11 +44,13 @@ public sealed class EnemyFlea : EnemyBaseState
 
     public override void CheckSwitchConditions()
     {
+        if (_vision.NearestEnemy.IsDestroyed) SwitchState(_factory.AggresiveIdleState());
         if (Vector2.Distance(_vision.NearestEnemy.Transform.position, _transform.position) >= _calmDistance) SwitchState(_factory.AggresiveIdleState());
     }
 
     private void FindPoint()
     {
+        if (_vision.NearestEnemy.IsDestroyed) return;
         _direction = (_vision.NearestEnemy.Transform.position - _transform.position).normalized;
         _movement.SetPoint(_direction * 3);
     }

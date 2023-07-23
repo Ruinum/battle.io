@@ -18,9 +18,6 @@ MonoBehaviour:
     - Name: HitBoxEnable
       Type: 1
       Time: 0.2
-    - Name: PlayAudio
-      Type: 1
-      Time: 0.25
     - Name: HitBoxDisable
       Type: 1
       Time: 0.8

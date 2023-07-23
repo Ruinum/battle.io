@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Start_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
-  MainWeapon: {fileID: 0}
+  MainWeapon: {fileID: 11400000, guid: 815855a4fed0ad74da5f3f4a9754981a, type: 2}
   AdditionalWeapon: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: 6ac176e23215a8a44b640b43660c2de9, type: 2}

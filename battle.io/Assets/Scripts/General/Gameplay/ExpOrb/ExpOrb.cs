@@ -28,7 +28,7 @@ public class ExpOrb : Interactable, IInterestPoint
         level.AddExp(_expAmount);
 
         OnInteract?.Invoke();
-        ImpactUtils.CreatePopUp(Mathf.RoundToInt(_expAmount).ToString(), collision.transform.position, Color.black);
+        ImpactUtils.CreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black);
     }
 
     public void SetExp(float value)

@@ -15,7 +15,7 @@ public class HitImpact
     private void OnExpRemove(float removedExp)
     {
         int expOrbAmount = Random.Range(4, 8);
-        float expOrbValue = removedExp / expOrbAmount;
+        float expOrbValue = removedExp / expOrbAmount * 0.75f;
 
         for (int i = 0; i < expOrbAmount; i++)
         {
