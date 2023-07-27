@@ -15,6 +15,7 @@ public sealed class EnemyLevelProgression
 
     public void Progress(int level)
     {
+        if (level == 1) return;
         LevelStructure levelStructure = LevelProgressionSystem.Singleton.LevelStructure.GetLevel(_weapons.ToArray(), 0);
         if (levelStructure.NextLevel.Length == 0) return;
         

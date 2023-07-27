@@ -7,14 +7,13 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class AllMenu : BaseSingleton<AllMenu>
+public class AllMenu : MonoBehaviour
 {
     XmlDocument xDoc = new XmlDocument();
     XmlReader xReader;
     Setts[] S = { new Setts("Master",0), new Setts("Music", 0) , new Setts("Effects", 0) };
-    protected override void Awake()
+    protected  void Awake()
     {
-        base.Awake();
         try
         {
             xDoc.Load("Settings.xml");

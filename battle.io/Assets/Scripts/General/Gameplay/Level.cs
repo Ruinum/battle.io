@@ -13,6 +13,7 @@ public class Level : MonoBehaviour
     public Action<float> OnExpChange;
     public Action<float> OnNextExpChange;
     public Action<float> OnExpRemove;
+    public Action OnDead;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class Level : MonoBehaviour
     private void CheckDeath()
     {
         if (_currentLevel > 0) return;
+        OnDead?.Invoke();
         Debug.Log("Player death logic");
         Destroy(gameObject);
     }

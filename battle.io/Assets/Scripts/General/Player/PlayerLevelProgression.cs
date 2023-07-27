@@ -13,6 +13,7 @@ public class PlayerLevelProgression
 
     public void TakeLevel(LevelStructure level, int i)
     {
+
         _weapons.Add(i);
         _inventory.UnarmAll();
 
@@ -30,7 +31,9 @@ public class PlayerLevelProgression
 
     public void LevelUp(int i)
     {
+        if (i == 1) return;
         LevelStructure structure = LevelProgressionSystem.Singleton.LevelStructure.GetLevel(_weapons.ToArray(), 0);
         WeaponChooseUI.Singleton.GetChoose(structure);
+
     }
 }

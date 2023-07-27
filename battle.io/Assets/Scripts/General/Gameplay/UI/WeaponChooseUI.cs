@@ -9,8 +9,9 @@ public class WeaponChooseUI : BaseSingleton<WeaponChooseUI>
     private LevelStructure Level;
 
     [SerializeField] public GameObject[] Images = new GameObject[4]; 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         _player = FindObjectOfType<Player>();
         for (int i = 0; i < transform.childCount; i++)
         {
