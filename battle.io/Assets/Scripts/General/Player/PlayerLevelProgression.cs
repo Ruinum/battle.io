@@ -31,9 +31,7 @@ public class PlayerLevelProgression
 
     public void LevelUp(int i)
     {
-        if (i == 1) return;
         LevelStructure structure = LevelProgressionSystem.Singleton.LevelStructure.GetLevel(_weapons.ToArray(), 0);
         WeaponChooseUI.Singleton.GetChoose(structure);
-
     }
 }

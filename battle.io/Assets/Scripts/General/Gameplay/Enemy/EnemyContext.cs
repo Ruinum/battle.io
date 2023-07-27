@@ -29,11 +29,14 @@ public class EnemyContext
         new Invulnerability(Level);
 
         AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
-
-        Agent.SetDestination(new Vector2(UnityEngine.Random.Range(-15f, 15f), UnityEngine.Random.Range(-15f, 15f)));
+        
         Agent.speed = _enemy.MovementSpeed;
         Agent.updateRotation = false;
         Agent.acceleration = _enemy.Acceleration;
+
+        Vector2 randomPoint = new Vector2(UnityEngine.Random.Range(-15f, 15f), UnityEngine.Random.Range(-15f, 15f));
+        Rotate.SetPoint(randomPoint);
+        Agent.SetDestination(randomPoint);
 
         VisionRadius = _enemy.VisionRadius;
         DangerLevel = 2;

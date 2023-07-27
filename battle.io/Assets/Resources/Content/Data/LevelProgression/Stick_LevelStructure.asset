@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
-  m_Name: Start_LevelStructure
+  m_Name: Stick_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
-  MainWeapon: {fileID: 0}
+  MainWeapon: {fileID: 11400000, guid: 815855a4fed0ad74da5f3f4a9754981a, type: 2}
   AdditionalWeapon: {fileID: 0}
   NextLevel:
-  - {fileID: 11400000, guid: bacb19d6e38c2be46ab6076dd1d4a6f0, type: 2}
+  - {fileID: 11400000, guid: 6ac176e23215a8a44b640b43660c2de9, type: 2}
+  - {fileID: 11400000, guid: 44eda7ed12c20dd4dbeef7f2387d2228, type: 2}
+  - {fileID: 11400000, guid: 506c021240d4ecf418f5b43da463e817, type: 2}

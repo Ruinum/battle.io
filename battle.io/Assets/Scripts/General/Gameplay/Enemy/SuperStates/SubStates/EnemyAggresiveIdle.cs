@@ -32,7 +32,6 @@
     public override void CheckSwitchConditions()
     {
         if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.AwareState());
-        if (!_context.Inventory.TryGetRightWeapon(out var leftWeapon)) SwitchState(_factory.FleaState());
         if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel <= _level.PlayerLevel) SwitchState(_factory.HuntState());
     }
 }
