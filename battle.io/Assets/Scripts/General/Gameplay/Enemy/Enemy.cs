@@ -13,9 +13,11 @@ public class Enemy : Executable, IPlayer
     public bool IsDestroyed { get; set; }
 
     public AssetsContext Context;
+    public Transform Model;
 
     public float VisionRadius;
     public float MovementSpeed;
+    public float Acceleration;
 
     public float MagniteSpeed;
     public float MagniteRadius;

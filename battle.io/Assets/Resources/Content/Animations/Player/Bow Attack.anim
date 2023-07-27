@@ -56,7 +56,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -118,7 +118,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -188,7 +188,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Arms/RightArm
+    path: ArmsHandler/Arms/RightArm
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -303,7 +303,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -367,7 +367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -431,7 +431,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -477,7 +477,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -523,7 +523,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -569,7 +569,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -642,7 +642,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Arms/RightArm
+    path: ArmsHandler/Arms/RightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -715,7 +715,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Arms/RightArm
+    path: ArmsHandler/Arms/RightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -788,7 +788,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Arms/RightArm
+    path: ArmsHandler/Arms/RightArm
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -799,7 +799,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -809,7 +809,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -819,7 +819,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Arms/LeftArm
+    path: ArmsHandler/Arms/LeftArm
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

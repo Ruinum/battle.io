@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyContext
 {
@@ -13,10 +14,11 @@ public class EnemyContext
         Rigidbody = enemy.GetComponent<Rigidbody2D>();
         Animator = enemy.GetComponent<PlayerAnimatorController>();
         Inventory = enemy.GetComponent<WeaponInventory>();
+        Agent = enemy.GetComponent<NavMeshAgent>(); 
 
-        Movement = new EnemyMovement(Rigidbody, _enemy.MovementSpeed);
+        Movement = new EnemyMovement(Agent, _enemy.MovementSpeed);
         Attack = new EnemyAttack(this);
-        Rotate = new EnemyRotateToPoint(Transform);
+        Rotate = new EnemyRotateToPoint(enemy.Model);
         ScaleView = new ScaleView(enemy.transform);
         LevelProgression = new EnemyLevelProgression(Level, Inventory);
         
@@ -28,6 +30,10 @@ public class EnemyContext
 
         AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
 
+        Agent.speed = _enemy.MovementSpeed;
+        Agent.updateRotation = false;
+        Agent.acceleration = _enemy.Acceleration;
+
         VisionRadius = _enemy.VisionRadius;
         DangerLevel = 2;
         FleaDistance = 2f;
@@ -38,6 +44,7 @@ public class EnemyContext
 
     public EnemyVision Vision => _enemy.Vision;
     public AssetsContext Context { get; private set; }
+    public NavMeshAgent Agent { get; private set; }
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerAnimatorController Animator { get; private set; }

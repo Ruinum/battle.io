@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : IMovement
 {
-    private Rigidbody2D rigidbody;
+    private Transform _transform;
+    private NavMeshAgent _agent;
     private Vector2 _point = new Vector2(0, 0);
     
     private float _speed;
@@ -15,18 +17,21 @@ public class EnemyMovement : IMovement
     public float Speed => _speed * Modifier;
     public float Modifier { get => _modifier; set { _modifier = value; } }
 
-    public EnemyMovement(Rigidbody2D rigidBody, float speed)
+    public EnemyMovement(NavMeshAgent agent, float speed)
     {
-        rigidbody = rigidBody;
+        _agent = agent;
+        _transform = _agent.transform;
         _speed = speed;
     }
 
-    public void SetPoint(Vector2 point) => _point = point; 
+    public void SetPoint(Vector2 point)
+    {
+        _point = point;
+        _agent.SetDestination(point);
+    }
+
     public void Execute()
     {
-        if (Vector2.Distance(rigidbody.position, _point) <= _magnitude) OnDestination?.Invoke();
-
-        rigidbody.position = Vector2.MoveTowards(rigidbody.position, _point, Speed * Time.deltaTime);
-        rigidbody.velocity = (_point - rigidbody.position).normalized * Speed;
+        if (Vector2.Distance(_transform.position, _point) <= _magnitude) OnDestination?.Invoke();
     }
 }
