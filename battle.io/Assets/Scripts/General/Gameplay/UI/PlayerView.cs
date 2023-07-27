@@ -10,7 +10,6 @@ public class PlayerView : MonoBehaviour
     private IPlayer _player;
     private IMovement _movement;
 
-    private int _currentLevel = 1;
     private float _nextLevelExp = 100;
     private float _currentLevelExp = 1;
     private float _scaleModifier = 0.2f;
@@ -27,13 +26,11 @@ public class PlayerView : MonoBehaviour
         _scaleView = _player.ScaleView;
 
         _level.OnExpChange += ChangeView;
-        _level.OnLevelChange += OnLevelChange;
         _level.OnNextExpChange += OnNextLevelChange;
     }
 
-    private void OnLevelChange(int currentLevel) => _currentLevel = currentLevel;
     private void OnNextLevelChange(float nextExpAmount) => _nextLevelExp = nextExpAmount;
-    private float CalculateModifier(float modifier) => (modifier / _nextLevelExp * _currentLevelExp + _currentLevel * modifier);
+    private float CalculateModifier(float modifier) => (modifier / _nextLevelExp * _currentLevelExp + _level.PlayerLevel * modifier);
 
     private void ChangeView(float currentExpAmount)
     {

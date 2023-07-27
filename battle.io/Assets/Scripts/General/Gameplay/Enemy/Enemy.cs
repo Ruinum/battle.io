@@ -35,7 +35,7 @@ public class Enemy : Executable, IPlayer
         base.Start();
 
         _level = GetComponent<Level>();
-        _vision = new EnemyVision(transform, VisionRadius);
+        _vision = new EnemyVision(transform, _level, VisionRadius);
         _magnite = new Magnite(transform, MagniteSpeed, MagniteRadius);
 
         _context = new EnemyContext(this);

@@ -10,22 +10,28 @@ public class EnemyVision
     public IPlayer NearestEnemy => _nearestEnemy;
 
     private Transform _transform;
+    private Level _level;
     private List<IInterestPoint> _interestPoints;
     private List<IPlayer> _enemies;
 
     private IInterestPoint _nearestInterest;
     private IPlayer _nearestEnemy;
 
+    private float _visionModifier = 0.5f;
+    private float _baseVisionRadius;
     private float _visionRadius;
     private float _distance;
 
     public Action<IInterestPoint> OnNearestInterestChange;
     public Action<IPlayer> OnNearestEnemyChange;
 
-    public EnemyVision(Transform transform, float visionRadius)
+    public EnemyVision(Transform transform, Level level, float visionRadius)
     {
         _transform = transform;
+        _baseVisionRadius = visionRadius;
         _visionRadius = visionRadius;
+        _level = level;
+        _level.OnExpChange += ChangeVisionRadius;
 
         _interestPoints = new List<IInterestPoint>();
         _enemies = new List<IPlayer>();
@@ -76,5 +82,10 @@ public class EnemyVision
             _nearestEnemy = _enemies[i];
             OnNearestEnemyChange?.Invoke(_nearestEnemy);
         }
+    }
+
+    private void ChangeVisionRadius(float currentExp)
+    {
+        _visionRadius = _baseVisionRadius + (_visionModifier / 100 * currentExp + _level.PlayerLevel * _visionModifier);
     }
 }

@@ -4,18 +4,20 @@ public class CameraView
 {
     public Camera _camera;
 
-    private float _currentSize = 7;
+    private Level _level;
+    private float _currentSize;
+    private float _baseSize = 7;
     private float _maxSize = 10;
     private float _speed = 0.15f;
 
     private float _yModifier = 1;
-    private int _level = 1;
 
     public CameraView(Camera camera, Level level)
     {
         _camera = camera;
+        _level = level;
+        
         level.OnExpChange += ChangeCameraView;
-        level.OnLevelChange += OnLevelChange;
     }
 
     public void Execute()
@@ -31,16 +33,11 @@ public class CameraView
 
     private void ChangeCameraView(float currentExpAmount)
     {
-        _currentSize = 8 + CalculateModifier(currentExpAmount);
-    }
-
-    private void OnLevelChange(int level)
-    {
-        _level = level;
+        _currentSize = _baseSize + CalculateModifier(currentExpAmount);
     }
 
     private float CalculateModifier(float currentExp)
     {
-        return _yModifier / 100 * currentExp + _level * _yModifier;
+        return _yModifier / 100 * currentExp + _level.PlayerLevel * _yModifier;
     }    
 }
