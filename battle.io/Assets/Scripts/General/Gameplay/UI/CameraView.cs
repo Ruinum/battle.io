@@ -38,6 +38,6 @@ public class CameraView
 
     private float CalculateModifier(float currentExp)
     {
-        return _yModifier / 100 * currentExp + _level.PlayerLevel * _yModifier;
+        return _yModifier / _level.ExpNeeded * currentExp + _level.PlayerLevel * _yModifier;
     }    
 }

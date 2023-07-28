@@ -27,6 +27,7 @@ public class EnemyContext
         new AudioEvent(Animator, Inventory);
         new SpecialEvent(Animator, Inventory);
         new Invulnerability(Level);
+        new NavMeshAgentRadius(Agent, Level);
 
         AssetsInjector.Inject(Context, new HitImpact(Level, Transform));
         

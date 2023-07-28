@@ -86,6 +86,6 @@ public class EnemyVision
 
     private void ChangeVisionRadius(float currentExp)
     {
-        _visionRadius = _baseVisionRadius + (_visionModifier / 100 * currentExp + _level.PlayerLevel * _visionModifier);
+        _visionRadius = _baseVisionRadius + (_visionModifier / _level.ExpNeeded * currentExp + _level.PlayerLevel * _visionModifier);
     }
 }

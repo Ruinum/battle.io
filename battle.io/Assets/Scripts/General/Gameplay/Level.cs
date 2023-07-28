@@ -4,10 +4,15 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public int PlayerLevel => _currentLevel;
+    public float ExpNeeded => _nextLevelExp;
 
     [SerializeField] private int _currentLevel = 1;
-    [SerializeField]private float _currentExp = 0;
+    [SerializeField] private float _currentExp = 0;
+    
     private float _nextLevelExp = 100;
+    private float _baseExp = 100;
+    private float _baseExpModifier = 0.25f;
+    private float _expModifier = 0.25f;
 
     public Action<int> OnLevelChange;
     public Action<float> OnExpChange;
@@ -29,7 +34,7 @@ public class Level : MonoBehaviour
 
         _currentExp = 0;
         _currentLevel += 1;
-        _nextLevelExp = 100; //TODO: Level exp scaling
+        ScaleExp();
 
         InvokeEvents();
     }
@@ -47,7 +52,7 @@ public class Level : MonoBehaviour
         CheckDeath();
 
         _currentExp = 0;
-        _nextLevelExp = 100; //TODO: Level exp scaling
+        ScaleExp();
 
         InvokeEvents();
     }
@@ -59,11 +64,15 @@ public class Level : MonoBehaviour
         OnExpChange?.Invoke(_currentExp);
     }
 
+    private void ScaleExp()
+    {
+        _nextLevelExp = _baseExp + _baseExp * (_baseExpModifier + _currentLevel * _expModifier);
+    }
+
     private void CheckDeath()
     {
         if (_currentLevel > 0) return;
         OnDead?.Invoke();
-        Debug.Log("Player death logic");
         Destroy(gameObject);
     }
 }
