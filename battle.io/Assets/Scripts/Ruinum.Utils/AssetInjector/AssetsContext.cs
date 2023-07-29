@@ -7,6 +7,8 @@ public class AssetsContext : ScriptableObject
 {
     [SerializeField] private Object[] _objects;
 
+    public int Count => _objects.Length;
+
     public Object GetObjectOfType(Type targetType, string targetName = null)
     {
         for (int i = 0; i < _objects.Length; i++)

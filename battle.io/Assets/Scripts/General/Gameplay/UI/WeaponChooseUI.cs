@@ -1,18 +1,18 @@
-using Ruinum.Core;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class WeaponChooseUI : BaseSingleton<WeaponChooseUI>
+public class WeaponChooseUI : MonoBehaviour
 {
     private Player _player;
-    private LevelStructure Level;
+    private LevelStructure Level;    
 
     [SerializeField] public GameObject[] Images = new GameObject[4]; 
-    protected override void Awake()
+    
+    public void Initialize(Player player)
     {
-        base.Awake();
-        _player = FindObjectOfType<Player>();
+        _player = player;
+
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject @object = transform.GetChild(i).gameObject;
@@ -30,6 +30,7 @@ public class WeaponChooseUI : BaseSingleton<WeaponChooseUI>
             Images[i].transform.DOPunchScale(new Vector3(0.15f, 0.15f, 0.15f), 0.3f);
             Images[i].GetComponent<Image>().sprite = level.NextLevel[i].MainWeapon.Prefab.GetComponent<SpriteRenderer>().sprite;
         }
+
         Level = level;
     }
 

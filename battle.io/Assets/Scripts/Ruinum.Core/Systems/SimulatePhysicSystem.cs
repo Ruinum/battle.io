@@ -1,18 +1,18 @@
-﻿using Ruinum.Core;
+﻿using Ruinum.Core.Systems;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimulatePhysicSystem : BaseSingleton<SimulatePhysicSystem>
+public class SimulatePhysicSystem : System<SimulatePhysicSystem>
 {
     private List<Rigidbody2D> _rigidbodies;
     private float _deceleration = 1.25f;
 
-    private void Start()
+    public override void Init()
     {
         _rigidbodies = new List<Rigidbody2D>();
     }
 
-    private void Update()
+    public override void Execute()
     {
         for (int i = 0; i < _rigidbodies.Count; i++)
         {

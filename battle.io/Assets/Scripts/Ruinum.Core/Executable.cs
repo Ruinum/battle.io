@@ -1,3 +1,5 @@
+using Ruinum.Core.Interfaces;
+using Ruinum.Core.Systems;
 using UnityEngine;
 
 namespace Ruinum.Core
@@ -8,12 +10,12 @@ namespace Ruinum.Core
 
         public virtual void Start()
         {
-            GameManager.Singleton.AddExecuteObject(this);
+            ExecuteSystem.Singleton.AddExecute(this);
         }
 
         public virtual void OnDestroy()
         {
-            GameManager.Singleton.RemoveExecuteObject(this);
+            ExecuteSystem.Singleton.RemoveExecute(this);
         }
     }
 }

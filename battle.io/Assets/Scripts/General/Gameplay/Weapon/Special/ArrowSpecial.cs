@@ -1,4 +1,5 @@
 ﻿using Ruinum.Core;
+using Ruinum.Core.Systems;
 using UnityEngine;
 
 [RequireComponent(typeof(HitBox))]
@@ -10,7 +11,7 @@ public class ArrowSpecial : Special
     protected override void OnInitialize()
     {
         var hitBox = GetComponent<HitBox>();
-        TimerManager.Singleton.StartTimer(0.1f, () => hitBox.Enable(_weaponInfo.Damage, _weaponInfo.RandomDamage));
+        TimerSystem.Singleton.StartTimer(0.1f, () => hitBox.Enable(_weaponInfo.Damage, _weaponInfo.RandomDamage));
         SimulatePhysicUtils.Impulse(gameObject, _creator.transform.up, _speed, _lifeTime, 1);
     }
 

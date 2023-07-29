@@ -1,4 +1,4 @@
-﻿namespace Ruinum.Core
+﻿namespace Ruinum.Core.Interfaces
 {
     public interface IExecute
     {

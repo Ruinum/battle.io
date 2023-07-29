@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class LevelUI : MonoBehaviour
 {
-    [SerializeField] private Level _level;
     [SerializeField] private Image _image;
     [SerializeField] private Transform _parent;
     [SerializeField] private TMP_Text _levelText;
-    
+
+    private Level _level;
     private float _maxAmount = 100f;
     private float _fillDuration = 0.5f;
     private float _punchDuration = 0.25f;
     private Vector3 _punchScale = new Vector3(0.025f, 0.025f, 0.025f);
 
-    private void Start()
+    public void Initialize(Level level)
     {
+        _level = level;
+
         _level.OnExpChange += UpdateExp;
         _level.OnLevelChange += UpdateLevel;
         _level.OnNextExpChange += UpdateExpAmount;

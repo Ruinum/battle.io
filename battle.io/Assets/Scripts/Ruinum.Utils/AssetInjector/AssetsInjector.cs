@@ -12,9 +12,7 @@ public static class AssetsInjector
         for (int i = 0; i < allFields.Length; i++)
         {
             var fieldInfo = allFields[i];
-            var injectAssetAttribute =
-
-            fieldInfo.GetCustomAttribute(_injectAssetAttributeType) as InjectAssetAttribute;
+            var injectAssetAttribute = fieldInfo.GetCustomAttribute(_injectAssetAttributeType) as InjectAssetAttribute;
 
             if (injectAssetAttribute == null)
             {
