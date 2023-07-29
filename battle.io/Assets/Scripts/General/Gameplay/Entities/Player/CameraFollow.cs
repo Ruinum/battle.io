@@ -20,6 +20,7 @@ public class CameraFollow : Executable
 
     public override void Execute()
     {
+        if (_player == null) return;
         float interpolation = speed * Time.deltaTime;
 
         Vector3 position = transform.position;
