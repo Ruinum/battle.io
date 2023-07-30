@@ -28,7 +28,7 @@ public class HitImpact
             float randomSpeed = Random.Range(50f, 150f);
 
             SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed);
-            TimerSystem.Singleton.StartTimer(0.35f, () => collider2d.enabled = true);
+            TimerSystem.Singleton.StartTimer(1f, () => collider2d.enabled = true);
         }
     }
 }

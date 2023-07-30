@@ -20,4 +20,4 @@ MonoBehaviour:
       Time: 0.2
     - Name: HitBoxDisable
       Type: 1
-      Time: 1.35
+      Time: 1.1
