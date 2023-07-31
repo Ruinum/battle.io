@@ -14,7 +14,7 @@ public class WeaponInventory : MonoBehaviour
 
     public Action<WeaponInfo, GameObject> OnWeaponChange;
 
-    private void Start()
+    private void Awake()
     {
         _rightArm = GetComponentInChildren<RightArm>();
         _leftArm = GetComponentInChildren<LeftArm>();       
@@ -88,16 +88,16 @@ public class WeaponInventory : MonoBehaviour
             case WeaponHandType.None:
                 break;
             case WeaponHandType.Left:
-                _leftArm.DestroyWeapon();
+                _leftArm?.DestroyWeapon();
                 _currentLeftWeaponInfo = null;
                 break;
             case WeaponHandType.Right:
-                _rightArm.DestroyWeapon();
+                _rightArm?.DestroyWeapon();
                 _currentRightWeaponInfo = null;
                 break;
             case WeaponHandType.Both:
-                _rightArm.DestroyWeapon();
-                _leftArm.DestroyWeapon();
+                _rightArm?.DestroyWeapon();
+                _leftArm?.DestroyWeapon();
                 _currentLeftWeapon = null;
                 _currentRightWeapon = null;
                 break;

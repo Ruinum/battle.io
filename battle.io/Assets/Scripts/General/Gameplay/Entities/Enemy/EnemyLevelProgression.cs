@@ -14,7 +14,10 @@ public sealed class EnemyLevelProgression
     {
         _inventory = inventory;
 
+        Debug.Log("SetProgress");
+
         level.OnLevelChange += Progress;
+
     }
 
     public void Progress(int level)
@@ -44,5 +47,10 @@ public sealed class EnemyLevelProgression
 
         if (levelStructure.AdditionalWeapon == null) return;
         _inventory.EquipWeapon(levelStructure.AdditionalWeapon);
+    }
+
+    public int GetLevelPoints()
+    {
+        return _levelPoints;
     }
 }

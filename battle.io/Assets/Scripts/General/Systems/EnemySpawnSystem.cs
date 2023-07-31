@@ -1,5 +1,6 @@
 using Ruinum.Core.Interfaces;
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawnSystem : ISystem
 {
@@ -57,6 +58,18 @@ public class EnemySpawnSystem : ISystem
 
         createdEnemy.transform.position = Player.position + new Vector3(x, y,0);
         createdEnemy.GetComponent<Level>().OnDead += EnemyDead;
+
+
+        Debug.Log("SpawnStart");
+
+        int rnd = Random.Range(0, 6);
+        for (int i = 0; i < rnd; i++)
+        {
+            createdEnemy.GetComponent<Level>().AddExp(99999);
+        }
+
+        Debug.Log("SpawnEnd");
+
         _currentEnemyCount++;
     }
 }

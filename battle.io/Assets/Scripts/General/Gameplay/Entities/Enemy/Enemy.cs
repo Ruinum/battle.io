@@ -41,6 +41,9 @@ public class Enemy : Executable, IPlayer
         _context = new EnemyContext(this);
         _states = new EnemyStateFactory(_context);
 
+        Debug.Log($"EnemyStart: {_level.PlayerLevel}");
+        Debug.Log($"EnemySkill: {_context.LevelProgression.GetLevelPoints()}");
+
         _currentState = _states.IdleState();
         _currentState.EnterState();
     }
@@ -52,7 +55,7 @@ public class Enemy : Executable, IPlayer
         _vision.Execute();
         _magnite.Execute();
 
-        if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(100);
+        if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(99999);
     }
 
     public override void OnDestroy()

@@ -20,6 +20,6 @@ public class ScaleView
         _scaleModifier = scaleModifier;
         _transform.localScale = _startScale * _scaleModifier;
 
-        if (_transform.localScale.x >= _scaleCap) _transform.localScale = new Vector3(_scaleCap, _scaleCap);
+        if (_transform.localScale.x >= _scaleCap) _transform.localScale = new Vector3(_scaleCap, _scaleCap, _scaleCap);
     }
 }

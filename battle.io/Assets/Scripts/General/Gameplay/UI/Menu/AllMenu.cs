@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
-using Ruinum.Core;
+using TMPro;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -64,19 +64,24 @@ public class AllMenu : MonoBehaviour
         }
     }
 
+    public TextMeshProUGUI[] text;
+
     public void SetMasterValue(Slider slider)
     {
         S[0].value = slider.value;
+        text[0].text = ((int)(slider.value * 100)).ToString();
     }
 
     public void SetMusicValue(Slider slider)
     {
         S[1].value = slider.value;
+        text[1].text = ((int)(slider.value * 100)).ToString();
     }
 
     public void SetEffectsValue(Slider slider)
     {
         S[2].value = slider.value;
+        text[2].text = ((int)(slider.value * 100)).ToString();
     }
 
     public float LoadXML(string s)
