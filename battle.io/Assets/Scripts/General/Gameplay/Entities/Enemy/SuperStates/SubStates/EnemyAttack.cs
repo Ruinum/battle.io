@@ -18,7 +18,7 @@ public sealed class EnemyAttack
         _animator = context.Animator;
         _inventory = context.Inventory;
 
-        _inventory.OnWeaponChange += SetWeapon;
+        _inventory.OnWeaponChange += SetWeapon;   
         _inventory.TryGetRightWeapon(out _weaponInfo);
     }
 

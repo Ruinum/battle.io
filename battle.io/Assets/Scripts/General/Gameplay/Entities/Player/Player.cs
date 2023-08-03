@@ -32,13 +32,13 @@ public class Player : Executable, IPlayer
     public void Awake()
     {   
         _level = GetComponent<Level>();
-        _class = new Class(transform);
+        _class = new Class(transform.gameObject, _animationController);
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
         _levelProgression = new PlayerLevelProgression(_level, _inventory);
 
         _cameraFollow = ObjectUtils.CreateGameObject<CameraFollow>(_cameraPrefab);
-        _cameraView = new CameraView(_cameraFollow.GetComponent<Camera>(), _level);
+        _cameraView = new CameraView(_cameraFollow.Camera, _level);
         
         _cameraFollow.Initialize(this);
     }
@@ -49,7 +49,7 @@ public class Player : Executable, IPlayer
         new AudioEvent(_animationController, _inventory);
         new SpecialEvent(_animationController, _inventory);
         new Invulnerability(_level);
-        new HitBoxEvents(_animationController, _inventory);
+        new HitBoxEvents(_level, _animationController, _inventory);
 
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
 
@@ -58,6 +58,8 @@ public class Player : Executable, IPlayer
 
     public override void Execute()
     {
+        if (Input.GetKeyDown(KeyCode.O)) _level.AddExp(90f); 
+
         _magnite.Execute();
         _cameraView.Execute();
         _levelProgression.Execute();

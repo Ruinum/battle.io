@@ -4,6 +4,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public int PlayerLevel => _currentLevel;
+    public float Exp => _currentExp;
     public float ExpNeeded => _nextLevelExp;
 
     [SerializeField] private int _currentLevel = 1;

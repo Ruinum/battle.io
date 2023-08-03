@@ -10,6 +10,7 @@ public sealed class EnemyAware : EnemyBaseState
     public EnemyAware(EnemyContext context, EnemyStateFactory factory) : base(context, factory)
     {
         _transform = context.Transform;
+        _vision = context.Vision;
     }
 
     public override void CheckSwitchConditions()

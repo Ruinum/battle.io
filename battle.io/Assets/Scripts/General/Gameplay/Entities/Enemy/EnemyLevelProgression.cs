@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Ruinum.Core.Systems;
+using Ruinum.Utils;
 
 public sealed class EnemyLevelProgression
 {
+    public int LevelPoints => _levelPoints;
+
+    private Level _level;
     private WeaponInventory _inventory;
     private List<int> _weapons = new List<int>();
 
@@ -12,12 +15,10 @@ public sealed class EnemyLevelProgression
 
     public EnemyLevelProgression(Level level, WeaponInventory inventory)
     {
+        _level = level;
         _inventory = inventory;
 
-        Debug.Log("SetProgress");
-
         level.OnLevelChange += Progress;
-
     }
 
     public void Progress(int level)
@@ -27,6 +28,9 @@ public sealed class EnemyLevelProgression
         _previousLevel = level;
 
         if (_levelPoints <= 0) return;
+
+        ColorUtility.TryParseHtmlString("#ED7014", out Color color);
+        if (level != 1) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
 
         LevelStructure levelStructure = Game.Context.LevelStructure.GetLevel(_weapons.ToArray(), 0);
         if (levelStructure.NextLevel.Length == 0) return;
@@ -47,10 +51,5 @@ public sealed class EnemyLevelProgression
 
         if (levelStructure.AdditionalWeapon == null) return;
         _inventory.EquipWeapon(levelStructure.AdditionalWeapon);
-    }
-
-    public int GetLevelPoints()
-    {
-        return _levelPoints;
     }
 }

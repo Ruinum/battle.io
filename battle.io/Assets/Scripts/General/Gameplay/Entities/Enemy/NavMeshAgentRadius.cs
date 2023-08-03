@@ -4,9 +4,9 @@ public class NavMeshAgentRadius
 {
     private NavMeshAgent _agent;
     private Level _level;
-
     private float _baseRadius;
-    private float _modifier = 0.1f;
+
+    private const float NAVMESH_RADIUS_MODIFIER = 0.4f;
 
     public NavMeshAgentRadius(NavMeshAgent agent,Level level)
     {
@@ -18,6 +18,6 @@ public class NavMeshAgentRadius
 
     private void ChangeAgentRadius(float currentExp)
     {
-        _agent.radius = _baseRadius + (_modifier / _level.ExpNeeded * currentExp + _level.PlayerLevel * _modifier);
+        _agent.radius = _baseRadius + (NAVMESH_RADIUS_MODIFIER / _level.ExpNeeded * currentExp + _level.PlayerLevel * NAVMESH_RADIUS_MODIFIER);
     }
 }

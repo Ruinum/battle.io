@@ -1,15 +1,24 @@
 using Ruinum.Core;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraFollow : Executable
 {
     [SerializeField] private float speed = 2.0f;
 
     private Transform _player;
+    private Camera _camera;
+
+    public Camera Camera => _camera;
 
     public void Initialize(Player player)
     {
         _player = player.transform;
+    }
+
+    private void Awake()
+    {
+        _camera = GetComponent<Camera>();
     }
 
     public override void Start()

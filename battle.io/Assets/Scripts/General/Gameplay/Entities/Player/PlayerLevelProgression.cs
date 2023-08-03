@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Ruinum.Utils;
+using System.Collections.Generic;
+using UnityEngine;
 
 public sealed class PlayerLevelProgression
 {
-    public WeaponInventory _inventory;
+    private Level _level;
+    private WeaponInventory _inventory;
 
     private List<int> _weapons = new List<int>();   
     private int _previousLevel = 0;
@@ -11,8 +14,10 @@ public sealed class PlayerLevelProgression
 
     public PlayerLevelProgression(Level level, WeaponInventory inventory)
     {
+        _level = level;
         _inventory = inventory;
-        level.OnLevelChange += LevelUp;
+
+        _level.OnLevelChange += LevelUp;
     }
 
     public void TakeLevel(LevelStructure level, int i)
@@ -43,7 +48,12 @@ public sealed class PlayerLevelProgression
     public void LevelUp(int level)
     {
         if (level <= _previousLevel) _levelPoints--;
-        else _levelPoints++;
+        else 
+        {
+            ColorUtility.TryParseHtmlString("#ED7014", out Color color);
+            if (level != 1) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
+            _levelPoints++;
+        }
         _previousLevel = level;        
     }
 

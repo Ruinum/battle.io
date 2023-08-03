@@ -22,7 +22,7 @@ public class EnemyContext
         ScaleView = new ScaleView(enemy.transform);
         LevelProgression = new EnemyLevelProgression(Level, Inventory);
         
-        new HitBoxEvents(Animator, Inventory);
+        new HitBoxEvents(Level, Animator, Inventory);
         new WeaponAnimation(Animator, Inventory);
         new AudioEvent(Animator, Inventory);
         new SpecialEvent(Animator, Inventory);

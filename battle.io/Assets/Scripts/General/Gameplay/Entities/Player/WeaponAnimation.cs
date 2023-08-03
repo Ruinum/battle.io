@@ -9,8 +9,8 @@ public class WeaponAnimation
         weaponInventory.OnWeaponChange += AddWeaponAnimationTimeline;
     }
 
-    private void AddWeaponAnimationTimeline(WeaponInfo info, GameObject @object)
+    private void AddWeaponAnimationTimeline(WeaponInfo weaponInfo, GameObject @object)
     {
-        _animatorController.AddTimeline(info.Animation);
+        _animatorController.AddTimeline(weaponInfo.Animation);
     }
 }

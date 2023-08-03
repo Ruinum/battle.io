@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ruinum.Utils;
+using UnityEngine;
 
 public class SpecialEvent : EventHandler
 {
@@ -22,8 +23,8 @@ public class SpecialEvent : EventHandler
         };
 
         var specialObject = Object.Instantiate(_weaponInfo.Special, _transform.position, _transform.rotation, null);
-        if (!specialObject.TryGetComponent<Special>(out Special special)) { Debug.LogError($"There is no special script on {specialObject}"); }
+        if (!specialObject.TryGetComponent(out Special special)) { Debug.LogError($"There is no special script on {specialObject}"); }
         
-        special.Initialize(_weaponInfo, _transform.gameObject);
+        special.Initialize(_transform.gameObject.GetComponentInObject<Level>(), _weaponInfo, _transform.gameObject);
     }
 }

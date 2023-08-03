@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: LightSpear_Weapon
   m_EditorClassIdentifier: 
   Prefab: {fileID: 5204210251708379909, guid: 03741dd4da060324ba677c633b99907e, type: 3}
+  Special: {fileID: 0}
   Animation: {fileID: 11400000, guid: 2d23896f9be217e49846493f81bf4714, type: 2}
+  Audio: {fileID: 0}
   Damage: 5
+  RandomDamage: 3
   Distance: 3
   Type: 5
   HandType: 2
+  MainHandType: 0

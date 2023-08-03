@@ -44,15 +44,15 @@ public class WeaponInventory : MonoBehaviour
         {
             if (!createdWeapon.TryGetComponentInObject(out RightArmPosition rightPosition)) return;
             _rightArm.SetWeaponPosition(createdWeapon.transform, rightPosition);
-            OnWeaponChange?.Invoke(weaponInfo, createdWeapon);
         }
 
         if (weaponInfo.MainHandType == WeaponMainHandType.Left)
         {
             if (!createdWeapon.TryGetComponentInObject(out LeftArmPosition leftArmPosition)) return;
             _leftArm.SetWeaponPosition(createdWeapon.transform, leftArmPosition);
-            OnWeaponChange?.Invoke(weaponInfo, createdWeapon);
         }
+
+        OnWeaponChange?.Invoke(weaponInfo, createdWeapon);
     }
 
     private void EquipRight(WeaponInfo weaponInfo)

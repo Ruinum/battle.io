@@ -4,9 +4,9 @@ using System.Collections;
 
 public class EnemySpawnSystem : ISystem
 {
-    [InjectAsset("Enemy")] private GameObject EnemyPrefab;
+    [InjectAsset("Enemy")] private GameObject _enemyPrefab;
     
-    private Transform Player;
+    private Transform _player;
     private float _horizontal;
     private float _vertical;    
     private int _maxEnemyCount;
@@ -23,7 +23,7 @@ public class EnemySpawnSystem : ISystem
     
     public void Initialize()
     {
-        if (Game.Context.Player != null) Player = Game.Context.Player.transform;
+        if (Game.Context.Player != null) _player = Game.Context.Player.transform;
         for (int i = 0; i <= _maxEnemyCount; i++)
         {
             Spawn();
@@ -41,13 +41,13 @@ public class EnemySpawnSystem : ISystem
     public void Spawn()
     {
         if (_currentEnemyCount == _maxEnemyCount) return;
-        if (Player == null || Player == default)
+        if (_player == null || _player == default)
         {
-            if (Game.Context.Player != null) Player = Game.Context.Player.transform;
+            if (Game.Context.Player != null) _player = Game.Context.Player.transform;
             return;
         }
 
-        GameObject createdEnemy = GameObject.Instantiate(EnemyPrefab, null);
+        GameObject createdEnemy = GameObject.Instantiate(_enemyPrefab, null);
         float x, y;
         float _dist = 5;
         do
@@ -56,19 +56,10 @@ public class EnemySpawnSystem : ISystem
             y = Random.Range(-_vertical - _dist, _vertical + _dist);
         } while ((x >= -_horizontal && x <= _horizontal) && (y >= -_vertical && y <= _vertical));
 
-        createdEnemy.transform.position = Player.position + new Vector3(x, y,0);
-        createdEnemy.GetComponent<Level>().OnDead += EnemyDead;
-
-
-        Debug.Log("SpawnStart");
-
-        int rnd = Random.Range(0, 6);
-        for (int i = 0; i < rnd; i++)
-        {
-            createdEnemy.GetComponent<Level>().AddExp(99999);
-        }
-
-        Debug.Log("SpawnEnd");
+        createdEnemy.transform.position = _player.position + new Vector3(x, y, 0);
+        
+        var level = createdEnemy.GetComponent<Level>();
+        level.OnDead += EnemyDead;
 
         _currentEnemyCount++;
     }

@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : IMovement
 {
-    private Transform _transform;
+    private Transform _transform; 
     private NavMeshAgent _agent;
     private Vector2 _point = new Vector2(0, 0);
     

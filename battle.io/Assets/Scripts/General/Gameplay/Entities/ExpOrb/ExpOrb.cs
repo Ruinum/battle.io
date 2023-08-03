@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ruinum.Utils;
+using UnityEngine;
 
 public class ExpOrb : Interactable, IInterestPoint
 {
