@@ -10,7 +10,7 @@ public sealed class EnemyLevelProgression
     private WeaponInventory _inventory;
     private List<int> _weapons = new List<int>();
 
-    private int _previousLevel = 0;
+    private int _lastMaxLevel = 0;
     private int _levelPoints = 0;
 
     public EnemyLevelProgression(Level level, WeaponInventory inventory)
@@ -23,14 +23,14 @@ public sealed class EnemyLevelProgression
 
     public void Progress(int level)
     {
-        if (level <= _previousLevel) _levelPoints--;
+        if (level <= _lastMaxLevel) _levelPoints--;
         else _levelPoints++;
-        _previousLevel = level;
+        _lastMaxLevel = Mathf.Max(_lastMaxLevel, level);
 
         if (_levelPoints <= 0) return;
 
         ColorUtility.TryParseHtmlString("#ED7014", out Color color);
-        if (level != 1) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
+        if (level != 1 && level == _lastMaxLevel) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
 
         LevelStructure levelStructure = Game.Context.LevelStructure.GetLevel(_weapons.ToArray(), 0);
         if (levelStructure.NextLevel.Length == 0) return;

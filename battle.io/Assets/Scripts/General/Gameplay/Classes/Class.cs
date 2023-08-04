@@ -1,23 +1,23 @@
 ﻿using Ruinum.Core.Interfaces;
 using Ruinum.Core.Systems;
-using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class Class : IExecute
 {
     private GameObject _gameObject;
     private PlayerAnimatorController _animator;
+    private AbilitiesConfig _abilitiesConfig;
+
     private ClassConfig _currentClass = null;
     private IClassAbility _currentAbility = null;
 
     private bool _canUseAbility;
 
-    private Dictionary<string, IClassAbility> _abilities;
-
     public Class(GameObject gameObject, PlayerAnimatorController animator) 
     {
         _animator = animator;
         _gameObject = gameObject;
+        _abilitiesConfig = Game.Context.AbilitiesConfig;
     }
 
     public void Execute()
@@ -30,10 +30,10 @@ public sealed class Class : IExecute
     {
         _currentClass = classConfig;
         
-        if (!_abilities.TryGetValue(_currentClass.Name, out _currentAbility)) return;
+        if (!_abilitiesConfig.TryGetAbility(_currentClass.Name, out _currentAbility)) return;
         if (_currentClass.Animation) _animator.AddTimeline(_currentClass.Animation);
-        _currentAbility.Initialize(_gameObject);
 
+        _currentAbility.Initialize(_gameObject, _currentClass);
         _canUseAbility = true;
     }
 

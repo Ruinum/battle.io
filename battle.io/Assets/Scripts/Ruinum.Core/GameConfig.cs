@@ -4,6 +4,7 @@
 public sealed class GameConfig : ScriptableObject
 {
     public AssetsContext AssetsContext;
+    public AbilitiesConfig AbilitiesConfig;
     public LevelStructure LevelStructure;
     public Canvas RootCanvas;
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Level : MonoBehaviour
@@ -15,6 +16,8 @@ public class Level : MonoBehaviour
     private float _baseExpModifier = 0.25f;
     private float _expModifier = 0.25f;
 
+    private List<Multiplier> _multipliers;
+
     public Action<int> OnLevelChange;
     public Action<float> OnExpChange;
     public Action<float> OnNextExpChange;
@@ -23,12 +26,13 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        _multipliers = new List<Multiplier>();
         InvokeEvents();
     }
 
     public void AddExp(float value)
     {
-        _currentExp += value;
+        _currentExp += MultiplyExp(value, MultiplierType.Positive);
         OnExpChange?.Invoke(_currentExp);
 
         if (_currentExp < _nextLevelExp) return;
@@ -42,7 +46,7 @@ public class Level : MonoBehaviour
 
     public void RemoveExp(float value)
     {
-        _currentExp -= value;
+        _currentExp -= MultiplyExp(value, MultiplierType.Negative);
 
         OnExpChange?.Invoke(_currentExp);
         OnExpRemove?.Invoke(value);
@@ -58,6 +62,9 @@ public class Level : MonoBehaviour
         InvokeEvents();
     }
 
+    public void AddMultiplier(Multiplier multiplier) => _multipliers.Add(multiplier);
+    public void RemoveMultiplier(Multiplier multiplier) => _multipliers.Remove(multiplier);
+
     private void InvokeEvents()
     {
         OnNextExpChange?.Invoke(_nextLevelExp);
@@ -70,10 +77,53 @@ public class Level : MonoBehaviour
         _nextLevelExp = _baseExp + _baseExp * (_baseExpModifier + _currentLevel * _expModifier);
     }
 
+    private float MultiplyExp(float value, MultiplierType multiplierType)
+    {
+        if (_multipliers.Count == 0) return value;
+
+        for (int i = 0; i < _multipliers.Count; i++)
+        {
+            switch (multiplierType)
+            {
+                case MultiplierType.None:
+                    break;
+                case MultiplierType.Positive:
+                    if (_multipliers[i].Type != MultiplierType.Positive) continue;
+                    value += value * _multipliers[i].Value;
+                    break;
+                case MultiplierType.Negative:
+                    if (_multipliers[i].Type != MultiplierType.Negative) continue;
+                    value += value * _multipliers[i].Value;
+                    break;
+                case MultiplierType.All:
+                    value += value * _multipliers[i].Value;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return value;
+    }
+
     private void CheckDeath()
     {
         if (_currentLevel > 0) return;
         OnDead?.Invoke();
         Destroy(gameObject);
     }
+}
+
+public struct Multiplier
+{
+    public float Value;
+    public MultiplierType Type;
+}
+
+public enum MultiplierType
+{
+    None     = 0,
+    Positive = 1,
+    Negative = 2,
+    All      = 3
 }

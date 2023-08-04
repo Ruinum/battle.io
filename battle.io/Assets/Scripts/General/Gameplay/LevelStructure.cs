@@ -7,6 +7,7 @@ public class LevelStructure : ScriptableObject
     public Sprite Icon;
     public WeaponInfo MainWeapon;
     public WeaponInfo AdditionalWeapon;
+    public ClassConfig Class;
 
     public LevelStructure GetLevel(int[] vs,int pass)
     {

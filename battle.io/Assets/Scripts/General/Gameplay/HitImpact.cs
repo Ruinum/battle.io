@@ -6,7 +6,7 @@ public class HitImpact
 {
     [InjectAsset("ExpOrb")] private GameObject _expOrb;
     private Transform _transform;
-    private float _expCutModifier = 0.35f;
+    private float _expCutModifier = 0.25f;
 
     public HitImpact(Level level, Transform transform)
     {

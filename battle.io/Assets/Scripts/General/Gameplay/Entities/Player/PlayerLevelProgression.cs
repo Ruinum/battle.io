@@ -8,7 +8,7 @@ public sealed class PlayerLevelProgression
     private WeaponInventory _inventory;
 
     private List<int> _weapons = new List<int>();   
-    private int _previousLevel = 0;
+    private int _lastMaxLevel = 0;
     private int _levelPoints = 0;
     private bool _isUIShowed = false;
 
@@ -47,14 +47,17 @@ public sealed class PlayerLevelProgression
 
     public void LevelUp(int level)
     {
-        if (level <= _previousLevel) _levelPoints--;
+        if (level <= _lastMaxLevel) _levelPoints--;
         else 
         {
+            _lastMaxLevel = Mathf.Max(_lastMaxLevel, level);
+            
             ColorUtility.TryParseHtmlString("#ED7014", out Color color);
-            if (level != 1) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
+            if (level != 1 && level == _lastMaxLevel) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
             _levelPoints++;
         }
-        _previousLevel = level;        
+
+        _lastMaxLevel = Mathf.Max(_lastMaxLevel, level);        
     }
 
     private void ShowUi()

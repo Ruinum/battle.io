@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   AssetsContext: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
+  AbilitiesConfig: {fileID: 11400000, guid: 833875deada43f542960679e132508c7, type: 2}
   LevelStructure: {fileID: 11400000, guid: 1748dd932e800ce439714706dc78eaa2, type: 2}
   RootCanvas: {fileID: 1440064073383562019, guid: d7004d7c1c722514fb9d835eab5aa14d, type: 3}
   PlayerPrefab: {fileID: 5093025667706901601, guid: 8a9bba93e9f7b9c4d8001f0d57e831e2, type: 3}
   PlayerUIPrefab: {fileID: 1725646925621221937, guid: 8a790224237372c49af1d6b392c70e95, type: 3}
-  PlayerCamera: {fileID: 9183095469333505964, guid: f81ea8d59930ef84b8d21024619a5ca2, type: 3}

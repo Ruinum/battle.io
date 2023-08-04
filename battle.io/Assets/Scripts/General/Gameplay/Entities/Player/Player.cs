@@ -63,6 +63,7 @@ public class Player : Executable, IPlayer
         _magnite.Execute();
         _cameraView.Execute();
         _levelProgression.Execute();
+        _class.Execute();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {

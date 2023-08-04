@@ -9,6 +9,8 @@ public class Game
 
         AssetsContext = gameConfig.AssetsContext;
         LevelStructure = gameConfig.LevelStructure;
+        AbilitiesConfig = gameConfig.AbilitiesConfig;
+        AbilitiesConfig.Initialize();
 
         Player = ObjectUtils.CreateGameObject<Player>(gameConfig.PlayerPrefab);
         RootCanvas = ObjectUtils.CreateGameObject<Canvas>(gameConfig.RootCanvas.gameObject);
@@ -20,6 +22,7 @@ public class Game
     public static Game Context { get; private set; }
 
     public AssetsContext AssetsContext { get; private set; }
+    public AbilitiesConfig AbilitiesConfig { get; private set; }
     public LevelStructure LevelStructure { get; private set; }
     public Player Player { get; private set; }
     public Canvas RootCanvas { get; private set; }

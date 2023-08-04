@@ -12,7 +12,7 @@ namespace Ruinum.Core.Systems
 
         private void Start()
         {
-            new Game(_gameConfig);            
+            new Game(_gameConfig);       
 
             _systems.Add(new ExecuteSystem());
             _systems.Add(new TimerSystem());

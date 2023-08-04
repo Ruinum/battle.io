@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
-  m_Name: KnightMiddle_LevelStructure
+  m_Name: Knight_LevelStructure
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  MainWeapon: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
-  AdditionalWeapon: {fileID: 11400000, guid: ed2e8a8bfb5cfc242a147ac0db85ef68, type: 2}
-  Class: {fileID: 0}
-  NextLevel:
-  - {fileID: 0}
+  Icon: {fileID: 21300000, guid: 62ce01ddca719d34ea9648c586a7cc94, type: 3}
+  MainWeapon: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
+  AdditionalWeapon: {fileID: 11400000, guid: 69879dd99ecc7a548ab72df2424ffa11, type: 2}
+  Class: {fileID: 11400000, guid: 7bd4efce3ab850d4a98071d6b8343dc4, type: 2}
+  NextLevel: []
