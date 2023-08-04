@@ -5,18 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class HitBox : MonoBehaviour
 {
-    private Collider2D _collider => GetComponent<Collider2D>();
+    private Collider2D _collider;
     private float _damage;
     private float _randomDamage;
+
+    private bool _initialized;
 
     private GameObject _owner;
     private Dictionary<Collider2D, byte> _collisions;
 
     private void Start()
     {
+        if (_initialized) return;
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
+
         gameObject.layer = 6; //Layer HitBox
-        _collisions = new Dictionary<Collider2D, byte>(); 
+        _collisions = new Dictionary<Collider2D, byte>();
+        
+        _initialized = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

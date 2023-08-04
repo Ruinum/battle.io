@@ -7,6 +7,7 @@ public class Enemy : Executable, IPlayer
     public Level Level => _level;
     public EnemyVision Vision => _vision;
     public ScaleView ScaleView => _context.ScaleView;
+    public Class Class => _context.Class;
     public IMovement Movement => _context.Movement;
 
     public EnemyBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }

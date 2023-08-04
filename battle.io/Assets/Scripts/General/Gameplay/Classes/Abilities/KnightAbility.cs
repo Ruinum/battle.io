@@ -1,6 +1,7 @@
 ﻿using Ruinum.Core.Systems;
 using Ruinum.Utils;
 using UnityEngine;
+using DG.Tweening;
 
 public class KnightAbility : IClassAbility
 {
@@ -36,10 +37,12 @@ public class KnightAbility : IClassAbility
         _level.AddMultiplier(_activeReduction);
         TimerSystem.Singleton.StartTimer(_activeReductionTime, () => _level.RemoveMultiplier(_activeReduction));
 
-        HitBox waveHitbox = ObjectUtils.CreateGameObject<HitBox>(_wavePrefab, _transform.position);
+        HitBox waveHitbox = ObjectUtils.CreateGameObject<HitBox>(_wavePrefab, _transform);
+
+        waveHitbox.Initialize();
         waveHitbox.Ignore(_transform.gameObject);
         waveHitbox.Enable(_damageScale.ScaleBaseDamage(_baseDamage), _damageScale.ScaleRandomDamage(_randomDamage));
         
-        Object.Destroy(waveHitbox, 1.5f);
+        Object.Destroy(waveHitbox.gameObject, 1.5f);
     }
 }

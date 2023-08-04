@@ -23,6 +23,7 @@ public class Player : Executable, IPlayer
 
     public Transform Transform => transform;
     public Level Level => _level;
+    public Class Class => _class;
     public PlayerLevelProgression LevelProgression => _levelProgression;
     public ScaleView ScaleView => _scaleView;
     public IMovement Movement => _movement;
@@ -35,7 +36,7 @@ public class Player : Executable, IPlayer
         _class = new Class(transform.gameObject, _animationController);
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
         _scaleView = new ScaleView(transform);
-        _levelProgression = new PlayerLevelProgression(_level, _inventory);
+        _levelProgression = new PlayerLevelProgression(this, _level, _inventory);
 
         _cameraFollow = ObjectUtils.CreateGameObject<CameraFollow>(_cameraPrefab);
         _cameraView = new CameraView(_cameraFollow.Camera, _level);

@@ -56,7 +56,7 @@ public class Level : MonoBehaviour
         _currentLevel -= 1;
         CheckDeath();
 
-        _currentExp = _nextLevelExp;
+        _currentExp = _nextLevelExp + _currentExp;
         ScaleExp();
 
         InvokeEvents();

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
   m_Name: RogueStart_LevelStructure
   m_EditorClassIdentifier: 
-  MainWeapon: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
+  Icon: {fileID: 21300000, guid: d1add88478294ef42801067ec35cd773, type: 3}
+  MainWeapon: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
   AdditionalWeapon: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: e29a6c6535e1a184e821a95d1c047e3d, type: 2}

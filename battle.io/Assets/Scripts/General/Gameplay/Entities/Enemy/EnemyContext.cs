@@ -21,7 +21,8 @@ public class EnemyContext
         Rotate = new EnemyRotateToPoint(enemy.Model);
         ScaleView = new ScaleView(enemy.transform);
         LevelProgression = new EnemyLevelProgression(Level, Inventory);
-        
+        Class = new Class(_enemy.gameObject, Animator);
+
         new HitBoxEvents(Level, Animator, Inventory);
         new WeaponAnimation(Animator, Inventory);
         new AudioEvent(Animator, Inventory);
@@ -56,6 +57,7 @@ public class EnemyContext
     public WeaponInventory Inventory { get; private set; }
     public Level Level { get; private set; }
     public EnemyLevelProgression LevelProgression { get; private set; }
+    public Class Class { get; private set; }
     public EnemyMovement Movement { get; private set; }
     public EnemyAttack Attack { get; private set; }
     public EnemyRotateToPoint Rotate { get; private set; }

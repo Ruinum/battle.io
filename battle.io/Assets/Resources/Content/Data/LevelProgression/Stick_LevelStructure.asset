@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
   m_Name: Stick_LevelStructure
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: d212f600164b6d840bbeb3d94f3b21fd, type: 3}
   MainWeapon: {fileID: 11400000, guid: 815855a4fed0ad74da5f3f4a9754981a, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: 6ac176e23215a8a44b640b43660c2de9, type: 2}
   - {fileID: 11400000, guid: 44eda7ed12c20dd4dbeef7f2387d2228, type: 2}
   - {fileID: 11400000, guid: 506c021240d4ecf418f5b43da463e817, type: 2}
-  - {fileID: 11400000, guid: f4e0eeed599f0d64cab1553a639f23ea, type: 2}

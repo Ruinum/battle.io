@@ -4,6 +4,7 @@ using UnityEngine;
 
 public sealed class PlayerLevelProgression
 {
+    private IPlayer _player;
     private Level _level;
     private WeaponInventory _inventory;
 
@@ -12,8 +13,9 @@ public sealed class PlayerLevelProgression
     private int _levelPoints = 0;
     private bool _isUIShowed = false;
 
-    public PlayerLevelProgression(Level level, WeaponInventory inventory)
+    public PlayerLevelProgression(IPlayer player, Level level, WeaponInventory inventory)
     {
+        _player = player;
         _level = level;
         _inventory = inventory;
 
@@ -34,6 +36,8 @@ public sealed class PlayerLevelProgression
         _inventory.EquipWeapon(level.MainWeapon);
         _levelPoints--;
         _isUIShowed = false;
+
+        if (level.Class != null) _player.Class.AddClass(level.Class);
 
         if (level.AdditionalWeapon == null) return;
         _inventory.EquipWeapon(level.AdditionalWeapon);
