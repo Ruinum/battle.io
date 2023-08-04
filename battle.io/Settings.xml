@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Setts>
+<Setts tutorial="1">
   <Own name="Master">
-    <Nested>0,8694004</Nested>
+    <Nested>0</Nested>
   </Own>
   <Own name="Music">
     <Nested>0</Nested>
   </Own>
   <Own name="Effects">
-    <Nested>0,8747473</Nested>
+    <Nested>0</Nested>
   </Own>
 </Setts>

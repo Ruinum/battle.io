@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 public class AllMenu : MonoBehaviour
 {
     XmlDocument xDoc = new XmlDocument();
-    XmlReader xReader;
     Setts[] S = { new Setts("Master",0), new Setts("Music", 0) , new Setts("Effects", 0) };
     protected  void Awake()
     {
@@ -27,7 +26,7 @@ public class AllMenu : MonoBehaviour
         {
             XmlWriter writer = XmlWriter.Create("Settings.xml");
             writer.WriteStartElement("Setts");
-
+            writer.WriteAttributeString("tutorial", "0");
             for (int i = 0; i < S.Length; i++)
             {
                 writer.WriteStartElement("Own");
