@@ -5,6 +5,7 @@
 public class LevelStructure : ScriptableObject
 {
     public Sprite Icon;
+    public Vector2 IconSize = new Vector2(1,1);
     public WeaponInfo MainWeapon;
     public WeaponInfo AdditionalWeapon;
     public ClassConfig Class;

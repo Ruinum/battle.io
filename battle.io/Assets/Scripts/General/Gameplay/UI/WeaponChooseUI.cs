@@ -29,7 +29,11 @@ public class WeaponChooseUI : MonoBehaviour
             Images[i].SetActive(true);
             Images[i].transform.DOPunchScale(new Vector3(0.15f, 0.15f, 0.15f), 0.3f);
             if (level.NextLevel.Length <= 0) continue;
-            if (level.NextLevel[i].Icon) Images[i].GetComponent<Image>().sprite = level.NextLevel[i].Icon;
+            if (level.NextLevel[i].Icon)
+            {
+                Images[i].GetComponent<Image>().sprite = level.NextLevel[i].Icon;
+                Images[i].transform.localScale = level.NextLevel[i].IconSize;
+            }
         }
 
         Level = level;

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HeavyAxe_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: 5819941131500414363, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: b69863706d558df429e00aadc87819b7, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel: []

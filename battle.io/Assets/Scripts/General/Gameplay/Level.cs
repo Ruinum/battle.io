@@ -37,7 +37,8 @@ public class Level : MonoBehaviour
 
         if (_currentExp < _nextLevelExp) return;
 
-        _currentExp = 0;
+        var plusValue = _currentExp - _nextLevelExp;
+        _currentExp = 0 + plusValue;
         _currentLevel += 1;
         ScaleExp();
 
@@ -56,8 +57,10 @@ public class Level : MonoBehaviour
         _currentLevel -= 1;
         CheckDeath();
 
-        _currentExp = _nextLevelExp + _currentExp;
+        var minusValue = _currentExp;
         ScaleExp();
+
+        _currentExp = _nextLevelExp + minusValue;
 
         InvokeEvents();
     }

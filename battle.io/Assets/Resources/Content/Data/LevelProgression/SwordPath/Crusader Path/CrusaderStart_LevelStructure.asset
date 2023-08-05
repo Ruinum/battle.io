@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: CrusaderStart_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: -4329995966834824413, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  IconSize: {x: 1.2, y: 1.2}
   MainWeapon: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: 64d47d27ac7d26941a0c155baafc309d, type: 2}

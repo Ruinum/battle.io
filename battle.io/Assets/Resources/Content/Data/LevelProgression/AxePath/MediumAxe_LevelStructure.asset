@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MediumAxe_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: -1418988371499025352, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: c1c31e95ee5438d41ae5cbbb179d66aa, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: 408e078fb1b7cc74fbb7515d8a779b86, type: 2}

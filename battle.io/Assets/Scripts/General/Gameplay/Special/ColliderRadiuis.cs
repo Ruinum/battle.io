@@ -15,7 +15,14 @@ public class ColliderRadiuis : MonoBehaviour
 
     private void Update()
     {
-        if (_collider.radius >= _radius) Destroy(this);
+        if (_collider.radius >= _radius) 
+        { 
+            _collider.radius = _radius; 
+            _speed = 0;
+            Destroy(this);
+            
+            return;
+        }
 
         _collider.radius += _speed * Time.deltaTime;
         

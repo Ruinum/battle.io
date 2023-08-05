@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LightAxe_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: 4645616705566296956, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: c8dc68061f232fe41a3b52ed58b316f9, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: ca9a453b8dd0255499120242218e3474, type: 2}

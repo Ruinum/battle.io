@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Sword_LevelStructure
   m_EditorClassIdentifier: 
   Icon: {fileID: -8213204048689974351, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: ceffc763f72ac2e4ea7e829c33636507, type: 2}
   AdditionalWeapon: {fileID: 0}
+  Class: {fileID: 0}
   NextLevel:
   - {fileID: 11400000, guid: a73ce22d47707f2408f56dc43b39d7ff, type: 2}
   - {fileID: 11400000, guid: e0edd81324896394594ce7f4d12c067e, type: 2}

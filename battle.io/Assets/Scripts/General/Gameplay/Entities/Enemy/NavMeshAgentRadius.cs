@@ -6,7 +6,7 @@ public class NavMeshAgentRadius
     private Level _level;
     private float _baseRadius;
 
-    private const float NAVMESH_RADIUS_MODIFIER = 0.4f;
+    private const float NAVMESH_RADIUS_MODIFIER = 0.02f;
 
     public NavMeshAgentRadius(NavMeshAgent agent,Level level)
     {
