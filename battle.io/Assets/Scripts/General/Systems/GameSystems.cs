@@ -9,7 +9,7 @@ public class GameSystems : ISystem
     public void Initialize()
     {
         _gameSystems.Add(new ExpOrbSystem(new Vector2(32, 32), new Vector2(-32, -32), 220, 5, 8));
-        _gameSystems.Add(new EnemySpawnSystem(8, 15, 10));
+        _gameSystems.Add(new EnemySpawnSystem(8, 15, 0));
 
         for (int i = 0; i < _gameSystems.Count; i++)
         {

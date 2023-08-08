@@ -12,6 +12,8 @@ namespace Ruinum.Core.Systems
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
+
             new Game(_gameConfig);       
 
             _systems.Add(new ExecuteSystem());

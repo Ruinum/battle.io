@@ -69,13 +69,13 @@ public class Player : Executable, IPlayer
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!_inventory.TryGetRightWeapon(out var weaponInfo)) return;
-            _animationController.PlayAnimation(weaponInfo.Type + " Attack");
+            _animationController.PlayAnimation(weaponInfo.Type + " RH Attack");
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
-            _animationController.PlayAnimation(weaponInfo.Type + " Attack");
+            _animationController.PlayAnimation(weaponInfo.Type + " LH Attack");
         }
     }
 
