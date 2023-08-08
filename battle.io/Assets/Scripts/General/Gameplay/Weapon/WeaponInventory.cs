@@ -13,6 +13,7 @@ public class WeaponInventory : MonoBehaviour
     private LeftArm _leftArm;
 
     public Action<WeaponInfo, GameObject> OnWeaponChange;
+    public Action<WeaponInfo, GameObject> OnWeaponSubChange;
 
     private void Awake()
     {
@@ -79,6 +80,8 @@ public class WeaponInventory : MonoBehaviour
         _currentLeftWeaponInfo = weaponInfo;
 
         _leftArm.SetWeaponPosition(createdWeapon.transform, leftPosition);
+        
+        OnWeaponSubChange?.Invoke(weaponInfo, createdWeapon);
     }
 
     public void Unarm(WeaponHandType handType)

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6acf6f6bd1794ed4b8011cda4029668d, type: 3}
-  m_Name: Sword_AnimationData
+  m_Name: Sword_LH_AnimationData
   m_EditorClassIdentifier: 
-  Clip: {fileID: 7400000, guid: dd403f99352cee54296fd717cf1fe6fc, type: 2}
+  Clip: {fileID: 7400000, guid: caf174a7dc9a2e643a6d043a4a1e867e, type: 2}
   Timeline:
     TimelineKeys:
     - Name: HitBoxEnable

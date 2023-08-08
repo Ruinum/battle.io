@@ -14,7 +14,7 @@ public class HitBox : MonoBehaviour
     private GameObject _owner;
     private Dictionary<Collider2D, byte> _collisions;
 
-    private void Start()
+    private void Awake()
     {
         if (_initialized) return;
         Initialize();
