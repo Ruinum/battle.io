@@ -12,19 +12,20 @@ public class SpecialEvent : EventHandler
         controller.SubscribeOnTimelineEvent("OnSpecial", Special);
     }
 
-    protected override void WeaponChange() { }
-    
+    protected override void WeaponMainChange() { }
+    protected override void WeaponSubChange() { }
+
     private void Special()
     {
-        if (_weaponInfo.Special == null) 
+        if (_mainWeaponInfo.Special == null) 
         { 
-            Debug.LogWarning($"Weapon Info {_weaponInfo} has null value of Special field"); 
+            Debug.LogWarning($"Weapon Info {_mainWeaponInfo} has null value of Special field"); 
             return; 
         };
 
-        var specialObject = Object.Instantiate(_weaponInfo.Special, _transform.position, _transform.rotation, null);
+        var specialObject = Object.Instantiate(_mainWeaponInfo.Special, _transform.position, _transform.rotation, null);
         if (!specialObject.TryGetComponent(out Special special)) { Debug.LogError($"There is no special script on {specialObject}"); }
         
-        special.Initialize(_transform.gameObject.GetComponentInObject<Level>(), _weaponInfo, _transform.gameObject);
+        special.Initialize(_transform.gameObject.GetComponentInObject<Level>(), _mainWeaponInfo, _transform.gameObject);
     }
 }

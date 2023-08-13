@@ -3,22 +3,34 @@
 public abstract class EventHandler
 {
     protected PlayerAnimatorController _controller;
-    protected WeaponInfo _weaponInfo;
-    protected GameObject _weapon;
+    protected WeaponInfo _mainWeaponInfo;
+    protected WeaponInfo _subWeaponInfo;
+    protected GameObject _mainWeapon;
+    protected GameObject _subWeapon;
 
     public EventHandler(PlayerAnimatorController controller, WeaponInventory inventory)
     {
         _controller = controller;
-        inventory.OnWeaponChange += OnWeaponChange;
+        inventory.OnWeaponChange += OnMainWeaponChange;
+        inventory.OnWeaponSubChange += OnSubWeaponChange;
     }
 
-    protected abstract void WeaponChange();
+    protected abstract void WeaponMainChange();
+    protected abstract void WeaponSubChange();
 
-    private void OnWeaponChange(WeaponInfo weaponInfo, GameObject weapon)
+    private void OnMainWeaponChange(WeaponInfo weaponInfo, GameObject weapon)
     {
-        _weaponInfo = weaponInfo;
-        _weapon = weapon;
+        _mainWeaponInfo = weaponInfo;
+        _mainWeapon = weapon;
 
-        WeaponChange();
+        WeaponMainChange();
+    }
+
+    private void OnSubWeaponChange(WeaponInfo weaponInfo, GameObject weapon)
+    {
+        _subWeaponInfo = weaponInfo;
+        _subWeapon = weapon;
+
+        WeaponSubChange();
     }
 }

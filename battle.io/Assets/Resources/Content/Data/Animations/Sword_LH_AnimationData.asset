@@ -15,9 +15,9 @@ MonoBehaviour:
   Clip: {fileID: 7400000, guid: caf174a7dc9a2e643a6d043a4a1e867e, type: 2}
   Timeline:
     TimelineKeys:
-    - Name: HitBoxEnable
+    - Name: HitBoxSubEnable
       Type: 1
       Time: 0.2
-    - Name: HitBoxDisable
+    - Name: HitBoxSubDisable
       Type: 1
       Time: 0.8

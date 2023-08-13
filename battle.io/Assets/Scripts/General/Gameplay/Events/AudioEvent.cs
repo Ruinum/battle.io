@@ -12,11 +12,12 @@ public class AudioEvent : EventHandler
         controller.SubscribeOnTimelineEvent("PlayAudio", PlayAudio);
     }
 
-    protected override void WeaponChange() { }
+    protected override void WeaponMainChange() { }
+    protected override void WeaponSubChange() { }
 
     private void PlayAudio()
     {
-        var audioSource = AudioUtils.PlayAudio(_weaponInfo.Audio, _transform.position);
+        var audioSource = AudioUtils.PlayAudio(_mainWeaponInfo.Audio, _transform.position);
         Object.Destroy(audioSource.gameObject, audioSource.clip.length);
     }
 }
