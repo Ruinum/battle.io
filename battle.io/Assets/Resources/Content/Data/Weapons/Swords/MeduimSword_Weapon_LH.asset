@@ -15,7 +15,7 @@ MonoBehaviour:
   Prefab: {fileID: 7926881182184309057, guid: 7f069c336c5c07a4fad520c3924da030, type: 3}
   Special: {fileID: 0}
   Animation: {fileID: 11400000, guid: 1716540dcdb080748a930d600bd09a25, type: 2}
-  Audio: {fileID: 11400000, guid: 8ece7d8c4af4caf46a922c17c67ecf64, type: 2}
+  Audio: {fileID: 11400000, guid: 7319861cbc2ee6e4eb422e184f232838, type: 2}
   Damage: 5
   RandomDamage: 2
   Distance: 2.5

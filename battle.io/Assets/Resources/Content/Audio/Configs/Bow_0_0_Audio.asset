@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1fd0e9b000e6248a6688c46da42965, type: 3}
+  m_Name: Bow_0_0_Audio
+  m_EditorClassIdentifier: 
+  Clip: {fileID: 8300000, guid: cacd7aa8d5f703840896e6241fd24823, type: 3}
+  MixerGroup: {fileID: -8526800476056858876, guid: 69ed3fae72dac2046a997ad083e1ac14, type: 2}
+  Loop: 0
+  Priority: 128
+  Volume: 1
+  Pitch: 1
+  StereoPan: 0
+  SpatialBlend: 1
+  ReverbZoneMix: 1

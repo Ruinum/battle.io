@@ -6,6 +6,7 @@ public sealed class TimelineInvoker
 {
     private Dictionary<AnimationClip, Timeline> _timelines;
     private Dictionary<string, List<Action>> _subscribedEvents;
+    private Dictionary<AnimationClip, byte> _playAnimations;
 
     private List<TimelineExecutor> _timelineExecutors;
 
@@ -15,6 +16,7 @@ public sealed class TimelineInvoker
 
         _timelines = new Dictionary<AnimationClip, Timeline>();
         _subscribedEvents = new Dictionary<string, List<Action>>();
+        _playAnimations = new Dictionary<AnimationClip, byte>();
     }
 
     public void SubscribeOnTimelineEvent(string name, Action @event)
@@ -83,9 +85,19 @@ public sealed class TimelineInvoker
             return;
         }
 
-        TimelineExecutor executor = new TimelineExecutor(this, timeline, clip.length);
+        if (_playAnimations.Count >= 1) 
+        {
+            if (_playAnimations.TryGetValue(clip, out var @byte))
+            {
+                Debug.LogWarning($"Clip {clip} is already plays");
+                return;
+            }
+        }
+
+        TimelineExecutor executor = new TimelineExecutor(this, timeline, clip);
         executor.OnTimelineEnd += OnExecutorEnd;
 
+        _playAnimations.Add(clip, 0);
         _timelineExecutors.Add(executor);
     }
 
@@ -97,27 +109,33 @@ public sealed class TimelineInvoker
         }
     }
 
-    private void OnExecutorEnd(TimelineExecutor executor) => _timelineExecutors.Remove(executor);
+    private void OnExecutorEnd(TimelineExecutor executor, AnimationClip clip)
+    {
+        _timelineExecutors.Remove(executor);
+        _playAnimations.Remove(clip);
+    }
 }
 
 public sealed class TimelineExecutor
 {
     private TimelineInvoker _invoker;
+    private AnimationClip _clip;
     private List<TimelineKey> _timelineKeys;
 
     private float _animationDuration;
     private float _currentTime;
 
-    public Action<TimelineExecutor> OnTimelineEnd;
+    public Action<TimelineExecutor, AnimationClip> OnTimelineEnd;
 
-    public TimelineExecutor(TimelineInvoker invoker, Timeline timeline, float animationDuration)
+    public TimelineExecutor(TimelineInvoker invoker, Timeline timeline, AnimationClip clip)
     {
         _invoker = invoker;
+        _clip = clip;
 
         _timelineKeys = new List<TimelineKey>();
         _timelineKeys.AddRange(timeline.TimelineKeys);
 
-        _animationDuration = animationDuration;
+        _animationDuration = _clip.length;
         _currentTime = 0;
     }
 
@@ -128,7 +146,7 @@ public sealed class TimelineExecutor
 
         if (_currentTime < _animationDuration) return;
 
-        OnTimelineEnd?.Invoke(this);
+        OnTimelineEnd?.Invoke(this, _clip);
     }
 
     private void InvokeTimelineKeys(float time)

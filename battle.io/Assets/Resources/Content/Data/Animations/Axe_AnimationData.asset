@@ -17,7 +17,10 @@ MonoBehaviour:
     TimelineKeys:
     - Name: HitBoxEnable
       Type: 1
-      Time: 0.2
+      Time: 1
+    - Name: PlayAudio
+      Type: 1
+      Time: 1.135
     - Name: HitBoxDisable
       Type: 1
-      Time: 1.1
+      Time: 1.35

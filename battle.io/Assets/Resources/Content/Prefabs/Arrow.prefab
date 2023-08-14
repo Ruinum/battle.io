@@ -136,5 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyParticle: {fileID: 5370627895415131670, guid: eb799780d00a75e4eb90b087b497c4df, type: 3}
-  _speed: 600
+  _speed: 680
   _lifeTime: 3

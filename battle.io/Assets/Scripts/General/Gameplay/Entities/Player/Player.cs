@@ -47,7 +47,7 @@ public class Player : Executable, IPlayer
     public override void Start()
     {
         new WeaponAnimation(_animationController, _inventory);
-        new AudioEvent(_animationController, _inventory);
+        new AudioEvents(_animationController, _inventory);
         new SpecialEvent(_animationController, _inventory);
         new Invulnerability(_level);
         new HitBoxEvents(_level, _animationController, _inventory);

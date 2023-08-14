@@ -21,8 +21,12 @@ public class ArrowSpecial : Special
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
         var destroyParticle = Instantiate(_destroyParticle, transform.position, Quaternion.identity, null);
         Destroy(destroyParticle, 1f);
-        Destroy(gameObject);
     }
 }

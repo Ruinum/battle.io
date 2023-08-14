@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 [CreateAssetMenu(menuName = EditorConstants.DataPath + nameof(AudioConfig), fileName = nameof(AudioConfig))]
 public sealed class AudioConfig : ScriptableObject
 {
     public AudioClip Clip;
+    public AudioMixerGroup MixerGroup;
     public bool Loop;
 
     [Range(0f, 256f)]
-    public float Priority = 128f;
+    public int Priority = 128;
     [Range(0f,1f)]
     public float Volume = 1f;
     [Range(-3f, 3f)]

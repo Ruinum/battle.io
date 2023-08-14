@@ -18,3 +18,6 @@ MonoBehaviour:
     - Name: OnSpecial
       Type: 1
       Time: 0.45
+    - Name: PlayAudio
+      Type: 1
+      Time: 0.45

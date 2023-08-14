@@ -5,6 +5,9 @@ using UnityEngine;
 public class HitImpact
 {
     [InjectAsset("ExpOrb")] private GameObject _expOrb;
+    [InjectAsset("Blood")] private GameObject _bloodParticle;
+    [InjectAsset("Hit_0_0_Audio")] private AudioConfig _hitAudio;
+
     private Transform _transform;
     private float _expCutModifier = 0.25f;
 
@@ -32,5 +35,11 @@ public class HitImpact
             SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed);
             TimerSystem.Singleton.StartTimer(1f, () => collider2d.enabled = true);
         }
+
+        AudioUtils.PlayAudio(_hitAudio, _transform.position);
+
+        var bloodParticle = ObjectUtils.CreateGameObject<Transform>(_bloodParticle);
+        bloodParticle.transform.position = _transform.position;
+        Object.Destroy(bloodParticle.gameObject, 1.5f);
     }
 }

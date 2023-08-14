@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ExpOrb : Interactable, IInterestPoint
 {
+    [SerializeField] private AudioConfig _audioConfig;
     [SerializeField] private float _expAmount;
 
     private Transform _rootPool;
@@ -29,6 +30,7 @@ public class ExpOrb : Interactable, IInterestPoint
         level.AddExp(_expAmount);
 
         OnInteract?.Invoke();
+        if (collision.tag == "Player") AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
         ImpactUtils.CreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black);
     }
 
