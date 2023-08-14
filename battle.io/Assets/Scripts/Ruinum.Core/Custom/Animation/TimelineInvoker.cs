@@ -2,22 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimelineInvoker
+public sealed class TimelineInvoker
 {
     private Dictionary<AnimationClip, Timeline> _timelines;
     private Dictionary<string, List<Action>> _subscribedEvents;
 
-    private List<TimelineKey> _timelineKeys;
-    private float _animationDuration;
-    private float _currentTime;
-
-    private bool _playAnimation;
+    private List<TimelineExecutor> _timelineExecutors;
 
     public TimelineInvoker()
     {
+        _timelineExecutors = new List<TimelineExecutor>();
+
         _timelines = new Dictionary<AnimationClip, Timeline>();
         _subscribedEvents = new Dictionary<string, List<Action>>();
-        _timelineKeys = new List<TimelineKey>();
     }
 
     public void SubscribeOnTimelineEvent(string name, Action @event)
@@ -60,16 +57,22 @@ public class TimelineInvoker
 
     public void Execute()
     {
-        if (!_playAnimation) return;
+        if (_timelineExecutors.Count <= 0) return;
+        for (int i = 0; i < _timelineExecutors.Count; i++)
+        {
+            _timelineExecutors[i].Execute();
+        }
+    }
 
-        _currentTime += Time.deltaTime;
-        InvokeTimelineKeys(_currentTime);
+    public void InvokeTimelineKey(string name)
+    {
+        if (!_subscribedEvents.TryGetValue(name, out List<Action> events))
+        {
+            Debug.LogError($"There is no {name} key in Dictionary");
+            return;
+        }
 
-        if (_currentTime < _animationDuration) return; 
-
-        _currentTime = 0;
-        _animationDuration = 0;
-        _playAnimation = false;
+        InvokeEvents(events);
     }
 
     public void PlayAnimation(AnimationClip clip)
@@ -80,28 +83,10 @@ public class TimelineInvoker
             return;
         }
 
-        _timelineKeys.Clear();
-        _timelineKeys.AddRange(timeline.TimelineKeys);
-        _currentTime = 0;
-        _animationDuration = clip.length;
-        _playAnimation = true;
-    }
+        TimelineExecutor executor = new TimelineExecutor(this, timeline, clip.length);
+        executor.OnTimelineEnd += OnExecutorEnd;
 
-    private void InvokeTimelineKeys(float time)
-    {
-        for (int i = 0; i < _timelineKeys.Count; i++)
-        {
-            if (_timelineKeys[i].Time > time) continue;
-            
-            if (!_subscribedEvents.TryGetValue(_timelineKeys[i].Name, out List<Action> events))
-            {
-                Debug.LogError($"There is no {_timelineKeys[i].Name} key in Dictionary");
-                continue;
-            }
-
-            InvokeEvents(events);
-            _timelineKeys.Remove(_timelineKeys[i]);
-        }
+        _timelineExecutors.Add(executor);
     }
 
     private void InvokeEvents(List<Action> events)
@@ -109,6 +94,51 @@ public class TimelineInvoker
         for (int i = 0; i < events.Count; i++)
         {
             events[i]?.Invoke();
+        }
+    }
+
+    private void OnExecutorEnd(TimelineExecutor executor) => _timelineExecutors.Remove(executor);
+}
+
+public sealed class TimelineExecutor
+{
+    private TimelineInvoker _invoker;
+    private List<TimelineKey> _timelineKeys;
+
+    private float _animationDuration;
+    private float _currentTime;
+
+    public Action<TimelineExecutor> OnTimelineEnd;
+
+    public TimelineExecutor(TimelineInvoker invoker, Timeline timeline, float animationDuration)
+    {
+        _invoker = invoker;
+
+        _timelineKeys = new List<TimelineKey>();
+        _timelineKeys.AddRange(timeline.TimelineKeys);
+
+        _animationDuration = animationDuration;
+        _currentTime = 0;
+    }
+
+    public void Execute()
+    {
+        _currentTime += Time.deltaTime;
+        InvokeTimelineKeys(_currentTime);
+
+        if (_currentTime < _animationDuration) return;
+
+        OnTimelineEnd?.Invoke(this);
+    }
+
+    private void InvokeTimelineKeys(float time)
+    {
+        for (int i = 0; i < _timelineKeys.Count; i++)
+        {
+            if (_timelineKeys[i].Time > time) continue;
+
+            _invoker.InvokeTimelineKey(_timelineKeys[i].Name);
+            _timelineKeys.Remove(_timelineKeys[i]);
         }
     }
 }
