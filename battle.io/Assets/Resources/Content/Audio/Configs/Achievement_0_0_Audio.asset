@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1fd0e9b000e6248a6688c46da42965, type: 3}
-  m_Name: Hit_0_0_Audio
+  m_Name: Achievement_0_0_Audio
   m_EditorClassIdentifier: 
-  Clip: {fileID: 8300000, guid: f4453484f7557c148bf2e479ee3a5b18, type: 3}
+  Clip: {fileID: 8300000, guid: dc90d08eb9e5fc54dba4af5876974c18, type: 3}
   MixerGroup: {fileID: -8526800476056858876, guid: 69ed3fae72dac2046a997ad083e1ac14, type: 2}
   Loop: 0
   Priority: 128
-  Volume: 0.15
-  Pitch: 0.75
+  Volume: 1
+  Pitch: 1
   StereoPan: 0
   SpatialBlend: 1
   ReverbZoneMix: 1
