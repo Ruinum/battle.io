@@ -16,5 +16,5 @@ MonoBehaviour:
   IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: 2b2c51f16fa52014ca38a6edf133bbb9, type: 2}
   AdditionalWeapon: {fileID: 11400000, guid: 69879dd99ecc7a548ab72df2424ffa11, type: 2}
-  Class: {fileID: 11400000, guid: 7bd4efce3ab850d4a98071d6b8343dc4, type: 2}
+  Class: {fileID: 0}
   NextLevel: []

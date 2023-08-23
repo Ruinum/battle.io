@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Xml;
-using TMPro;
-using System.IO;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System.Xml;
+using System.IO;
+using TMPro;
 
 public class AllMenu : MonoBehaviour
 {
@@ -45,8 +42,7 @@ public class AllMenu : MonoBehaviour
 
     public void Play()
     {
-        SaveAll();
-        
+        SaveAll();        
     }
 
     public void Exit()

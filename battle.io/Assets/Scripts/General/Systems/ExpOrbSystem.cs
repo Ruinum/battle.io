@@ -4,7 +4,7 @@ using UnityEngine;
 public class ExpOrbSystem : ISystem
 {   
     //TODO: Make injecting from assets context (check pool and delete all not nessesary fields)
-    private ExpOrb _expOrbPrefab;
+    //private ExpOrb _expOrbPrefab;
     private Vector2 _innerBorderSize;
     private Vector2 _outsideBorderSize;
     private int _maxExpOrbAmount;
