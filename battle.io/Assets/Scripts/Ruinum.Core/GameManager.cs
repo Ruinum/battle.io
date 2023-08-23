@@ -10,6 +10,11 @@ namespace Ruinum.Core.Systems
 
         private List<ISystem> _systems = new List<ISystem>();
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Start()
         {
             Application.targetFrameRate = 60;
@@ -20,6 +25,7 @@ namespace Ruinum.Core.Systems
             _systems.Add(new TimerSystem());
             _systems.Add(new CoroutineSystem());
             _systems.Add(new SimulatePhysicSystem());
+            _systems.Add(new SceneSystem());
             _systems.Add(new GameSystems());
 
             for (int i = 0; i < _systems.Count; i++)

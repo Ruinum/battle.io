@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Xml;
 using System.IO;
 using TMPro;
+using Ruinum.Core.Systems;
 
 public class AllMenu : MonoBehaviour
 {
@@ -42,7 +43,8 @@ public class AllMenu : MonoBehaviour
 
     public void Play()
     {
-        SaveAll();        
+        SceneSystem.Singleton.LoadScene("Game", Game.Context.StartGame);
+        SaveAll();
     }
 
     public void Exit()
