@@ -13,13 +13,12 @@ namespace Ruinum.Core.Systems
         private void Awake()
         {
             DontDestroyOnLoad(this);
+            new Game(_gameConfig);
         }
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
-
-            new Game(_gameConfig);       
+            Application.targetFrameRate = 60;    
 
             _systems.Add(new ExecuteSystem());
             _systems.Add(new TimerSystem());

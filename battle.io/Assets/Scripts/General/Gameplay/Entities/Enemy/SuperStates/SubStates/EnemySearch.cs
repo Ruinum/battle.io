@@ -35,7 +35,12 @@ public sealed class EnemySearch : EnemyBaseState
         if (_interestPoint == null) 
         {  
             FindInterestPoint();
+            return;
+        }
 
+        if (_interestPoint.IsDestroyed)
+        {
+            FindInterestPoint();
             return;
         }
 

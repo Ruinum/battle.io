@@ -18,6 +18,7 @@ public class Game
         AssetsContext = _gameConfig.AssetsContext;
         LevelStructure = _gameConfig.LevelStructure;
         AbilitiesConfig = _gameConfig.AbilitiesConfig;
+        
         AbilitiesConfig.Initialize();
     }
 

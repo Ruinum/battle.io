@@ -9,6 +9,7 @@ public class AllMenu : MonoBehaviour
 {
     XmlDocument xDoc = new XmlDocument();
     Setts[] S = { new Setts("Master",0), new Setts("Music", 0) , new Setts("Effects", 0) };
+    
     protected  void Awake()
     {
         try

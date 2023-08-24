@@ -1,6 +1,5 @@
 using Ruinum.Core.Interfaces;
 using UnityEngine;
-using System.Collections;
 
 public class EnemySpawnSystem : ISystem
 {
@@ -62,5 +61,10 @@ public class EnemySpawnSystem : ISystem
         level.OnDead += EnemyDead;
 
         _currentEnemyCount++;
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
     }
 }

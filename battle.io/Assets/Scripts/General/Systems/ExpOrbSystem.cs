@@ -23,7 +23,7 @@ public class ExpOrbSystem : ISystem
         _baseExp = baseExp;
         _maxRandomExp = randomExp;
 
-        Game.Context.AssetsContext.Inject(this);
+        //Game.Context.AssetsContext.Inject(this);
     }
 
     public void Initialize()

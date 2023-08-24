@@ -15,7 +15,6 @@ public class GameSystems : ISystem
 
     public void Execute()
     {
-        Debug.Log(_initialized);
         if (!_initialized) return;
 
         for (int i = 0; i < _gameSystems.Count; i++)

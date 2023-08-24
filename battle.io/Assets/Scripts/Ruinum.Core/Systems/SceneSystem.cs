@@ -2,15 +2,13 @@ using Ruinum.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DG.Tweening;
 using System;
 
 namespace Ruinum.Core.Systems
 {
     public class SceneSystem : System<SceneSystem>
     {
-        private Canvas _loadCanvas;
-        private Image _blackImage;
+        private LoadScreen _loadScreen;
 
         private Action _onSceneLoaded;
         private AsyncOperation _loadingScene;
@@ -23,18 +21,13 @@ namespace Ruinum.Core.Systems
 
         public override void Init() 
         {
-            _loadCanvas = ObjectUtils.CreateGameObject<Canvas>(Game.Context.AssetsContext.GetObjectOfType(typeof(GameObject), "LoadCanvas") as GameObject);
-            _blackImage = _loadCanvas.gameObject.GetComponentInChildren<Image>();
-
-            _loadCanvas.enabled = false;
-            UnityEngine.Object.DontDestroyOnLoad(_loadCanvas);
+            _loadScreen = ObjectUtils.CreateGameObject<LoadScreen>(Game.Context.AssetsContext.GetObjectOfType(typeof(GameObject), "LoadCanvas") as GameObject);
         }
 
         public override void Execute()
         {
             if (!_isLoadScene) return;
-            if (_loadingScene.progress != 1) return;
-            if (_unloadScene.progress != 1) return;
+            if (!_loadingScene.isDone || !_unloadScene.isDone) return;
 
             OnSceneComplete();
         }
@@ -45,18 +38,14 @@ namespace Ruinum.Core.Systems
             _onSceneLoaded = onSceneLoaded;
             _pastScene = SceneManager.GetActiveScene().name;
 
-            Debug.Log($"Loading {_sceneName}, Past {_pastScene}");
-
             SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += LoadingScene;
         }
 
         private void LoadingScene(AsyncOperation asyncOperation)
-        {
-            _loadCanvas.enabled = true;
-           
+        {        
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
-
-            _blackImage.DOFillAmount(1, 1).OnComplete(() =>
+            
+            _loadScreen.Show(() =>
             {
                 _loadingScene = SceneManager.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
                 _unloadScene = SceneManager.UnloadSceneAsync(_pastScene);
@@ -72,12 +61,10 @@ namespace Ruinum.Core.Systems
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneName));
 
             _onSceneLoaded?.Invoke();
-
-            _blackImage.DOFillAmount(0, 1).OnComplete(() => 
+            _loadScreen.Hide(() =>
             {
                 SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading"));
-                _loadCanvas.enabled = false;
-            });
+            });           
         }
     }
 }
