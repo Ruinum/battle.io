@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df86678ad483af844ab117e1fdcced82, type: 3}
-  m_Name: HeavyShield_Weapon
+  m_Name: HeavyHammer_0_1_Weapon
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 486241513094020002, guid: c1e98a41f3ba11d4ca261865f5c52d15, type: 3}
+  Prefab: {fileID: 3405661188487481192, guid: 9fc9da3cf9ec4e040ab4eada6ee0ad5a, type: 3}
   Special: {fileID: 0}
-  Animation: {fileID: 11400000, guid: e48927e3077de464ebf4bdff929ec4da, type: 2}
-  Audio: {fileID: 0}
+  Animation: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
+  Audio: {fileID: 11400000, guid: f4d2148938ca9934ea1245e84ef71b35, type: 2}
   Damage: 0
   RandomDamage: 0
   Distance: 0
-  Type: 2
-  HandType: 1
+  Type: 1
+  HandType: 2
   MainHandType: 0

@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: LightShield_Weapon
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7570791563358353172, guid: 0b09c87487bea714c84cf1b7f342f3a1, type: 3}
+  Special: {fileID: 0}
+  Animation: {fileID: 11400000, guid: e48927e3077de464ebf4bdff929ec4da, type: 2}
+  Audio: {fileID: 0}
   Damage: 0
-  MovementModifier: 1
+  RandomDamage: 0
+  Distance: 0
   Type: 2
   HandType: 1
+  MainHandType: 0

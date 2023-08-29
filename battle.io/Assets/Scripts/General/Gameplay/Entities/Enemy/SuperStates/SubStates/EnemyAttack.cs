@@ -27,8 +27,27 @@ public sealed class EnemyAttack
         if (CheckAttack() && !_isAttacking)
         {
             _isAttacking = true;
-            TimerSystem.Singleton.StartTimer(Random.Range(0, 0.1f), () => { _animator.PlayAnimation(_weaponInfo.Type + " RH Attack"); });
+            TimerSystem.Singleton.StartTimer(Random.Range(0, 0.1f), () => { PlayMainWeaponAnimation(_weaponInfo); });
             TimerSystem.Singleton.StartTimer(_weaponInfo.Animation.Clip.length, () => _isAttacking = false);
+        }
+    }
+
+    private void PlayMainWeaponAnimation(WeaponInfo weaponInfo)
+    {
+        if (weaponInfo.HandType != WeaponHandType.Both) { _animator.PlayAnimation(weaponInfo.Type + " RH Attack"); return; }
+
+        switch (weaponInfo.MainHandType)
+        {
+            case WeaponMainHandType.None:
+                break;
+            case WeaponMainHandType.Left:
+                _animator.PlayAnimation(weaponInfo.Type + " LH Attack");
+                break;
+            case WeaponMainHandType.Right:
+                _animator.PlayAnimation(weaponInfo.Type + " RH Attack");
+                break;
+            default:
+                break;
         }
     }
 
