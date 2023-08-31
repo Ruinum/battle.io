@@ -15,10 +15,13 @@ public class Game
         Context = this;
         _gameConfig = gameConfig;
 
+        ExpOrbPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Pool", "ExpOrb", _gameConfig.ExpOrbCapacity);
+        PopUpPool = new PopUpPool(_gameConfig.AssetsContext, "PopUp Pool", "PopUp", _gameConfig.PopUpCapacity);
+
         AssetsContext = _gameConfig.AssetsContext;
         LevelStructure = _gameConfig.LevelStructure;
         AbilitiesConfig = _gameConfig.AbilitiesConfig;
-        
+
         AbilitiesConfig.Initialize();
     }
 
@@ -30,6 +33,8 @@ public class Game
     public Player Player { get; private set; }
     public Canvas RootCanvas { get; private set; }
     public PlayerUI PlayerUI { get; private set; }
+    public ExpOrbPool ExpOrbPool { get; private set; }
+    public PopUpPool PopUpPool { get; private set; }
 
     public void StartGame()
     {
@@ -38,6 +43,8 @@ public class Game
         PlayerUI = ObjectUtils.CreateGameObject<PlayerUI>(_gameConfig.PlayerUIPrefab, RootCanvas.transform);
 
         PlayerUI.Initialize(Player);
+        ExpOrbPool.InitializePool();
+        PopUpPool.InitializePool();
 
         OnGameStarted?.Invoke();
         GameStarted = true;
@@ -48,6 +55,9 @@ public class Game
         UnityEngine.Object.Destroy(Player);
         UnityEngine.Object.Destroy(RootCanvas);
         UnityEngine.Object.Destroy(PlayerUI);
+        
+        ExpOrbPool.RefreshPool();
+        PopUpPool.RefreshPool();
 
         OnGameEnded?.Invoke();
         GameStarted = false;

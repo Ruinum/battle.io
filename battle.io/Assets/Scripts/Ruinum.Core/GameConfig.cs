@@ -11,4 +11,10 @@ public sealed class GameConfig : ScriptableObject
     [Header("Player Prefabs")]
     public GameObject PlayerPrefab;
     public GameObject PlayerUIPrefab;
+
+    [Header("Exp Orb Pool Settings")]
+    public int ExpOrbCapacity;
+
+    [Header("PopUp Pool Settings")]
+    public int PopUpCapacity;
 }

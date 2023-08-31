@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ExpOrbSystem : ISystem
 {   
-    //TODO: Make injecting from assets context (check pool and delete all not nessesary fields)
-    //private ExpOrb _expOrbPrefab;
     private Vector2 _innerBorderSize;
     private Vector2 _outsideBorderSize;
     private int _maxExpOrbAmount;
@@ -13,7 +11,7 @@ public class ExpOrbSystem : ISystem
 
     private ExpOrbPool _pool;
     private int _expOrbAmount;
-    private int _safePool = 15;
+    private int _safeZone = 35;
 
     public ExpOrbSystem(Vector2 innerBorder, Vector2 outsideBorder, int orbAmount, float baseExp, float randomExp)
     {
@@ -22,15 +20,13 @@ public class ExpOrbSystem : ISystem
         _maxExpOrbAmount = orbAmount;
         _baseExp = baseExp;
         _maxRandomExp = randomExp;
-
-        //Game.Context.AssetsContext.Inject(this);
     }
 
     public void Initialize()
     {
-        _pool = new ExpOrbPool(_maxExpOrbAmount + _safePool);
+        _pool = Game.Context.ExpOrbPool;
 
-        for (int i = _expOrbAmount; i < _maxExpOrbAmount - 5; i++)
+        for (int i = _expOrbAmount; i < _maxExpOrbAmount - _safeZone; i++)
         {
             SpawnExpOrb();
         }
@@ -45,7 +41,7 @@ public class ExpOrbSystem : ISystem
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
         
-        ExpOrb expOrb = _pool.GetExpOrb("ExpOrb");
+        ExpOrb expOrb = _pool.GetPoolObject();
 
         float expOrbExpValue = Random.Range(_baseExp, _maxRandomExp);
         expOrb.SetExp(expOrbExpValue);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6494363527969160815}
   - component: {fileID: 5312654292648326394}
   - component: {fileID: 2978689595081524452}
+  - component: {fileID: 8553613578051963023}
   m_Layer: 5
   m_Name: PopUp
   m_TagString: Untagged
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2978689595081524452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +101,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8553613578051963023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471170108911826637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7846f36807fef274c93143383d82fe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolName: PopUp Pool
+  _textMeshPro: {fileID: 1769238509517015146}
 --- !u!1 &3560863459706207872
 GameObject:
   m_ObjectHideFlags: 0
