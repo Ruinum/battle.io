@@ -1,11 +1,16 @@
-﻿using System;
+﻿using Ruinum.Core.Systems;
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimatorController : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
+    
     private TimelineInvoker _timelineInvoker;
+    protected bool _isDestroyed;
+
+    protected string _idleName = "Idle";
 
     private void Awake()
     {
@@ -45,6 +50,7 @@ public class PlayerAnimatorController : MonoBehaviour
         if (animation != null)
         {
             _timelineInvoker.PlayAnimation(animation);
+            TimerSystem.Singleton.StartTimer(animation.length, PlayIdle);
         }
 
         if (_animator.layerCount <= 1) StopCoroutine(StartTimeline());
@@ -56,8 +62,20 @@ public class PlayerAnimatorController : MonoBehaviour
         }
     }
 
+    private void PlayIdle()
+    {
+        if (_isDestroyed) return;
+        Debug.Log("Go to idle");
+        _animator.CrossFade(_idleName, 0.3f);
+    }
+
     private void Update()
     {
         _timelineInvoker.Execute();
+    }
+
+    private void OnDestroy()
+    {
+        _isDestroyed = true;
     }
 }

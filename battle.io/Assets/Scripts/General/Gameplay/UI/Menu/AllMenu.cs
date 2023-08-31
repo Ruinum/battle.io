@@ -18,6 +18,8 @@ public class AllMenu : MonoBehaviour
             for (int i = 0; i < S.Length; i++)
             {
                 S[i].value = LoadXML(S[i].name);
+                sliders[i].value = S[i].value;
+                text[0].text = ((int)(S[i].value * 100)).ToString();
                 Debug.Log("Loaded: " + S[i].name + " = " + S[i].value);
             }
         }
@@ -63,6 +65,7 @@ public class AllMenu : MonoBehaviour
     }
 
     public TextMeshProUGUI[] text;
+    public Slider[] sliders;
 
     public void SetMasterValue(Slider slider)
     {

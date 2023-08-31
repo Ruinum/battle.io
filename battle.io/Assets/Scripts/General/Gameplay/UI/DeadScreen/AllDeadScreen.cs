@@ -5,44 +5,49 @@ using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Ruinum.Core.Systems;
 
 public class AllDeadScreen : MonoBehaviour
-{
-    public float TimeFade;
-    private Image[] images;
-    private TextMeshProUGUI[] texts;
+{    
+    [SerializeField] private GameObject _deathScreen;
+    [SerializeField] private float _timeFade;
 
-    private void Start()
+    private Image[] _images;
+    private TMP_Text[] _texts;
+
+    private IEnumerator Start()
     {
-        images = GetComponentsInChildren<Image>();
-        texts = GetComponentsInChildren<TextMeshProUGUI>();
-        StartCoroutine(enumerator());
-    }
-    IEnumerator enumerator()
-    {
+        _images = GetComponentsInChildren<Image>();
+        _texts = GetComponentsInChildren<TMP_Text>();
+        _deathScreen.SetActive(false);
+
         yield return new WaitForEndOfFrame();
-        FindObjectOfType<Player>().GetComponent<Level>().OnDead += PlayDeadScreen;
+
+        Game.Context.Player.Level.OnDead += PlayDeadScreen;
     }
 
     public void ToMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneSystem.Singleton.LoadScene("Menu", Game.Context.EndGame);
     }
 
-    public void Restart()
+    public void Exit()
     {
-        SceneManager.LoadScene(2);
+        Application.Quit();
     }
 
     public void PlayDeadScreen()
     {
-        for (int i = 0; i < images.Length; i++)
+        _deathScreen.SetActive(true);
+        
+        for (int i = 0; i < _images.Length; i++)
         {
-            images[i].DOFade(1, TimeFade);
+            _images[i].DOFade(1, _timeFade);
         }
-        for (int i = 0; i < images.Length; i++)
+
+        for (int i = 0; i < _texts.Length; i++)
         {
-            texts[i].DOFade(1, TimeFade);
+            _texts[i].DOFade(1, _timeFade);
         }
     }
 }

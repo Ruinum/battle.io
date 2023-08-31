@@ -6,5 +6,6 @@
     Axe    = 3,
     Staff  = 4,
     Spear  = 5,
-    Bow    = 6
+    Bow    = 6,
+    Hammer = 7
 }

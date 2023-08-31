@@ -4,8 +4,9 @@ using UnityEngine;
 public class EnemySpawnSystem : ISystem
 {
     [InjectAsset("Enemy")] private GameObject _enemyPrefab;
-    
-    private Transform _player;
+
+    private Player _player;
+    private Transform _point;
     private float _horizontal;
     private float _vertical;    
     private int _maxEnemyCount;
@@ -22,7 +23,7 @@ public class EnemySpawnSystem : ISystem
     
     public void Initialize()
     {
-        if (Game.Context.Player != null) _player = Game.Context.Player.transform;
+        if (Game.Context.Player != null) { _player = Game.Context.Player; _point = _player.transform; }
         for (int i = 0; i <= _maxEnemyCount; i++)
         {
             Spawn();
@@ -42,7 +43,7 @@ public class EnemySpawnSystem : ISystem
         if (_currentEnemyCount == _maxEnemyCount) return;
         if (_player == null || _player == default)
         {
-            if (Game.Context.Player != null) _player = Game.Context.Player.transform;
+            if (Game.Context.Player != null) { _player = Game.Context.Player; _point = _player.transform; }
             return;
         }
 
@@ -55,7 +56,7 @@ public class EnemySpawnSystem : ISystem
             y = Random.Range(-_vertical - _dist, _vertical + _dist);
         } while ((x >= -_horizontal && x <= _horizontal) && (y >= -_vertical && y <= _vertical));
 
-        createdEnemy.transform.position = _player.position + new Vector3(x, y, 0);
+        createdEnemy.transform.position = _point.position + new Vector3(x, y, 0);
         
         var level = createdEnemy.GetComponent<Level>();
         level.OnDead += EnemyDead;
@@ -63,8 +64,8 @@ public class EnemySpawnSystem : ISystem
         _currentEnemyCount++;
     }
 
-    public void SetPlayer(Transform player)
+    public void SetPlayer(Transform transform)
     {
-        _player = player;
+        _point = transform;
     }
 }

@@ -7,7 +7,8 @@ public class WeaponChooseUI : MonoBehaviour
     private Player _player;
     private LevelStructure Level;    
 
-    [SerializeField] public GameObject[] Images = new GameObject[4]; 
+    [SerializeField] private GameObject[] Images = new GameObject[4];
+    [SerializeField] private GameObject _background;
     
     public void Initialize(Player player)
     {
@@ -23,6 +24,8 @@ public class WeaponChooseUI : MonoBehaviour
 
     public void GetChoose(LevelStructure level)
     {
+        _background.SetActive(true);
+
         int ct = level.NextLevel.Length;
         for (int i = 0; i < ct; i++)
         {
@@ -47,6 +50,8 @@ public class WeaponChooseUI : MonoBehaviour
 
     public void Close()
     {
+        _background.SetActive(false);
+
         for (int i = 0; i < 4; i++)
         {
             Images[i].SetActive(false);

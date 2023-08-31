@@ -13,4 +13,5 @@ public class WeaponInfo : ScriptableObject
     public WeaponType Type;
     public WeaponHandType HandType;
     public WeaponMainHandType MainHandType;
+    public bool IsHeavy;
 }

@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 5093025667706901531}
   - component: {fileID: 5093025667706901526}
   - component: {fileID: 5093025667706901527}
-  - component: {fileID: 5093025667706901529}
+  - component: {fileID: 6340788290697510818}
   - component: {fileID: 5093025667706901530}
   - component: {fileID: 5093025667706901533}
   - component: {fileID: 5093025667706901535}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _context: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
-  _animationController: {fileID: 5093025667706901529}
+  _animationController: {fileID: 6340788290697510818}
   _inventory: {fileID: 5093025667706901530}
   _movement: {fileID: 5093025667706901535}
   _cameraPrefab: {fileID: 9183095469333505964, guid: f81ea8d59930ef84b8d21024619a5ca2, type: 3}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac6062bf53a26b4a99d905c877dca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5093025667706901529
+--- !u!114 &6340788290697510818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,10 +473,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5093025667706901601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8acc2274386a0774eae8dccb9151f009, type: 3}
+  m_Script: {fileID: 11500000, guid: 281589df6201440448e8baa9baa72377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5093025667706901528}
+  _inventory: {fileID: 5093025667706901530}
 --- !u!114 &5093025667706901530
 MonoBehaviour:
   m_ObjectHideFlags: 0

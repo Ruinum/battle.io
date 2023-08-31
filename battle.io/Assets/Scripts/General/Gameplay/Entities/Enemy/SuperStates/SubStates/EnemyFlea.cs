@@ -29,6 +29,7 @@ public sealed class EnemyFlea : EnemyBaseState
 
     public override void UpdateState()
     {
+        if (_vision.NearestEnemy.IsDestroyed) { return; }
         _rotate.SetPoint(_vision.NearestEnemy.Transform.position);
         _rotate.Execute();
 

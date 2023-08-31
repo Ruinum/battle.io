@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Executable, IPlayer
 {
     [SerializeField] private AssetsContext _context;
-    [SerializeField] private PlayerAnimatorController _animationController;
+    [SerializeField] private PlayerWeaponAnimatorController _animationController;
     [SerializeField] private WeaponInventory _inventory;
     [SerializeField] private Movement _movement;
     [SerializeField] private GameObject _cameraPrefab;
@@ -69,33 +69,13 @@ public class Player : Executable, IPlayer
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!_inventory.TryGetRightWeapon(out var weaponInfo)) return;
-            PlayMainWeaponAnimation(weaponInfo);
-            _animationController.PlayAnimation(weaponInfo.Type + " RH Attack");
+            _animationController.PlayWeaponAttackAnimation(weaponInfo);                 
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
-            _animationController.PlayAnimation(weaponInfo.Type + " LH Attack");
-        }
-    }
-
-    private void PlayMainWeaponAnimation(WeaponInfo weaponInfo)
-    {
-        if (weaponInfo.HandType != WeaponHandType.Both) { _animationController.PlayAnimation(weaponInfo.Type + " RH Attack"); return; }
-
-        switch (weaponInfo.MainHandType)
-        {
-            case WeaponMainHandType.None:
-                break;
-            case WeaponMainHandType.Left:
-                _animationController.PlayAnimation(weaponInfo.Type + " LH Attack");
-                break;
-            case WeaponMainHandType.Right:
-                _animationController.PlayAnimation(weaponInfo.Type + " RH Attack");
-                break;
-            default:
-                break;
+            _animationController.PlayWeaponAttackAnimation(weaponInfo);
         }
     }
 

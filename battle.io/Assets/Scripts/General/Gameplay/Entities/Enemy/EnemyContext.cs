@@ -12,7 +12,7 @@ public class EnemyContext
         Level = enemy.Level;
 
         Rigidbody = enemy.GetComponent<Rigidbody2D>();
-        Animator = enemy.GetComponent<PlayerAnimatorController>();
+        Animator = enemy.GetComponent<PlayerWeaponAnimatorController>();
         Inventory = enemy.GetComponent<WeaponInventory>();
         Agent = enemy.GetComponent<NavMeshAgent>(); 
 
@@ -53,7 +53,7 @@ public class EnemyContext
     public NavMeshAgent Agent { get; private set; }
     public Transform Transform { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
-    public PlayerAnimatorController Animator { get; private set; }
+    public PlayerWeaponAnimatorController Animator { get; private set; }
     public WeaponInventory Inventory { get; private set; }
     public Level Level { get; private set; }
     public EnemyLevelProgression LevelProgression { get; private set; }

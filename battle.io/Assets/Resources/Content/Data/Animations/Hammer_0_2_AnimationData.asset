@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6acf6f6bd1794ed4b8011cda4029668d, type: 3}
-  m_Name: Sword_LH_AnimationData
+  m_Name: Hammer_0_2_AnimationData
   m_EditorClassIdentifier: 
-  Clip: {fileID: 7400000, guid: caf174a7dc9a2e643a6d043a4a1e867e, type: 2}
+  Clip: {fileID: 7400000, guid: 91f10ef39b526f048930c1366fd32651, type: 2}
   Timeline:
     TimelineKeys:
-    - Name: HitBoxSubEnable
+    - Name: HitBoxEnable
       Type: 1
-      Time: 0.2
-    - Name: HitBoxSubDisable
+      Time: 0.4
+    - Name: PlayAudio
       Type: 1
-      Time: 0.8
+      Time: 0.57
+    - Name: HitBoxDisable
+      Type: 1
+      Time: 1.25

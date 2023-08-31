@@ -39,6 +39,7 @@ namespace Ruinum.Core.Systems
             _pastScene = SceneManager.GetActiveScene().name;
 
             SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += LoadingScene;
+            ExecuteSystem.Singleton.ClearAllExecuteObjects();
         }
 
         private void LoadingScene(AsyncOperation asyncOperation)

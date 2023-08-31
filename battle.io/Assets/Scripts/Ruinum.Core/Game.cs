@@ -9,7 +9,7 @@ public class Game
     public bool GameStarted = false;
     public Action OnGameStarted;
     public Action OnGameEnded;
-
+    
     public Game(GameConfig gameConfig)
     {
         Context = this;
