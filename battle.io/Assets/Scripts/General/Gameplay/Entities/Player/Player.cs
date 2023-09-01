@@ -1,4 +1,5 @@
 ﻿using Ruinum.Core;
+using Ruinum.Core.Systems;
 using Ruinum.Utils;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class Player : Executable, IPlayer
     private CameraView _cameraView;
     private Magnite _magnite;
     private CameraFollow _cameraFollow;
+    private bool _mainWeaponDelay;
+    private bool _subWeaponDelay;
 
     public Transform Transform => transform;
     public Level Level => _level;
@@ -66,16 +69,20 @@ public class Player : Executable, IPlayer
         _levelProgression.Execute();
         _class.Execute();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_mainWeaponDelay)
         {
             if (!_inventory.TryGetRightWeapon(out var weaponInfo)) return;
-            _animationController.PlayWeaponAttackAnimation(weaponInfo);                 
+            _animationController.PlayWeaponAttackAnimation(weaponInfo);
+            TimerSystem.Singleton.StartTimer(weaponInfo.Animation.Clip.length, () => _mainWeaponDelay = false);
+            _mainWeaponDelay = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !_subWeaponDelay)
         {
             if (!_inventory.TryGetLeftWeapon(out var weaponInfo)) return;
             _animationController.PlayWeaponAttackAnimation(weaponInfo);
+            TimerSystem.Singleton.StartTimer(weaponInfo.Animation.Clip.length, () => _subWeaponDelay = false);
+            _subWeaponDelay = true;
         }
     }
 

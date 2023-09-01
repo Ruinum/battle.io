@@ -23,11 +23,7 @@ public class Pool<T> where T : MonoBehaviour
         _pool = new Dictionary<string, HashSet<T>>();
         _capacityPool = capacityPool;
 
-        if (!_rootPool)
-        {
-            _rootPool = new GameObject(poolName).transform;
-            UnityEngine.Object.DontDestroyOnLoad(_rootPool);
-        }
+        InitializePool();
     }
 
     public T GetPoolObject()
@@ -46,15 +42,11 @@ public class Pool<T> where T : MonoBehaviour
         var poolObject = poolObjects.FirstOrDefault(a => !a.gameObject.activeSelf);
         if (poolObject == null)
         {
-            for (var i = 0; i < _capacityPool; i++)
-            {
-                var instantiate = UnityEngine.Object.Instantiate(_poolObject);
-                ReturnToPool(instantiate.transform);
-                poolObjects.Add(instantiate.GetComponent<T>());
-            }
-
-            GetPoolObject(poolObjects);
+            var instantiate = UnityEngine.Object.Instantiate(_poolObject);
+            ReturnToPool(instantiate.transform);
+            poolObjects.Add(instantiate.GetComponent<T>());
         }
+
         poolObject = poolObjects.FirstOrDefault(a => !a.gameObject.activeSelf);
         _onPoolRemove += () => ReturnToPool(poolObject.transform);
         return poolObject;
@@ -74,6 +66,15 @@ public class Pool<T> where T : MonoBehaviour
         {
             _rootPool = new GameObject(_poolName).transform;
             UnityEngine.Object.DontDestroyOnLoad(_rootPool);
+
+            if (!_pool.ContainsKey(_poolObjectName)) _pool[_poolObjectName] = new HashSet<T>();
+
+            for (var i = 0; i < _capacityPool; i++)
+            {
+                var instantiate = UnityEngine.Object.Instantiate(_poolObject);
+                ReturnToPool(instantiate.transform);
+                _pool[_poolObjectName].Add(instantiate.GetComponent<T>());
+            }
         }
     }
 

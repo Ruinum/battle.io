@@ -10,6 +10,7 @@ namespace Ruinum.Core
         private List<Timer> _timers;        
         protected float _startingTime;
         protected float _currentTime;
+        protected float _speed = 1;
 
         public Action<float, float> OnTimeChange;
         public Action OnTimerEnd;
@@ -24,10 +25,15 @@ namespace Ruinum.Core
 
         public virtual void Execute()
         {
-            _currentTime -= Time.deltaTime;
+            _currentTime -= Time.deltaTime * _speed;
             OnTimeChange?.Invoke(_currentTime, _startingTime);
 
             if (_currentTime <= 0f) { OnTimerEnd?.Invoke(); RemoveTimer(); }
+        }
+
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
         }
 
         protected void RemoveTimer()

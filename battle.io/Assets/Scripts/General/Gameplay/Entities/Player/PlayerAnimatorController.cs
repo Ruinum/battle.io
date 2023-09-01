@@ -65,8 +65,7 @@ public class PlayerAnimatorController : MonoBehaviour
     private void PlayIdle()
     {
         if (_isDestroyed) return;
-        Debug.Log("Go to idle");
-        _animator.CrossFade(_idleName, 0.3f);
+        _animator.CrossFade(_idleName, 0.1f);
     }
 
     private void Update()

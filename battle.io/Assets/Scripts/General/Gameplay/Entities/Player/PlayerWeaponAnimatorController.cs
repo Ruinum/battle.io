@@ -37,18 +37,18 @@ public class PlayerWeaponAnimatorController : PlayerAnimatorController
 
     private void ChangeIdle(WeaponInfo weaponInfo, GameObject gameObject)
     {
-        Debug.Log("123");
-
         if (!weaponInfo.IsHeavy && _isHeavyEquipped)
         {
             _idleName = "Arm Idle";
             var timer = TimerSystem.Singleton.StartTimer(1, () => { if (!_isDestroyed) { _animator.SetLayerWeight(1, 1); _isHeavyEquipped = false; } });
+            timer.SetSpeed(2f);
             timer.OnTimeChange += (x, y) => { if (!_isDestroyed) _animator.SetLayerWeight(1, x); };
         }
         else if (weaponInfo.IsHeavy && !_isHeavyEquipped)
         {
             _idleName = "Heavy Idle";
             var timer = TimerSystem.Singleton.StartReverseTimer(1, () => { if (!_isDestroyed) { _animator.SetLayerWeight(1, 0); _isHeavyEquipped = true; } });
+            timer.SetSpeed(2f);
             timer.OnTimeChange += (x, y) => { if (!_isDestroyed) _animator.SetLayerWeight(1, x); };
         }
     }
