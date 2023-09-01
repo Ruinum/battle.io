@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415663806941628024}
   - component: {fileID: 6469121698571619449}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftArmPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 7570791563358353170}
   - component: {fileID: 7570791563358353173}
   - component: {fileID: 5198494225328790378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LightShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}

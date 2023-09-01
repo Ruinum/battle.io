@@ -15,14 +15,14 @@ class MenuGameplay : MonoBehaviour
     private void Initialize()
     {
         _expOrbSystem = new ExpOrbSystem(new Vector2(32, 32), new Vector2(-32, -32), 220, 5, 8);
-        _enemySpawnSystem = new EnemySpawnSystem(18, 10, 10);
+        _enemySpawnSystem = new EnemySpawnSystem(18, 10, 45);
         _enemySpawnSystem.SetPlayer(new GameObject("FakePlayer").transform);
 
         _expOrbSystem.Initialize();
         _enemySpawnSystem.Initialize();
     }
 
-    public void Execute()
+    public void Update()
     {
         _expOrbSystem.Execute();
         _enemySpawnSystem.Execute();

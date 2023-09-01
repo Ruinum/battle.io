@@ -24,15 +24,18 @@ public class HitImpact
 
         for (int i = 0; i < expOrbAmount; i++)
         {
-            ExpOrb expOrb = Object.Instantiate(_expOrb, _transform.position, Quaternion.identity, null).GetComponent<ExpOrb>();
+            ExpOrb expOrb = Game.Context.ExpOrbPool.GetPoolObject();
+            expOrb.Active(_transform.position, Quaternion.identity);
             var collider2d = expOrb.GetComponent<Collider2D>();
             collider2d.enabled = false;
-            expOrb.SetExp(expOrbValue);
+           
+            expOrb.SetExp(expOrbValue);           
+            expOrb.DelayFade(4f);
 
             Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             float randomSpeed = Random.Range(50f, 150f);
 
-            SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed);
+            SimulatePhysicUtils.Impulse(expOrb.gameObject, direction, randomSpeed, 0.75f);
             TimerSystem.Singleton.StartTimer(1f, () => collider2d.enabled = true);
         }
 

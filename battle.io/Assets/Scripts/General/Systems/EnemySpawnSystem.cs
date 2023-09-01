@@ -24,7 +24,10 @@ public class EnemySpawnSystem : ISystem
     
     public void Initialize()
     {
-        if (Game.Context.Player != null) { _player = Game.Context.Player; _point = _player.transform; }
+        _player = Game.Context.Player;
+        if (_player == null) return;
+        _point = _player.transform;
+
         for (int i = 0; i <= _maxEnemyCount; i++)
         {
             Spawn();
@@ -42,13 +45,14 @@ public class EnemySpawnSystem : ISystem
     public void Spawn()
     {
         if (_currentEnemyCount == _maxEnemyCount) return;
-        if (_player == null || _player == default)
-        {
-            if (Game.Context.Player != null) { _player = Game.Context.Player; _point = _player.transform; }
-            return;
-        }
+        if (_point == null) return; 
 
-        GameObject createdEnemy = GameObject.Instantiate(_enemyPrefab, null);
+        GameObject createdEnemy = GameObject.Instantiate(_enemyPrefab);
+        var enemyView = createdEnemy.GetComponent<EnemyView>();
+        
+        enemyView.Initialize();
+        enemyView.Show();
+
         float x, y;
         float _dist = 5;
         do
@@ -72,5 +76,10 @@ public class EnemySpawnSystem : ISystem
     public void SetPlayer(Transform transform)
     {
         _point = transform;
+        _player = Game.Context.Player;
+        for (int i = 0; i <= _maxEnemyCount; i++)
+        {
+            Spawn();
+        }
     }
 }

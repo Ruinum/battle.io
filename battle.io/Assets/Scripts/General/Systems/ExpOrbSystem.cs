@@ -25,18 +25,19 @@ public class ExpOrbSystem : ISystem
     public void Initialize()
     {
         _pool = Game.Context.ExpOrbPool;
-
-        for (int i = _expOrbAmount; i < _maxExpOrbAmount - _safeZone; i++)
-        {
-            SpawnExpOrb();
-        }
+        Debug.Log(_expOrbAmount);
+        Debug.Log(+_maxExpOrbAmount);
     }
 
-    public void Execute() { }
+    public void Execute()
+    {
+        Debug.Log("1");
+        if (_expOrbAmount >= _maxExpOrbAmount - _safeZone) return;
+        SpawnExpOrb();
+    }
 
     private void SpawnExpOrb()
     {
-        if (_expOrbAmount == _maxExpOrbAmount) return;
         Vector2 position = new Vector2(Random.Range(_innerBorderSize.x, _outsideBorderSize.x), Random.Range(_innerBorderSize.y, _outsideBorderSize.y));
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
@@ -45,6 +46,8 @@ public class ExpOrbSystem : ISystem
 
         float expOrbExpValue = Random.Range(_baseExp, _maxRandomExp);
         expOrb.SetExp(expOrbExpValue);
+
+        expOrb.DelayDestroy(Random.Range(15f, 35f));
 
         expOrb.Active(position, Quaternion.identity);
         expOrb.OnInteract += RefreshAmount;

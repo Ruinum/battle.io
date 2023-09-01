@@ -44,10 +44,10 @@ public class Pool<T> where T : MonoBehaviour
         {
             var instantiate = UnityEngine.Object.Instantiate(_poolObject);
             ReturnToPool(instantiate.transform);
-            poolObjects.Add(instantiate.GetComponent<T>());
+            poolObject = instantiate.GetComponent<T>();
+            poolObjects.Add(poolObject);
         }
 
-        poolObject = poolObjects.FirstOrDefault(a => !a.gameObject.activeSelf);
         _onPoolRemove += () => ReturnToPool(poolObject.transform);
         return poolObject;
     }

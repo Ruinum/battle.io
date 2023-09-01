@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 486241513094020004}
   - component: {fileID: 486241513094020003}
   - component: {fileID: 7666973946639164741}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeavyShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668250412180163278}
   - component: {fileID: 3920752001693630657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftArmPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

@@ -36,7 +36,7 @@ namespace Ruinum.Core
             _speed = speed;
         }
 
-        protected void RemoveTimer()
+        public void RemoveTimer()
         {
             _timers.Remove(this);
         }
