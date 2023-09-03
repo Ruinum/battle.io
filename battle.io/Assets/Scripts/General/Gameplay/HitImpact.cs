@@ -32,7 +32,7 @@ public class HitImpact
             collider2d.enabled = false;
            
             expOrb.SetExp(expOrbValue);           
-            expOrb.DelayFade(4f);
+            expOrb.DelayFade(5.5f);
 
             Vector2 direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             float randomSpeed = Random.Range(50f, 150f);

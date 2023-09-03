@@ -68,7 +68,7 @@ public class Level : MonoBehaviour
     public void AddMultiplier(Multiplier multiplier) => _multipliers.Add(multiplier);
     public void RemoveMultiplier(Multiplier multiplier) => _multipliers.Remove(multiplier);
 
-    private void InvokeEvents()
+    public void InvokeEvents()
     {
         OnNextExpChange?.Invoke(_nextLevelExp);
         OnLevelChange?.Invoke(_currentLevel);
@@ -82,6 +82,7 @@ public class Level : MonoBehaviour
 
     private float MultiplyExp(float value, MultiplierType multiplierType)
     {
+        if (_multipliers == null) return value;
         if (_multipliers.Count == 0) return value;
 
         for (int i = 0; i < _multipliers.Count; i++)

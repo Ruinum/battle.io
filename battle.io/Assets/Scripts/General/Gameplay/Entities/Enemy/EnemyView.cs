@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using DG.Tweening;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemyView : MonoBehaviour
 {
-    private SpriteRenderer[] _spriteRenderers;
+    [SerializeField] private List<SpriteRenderer> _spriteRenderers;
 
     private float _currentAlpha = 0;
     private float _speed = 1.5f;
@@ -17,7 +17,7 @@ public class EnemyView : MonoBehaviour
 
     public void Initialize()
     {
-        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        _spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>());
     }
 
     private void Update()
@@ -25,8 +25,14 @@ public class EnemyView : MonoBehaviour
         if (!_isShow) return;
 
         _currentAlpha += Time.deltaTime * _speed;
-        for (int i = 0; i < _spriteRenderers.Length; i++)
+        for (int i = 0; i < _spriteRenderers.Count; i++)
         {
+            if (_spriteRenderers[i] == null) 
+            { 
+                _spriteRenderers.Remove(_spriteRenderers[i]);
+                continue; 
+            }
+
             var spriteRendered = _spriteRenderers[i];
             spriteRendered.color = new Color(spriteRendered.color.r, spriteRendered.color.g, spriteRendered.color.b, _currentAlpha);
         }
@@ -41,7 +47,7 @@ public class EnemyView : MonoBehaviour
 
     public void Hide()
     {
-        for (int i = 0; i < _spriteRenderers.Length; i++)
+        for (int i = 0; i < _spriteRenderers.Count; i++)
         {
             var spriteRendered = _spriteRenderers[i];
             spriteRendered.color = new Color(spriteRendered.color.r, spriteRendered.color.g, spriteRendered.color.b, 0);

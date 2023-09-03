@@ -7,16 +7,19 @@ public class EnemySpawnSystem : ISystem
 
     private Player _player;
     private Transform _point;
+    private ExpOrbPool _pool;
     private float _horizontal;
     private float _vertical;    
     private int _maxEnemyCount;
-    private int _currentEnemyCount = 0;
+    private int _currentEnemyCount = 0;    
 
     public EnemySpawnSystem(float horizontalSize, float verticalSize, int enemyCount)
     {
         _horizontal = horizontalSize;
         _vertical = verticalSize;
         _maxEnemyCount = enemyCount;
+
+        _pool = Game.Context.ExpOrbHitImpactPool;
 
         Game.Context.AssetsContext.Inject(this);
     }
@@ -65,10 +68,12 @@ public class EnemySpawnSystem : ISystem
         var level = createdEnemy.GetComponent<Level>();
         level.OnDead += EnemyDead;
 
-        if (!Game.Context.ExpOrbPool.TryGetPoolObject(out ExpOrb expOrb)) return;
-        
-        expOrb.transform.position = createdEnemy.transform.position;
-        expOrb.SetExp(UnityEngine.Random.Range(50f, 450f));
+        if (_player == null) { _player = Game.Context.Player; return; }
+        if (!_pool.TryGetPoolObject(out ExpOrb expOrb)) return;
+
+        float randomValue = UnityEngine.Random.Range(80, 250f) * _player.Level.PlayerLevel * 0.75f;
+        expOrb.Active(createdEnemy.transform.position, Quaternion.identity);
+        expOrb.SetExp(randomValue);
 
         _currentEnemyCount++;
     }
