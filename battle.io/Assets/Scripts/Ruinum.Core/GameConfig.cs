@@ -14,6 +14,7 @@ public sealed class GameConfig : ScriptableObject
 
     [Header("Exp Orb Pool Settings")]
     public int ExpOrbCapacity;
+    public int ExpOrbHitImpactCapacity;
 
     [Header("PopUp Pool Settings")]
     public int PopUpCapacity;

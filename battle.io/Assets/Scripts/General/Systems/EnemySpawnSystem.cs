@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemySpawnSystem : ISystem
 {
     [InjectAsset("Enemy")] private GameObject _enemyPrefab;
-    [InjectAsset("ExpOrb")] private GameObject _expOrb;
 
     private Player _player;
     private Transform _point;
@@ -66,7 +65,8 @@ public class EnemySpawnSystem : ISystem
         var level = createdEnemy.GetComponent<Level>();
         level.OnDead += EnemyDead;
 
-        var expOrb = Game.Context.ExpOrbPool.GetPoolObject();
+        if (!Game.Context.ExpOrbPool.TryGetPoolObject(out ExpOrb expOrb)) return;
+        
         expOrb.transform.position = createdEnemy.transform.position;
         expOrb.SetExp(UnityEngine.Random.Range(50f, 450f));
 

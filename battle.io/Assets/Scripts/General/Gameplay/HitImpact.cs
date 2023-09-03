@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HitImpact
 {
-    [InjectAsset("ExpOrb")] private GameObject _expOrb;
     [InjectAsset("Blood")] private GameObject _bloodParticle;
     [InjectAsset("Hit_0_0_Audio")] private AudioConfig _hitAudio;
 
+    private ExpOrbPool _pool;
     private Transform _transform;
     private float _expCutModifier = 0.25f;
 
@@ -15,6 +15,7 @@ public class HitImpact
     {
         level.OnExpRemove += OnExpRemove;
         _transform = transform;
+        _pool = Game.Context.ExpOrbHitImpactPool;
     }
 
     private void OnExpRemove(float removedExp)
@@ -24,7 +25,8 @@ public class HitImpact
 
         for (int i = 0; i < expOrbAmount; i++)
         {
-            ExpOrb expOrb = Game.Context.ExpOrbPool.GetPoolObject();
+            if (!_pool.TryGetPoolObject(out ExpOrb expOrb)) return;
+
             expOrb.Active(_transform.position, Quaternion.identity);
             var collider2d = expOrb.GetComponent<Collider2D>();
             collider2d.enabled = false;

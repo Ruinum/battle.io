@@ -11,7 +11,6 @@ public class ExpOrbSystem : ISystem
 
     private ExpOrbPool _pool;
     private int _expOrbAmount;
-    private int _safeZone = 35;
 
     public ExpOrbSystem(Vector2 innerBorder, Vector2 outsideBorder, int orbAmount, float baseExp, float randomExp)
     {
@@ -25,14 +24,11 @@ public class ExpOrbSystem : ISystem
     public void Initialize()
     {
         _pool = Game.Context.ExpOrbPool;
-        Debug.Log(_expOrbAmount);
-        Debug.Log(+_maxExpOrbAmount);
     }
 
     public void Execute()
     {
-        Debug.Log("1");
-        if (_expOrbAmount >= _maxExpOrbAmount - _safeZone) return;
+        if (_expOrbAmount >= _maxExpOrbAmount) return;
         SpawnExpOrb();
     }
 
@@ -41,8 +37,7 @@ public class ExpOrbSystem : ISystem
         Vector2 position = new Vector2(Random.Range(_innerBorderSize.x, _outsideBorderSize.x), Random.Range(_innerBorderSize.y, _outsideBorderSize.y));
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
-        
-        ExpOrb expOrb = _pool.GetPoolObject();
+        if (!_pool.TryGetPoolObject(out ExpOrb expOrb)) return;
 
         float expOrbExpValue = Random.Range(_baseExp, _maxRandomExp);
         expOrb.SetExp(expOrbExpValue);
@@ -58,6 +53,5 @@ public class ExpOrbSystem : ISystem
     private void RefreshAmount()
     {
         _expOrbAmount--;
-        SpawnExpOrb();
     }
 }

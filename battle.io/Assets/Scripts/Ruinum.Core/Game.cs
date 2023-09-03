@@ -15,7 +15,8 @@ public class Game
         Context = this;
         _gameConfig = gameConfig;
 
-        ExpOrbPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Pool", "ExpOrb", _gameConfig.ExpOrbCapacity);
+        ExpOrbPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Pool", "ExpOrb_0_0", _gameConfig.ExpOrbCapacity);
+        ExpOrbHitImpactPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Impact Pool", "ExpOrb_0_1", _gameConfig.ExpOrbHitImpactCapacity);
         PopUpPool = new PopUpPool(_gameConfig.AssetsContext, "PopUp Pool", "PopUp", _gameConfig.PopUpCapacity);
 
         AssetsContext = _gameConfig.AssetsContext;
@@ -34,6 +35,7 @@ public class Game
     public Canvas RootCanvas { get; private set; }
     public PlayerUI PlayerUI { get; private set; }
     public ExpOrbPool ExpOrbPool { get; private set; }
+    public ExpOrbPool ExpOrbHitImpactPool { get; private set; }
     public PopUpPool PopUpPool { get; private set; }
 
     public void StartGame()

@@ -26,10 +26,15 @@ public class Pool<T> where T : MonoBehaviour
         InitializePool();
     }
 
-    public T GetPoolObject()
+    public bool TryGetPoolObject(out T poolObject)
     {
-        T result = GetPoolObject(GetListElements(_poolObjectName));
-        return result;
+        poolObject = null;
+        
+        TryGetPoolObject(GetListElements(_poolObjectName), out T result);
+        if (result == null) return false;
+        
+        poolObject = result;
+        return true;
     }
 
     private HashSet<T> GetListElements(string type)
@@ -37,19 +42,15 @@ public class Pool<T> where T : MonoBehaviour
         return _pool.ContainsKey(type) ? _pool[type] : _pool[type] = new HashSet<T>();
     }
 
-    private T GetPoolObject(HashSet<T> poolObjects)
+    private bool TryGetPoolObject(HashSet<T> poolObjects, out T poolObject)
     {
-        var poolObject = poolObjects.FirstOrDefault(a => !a.gameObject.activeSelf);
-        if (poolObject == null)
-        {
-            var instantiate = UnityEngine.Object.Instantiate(_poolObject);
-            ReturnToPool(instantiate.transform);
-            poolObject = instantiate.GetComponent<T>();
-            poolObjects.Add(poolObject);
-        }
+        poolObject = poolObjects.FirstOrDefault(a => !a.gameObject.activeSelf);        
+        if (poolObject == null) return false;
 
-        _onPoolRemove += () => ReturnToPool(poolObject.transform);
-        return poolObject;
+        var component = poolObject.gameObject.transform;
+        _onPoolRemove += () => ReturnToPool(component.transform);
+        
+        return true;
     }
 
     private void ReturnToPool(Transform transform)

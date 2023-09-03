@@ -7,6 +7,7 @@ public class ExpOrb : Interactable, IInterestPoint
 {
     [SerializeField] private AudioConfig _audioConfig;
     [SerializeField] private float _expAmount;
+    [SerializeField] private string _poolName = "Exp Orb Pool";
 
     private SpriteRenderer _spriteRenderer;
     private Timer _timer;
@@ -14,14 +15,14 @@ public class ExpOrb : Interactable, IInterestPoint
     private float _time;
     private bool _delayDestroy;
 
-    private Transform _rootPool;
+    private Transform _rootPool;  
     public Transform RootPool
     {
         get
         {
             if (_rootPool) return _rootPool;
 
-            var find = GameObject.Find("Exp Orb Pool");
+            var find = GameObject.Find(_poolName);
             _rootPool = find == null ? null : find.transform;
             return _rootPool;
         }
@@ -39,7 +40,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
         OnInteract?.Invoke();
         if (collision.tag == "Player") AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
-        ImpactUtils.CreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black);
+        ImpactUtils.TryCreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black, out var tmp);
     }
 
     private void Update()
@@ -51,6 +52,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
         if (_time >= 0) return;
         ReturnToPool();
+        OnInteract?.Invoke();
     }
 
     public void Active(Vector3 position, Quaternion rotation)
@@ -70,7 +72,6 @@ public class ExpOrb : Interactable, IInterestPoint
         _timer = TimerSystem.Singleton.StartTimer(_time, () => 
         { 
             if (gameObject.activeSelf) ReturnToPool();
-            _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 1);         
         });
 
         _timer.OnTimeChange += Fade;
@@ -99,6 +100,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
         _time = 0;
         _delayDestroy = false;
+        _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 1);
 
         if (!RootPool) Destroy(gameObject);
     }

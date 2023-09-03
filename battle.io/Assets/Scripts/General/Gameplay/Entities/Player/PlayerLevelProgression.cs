@@ -57,7 +57,7 @@ public sealed class PlayerLevelProgression
             _lastMaxLevel = Mathf.Max(_lastMaxLevel, level);
             
             ColorUtility.TryParseHtmlString("#ED7014", out Color color);
-            if (level != 1 && level == _lastMaxLevel) ImpactUtils.CreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f);
+            if (level != 1 && level == _lastMaxLevel) ImpactUtils.TryCreatePopUp("LEVEL UP!", _level.transform.position, color, 1.1f, out var tmp);
             _levelPoints++;
         }
 

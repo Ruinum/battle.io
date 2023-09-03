@@ -41,7 +41,7 @@ public class HitBox : MonoBehaviour
         var damage = _damage + Random.Range(0, _randomDamage);
         level.RemoveExp(damage);
 
-        ImpactUtils.CreatePopUp(Mathf.RoundToInt(damage).ToString(), collision.transform.position, Color.red);    
+        ImpactUtils.TryCreatePopUp(Mathf.RoundToInt(damage).ToString(), collision.transform.position, Color.red, out var tmp);    
     }
 
     public void Ignore(GameObject owner) => _owner = owner;
