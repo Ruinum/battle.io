@@ -11,7 +11,8 @@ public class EnemySpawnSystem : ISystem
     private float _horizontal;
     private float _vertical;    
     private int _maxEnemyCount;
-    private int _currentEnemyCount = 0;    
+    private int _currentEnemyCount = 0;
+    private const float MAX_LEVEL_EXP = 650f;
 
     public EnemySpawnSystem(float horizontalSize, float verticalSize, int enemyCount)
     {
@@ -71,9 +72,9 @@ public class EnemySpawnSystem : ISystem
         if (_player == null) { _player = Game.Context.Player; return; }
         if (!_pool.TryGetPoolObject(out ExpOrb expOrb)) return;
 
-        float randomValue = UnityEngine.Random.Range(80, 250f) * _player.Level.PlayerLevel * 0.75f;
+        float randomValue = UnityEngine.Random.Range(80, 250f) * _player.Level.PlayerLevel * 0.4f;
         expOrb.Active(createdEnemy.transform.position, Quaternion.identity);
-        expOrb.SetExp(randomValue);
+        expOrb.SetExp(Mathf.Max(MAX_LEVEL_EXP, randomValue));
 
         _currentEnemyCount++;
     }
