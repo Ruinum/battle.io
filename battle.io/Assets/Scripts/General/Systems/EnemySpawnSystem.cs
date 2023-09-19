@@ -12,7 +12,7 @@ public class EnemySpawnSystem : ISystem
     private float _vertical;    
     private int _maxEnemyCount;
     private int _currentEnemyCount = 0;
-    private const float MAX_LEVEL_EXP = 650f;
+    private const float MAX_LEVEL_EXP = 450f;
 
     public EnemySpawnSystem(float horizontalSize, float verticalSize, int enemyCount)
     {
@@ -74,7 +74,7 @@ public class EnemySpawnSystem : ISystem
 
         float randomValue = UnityEngine.Random.Range(80, 250f) * _player.Level.PlayerLevel * 0.4f;
         expOrb.Active(createdEnemy.transform.position, Quaternion.identity);
-        expOrb.SetExp(Mathf.Max(MAX_LEVEL_EXP, randomValue));
+        expOrb.SetExp(Mathf.Min(MAX_LEVEL_EXP, randomValue));
 
         _currentEnemyCount++;
     }
