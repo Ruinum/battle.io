@@ -1344,8 +1344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.8752, y: 0.566803}
+  m_SizeDelta: {x: 225.8361, y: 128.6305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2749507992126441494
 GameObject:
@@ -1546,7 +1546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfdfd7bf86d55e468cb624481edf678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathScreen: {fileID: 2195702602223882497}
+  _fadeScreen: {fileID: 2195702602223882497}
+  _message: {fileID: 4881159432682353647}
   _timeFade: 2
 --- !u!1 &4315666509189222914
 GameObject:
@@ -2583,7 +2584,7 @@ GameObject:
   - component: {fileID: 5965929901406602723}
   - component: {fileID: 4881159432682353647}
   m_Layer: 5
-  m_Name: You Died
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

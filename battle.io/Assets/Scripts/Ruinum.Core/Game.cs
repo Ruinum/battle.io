@@ -11,6 +11,7 @@ public class Game
     
     public Action OnGameStarted;
     public Action OnFinalStage;
+    public Action OnFinalStageEnded;
     public Action OnGameEnded;
     
     public Game(GameConfig gameConfig)
@@ -60,6 +61,12 @@ public class Game
         OnFinalStage?.Invoke();
         FinalStage = true;
     }
+    
+    public void FinalGameEnded()
+    {
+        OnFinalStageEnded?.Invoke();
+        FinalStage = false;
+    }
 
     public void EndGame()
     {
@@ -72,5 +79,6 @@ public class Game
 
         OnGameEnded?.Invoke();
         GameStarted = false;
+        FinalStage = false;
     }
 }

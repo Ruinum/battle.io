@@ -16,9 +16,9 @@ MonoBehaviour:
   Special: {fileID: 0}
   Animation: {fileID: 11400000, guid: aac4870b7e777724e8a2544d737d24f5, type: 2}
   Audio: {fileID: 11400000, guid: f4d2148938ca9934ea1245e84ef71b35, type: 2}
-  Damage: 0
-  RandomDamage: 0
-  Distance: 0
+  Damage: 4
+  RandomDamage: 3
+  Distance: 3
   Type: 7
   HandType: 3
   MainHandType: 2

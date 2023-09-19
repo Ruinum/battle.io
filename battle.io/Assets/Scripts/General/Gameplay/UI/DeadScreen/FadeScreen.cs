@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
+using DG.Tweening;
 using TMPro;
-using UnityEngine.SceneManagement;
 using Ruinum.Core.Systems;
 
-public class AllDeadScreen : MonoBehaviour
+public class FadeScreen : MonoBehaviour
 {    
-    [SerializeField] private GameObject _deathScreen;
+    [SerializeField] private GameObject _fadeScreen;
+    [SerializeField] private TMP_Text _message;
     [SerializeField] private float _timeFade;
 
     private Image[] _images;
@@ -19,11 +18,12 @@ public class AllDeadScreen : MonoBehaviour
     {
         _images = GetComponentsInChildren<Image>();
         _texts = GetComponentsInChildren<TMP_Text>();
-        _deathScreen.SetActive(false);
+        _fadeScreen.SetActive(false);
 
         yield return new WaitForEndOfFrame();
 
-        Game.Context.Player.Level.OnDead += PlayDeadScreen;
+        Game.Context.Player.Level.OnDead += OnDied;
+        Game.Context.OnFinalStageEnded += OnGameWin;
     }
 
     public void ToMenu()
@@ -36,10 +36,22 @@ public class AllDeadScreen : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayDeadScreen(Level level)
+    public void OnDied(Level level)
     {
-        _deathScreen.SetActive(true);
-        
+        _message.text = "You Died!";
+        FadeIn();
+    }
+
+    private void OnGameWin()
+    {
+        _message.text = "You Win!";
+        FadeIn();
+    }
+
+    private void FadeIn()
+    {
+        _fadeScreen.SetActive(true);
+
         for (int i = 0; i < _images.Length; i++)
         {
             _images[i].DOFade(1, _timeFade);
