@@ -32,7 +32,7 @@
     public override void CheckSwitchConditions()
     {
         if (_vision.NearestEnemy == null) return;
-        if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.AwareState());
-        if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel <= _level.PlayerLevel) SwitchState(_factory.HuntState());
+        if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel && !Game.Context.FinalStage) SwitchState(_factory.AwareState());
+        if (_vision.NearestEnemy.Level.PlayerLevel - _dangerLevel <= _level.PlayerLevel || Game.Context.FinalStage) SwitchState(_factory.HuntState());
     }
 }

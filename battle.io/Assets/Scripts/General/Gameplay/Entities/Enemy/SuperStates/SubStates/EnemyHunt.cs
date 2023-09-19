@@ -54,6 +54,6 @@ public sealed class EnemyHunt : EnemyBaseState
 
     public override void CheckSwitchConditions()
     {
-        if (_nearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel) SwitchState(_factory.AwareState()); 
+        if (_nearestEnemy.Level.PlayerLevel - _dangerLevel > _level.PlayerLevel && !Game.Context.FinalStage) SwitchState(_factory.AwareState()); 
     }
 }

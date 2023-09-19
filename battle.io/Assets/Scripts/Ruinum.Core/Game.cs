@@ -7,7 +7,10 @@ public class Game
     private GameConfig _gameConfig;
     
     public bool GameStarted = false;
+    public bool FinalStage = false;
+    
     public Action OnGameStarted;
+    public Action OnFinalStage;
     public Action OnGameEnded;
     
     public Game(GameConfig gameConfig)
@@ -50,6 +53,12 @@ public class Game
 
         OnGameStarted?.Invoke();
         GameStarted = true;
+    }
+
+    public void FinalGame()
+    {
+        OnFinalStage?.Invoke();
+        FinalStage = true;
     }
 
     public void EndGame()

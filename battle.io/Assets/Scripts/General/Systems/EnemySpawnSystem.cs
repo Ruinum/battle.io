@@ -1,4 +1,5 @@
 using Ruinum.Core.Interfaces;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnSystem : ISystem
@@ -8,10 +9,13 @@ public class EnemySpawnSystem : ISystem
     private Player _player;
     private Transform _point;
     private ExpOrbPool _pool;
+    private List<Enemy> _enemies;
+
     private float _horizontal;
     private float _vertical;    
     private int _maxEnemyCount;
     private int _currentEnemyCount = 0;
+
     private const float MAX_LEVEL_EXP = 450f;
 
     public EnemySpawnSystem(float horizontalSize, float verticalSize, int enemyCount)
@@ -21,12 +25,15 @@ public class EnemySpawnSystem : ISystem
         _maxEnemyCount = enemyCount;
 
         _pool = Game.Context.ExpOrbHitImpactPool;
+        _enemies = new List<Enemy>();
 
         Game.Context.AssetsContext.Inject(this);
     }
     
     public void Initialize()
     {
+        Game.Context.OnFinalStage += OnFinalStage;
+
         _player = Game.Context.Player;
         if (_player == null) return;
         _point = _player.transform;
@@ -39,15 +46,17 @@ public class EnemySpawnSystem : ISystem
 
     public void Execute() { }
 
-    public void EnemyDead()
+    public void EnemyDead(Level level)
     {
         if(_currentEnemyCount > 0) _currentEnemyCount--;
         Spawn();
+
+        _enemies.Remove(level.GetComponent<Enemy>());
     }
 
     public void Spawn()
     {
-        if (_currentEnemyCount == _maxEnemyCount) return;
+        if (_currentEnemyCount >= _maxEnemyCount) return;
         if (_point == null) return; 
 
         GameObject createdEnemy = GameObject.Instantiate(_enemyPrefab);
@@ -67,6 +76,7 @@ public class EnemySpawnSystem : ISystem
         createdEnemy.transform.position = _point.position + new Vector3(x, y, 0);
         
         var level = createdEnemy.GetComponent<Level>();
+        _enemies.Add(level.gameObject.GetComponent<Enemy>());
         level.OnDead += EnemyDead;
 
         if (_player == null) { _player = Game.Context.Player; return; }
@@ -87,5 +97,29 @@ public class EnemySpawnSystem : ISystem
         {
             Spawn();
         }
+    }
+
+    private void OnFinalStage()
+    {
+        _maxEnemyCount = 0;
+
+        for (int i = 0; i < _enemies.Count; i++)
+        {
+            _enemies[i].FinalStage();
+        }
+    }
+}
+
+public class FinalStageSystem : ISystem
+{
+    public void Initialize()
+    {
+        Game.Context.OnFinalStage += OnFinalStage;
+    }
+
+    public void Execute() { }
+    public void OnFinalStage()
+    {
+        
     }
 }

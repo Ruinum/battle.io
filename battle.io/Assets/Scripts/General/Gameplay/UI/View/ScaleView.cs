@@ -7,10 +7,11 @@ public class ScaleView
     private float _scaleModifier = 1;
     private float _scaleCap = 1.5f;
 
-    public ScaleView(Transform transform)
+    public ScaleView(Transform transform, float scaleCap = 1.5f)
     {
         _transform = transform;
         _startScale = new Vector3(1, 1, 1);
+        _scaleCap = scaleCap;
     }
 
     public void ChangeScale(float scaleModifier)

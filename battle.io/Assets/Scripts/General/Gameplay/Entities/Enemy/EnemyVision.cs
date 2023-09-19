@@ -42,6 +42,8 @@ public class EnemyVision
         _enemies.Clear();
         _interestPoints.Clear();
 
+        if (Game.Context.FinalStage) _enemies.Add(Game.Context.Player);
+
         var colliders = Physics2D.OverlapCircleAll(_transform.position, _visionRadius);
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -75,6 +77,13 @@ public class EnemyVision
     {
         if (_enemies.Count <= 0) return;
         _nearestEnemy = null;
+
+        if (Game.Context.FinalStage)
+        {
+            _nearestEnemy = Game.Context.Player;
+            OnNearestEnemyChange?.Invoke(_nearestEnemy);
+            return;
+        }
 
         _distance = _visionRadius + 1;
         for (int i = 0; i < _enemies.Count; i++)

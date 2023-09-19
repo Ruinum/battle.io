@@ -68,4 +68,5 @@ public class EnemyContext
     public float CalmDistance { get; private set; }
 
     public EnemyBaseState CurrentState { get { return _enemy.CurrentState; } set { _enemy.CurrentState = value; } }
+    public bool FinalStage { get; set; }
 }

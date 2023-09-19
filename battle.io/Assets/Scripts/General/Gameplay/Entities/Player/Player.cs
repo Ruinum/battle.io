@@ -1,6 +1,7 @@
 ﻿using Ruinum.Core;
 using Ruinum.Core.Systems;
 using Ruinum.Utils;
+using System;
 using UnityEngine;
 
 public class Player : Executable, IPlayer
@@ -10,9 +11,12 @@ public class Player : Executable, IPlayer
     [SerializeField] private WeaponInventory _inventory;
     [SerializeField] private Movement _movement;
     [SerializeField] private GameObject _cameraPrefab;
-    
+
+    [SerializeField] private float _maxLevel;
     [SerializeField] private float _magniteRadius;
     [SerializeField] private float _magniteSpeed;
+    [SerializeField] private float _scaleCap;
+    [SerializeField] private float _maxCameraSize;
 
     private Level _level;
     private Class _class;
@@ -38,11 +42,11 @@ public class Player : Executable, IPlayer
         _level = GetComponent<Level>();
         _class = new Class(transform.gameObject, _animationController);
         _magnite = new Magnite(transform, _magniteSpeed, _magniteRadius);
-        _scaleView = new ScaleView(transform);
+        _scaleView = new ScaleView(transform, _scaleCap);
         _levelProgression = new PlayerLevelProgression(this, _level, _inventory);
 
         _cameraFollow = ObjectUtils.CreateGameObject<CameraFollow>(_cameraPrefab);
-        _cameraView = new CameraView(_cameraFollow.Camera, _level);
+        _cameraView = new CameraView(_cameraFollow.Camera, _level, _maxCameraSize);
         
         _cameraFollow.Initialize(this);
     }
@@ -56,8 +60,14 @@ public class Player : Executable, IPlayer
         new HitBoxEvents(_level, _animationController, _inventory);
 
         AssetsInjector.Inject(_context, new HitImpact(_level, transform));
+        _level.OnLevelChange += CheckFinalStage;
 
         base.Start();
+    }
+
+    private void CheckFinalStage(int currentLevel)
+    {
+        if (currentLevel == _maxLevel) Game.Context.FinalGame();
     }
 
     public override void Execute()

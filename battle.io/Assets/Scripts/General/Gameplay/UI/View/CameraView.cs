@@ -6,17 +6,18 @@ public class CameraView
 
     private Level _level;
     private float _currentSize;
+    private float _maxSize;
     private float _baseSize = 7;
-    private float _maxSize = 10;
     private float _speed = 0.15f;
 
     private float _yModifier = 1;
 
-    public CameraView(Camera camera, Level level)
+    public CameraView(Camera camera, Level level, float maxSize = 10)
     {
         _camera = camera;
         _level = level;
-           
+        _maxSize = maxSize;
+
         level.OnExpChange += ChangeCameraView;
     }
 

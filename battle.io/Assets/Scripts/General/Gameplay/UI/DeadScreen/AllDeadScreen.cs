@@ -36,7 +36,7 @@ public class AllDeadScreen : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayDeadScreen()
+    public void PlayDeadScreen(Level level)
     {
         _deathScreen.SetActive(true);
         

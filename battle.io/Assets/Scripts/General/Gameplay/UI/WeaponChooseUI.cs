@@ -24,6 +24,8 @@ public class WeaponChooseUI : MonoBehaviour
 
     public void GetChoose(LevelStructure level)
     {
+        if (level.NextLevel.Length <= 0) Close();
+
         _background.SetActive(true);
 
         int ct = level.NextLevel.Length;

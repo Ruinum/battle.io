@@ -22,7 +22,7 @@ public class Level : MonoBehaviour
     public Action<float> OnExpChange;
     public Action<float> OnNextExpChange;
     public Action<float> OnExpRemove;
-    public Action OnDead;
+    public Action<Level> OnDead;
 
     private void Start()
     {
@@ -113,7 +113,7 @@ public class Level : MonoBehaviour
     private void CheckDeath()
     {
         if (_currentLevel > 0) return;
-        OnDead?.Invoke();
+        OnDead?.Invoke(this);
         Destroy(gameObject);
     }
 }

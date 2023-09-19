@@ -56,6 +56,14 @@ public class Enemy : Executable, IPlayer
         if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(100);
     }
 
+    public void FinalStage()
+    {
+        _context.FinalStage = true;
+
+        _currentState = _states.IdleState();
+        _currentState.EnterState();
+    }
+
     public override void OnDestroy()
     {
         base.OnDestroy();

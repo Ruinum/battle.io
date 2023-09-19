@@ -8,8 +8,8 @@ public class PlayerView : MonoBehaviour
     private ScaleView _scaleView;
     private IMovement _movement;
 
-    private const float SCALE_MODIFIER = 0.2f;
-    private const float SPEED_MODIFIER = 0.05f;
+    [SerializeField] private float _scaleModifier = 0.2f;
+    [SerializeField] private float _speedModifier = 0.05f;
 
     private IEnumerator Start()
     {
@@ -28,7 +28,7 @@ public class PlayerView : MonoBehaviour
 
     private void ChangeView(float currentExpAmount)
     {
-        _scaleView.ChangeScale(1 + CalculateModifier(SCALE_MODIFIER) - SCALE_MODIFIER);
-        _movement.Modifier = Mathf.Max(0.8f, 1 - CalculateModifier(SPEED_MODIFIER) + SPEED_MODIFIER);
+        _scaleView.ChangeScale(1 + CalculateModifier(_scaleModifier) - _scaleModifier);
+        _movement.Modifier = Mathf.Max(0.8f, 1 - CalculateModifier(_speedModifier) + _speedModifier);
     }
 }

@@ -450,8 +450,11 @@ MonoBehaviour:
   _inventory: {fileID: 5093025667706901530}
   _movement: {fileID: 5093025667706901535}
   _cameraPrefab: {fileID: 9183095469333505964, guid: f81ea8d59930ef84b8d21024619a5ca2, type: 3}
+  _maxLevel: 6
   _magniteRadius: 1.1
   _magniteSpeed: 1
+  _scaleCap: 3
+  _maxCameraSize: 15
 --- !u!114 &5093025667706901527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac6062bf53a26b4a99d905c877dca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scaleModifier: 0.4
+  _speedModifier: 0.05
 --- !u!114 &6340788290697510818
 MonoBehaviour:
   m_ObjectHideFlags: 0

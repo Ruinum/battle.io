@@ -31,7 +31,15 @@ public sealed class EnemySearch : EnemyBaseState
     }
 
     public override void UpdateState()
-    {     
+    {
+        //if (Game.Context.FinalStage) 
+        //{ 
+        //    _interestPoint = Game.Context.Player;
+            
+        //    _movement.Execute();
+        //    _movement.SetPoint(_interestPoint.Transform.position);
+        //}
+
         if (_interestPoint == null) 
         {  
             FindInterestPoint();
@@ -53,6 +61,7 @@ public sealed class EnemySearch : EnemyBaseState
     private void FindInterestPoint()
     {
         _currentDistance = 99f;
+        if (_transform == null) return;
         var colliders = Physics2D.OverlapCircleAll(_transform.position, _visionRadius);
 
         for (int i = 0; i < colliders.Length; i++)

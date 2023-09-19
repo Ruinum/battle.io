@@ -12,6 +12,7 @@ public sealed class PlayerLevelProgression
     private int _lastMaxLevel = 0;
     private int _levelPoints = 0;
     private bool _isUIShowed = false;
+    private bool _lastLevel;
 
     public PlayerLevelProgression(IPlayer player, Level level, WeaponInventory inventory)
     {
@@ -45,7 +46,7 @@ public sealed class PlayerLevelProgression
 
     public void Execute()
     {
-        if (_levelPoints <= 0 || _isUIShowed) return;
+        if (_levelPoints <= 0 || _isUIShowed || _lastLevel) return;
         ShowUi();
     }
 
@@ -67,6 +68,7 @@ public sealed class PlayerLevelProgression
     private void ShowUi()
     {
         LevelStructure structure = Game.Context.LevelStructure.GetLevel(_weapons.ToArray(), 0);
+        if (structure.NextLevel.Length <= 0) { _lastLevel = true; return; }
         Game.Context.PlayerUI.WeaponUI.GetChoose(structure);
         _isUIShowed = true;
     }
