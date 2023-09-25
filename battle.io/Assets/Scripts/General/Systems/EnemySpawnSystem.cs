@@ -49,7 +49,7 @@ public class EnemySpawnSystem : ISystem
     public void EnemyDead(Level level)
     {
         if(_currentEnemyCount > 0) _currentEnemyCount--;
-        if (Game.Context.FinalStage && _currentEnemyCount == 0) Game.Context.FinalGameEnded();
+        if (Game.Context.FinalStage && _currentEnemyCount == 0 && _enemies.Count <= 1) Game.Context.FinalGameEnded();
         
         Spawn();
         _enemies.Remove(level.GetComponent<Enemy>());
@@ -108,26 +108,5 @@ public class EnemySpawnSystem : ISystem
         {
             _enemies[i].FinalStage();
         }
-    }
-}
-
-public class FinalStageSystem : ISystem
-{
-    public void Initialize()
-    {
-        Game.Context.OnFinalStage += OnFinalStage;
-        Game.Context.OnFinalStageEnded += OnFinalStageEnded;
-    }
-
-    public void Execute() { }
-    
-    public void OnFinalStage()
-    {
-        
-    }
-    
-    public void OnFinalStageEnded()
-    {
-        
     }
 }

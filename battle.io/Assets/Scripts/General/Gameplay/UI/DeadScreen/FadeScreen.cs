@@ -50,6 +50,7 @@ public class FadeScreen : MonoBehaviour
 
     private void FadeIn()
     {
+        if (_fadeScreen == null) return;
         _fadeScreen.SetActive(true);
 
         for (int i = 0; i < _images.Length; i++)
