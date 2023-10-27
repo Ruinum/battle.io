@@ -17,4 +17,5 @@ MonoBehaviour:
   MainWeapon: {fileID: 11400000, guid: 2b2c51f16fa52014ca38a6edf133bbb9, type: 2}
   AdditionalWeapon: {fileID: 0}
   Class: {fileID: 0}
-  NextLevel: []
+  NextLevel:
+  - {fileID: 11400000, guid: a1bb01b8fcfd5394d8eb39e48651c6a9, type: 2}

@@ -7,5 +7,7 @@
     Staff  = 4,
     Spear  = 5,
     Bow    = 6,
-    Hammer = 7
+    Hammer = 7,
+    Glaive = 8,
+    Pole   = 9
 }

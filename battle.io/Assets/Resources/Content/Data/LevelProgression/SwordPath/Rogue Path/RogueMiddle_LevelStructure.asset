@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 98ffdbaf4f826cb489c8ea89331b914f, type: 3}
   IconSize: {x: 1, y: 1}
-  MainWeapon: {fileID: 11400000, guid: cc01eb737562375438a69ffca497aae5, type: 2}
-  AdditionalWeapon: {fileID: 11400000, guid: ecb8744482417c14cafcbb905f68a0c9, type: 2}
+  MainWeapon: {fileID: 11400000, guid: c31d93b7f0eee264a878fd4257831b29, type: 2}
+  AdditionalWeapon: {fileID: 11400000, guid: 5798064af4b95da44a07fafa38e9d74a, type: 2}
   Class: {fileID: 0}
-  NextLevel: []
+  NextLevel:
+  - {fileID: 11400000, guid: 2f93384735d247f4dafe3bdd0a4deb3e, type: 2}

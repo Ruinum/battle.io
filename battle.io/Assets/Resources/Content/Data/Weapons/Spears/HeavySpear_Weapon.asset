@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df86678ad483af844ab117e1fdcced82, type: 3}
   m_Name: HeavySpear_Weapon
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 4446533785249606813, guid: d3759cd9bf985df449c663b7a2635fad, type: 3}
+  Prefab: {fileID: 4000003946404365874, guid: e2deaf3a32e7b4c46897f7028cc79b11, type: 3}
   Special: {fileID: 0}
   Animation: {fileID: 11400000, guid: 2d23896f9be217e49846493f81bf4714, type: 2}
   Audio: {fileID: 11400000, guid: 6a5dbb7eccb268945875f21c404dd5c1, type: 2}
-  Damage: 7
+  Damage: 8
   RandomDamage: 4
   Distance: 3
   Type: 5
   HandType: 2
   MainHandType: 0
+  IsHeavy: 0

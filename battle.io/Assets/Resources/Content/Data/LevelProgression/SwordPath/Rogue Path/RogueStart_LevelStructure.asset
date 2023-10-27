@@ -18,4 +18,4 @@ MonoBehaviour:
   AdditionalWeapon: {fileID: 11400000, guid: d6b1f7365c806d544b94124b2e1f6398, type: 2}
   Class: {fileID: 0}
   NextLevel:
-  - {fileID: 11400000, guid: e29a6c6535e1a184e821a95d1c047e3d, type: 2}
+  - {fileID: 11400000, guid: 2f93384735d247f4dafe3bdd0a4deb3e, type: 2}

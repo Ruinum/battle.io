@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df86678ad483af844ab117e1fdcced82, type: 3}
+  m_Name: Sword_0_0_Weapon
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 3519058675054263144, guid: ac1eeb9b626b02d4a8bd0831f88aaef5, type: 3}
+  Special: {fileID: 0}
+  Animation: {fileID: 11400000, guid: f5e7a9a3ff6cc154d9cdc18d9a2a988e, type: 2}
+  Audio: {fileID: 11400000, guid: 7319861cbc2ee6e4eb422e184f232838, type: 2}
+  Damage: 5
+  RandomDamage: 2
+  Distance: 2.5
+  Type: 1
+  HandType: 2
+  MainHandType: 0
+  IsHeavy: 0
