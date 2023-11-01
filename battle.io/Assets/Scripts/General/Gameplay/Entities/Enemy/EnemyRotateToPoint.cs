@@ -17,12 +17,12 @@ public class EnemyRotateToPoint
 
     public void Execute()
     {
-        _transform.rotation = Quaternion.RotateTowards(_transform.rotation, _rotation, _speed * Time.deltaTime);
+        _transform.rotation = Quaternion.RotateTowards(_transform.rotation, _rotation, _speed * Time.deltaTime);        
     }
 
     public void SetPoint(Vector3 point)
     {
-        _rotation = Quaternion.LookRotation(point - _transform.position, new Vector3(0, 0, 1));
+        _rotation = Quaternion.FromToRotation(Vector2.up, point - _transform.position);       
         _speed = _baseSpeed + Random.Range(_minRandomSpeed, _maxRandomSpeed);
     }
 }
