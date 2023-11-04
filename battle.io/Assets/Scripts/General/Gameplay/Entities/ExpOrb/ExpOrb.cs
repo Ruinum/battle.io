@@ -39,8 +39,16 @@ public class ExpOrb : Interactable, IInterestPoint
         level.AddExp(_expAmount);
 
         OnInteract?.Invoke();
-        if (collision.tag == "Player") AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
         ImpactUtils.TryCreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black, out var tmp);
+    }
+
+    protected override void PlayerInteract(Collider2D collision)
+    {
+        if (!collision.TryGetComponent<Level>(out var level)) return;
+
+        AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
+        AchievementManager.Singleton.OnExpPickedEvent?.Invoke(_expAmount);
+        Interact(collision);
     }
 
     private void Update()

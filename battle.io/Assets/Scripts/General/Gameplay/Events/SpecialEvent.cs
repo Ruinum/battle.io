@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SpecialEvent : EventHandler
 {
-    private Transform _transform;
-
     public SpecialEvent(PlayerAnimatorController controller, WeaponInventory inventory) : base(controller, inventory)
     {
         _transform = controller.transform;

@@ -11,9 +11,11 @@ public abstract class Interactable : MonoBehaviour
     }
 
     protected abstract void Interact(Collider2D collision);
+    protected abstract void PlayerInteract(Collider2D collision);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Interact(collision);
+        if (collision.tag == "Player") PlayerInteract(collision);
+        else Interact(collision);
     }
 }

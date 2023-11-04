@@ -33,14 +33,23 @@
         }
     }
 
+    private void SetOwner(HitBox[] hitBoxes)
+    {
+        for (int i = 0; i < hitBoxes.Length; i++)
+        {
+            hitBoxes[i].Ignore(_transform.gameObject);
+        }
+    }
+
     protected override void WeaponMainChange()
     {
         _weaponMainHitBoxes = _mainWeapon.GetComponentsInChildren<HitBox>();
+        SetOwner(_weaponMainHitBoxes);
     }
 
     protected override void WeaponSubChange()
     {
-        UnityEngine.Debug.LogWarning("Change sub weapon");
         _weaponSubHitBoxes = _subWeapon.GetComponentsInChildren<HitBox>();
+        SetOwner(_weaponSubHitBoxes);
     }
 }

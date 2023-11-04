@@ -9,9 +9,9 @@ public class AchievementView : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image _image;
     [SerializeField] private GameObject _blockImage;
+    [SerializeField] private AudioConfig _audioConfig;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _description;
-    [SerializeField] private AudioConfig _audioConfig;
 
     private Achievement _achievement;
     private Vector3 _punchScale = new Vector3(0.15f, 0.15f, 0.15f);
@@ -39,8 +39,10 @@ public class AchievementView : MonoBehaviour, IPointerClickHandler
     {
         transform.DOPunchScale(_punchScale, 0.25f).OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 0.15f));
         AudioUtils.PlayAudio(_audioConfig, transform.position);
-        
+
         _name.text = _achievement.Name;
         _description.text = _achievement.Description;
+
+        if (!_achievement.Unlocked) { _name.text = "???"; _description.text = "???"; }
     }
 }

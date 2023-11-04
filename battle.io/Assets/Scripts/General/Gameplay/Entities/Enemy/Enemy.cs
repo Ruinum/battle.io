@@ -52,8 +52,6 @@ public class Enemy : Executable, IPlayer
 
         _vision.Execute();
         _magnite.Execute();
-
-        if (Input.GetKeyDown(KeyCode.P)) Level.AddExp(100);
     }
 
     public void FinalStage()

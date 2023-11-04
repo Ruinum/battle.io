@@ -8,7 +8,7 @@ public class Game
     
     public bool GameStarted = false;
     public bool FinalStage = false;
-    
+
     public Action OnGameStarted;
     public Action OnFinalStage;
     public Action OnFinalStageEnded;

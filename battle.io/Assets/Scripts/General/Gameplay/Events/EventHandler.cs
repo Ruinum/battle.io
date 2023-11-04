@@ -2,6 +2,7 @@
 
 public abstract class EventHandler
 {
+    protected Transform _transform;
     protected PlayerAnimatorController _controller;
     protected WeaponInfo _mainWeaponInfo;
     protected WeaponInfo _subWeaponInfo;
@@ -11,6 +12,7 @@ public abstract class EventHandler
     public EventHandler(PlayerAnimatorController controller, WeaponInventory inventory)
     {
         _controller = controller;
+        _transform = _controller.transform;
         inventory.OnWeaponChange += OnMainWeaponChange;
         inventory.OnWeaponSubChange += OnSubWeaponChange;
     }

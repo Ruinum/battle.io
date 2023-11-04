@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
     public int PlayerLevel => _currentLevel;
     public float Exp => _currentExp;
     public float ExpNeeded => _nextLevelExp;
+    public bool Died => _died;
 
     [SerializeField] private int _currentLevel = 1;
     [SerializeField] private float _currentExp = 0;
@@ -15,6 +16,7 @@ public class Level : MonoBehaviour
     private float _baseExp = 100;
     private float _baseExpModifier = 0.25f;
     private float _expModifier = 0.25f;
+    private bool _died = false;
 
     private List<Multiplier> _multipliers;
 
@@ -113,6 +115,7 @@ public class Level : MonoBehaviour
     private void CheckDeath()
     {
         if (_currentLevel > 0) return;
+        _died = true;
         OnDead?.Invoke(this);
         Destroy(gameObject);
     }

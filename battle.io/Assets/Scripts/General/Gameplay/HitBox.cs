@@ -34,12 +34,17 @@ public class HitBox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.TryGetComponent<Level>(out var level)) return;
-        if (_owner != null) if (collision == _owner) return; 
+        if (collision == _owner) return; 
         if (_collisions.TryGetValue(collision, out var @byte)) return;
         _collisions.Add(collision, 0);
 
         var damage = _damage + Random.Range(0, _randomDamage);
         level.RemoveExp(damage);
+
+        Debug.Log(level);
+        Debug.Log(_owner);
+        Debug.Log(AchievementManager.Singleton.gameObject);
+        if (level.Died && _owner.TryGetComponent<Player>(out var player)) AchievementManager.Singleton.OnKillEvent?.Invoke();
 
         ImpactUtils.TryCreatePopUp(Mathf.RoundToInt(damage).ToString(), collision.transform.position, Color.red, out var tmp);    
     }
