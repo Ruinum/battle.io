@@ -47,7 +47,7 @@ public class ExpOrb : Interactable, IInterestPoint
         if (!collision.TryGetComponent<Level>(out var level)) return;
 
         AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
-        AchievementManager.Singleton.OnExpPickedEvent?.Invoke(_expAmount);
+        StatsSystem.Singleton.OnExpPickedEvent?.Invoke(_expAmount);
         Interact(collision);
     }
 

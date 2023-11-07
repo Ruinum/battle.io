@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class ColliderRadiuis : MonoBehaviour
+public class ColliderRadius : MonoBehaviour
 {
     [SerializeField] private float _radius;
     [SerializeField] private float _speed;

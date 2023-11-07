@@ -26,6 +26,8 @@ namespace Ruinum.Core.Systems
             _systems.Add(new SimulatePhysicSystem());
             _systems.Add(new SceneSystem());
             _systems.Add(new GameSystems());
+            _systems.Add(new StatsSystem(_gameConfig.PlayerStats));
+            _systems.Add(new AchievementSystem(_gameConfig.PlayerStats));
 
             for (int i = 0; i < _systems.Count; i++)
             {

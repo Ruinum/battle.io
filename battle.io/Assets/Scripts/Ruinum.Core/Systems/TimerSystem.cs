@@ -47,5 +47,5 @@ namespace Ruinum.Core.Systems
         {
             ExecuteSystem.Singleton.RemoveExecute(this);
         }
-    }
+    }   
 }

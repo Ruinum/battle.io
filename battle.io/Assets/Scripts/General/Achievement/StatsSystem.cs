@@ -1,32 +1,25 @@
 using Ruinum.Core.Systems;
 using System;
-using UnityEngine;
 
-public class AchievementManager : MonoBehaviour
+public class StatsSystem : System<StatsSystem>
 {
-    [SerializeField] private PlayerStats _stats;
-    public static AchievementManager Singleton { get; private set; }
-
+    private PlayerStats _stats;
     public Action OnKillEvent;
-    public Action OnGameWinEvent;
-    public Action OnGameLoseEvent;
     public Action<float> OnExpPickedEvent;
 
     private float _timeSpendedInGame;
 
-    public void Awake()
-    {
-        Singleton = this;
-        DontDestroyOnLoad(this);
-    }
+    public StatsSystem(PlayerStats stats) => _stats = stats;
 
-    private void Start()
+    public override void Init()
     {
         OnKillEvent += OnKill;
         OnExpPickedEvent += OnExpPicked;
 
-        Game.Context.OnGameStarted += OnGameStarted;       
+        Game.Context.OnGameStarted += OnGameStarted;
     }
+
+    public override void Execute() { }
 
     private void OnGameStarted()
     {
@@ -39,21 +32,25 @@ public class AchievementManager : MonoBehaviour
     private void OnKill()
     {
         _stats.KilledBattlers++;
+        _stats.OnStatsChanged?.Invoke();
     }
 
     private void OnExpPicked(float value)
     {
         _stats.CollectedExp += value;
+        _stats.OnStatsChanged?.Invoke();
     }
 
     private void OnGameWin()
     {
         _stats.GamesWinned++;
+        _stats.OnStatsChanged?.Invoke();
     }
 
     private void OnGameLose(Level level)
     {
         _stats.GamesLosed++;
+        _stats.OnStatsChanged?.Invoke();
     }
 
     private void OnGameRun()
@@ -61,6 +58,10 @@ public class AchievementManager : MonoBehaviour
         _timeSpendedInGame = _stats.TimeSpendInGame;
 
         var gameTimeSpended = TimerSystem.Singleton.StartReverseTimer(999999999f, () => OnGameRun());
-        gameTimeSpended.OnTimeChange += (x, y) => _stats.TimeSpendInGame = _timeSpendedInGame + x;
+        gameTimeSpended.OnTimeChange += (x, y) =>
+        {
+            _stats.TimeSpendInGame = _timeSpendedInGame + x;
+            _stats.OnStatsChanged?.Invoke();
+        };
     }
 }
