@@ -15,4 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Name: First Blood
   Description: Kill your first battler
-  Unlocked: 0
+  Unlocked: 1

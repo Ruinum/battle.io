@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(GameConfig), menuName = EditorConstants.DataPath + nameof(GameConfig))]
 public sealed class GameConfig : ScriptableObject
@@ -19,4 +20,11 @@ public sealed class GameConfig : ScriptableObject
 
     [Header("PopUp Pool Settings")]
     public int PopUpCapacity;
+
+    [Header("Achievements")]
+    public List<Achievement> KillAchievement;
+    public List<Achievement> WinAchievements;
+    public List<Achievement> LoseAchievements;
+    public List<Achievement> ExpAchievements;
+    public List<Achievement> TimeAchievements;
 }

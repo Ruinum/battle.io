@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   AssetsContext: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
+  PlayerStats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
   AbilitiesConfig: {fileID: 11400000, guid: 833875deada43f542960679e132508c7, type: 2}
   LevelStructure: {fileID: 11400000, guid: 1748dd932e800ce439714706dc78eaa2, type: 2}
   RootCanvas: {fileID: 1440064073383562019, guid: d7004d7c1c722514fb9d835eab5aa14d, type: 3}
@@ -21,3 +22,22 @@ MonoBehaviour:
   ExpOrbCapacity: 250
   ExpOrbHitImpactCapacity: 250
   PopUpCapacity: 200
+  KillAchievement:
+  - {fileID: 11400000, guid: ddd8c06076621484eb8e4cda81d04dde, type: 2}
+  - {fileID: 11400000, guid: 75a43369127df93489483ed2b544fe9c, type: 2}
+  - {fileID: 11400000, guid: 4d80747b62433394ea0972c29f7c0fd9, type: 2}
+  - {fileID: 11400000, guid: c5cf420aabe467f44adf949bd0cd334b, type: 2}
+  WinAchievements:
+  - {fileID: 11400000, guid: 342fc20cbbe9d914c809eaf152d47366, type: 2}
+  - {fileID: 11400000, guid: 90e47d38a14346743975f4429b2b694b, type: 2}
+  LoseAchievements:
+  - {fileID: 11400000, guid: b34dd01862b56644086299ea96e66d2d, type: 2}
+  - {fileID: 11400000, guid: d8e4cd5f1d4246942b00104b726d06a3, type: 2}
+  ExpAchievements:
+  - {fileID: 11400000, guid: 185daf6afd407ce46a266b95c1cc7dd5, type: 2}
+  - {fileID: 11400000, guid: aad100cce5076b547bb9626334248320, type: 2}
+  - {fileID: 11400000, guid: 95e1636844b505d419e52e66271ba71f, type: 2}
+  TimeAchievements:
+  - {fileID: 11400000, guid: 8585852a36707b24091d4fc17016f1ad, type: 2}
+  - {fileID: 11400000, guid: 57b78002ffe7cdf468fbbaf511dafc8f, type: 2}
+  - {fileID: 11400000, guid: c7ea5496a22ac6f41bada678904bb7f4, type: 2}

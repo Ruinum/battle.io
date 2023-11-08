@@ -10,5 +10,9 @@ public class PlayerStats : UniqueObject
     public float CollectedExp;
     public float TimeSpendInGame;
 
-    public Action OnStatsChanged;
+    public Action<int> OnKillsChanged;
+    public Action<int> OnWinsChanged;
+    public Action<int> OnLosesChanged;
+    public Action<float> OnExpChanged;
+    public Action<float> OnTimeSpendedChanged;
 }

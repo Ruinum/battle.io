@@ -32,25 +32,25 @@ public class StatsSystem : System<StatsSystem>
     private void OnKill()
     {
         _stats.KilledBattlers++;
-        _stats.OnStatsChanged?.Invoke();
+        _stats.OnKillsChanged?.Invoke(_stats.KilledBattlers);
     }
 
     private void OnExpPicked(float value)
     {
         _stats.CollectedExp += value;
-        _stats.OnStatsChanged?.Invoke();
+        _stats.OnExpChanged?.Invoke(_stats.CollectedExp);
     }
 
     private void OnGameWin()
     {
         _stats.GamesWinned++;
-        _stats.OnStatsChanged?.Invoke();
+        _stats.OnWinsChanged?.Invoke(_stats.GamesWinned);
     }
 
     private void OnGameLose(Level level)
     {
         _stats.GamesLosed++;
-        _stats.OnStatsChanged?.Invoke();
+        _stats.OnLosesChanged?.Invoke(_stats.GamesLosed);
     }
 
     private void OnGameRun()
@@ -61,7 +61,7 @@ public class StatsSystem : System<StatsSystem>
         gameTimeSpended.OnTimeChange += (x, y) =>
         {
             _stats.TimeSpendInGame = _timeSpendedInGame + x;
-            _stats.OnStatsChanged?.Invoke();
+            _stats.OnTimeSpendedChanged?.Invoke(_stats.TimeSpendInGame);
         };
     }
 }
