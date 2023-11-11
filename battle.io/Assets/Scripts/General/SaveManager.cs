@@ -8,19 +8,17 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private PlayerStats _stats;
     [SerializeField] private List<Achievement> _achievements;
 
-    private RuinumCodec _codec;
+    private RuinumCodec _codec = new RuinumCodec("RRHFXKTG");
     private const string _publicKey = "XJKFNCYR";
     private const string _fileName = "Save.data";
 
+    public static SaveManager Singleton { get; private set; }
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-    }
+        Singleton = this;
 
-    private void Start()
-    {
-        _codec = new RuinumCodec("RRHFXKTG");
-        Save();
+        DontDestroyOnLoad(this);
         Load();
     }
 
@@ -29,7 +27,8 @@ public class SaveManager : MonoBehaviour
         string destination = Application.dataPath + _fileName;
         
         FileStream file;
-        if (File.Exists(destination)) file = File.OpenWrite(destination);
+        
+        if (File.Exists(destination)) file = File.Open(destination, FileMode.Truncate);
         else file = File.Create(destination);
 
         StreamWriter stream = new StreamWriter(file);
@@ -37,14 +36,13 @@ public class SaveManager : MonoBehaviour
         var achivementInfo = "-";
         for (int i = 0; i < _achievements.Count; i++)
         {
-            achivementInfo += $"{i}.{_achievements[i].Unlocked}:";
-        }
+            achivementInfo += $"{_achievements[i].Unlocked}:";
+        }        
 
         stream.WriteLine(_codec.Encode(statsInfo+achivementInfo, _publicKey));
         stream.Close();
     }
 
-    //TODO: Loading
     public void Load()
     {
         var destination = Application.dataPath + _fileName;
@@ -56,6 +54,20 @@ public class SaveManager : MonoBehaviour
         StreamReader stream = new StreamReader(file);
         var text = stream.ReadToEnd();
         var decodecText = _codec.Decode(text, _publicKey);
-        Debug.LogWarning(decodecText);
+
+        var textParts = decodecText.Split('-');
+        var statsText = textParts[0].Split(':');
+        var achievementText = textParts[1].Split(':');
+
+        _stats.KilledBattlers = int.Parse(statsText[0]);
+        _stats.GamesWinned = int.Parse(statsText[1]);
+        _stats.GamesLosed = int.Parse(statsText[2]);
+        _stats.CollectedExp = float.Parse(statsText[3]);
+        _stats.TimeSpendInGame = float.Parse(statsText[4]);
+
+        for (int i = 0; i < achievementText.Length - 1; i++)
+        {
+            _achievements[i].Unlocked = bool.Parse(achievementText[i]);
+        }
     }
 }

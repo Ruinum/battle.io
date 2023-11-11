@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: FirstBlood_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ae178df8b8cbee1458bb00061ade25e1, type: 3}
   Name: First Blood
   Description: Kill your first battler
-  Unlocked: 1
+  Unlocked: 0

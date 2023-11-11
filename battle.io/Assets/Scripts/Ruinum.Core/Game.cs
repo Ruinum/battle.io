@@ -80,5 +80,7 @@ public class Game
         OnGameEnded?.Invoke();
         GameStarted = false;
         FinalStage = false;
+
+        SaveManager.Singleton.Save();
     }
 }

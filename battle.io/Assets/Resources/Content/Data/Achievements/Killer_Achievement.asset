@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: Killer_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 1dfc444486f7a4146b76c7572fc220ed, type: 3}
   Name: Killer
   Description: Kill 300 battlers
   Unlocked: 0

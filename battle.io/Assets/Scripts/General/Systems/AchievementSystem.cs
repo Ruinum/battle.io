@@ -1,5 +1,6 @@
 ﻿using Ruinum.Core.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AchievementSystem : ISystem
 {
@@ -31,11 +32,11 @@ public class AchievementSystem : ISystem
     {
         _stats = config.PlayerStats;
 
-        _killAchievements = config.KillAchievement;
-        _winAchievements = config.WinAchievements;
-        _loseAchievements = config.LoseAchievements;
-        _expAchievements = config.ExpAchievements;
-        _timeAchievements = config.TimeAchievements;
+        _killAchievements = config.KillAchievement.ToList();
+        _winAchievements = config.WinAchievements.ToList();
+        _loseAchievements = config.LoseAchievements.ToList();
+        _expAchievements = config.ExpAchievements.ToList();
+        _timeAchievements = config.TimeAchievements.ToList();
     }
 
     public void Initialize()
@@ -45,9 +46,39 @@ public class AchievementSystem : ISystem
         _stats.OnLosesChanged += CheckLoseAchievements;
         _stats.OnTimeSpendedChanged += CheckGameTimeAchievements;
         _stats.OnExpChanged += CheckExpAchievements;
+
+        RecalculateAchievement();
     }
 
     public void Execute() { }
+
+    private void RecalculateAchievement()
+    {
+        for (int i = 0; i < _killAchievements.Count; i++)
+        {
+            if (_killAchievements[i].Unlocked) NextKillAchievemnt();
+        }
+
+        for (int i = 0; i < _winAchievements.Count; i++)
+        {
+            if (_winAchievements[i].Unlocked) NextWinAchievemnt();
+        }
+
+        for (int i = 0; i < _loseAchievements.Count; i++)
+        {
+            if (_loseAchievements[i].Unlocked) NextLoseAchievemnt();
+        }
+
+        for (int i = 0; i < _expAchievements.Count; i++)
+        {
+            if (_expAchievements[i].Unlocked) NextExpAchievement();
+        }
+
+        for (int i = 0; i < _timeAchievements.Count; i++)
+        {
+            if (_timeAchievements[i].Unlocked) NextGameTimeAchievement();
+        }
+    }
 
     private void CheckKillAchievements(int kills)
     {
@@ -170,5 +201,7 @@ public class AchievementSystem : ISystem
     {
         list[0].Unlocked = true;
         list.Remove(list[0]);
+
+        SaveManager.Singleton.Save();
     }
 }
