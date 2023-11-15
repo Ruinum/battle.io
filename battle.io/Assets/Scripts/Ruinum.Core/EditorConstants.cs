@@ -4,4 +4,6 @@
     public const string RootMenuPath = RootMenuName + "/";
 
     public const string DataPath = RootMenuPath + "Data" + "/";
+
+    public const bool Logging = false;
 }

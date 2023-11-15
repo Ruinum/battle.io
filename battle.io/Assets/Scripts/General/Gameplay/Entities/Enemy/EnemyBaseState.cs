@@ -10,8 +10,6 @@
     { 
         _context = context;
         _factory = factory;
-
-        UnityEngine.Debug.Log(this);
     } 
 
     public abstract void EnterState();

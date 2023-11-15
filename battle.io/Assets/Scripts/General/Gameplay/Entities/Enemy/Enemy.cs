@@ -44,6 +44,8 @@ public class Enemy : Executable, IPlayer
 
         _currentState = _states.IdleState();
         _currentState.EnterState();
+
+        Game.Context.Enemies.Add(this);
     }
 
     public override void Execute()
@@ -51,7 +53,7 @@ public class Enemy : Executable, IPlayer
         _currentState.UpdateStates();
 
         _vision.Execute();
-        _magnite.Execute();
+        _magnite.Execute();       
     }
 
     public void FinalStage()
@@ -60,6 +62,12 @@ public class Enemy : Executable, IPlayer
 
         _currentState = _states.IdleState();
         _currentState.EnterState();
+    }
+
+    public void Unload()
+    {
+        transform.transform.localScale = Vector3.one;
+        Level.RemoveExp(999999999f);
     }
 
     public override void OnDestroy()

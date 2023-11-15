@@ -483,8 +483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5093025667706901528}
   _inventory: {fileID: 5093025667706901530}
-  _arms: {fileID: 5093025666763080985}
-  _isPlayer: 1
 --- !u!114 &5093025667706901530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190bc068eb88fcc4ab9767824c49427c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 10
 --- !u!114 &5093025667706901524
 MonoBehaviour:
   m_ObjectHideFlags: 0

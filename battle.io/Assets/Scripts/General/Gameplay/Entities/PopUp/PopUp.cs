@@ -15,7 +15,6 @@ public class PopUp : PoolObject
 
     public void ShowPopUp(string text, Vector3 position, Color color)
     {
-
         _canvas.sortingOrder = 5;
         var resultPosition = position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 1);
         Active(resultPosition, Quaternion.identity);

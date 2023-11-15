@@ -13,8 +13,6 @@ public class WeaponAnimation
 
     private void AddWeaponAnimationTimeline(WeaponInfo weaponInfo, GameObject @object)
     {
-        Debug.Log(weaponInfo.name);
-        Debug.Log(weaponInfo.Animation.Clip);
         _animatorController.AddTimeline(weaponInfo.Animation);
     }
 }

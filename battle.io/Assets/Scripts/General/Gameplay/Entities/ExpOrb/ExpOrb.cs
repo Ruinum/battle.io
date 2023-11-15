@@ -1,6 +1,7 @@
 ﻿using Ruinum.Core;
 using Ruinum.Core.Systems;
 using Ruinum.Utils;
+using System;
 using UnityEngine;
 
 public class ExpOrb : Interactable, IInterestPoint
@@ -60,7 +61,6 @@ public class ExpOrb : Interactable, IInterestPoint
 
         if (_time >= 0) return;
         ReturnToPool();
-        OnInteract?.Invoke();
     }
 
     public void Active(Vector3 position, Quaternion rotation)
@@ -72,6 +72,8 @@ public class ExpOrb : Interactable, IInterestPoint
         transform.localRotation = rotation;
         gameObject.SetActive(true);
         transform.SetParent(null);
+
+        Game.Context.ExpOrbs.Add(this);
     }
 
     public void DelayFade(float time)
@@ -99,7 +101,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
     public void ReturnToPool()
     {
-        if(_timer != null) _timer.RemoveTimer();
+        if (_timer != null) _timer.RemoveTimer();
 
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;

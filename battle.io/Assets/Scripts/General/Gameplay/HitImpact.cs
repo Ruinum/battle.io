@@ -10,16 +10,21 @@ public class HitImpact
     private ExpOrbPool _pool;
     private Transform _transform;
     private float _expCutModifier = 0.25f;
+    private int _unloadDistance;
 
     public HitImpact(Level level, Transform transform)
     {
         level.OnExpRemove += OnExpRemove;
         _transform = transform;
         _pool = Game.Context.ExpOrbHitImpactPool;
+        _unloadDistance = GameConstants.IMPACT_UNLOAD_DISTANCE;
     }
 
     private void OnExpRemove(float removedExp)
     {
+        if (Game.Context.Player == null || Game.Context.Player == default) return;
+        if (Vector2.Distance(_transform.position, Game.Context.Player.Transform.position) > _unloadDistance) return;
+
         int expOrbAmount = Random.Range(4, 8);
         float expOrbValue = removedExp / expOrbAmount * _expCutModifier;
 

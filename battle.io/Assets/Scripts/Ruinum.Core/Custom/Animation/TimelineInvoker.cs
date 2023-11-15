@@ -30,7 +30,7 @@ public sealed class TimelineInvoker
     {
         if (!_subscribedEvents.ContainsKey(name))
         {
-            Debug.LogError($"No one event with {name} is finded");
+            if (EditorConstants.Logging) Debug.LogError($"No one event with {name} is finded");
             return;
         }
 
@@ -50,7 +50,7 @@ public sealed class TimelineInvoker
     {
         if (_timelines.ContainsKey(data.Clip))
         {
-            Debug.Log($"Clip {data.Clip} is already added to Dictionary");
+            if (EditorConstants.Logging) Debug.Log($"Clip {data.Clip} is already added to Dictionary");
             return;
         }
 
@@ -70,7 +70,7 @@ public sealed class TimelineInvoker
     {
         if (!_subscribedEvents.TryGetValue(name, out List<Action> events))
         {
-            Debug.LogError($"There is no {name} key in Dictionary");
+            if (EditorConstants.Logging) Debug.LogError($"There is no {name} key in Dictionary");
             return;
         }
 
@@ -81,7 +81,7 @@ public sealed class TimelineInvoker
     {
         if (!_timelines.TryGetValue(clip, out Timeline timeline))
         {
-            Debug.LogWarning($"Didn't have Timeline for {clip}");
+            if (EditorConstants.Logging) Debug.LogWarning($"Didn't have Timeline for {clip}");
             return;
         }
 
@@ -89,7 +89,7 @@ public sealed class TimelineInvoker
         {
             if (_playAnimations.TryGetValue(clip, out var @byte))
             {
-                Debug.LogWarning($"Clip {clip} is already plays");
+                if (EditorConstants.Logging) Debug.LogWarning($"Clip {clip} is already plays");
                 return;
             }
         }

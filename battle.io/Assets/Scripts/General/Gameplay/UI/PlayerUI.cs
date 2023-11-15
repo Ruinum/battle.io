@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
     public LevelUI LevelUI => _levelUI;
     public WeaponChooseUI WeaponUI => _weaponChooseUI;
 
-    public void Initialize(Player player)
+    public void Initialize(IPlayer player)
     {
         _levelUI.Initialize(player.Level);
         _weaponChooseUI.Initialize(player);
