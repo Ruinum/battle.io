@@ -1,7 +1,6 @@
 ﻿using Ruinum.Core;
 using Ruinum.Core.Systems;
 using Ruinum.Utils;
-using System;
 using UnityEngine;
 
 public class ExpOrb : Interactable, IInterestPoint
@@ -36,11 +35,11 @@ public class ExpOrb : Interactable, IInterestPoint
     {
         if (!collision.TryGetComponent<Level>(out var level)) return;
 
-        ReturnToPool();
         level.AddExp(_expAmount);
 
         OnInteract?.Invoke();
         ImpactUtils.TryCreatePopUp(Mathf.Max(1, Mathf.RoundToInt(_expAmount)).ToString(), collision.transform.position, Color.black, out var tmp);
+        ReturnToPool();
     }
 
     protected override void PlayerInteract(Collider2D collision)
@@ -65,6 +64,7 @@ public class ExpOrb : Interactable, IInterestPoint
 
     public void Active(Vector3 position, Quaternion rotation)
     {
+        Game.Context.ExpOrbs.Add(this);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _color = _spriteRenderer.color;
 
@@ -72,8 +72,6 @@ public class ExpOrb : Interactable, IInterestPoint
         transform.localRotation = rotation;
         gameObject.SetActive(true);
         transform.SetParent(null);
-
-        Game.Context.ExpOrbs.Add(this);
     }
 
     public void DelayFade(float time)
@@ -112,6 +110,7 @@ public class ExpOrb : Interactable, IInterestPoint
         _delayDestroy = false;
         _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 1);
 
+        Game.Context.ExpOrbs.Remove(this);
         if (!RootPool) Destroy(gameObject);
     }
 

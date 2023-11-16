@@ -53,6 +53,11 @@ public class Game
         RootCanvas = ObjectUtils.CreateGameObject<Canvas>(_gameConfig.RootCanvas.gameObject);
         PlayerUI = ObjectUtils.CreateGameObject<PlayerUI>(_gameConfig.PlayerUIPrefab, RootCanvas.transform);
 
+        for (int i = 0; i < ExpOrbs.Count; i++)
+        {
+            ExpOrbs[i].ReturnToPool();
+        }
+
         ExpOrbs.Clear();
         Enemies.Clear();
 

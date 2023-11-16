@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using Ruinum.Utils;
 
-public sealed class EnemyLevelProgression
+public sealed class EnemyLevelProgression : ILevelProgression
 {
-    public int LevelPoints => _levelPoints;
-
     private Level _level;
     private WeaponInventory _inventory;
     private List<int> _weapons = new List<int>();
@@ -18,10 +16,13 @@ public sealed class EnemyLevelProgression
         _level = level;
         _inventory = inventory;
 
-        level.OnLevelChange += Progress;
+        level.OnLevelChange += LevelUp;
     }
 
-    public void Progress(int level)
+    public void Execute() { }
+    public void TakeLevel(LevelStructure level, int i) { }
+
+    public void LevelUp(int level)
     {
         if (level <= _lastMaxLevel) _levelPoints--;
         else _levelPoints++;
@@ -43,7 +44,7 @@ public sealed class EnemyLevelProgression
 
         if (levelStructure.MainWeapon == null)
         {
-            UnityEngine.Debug.LogWarning($"There is no main weapon in {nameof(LevelStructure)} of {level}");
+            Debug.LogWarning($"There is no main weapon in {nameof(LevelStructure)} of {level}");
             return;
         }
 

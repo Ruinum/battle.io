@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class PlayerLevelProgression
+public sealed class PlayerLevelProgression : ILevelProgression
 {
     private IPlayer _player;
     private Level _level;
@@ -72,4 +72,11 @@ public sealed class PlayerLevelProgression
         Game.Context.PlayerUI.WeaponUI.GetChoose(structure);
         _isUIShowed = true;
     }
+}
+
+public interface ILevelProgression
+{
+    void Execute();
+    void LevelUp(int level);
+    void TakeLevel(LevelStructure level, int i);
 }

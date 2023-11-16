@@ -9,6 +9,7 @@ public class Enemy : Executable, IPlayer
     public ScaleView ScaleView => _context.ScaleView;
     public Class Class => _context.Class;
     public IMovement Movement => _context.Movement;
+    public ILevelProgression LevelProgression => _context.LevelProgression;
 
     public EnemyBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public bool IsDestroyed { get; set; }

@@ -26,8 +26,8 @@ public class ExpOrbUnloadSystem : ISystem
             if (!expOrb.isActiveAndEnabled) continue;
             if (Vector2.Distance(_player.position, expOrb.transform.position) < _unloadDistance) continue;
 
-            Game.Context.ExpOrbs.Remove(expOrb);
             expOrb.ReturnToPool();
+            Game.Context.ExpOrbs.Remove(expOrb);
         }
     }
 }

@@ -31,9 +31,9 @@ public class Player : Executable, IPlayer
     public Transform Transform => transform;
     public Level Level => _level;
     public Class Class => _class;
-    public PlayerLevelProgression LevelProgression => _levelProgression;
     public ScaleView ScaleView => _scaleView;
     public IMovement Movement => _movement;
+    public ILevelProgression LevelProgression => _levelProgression;
 
     public bool IsDestroyed { get; set; }
 

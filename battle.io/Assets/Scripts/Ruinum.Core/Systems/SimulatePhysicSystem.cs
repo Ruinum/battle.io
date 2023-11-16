@@ -27,7 +27,7 @@ public class SimulatePhysicSystem : System<SimulatePhysicSystem>
 
     public void ImpulseObject(GameObject gameObject, Vector3 direction, float speed, float lifeTime = 0.5f, float mass = 0)
     {
-        Rigidbody2D rigidbody2d = gameObject.AddComponent<Rigidbody2D>();
+        if (gameObject.TryGetComponent<Rigidbody2D>(out var rigidbody2d)) rigidbody2d = gameObject.AddComponent<Rigidbody2D>();
         if (rigidbody2d == null) return;
         if (mass == 0) rigidbody2d.mass = Random.Range(0.5f, 2);
         else rigidbody2d.mass = 1;

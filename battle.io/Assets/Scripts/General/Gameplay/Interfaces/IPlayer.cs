@@ -4,4 +4,5 @@
     Class Class { get; }
     ScaleView ScaleView { get; }
     IMovement Movement { get; }
+    ILevelProgression LevelProgression { get; }
 }

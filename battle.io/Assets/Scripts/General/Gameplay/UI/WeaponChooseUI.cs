@@ -5,14 +5,14 @@ using DG.Tweening;
 public class WeaponChooseUI : MonoBehaviour
 {
     private LevelStructure Level;
-    private PlayerLevelProgression _levelProgression;
+    private ILevelProgression _levelProgression;
 
     [SerializeField] private GameObject[] Images = new GameObject[4];
     [SerializeField] private GameObject _background;
     
     public void Initialize(IPlayer player)
     {
-        player.Transform.TryGetComponent(out _levelProgression);
+        _levelProgression = player.LevelProgression;
 
         for (int i = 0; i < transform.childCount; i++)
         {
