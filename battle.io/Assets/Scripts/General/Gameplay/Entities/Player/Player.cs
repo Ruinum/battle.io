@@ -72,6 +72,8 @@ public class Player : Executable, IPlayer
 
     public override void Execute()
     {
+        if (Input.GetKey(KeyCode.K)) _level.AddExp(1000f);
+
         _magnite.Execute();
         _cameraView.Execute();
         _levelProgression.Execute();

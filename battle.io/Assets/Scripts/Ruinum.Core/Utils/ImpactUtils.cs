@@ -13,7 +13,9 @@ namespace Ruinum.Utils
             
             if (!Game.Context.PopUpPool.TryGetPoolObject(out PopUp popUpObject)) return false;
             if (Game.Context.Player == null || Game.Context.Player == default) return false;
-            if (Vector2.Distance(popUpObject.transform.position, Game.Context.Player.Transform.position) >= _popupUnloadDistance) return false;
+            
+            popUpObject.transform.position = position;
+            if (Game.Context.Player != null && Vector2.Distance(popUpObject.transform.position, Game.Context.Player.Transform.position) >= _popupUnloadDistance) return false;
             
             popUpObject.ShowPopUp(text, position, color);
             tmp = popUpObject.GetTMPText();

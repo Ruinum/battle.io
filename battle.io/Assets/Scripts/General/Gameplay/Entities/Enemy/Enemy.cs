@@ -32,10 +32,18 @@ public class Enemy : Executable, IPlayer
     private EnemyContext _context;
     private EnemyBaseState _currentState;
 
+    private bool _isInitialized;
+
     public override void Start()
     {
         base.Start();
 
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        if (_isInitialized) return;
         _level = GetComponent<Level>();
         _vision = new EnemyVision(transform, _level, VisionRadius);
         _magnite = new Magnite(transform, MagniteSpeed, MagniteRadius);
@@ -46,7 +54,7 @@ public class Enemy : Executable, IPlayer
         _currentState = _states.IdleState();
         _currentState.EnterState();
 
-        Game.Context.Enemies.Add(this);
+        _isInitialized = true;
     }
 
     public override void Execute()
@@ -73,6 +81,8 @@ public class Enemy : Executable, IPlayer
 
     public override void OnDestroy()
     {
+        transform.transform.localScale = Vector3.one;
+
         base.OnDestroy();
         IsDestroyed = true;
     }

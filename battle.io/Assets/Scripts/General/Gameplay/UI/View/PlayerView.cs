@@ -24,7 +24,7 @@ public class PlayerView : MonoBehaviour
         _level.OnExpChange += ChangeView;
     }
 
-    private float CalculateModifier(float modifier) => (modifier / _level.ExpNeeded * _level.Exp + _level.PlayerLevel * modifier);
+    private float CalculateModifier(float modifier) => (modifier / _level.ExpNeeded * Mathf.Max(0, _level.Exp) + _level.PlayerLevel * modifier);
 
     private void ChangeView(float currentExpAmount)
     {

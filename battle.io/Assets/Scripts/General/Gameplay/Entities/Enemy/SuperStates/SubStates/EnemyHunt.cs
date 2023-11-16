@@ -47,6 +47,7 @@ public sealed class EnemyHunt : EnemyBaseState
 
     private void FindPoint()
     {
+        if (_nearestEnemy == null) return;
         if (_nearestEnemy.IsDestroyed) return;
         Vector3 point = new Vector3(_nearestEnemy.Transform.position.x + Random.Range(_minRandom, _maxRandom), _nearestEnemy.Transform.position.y + Random.Range(_minRandom, _maxRandom), 0f);
         _movement.SetPoint(point);

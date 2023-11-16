@@ -17,8 +17,9 @@ class MenuGameplay : MonoBehaviour
     private void Initialize()
     {
         _expOrbSystem = new ExpOrbSystem(new Vector2(32, 32), new Vector2(-32, -32), 250, 5, 8);
-        _enemySpawnSystem = new EnemySpawnSystem(30);
+        _enemySpawnSystem = new EnemySpawnSystem(15);
         var fakePlayer = Object.Instantiate(_fakePlayer).GetComponent<IPlayer>();
+        DontDestroyOnLoad(fakePlayer.Transform);
         _enemySpawnSystem.SetPlayer(fakePlayer);
         Game.Context.Player = fakePlayer;
 

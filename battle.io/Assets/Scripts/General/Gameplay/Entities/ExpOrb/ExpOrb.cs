@@ -1,4 +1,5 @@
-﻿using Ruinum.Core;
+﻿using DG.Tweening;
+using Ruinum.Core;
 using Ruinum.Core.Systems;
 using Ruinum.Utils;
 using UnityEngine;
@@ -67,6 +68,9 @@ public class ExpOrb : Interactable, IInterestPoint
         Game.Context.ExpOrbs.Add(this);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _color = _spriteRenderer.color;
+
+        _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 0);
+        _spriteRenderer.DOFade(1, 0.8f);
 
         transform.localPosition = position;
         transform.localRotation = rotation;

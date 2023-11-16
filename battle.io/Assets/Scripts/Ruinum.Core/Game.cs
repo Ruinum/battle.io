@@ -83,7 +83,6 @@ public class Game
 
     public void EndGame()
     {
-        UnityEngine.Object.Destroy(Player.Transform);
         UnityEngine.Object.Destroy(RootCanvas);
         UnityEngine.Object.Destroy(PlayerUI);
         

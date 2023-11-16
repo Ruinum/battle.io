@@ -12,6 +12,7 @@ public class EnemyUnloadSystem : ISystem
     {
         _enemies = Game.Context.Enemies;
         _player = Game.Context.Player.Transform;
+        Game.Context.OnFinalStage += OnFinalStage;
 
         _unloadDistance = GameConstants.ENEMY_UNLOAD_DISTANCE;
     }
@@ -28,5 +29,10 @@ public class EnemyUnloadSystem : ISystem
 
             enemy.Unload();
         }
+    }
+
+    private void OnFinalStage()
+    {
+        _unloadDistance += 25;
     }
 }

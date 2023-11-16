@@ -12,6 +12,7 @@ public class EnemySpawnSystem : ISystem
 
     private int _maxEnemyCount;
     private float _maxLevelExp;
+    private int _finalGameEnemies = 20;
     private float _minimalSpawnDistance = 5f;
     private float _additionalSpawnDistance = 5f;
 
@@ -19,6 +20,7 @@ public class EnemySpawnSystem : ISystem
     {
         _maxEnemyCount = enemyCount;
         _context = Game.Context;
+        _context.Enemies.Clear();
 
         _pool = _context.ExpOrbHitImpactPool;
 
@@ -46,7 +48,7 @@ public class EnemySpawnSystem : ISystem
 
     public void EnemyDead(Level level)
     {
-        if (_context.FinalStage && _context.Enemies.Count == 0) _context.FinalGameEnded();
+        if (_context.FinalStage && _context.Enemies.Count <= 1) _context.FinalGameEnded();
         
         Spawn();
         _context.Enemies.Remove(level.GetComponent<Enemy>());
@@ -63,7 +65,7 @@ public class EnemySpawnSystem : ISystem
         enemyView.Initialize();
         enemyView.Show();
 
-        if (_player != null && !_player.IsDestroyed) _point = _player.Transform.position;
+        if (_context.Player != null && !_context.Player.IsDestroyed) _point = _context.Player.Transform.position;
 
         var position = GetRandomSpawnPosition();
 
@@ -71,6 +73,7 @@ public class EnemySpawnSystem : ISystem
         
         var level = createdEnemy.GetComponent<Level>();
         var enemy = level.gameObject.GetComponent<Enemy>();
+        enemy.Initialize();
 
         _context.Enemies.Add(enemy);
 
@@ -98,14 +101,21 @@ public class EnemySpawnSystem : ISystem
 
     private void OnFinalStage()
     {
-        _maxEnemyCount = 0;
+        _additionalSpawnDistance *= 2;
+        _maxEnemyCount += _finalGameEnemies;
+
+        for (int i = 0; i < _finalGameEnemies; i++)
+        {
+            Spawn();
+        }
 
         var enemies = _context.Enemies;
-
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].FinalStage();
         }
+
+        _maxEnemyCount = 0;
     }
 
     private Vector3 GetRandomSpawnPosition()

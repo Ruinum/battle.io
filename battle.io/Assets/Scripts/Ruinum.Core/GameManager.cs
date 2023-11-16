@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Ruinum.Core.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Ruinum.Core.Systems
         {
             DontDestroyOnLoad(this);
             new Game(_gameConfig);
+            DOTween.SetTweensCapacity(700, 10);
         }
 
         private void Start()
