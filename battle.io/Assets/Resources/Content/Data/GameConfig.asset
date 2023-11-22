@@ -19,6 +19,7 @@ MonoBehaviour:
   RootCanvas: {fileID: 1440064073383562019, guid: d7004d7c1c722514fb9d835eab5aa14d, type: 3}
   PlayerPrefab: {fileID: 5093025667706901601, guid: 8a9bba93e9f7b9c4d8001f0d57e831e2, type: 3}
   PlayerUIPrefab: {fileID: 1725646925621221937, guid: 8a790224237372c49af1d6b392c70e95, type: 3}
+  AchievementPopUpUI: {fileID: 1188302269403451894, guid: c57c2fddbd1c54f4cbf8cbbfe35a6dd9, type: 3}
   ExpOrbCapacity: 250
   ExpOrbHitImpactCapacity: 250
   PopUpCapacity: 200

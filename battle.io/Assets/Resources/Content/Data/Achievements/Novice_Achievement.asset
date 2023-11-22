@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: Novice_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 8a73b2c275fb487409156902266d67fc, type: 3}
   Name: Novice
   Description: Spend 30 minutes in game
   Unlocked: 0

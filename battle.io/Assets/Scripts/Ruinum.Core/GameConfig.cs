@@ -10,9 +10,10 @@ public sealed class GameConfig : ScriptableObject
     public LevelStructure LevelStructure;
     public Canvas RootCanvas;
 
-    [Header("Player Prefabs")]
+    [Header("Prefabs")]
     public GameObject PlayerPrefab;
     public GameObject PlayerUIPrefab;
+    public GameObject AchievementPopUpUI;
 
     [Header("Exp Orb Pool Settings")]
     public int ExpOrbCapacity;

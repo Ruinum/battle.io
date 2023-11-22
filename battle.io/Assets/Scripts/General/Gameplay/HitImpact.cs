@@ -22,8 +22,9 @@ public class HitImpact
 
     private void OnExpRemove(float removedExp)
     {
-        if (Game.Context.Player == null || Game.Context.Player == default) return;
-        if (Vector2.Distance(_transform.position, Game.Context.Player.Transform.position) > _unloadDistance) return;
+        var player = Game.Context.Player;
+        if (player == null || player == default || player.IsDestroyed) return;
+        if (Vector2.Distance(_transform.position, player.Transform.position) > _unloadDistance) return;
 
         int expOrbAmount = Random.Range(4, 8);
         float expOrbValue = removedExp / expOrbAmount * _expCutModifier;

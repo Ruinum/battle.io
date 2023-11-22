@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: MyPrecious_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: c7b7130f46d3b884bb7211bd5aae726d, type: 3}
   Name: My Precious!
   Description: Collect 100k exp
   Unlocked: 0

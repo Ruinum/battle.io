@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: Master_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b1d06c0f3b7ba634785ceb43ae325481, type: 3}
   Name: Master
   Description: Spend 2 hours in game
   Unlocked: 0

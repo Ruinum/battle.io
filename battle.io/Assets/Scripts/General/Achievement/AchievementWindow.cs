@@ -7,7 +7,7 @@ public class AchievementWindow : MonoBehaviour
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Achievement[] _achievements;
-    private List<AchievementView> _achievementViews;
+    [SerializeField] private AchievementView[] _achievementViews;
     
     private int _page = 1;
     private int _count = 0;
@@ -18,9 +18,6 @@ public class AchievementWindow : MonoBehaviour
     public void Initialize()
     {
         if (_isInitialized) return;
-
-        _achievementViews = new List<AchievementView>();
-        _achievementViews.AddRange(FindObjectsOfType<AchievementView>());
 
         _isInitialized = true;
     }

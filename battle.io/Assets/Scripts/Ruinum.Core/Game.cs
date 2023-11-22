@@ -41,6 +41,7 @@ public class Game
     public IPlayer Player { get; set; }
     public Canvas RootCanvas { get; private set; }
     public PlayerUI PlayerUI { get; private set; }
+    public AchievementPopUpUI AchievementPopUp { get; private set; }
     public ExpOrbPool ExpOrbPool { get; private set; }
     public ExpOrbPool ExpOrbHitImpactPool { get; private set; }
     public PopUpPool PopUpPool { get; private set; }
@@ -52,6 +53,7 @@ public class Game
         Player = ObjectUtils.CreateGameObject<Player>(_gameConfig.PlayerPrefab);
         RootCanvas = ObjectUtils.CreateGameObject<Canvas>(_gameConfig.RootCanvas.gameObject);
         PlayerUI = ObjectUtils.CreateGameObject<PlayerUI>(_gameConfig.PlayerUIPrefab, RootCanvas.transform);
+        AchievementPopUp = ObjectUtils.CreateGameObject<AchievementPopUpUI>(_gameConfig.AchievementPopUpUI, RootCanvas.transform);
 
         for (int i = 0; i < ExpOrbs.Count; i++)
         {

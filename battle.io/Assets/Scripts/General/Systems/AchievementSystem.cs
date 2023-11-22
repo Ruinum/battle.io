@@ -1,6 +1,7 @@
 ﻿using Ruinum.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class AchievementSystem : ISystem
 {
@@ -111,13 +112,13 @@ public class AchievementSystem : ISystem
         switch (_killAchievementCount)
         {
             case 1:
-                _kills = 10;
-                break;
-            case 2:
                 _kills = 50;
                 break;
+            case 2:
+                _kills = 300;
+                break;
             case 3:
-                _kills = 200;
+                _kills = 1000;
                 break;
 
             default:
@@ -199,9 +200,11 @@ public class AchievementSystem : ISystem
 
     private void UnlockNextAchievement(List<Achievement> list)
     {
+        if (Game.Context.AchievementPopUp != null) Game.Context.AchievementPopUp.ShowAchievement(list[0]);
+
         list[0].Unlocked = true;
         list.Remove(list[0]);
-
+        
         SaveManager.Singleton.Save();
     }
 }

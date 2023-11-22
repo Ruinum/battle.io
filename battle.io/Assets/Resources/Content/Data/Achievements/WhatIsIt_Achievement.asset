@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: WhatIsIt_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 6c837cf758c25d646a752cf6725ed923, type: 3}
   Name: What's it?
   Description: Collect 1k exp
   Unlocked: 0

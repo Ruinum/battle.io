@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: FirstWin_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: First start
+  Icon: {fileID: 21300000, guid: c387587a64f76f048866b5720a529245, type: 3}
+  Name: First win
   Description: Win the game
   Unlocked: 0

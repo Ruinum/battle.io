@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb7058b8adcba4ea72e20023ca16a0, type: 3}
   m_Name: Advanced_Achievement
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 77f950ce14066fb41ad08c0920ec2355, type: 3}
   Name: Advanced
   Description: Spend 1 hour in game
   Unlocked: 0
