@@ -10296,8 +10296,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 185daf6afd407ce46a266b95c1cc7dd5, type: 2}
   - {fileID: 11400000, guid: aad100cce5076b547bb9626334248320, type: 2}
   - {fileID: 11400000, guid: 95e1636844b505d419e52e66271ba71f, type: 2}
-  - {fileID: 11400000, guid: abeef9d2ef09a3e44b5fd8d4b094c0d7, type: 2}
-  - {fileID: 11400000, guid: 16130e67e361ff5448c79128bf05e761, type: 2}
   _achievementViews:
   - {fileID: 9059710585581447748}
   - {fileID: 1893285069}

@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Ruinum.Utils;
 
 public class AchievementPopUpUI : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _main;
     [SerializeField] private Image _image;
+    [SerializeField] private AudioConfig _audioConfig;
 
     private void Start()
     {
@@ -14,8 +16,8 @@ public class AchievementPopUpUI : MonoBehaviour
 
     public void ShowAchievement(Achievement achievement)
     {
+        AudioUtils.PlayAudio(_audioConfig, new Vector3(0, 0, 0));
         _image.sprite = achievement.Icon;
-        Debug.Log(achievement.Icon);
 
         _main.DOFade(1, 0.35f);
         _main.transform.DOPunchScale(new Vector3(0.05f, 0.05f, 0.05f), 0.25f).OnComplete(() => 

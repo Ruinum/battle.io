@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   KilledBattlers: 0
-  GamesWinned: 1
-  GamesLosed: 1
-  CollectedExp: 0.72427577
-  TimeSpendInGame: 18.03451
+  GamesWinned: 0
+  GamesLosed: 0
+  CollectedExp: 0
+  TimeSpendInGame: 11.43079

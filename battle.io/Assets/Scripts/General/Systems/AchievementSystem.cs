@@ -83,27 +83,27 @@ public class AchievementSystem : ISystem
 
     private void CheckKillAchievements(int kills)
     {
-        if (kills == _kills) NextKillAchievemnt();
+        if (kills >= _kills) NextKillAchievemnt();
     }
 
     private void CheckExpAchievements(float exp)
     {
-        if (exp == _exp) NextExpAchievement();
+        if (exp >= _exp) NextExpAchievement();
     }
 
     private void CheckWinAchievements(int wins)
     {
-        if (wins == _wins) NextWinAchievemnt();
+        if (wins >= _wins) NextWinAchievemnt();
     }
 
     private void CheckLoseAchievements(int loses)
     {
-        if (loses == _loses) NextLoseAchievemnt();
+        if (loses >= _loses) NextLoseAchievemnt();
     }
 
     private void CheckGameTimeAchievements(float timeSpended)
     {
-        if (timeSpended == _timeSpended) NextGameTimeAchievement();
+        if (timeSpended >= _timeSpended) NextGameTimeAchievement();
     }
 
     private void NextKillAchievemnt()

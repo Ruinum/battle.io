@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _main: {fileID: 3496551354328532819}
   _image: {fileID: 3852421559316015464}
+  _audioConfig: {fileID: 11400000, guid: 5d87fa1ed85771143a8b15e26fb5d7c5, type: 2}
 --- !u!1 &3851043985396195376
 GameObject:
   m_ObjectHideFlags: 0

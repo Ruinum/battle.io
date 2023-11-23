@@ -15,4 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 6cdf6850e56496b44a1fb68bd4b4fd16, type: 3}
   Name: First lose
   Description: Lose the game
-  Unlocked: 1
+  Unlocked: 0
