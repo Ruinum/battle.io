@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssetsContext: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
   PlayerStats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
+  BasePlayerSkin: {fileID: 11400000, guid: f0a41de6ed8c9f1429dd4c626ffde0e9, type: 2}
   AbilitiesConfig: {fileID: 11400000, guid: 833875deada43f542960679e132508c7, type: 2}
   LevelStructure: {fileID: 11400000, guid: 1748dd932e800ce439714706dc78eaa2, type: 2}
   RootCanvas: {fileID: 1440064073383562019, guid: d7004d7c1c722514fb9d835eab5aa14d, type: 3}
@@ -23,6 +24,7 @@ MonoBehaviour:
   ExpOrbCapacity: 250
   ExpOrbHitImpactCapacity: 250
   PopUpCapacity: 200
+  StarCapacity: 5
   KillAchievement:
   - {fileID: 11400000, guid: ddd8c06076621484eb8e4cda81d04dde, type: 2}
   - {fileID: 11400000, guid: 75a43369127df93489483ed2b544fe9c, type: 2}

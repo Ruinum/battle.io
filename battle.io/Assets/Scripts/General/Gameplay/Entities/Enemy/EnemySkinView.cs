@@ -1,10 +1,7 @@
 using UnityEngine;
 
-public class RandomEnemyLook : MonoBehaviour
+public class EnemySkinView : SkinView
 {
-    [SerializeField] private SpriteRenderer _body;
-    [SerializeField] private SpriteRenderer[] _arms;
-
     [SerializeField] private Appearance[] _appearances;
 
     private void Start()
@@ -15,4 +12,5 @@ public class RandomEnemyLook : MonoBehaviour
         _arms[0].sprite = _appearances[index].Arm;
         _arms[1].sprite = _appearances[index].Arm;
     }
+    
 }

@@ -4,7 +4,7 @@ using System.Collections;
 class MenuGameplay : MonoBehaviour
 {
     [SerializeField] private GameObject _fakePlayer;
-    private ExpOrbSystem _expOrbSystem;
+    private ExpOrbSpawnSystem _expOrbSystem;
     private EnemySpawnSystem _enemySpawnSystem;
     private bool _initialize;
 
@@ -16,7 +16,7 @@ class MenuGameplay : MonoBehaviour
 
     private void Initialize()
     {
-        _expOrbSystem = new ExpOrbSystem(new Vector2(32, 32), new Vector2(-32, -32), 250, 5, 8);
+        _expOrbSystem = new ExpOrbSpawnSystem(new Vector2(32, 32), new Vector2(-32, -32), 250, 5, 8);
         _enemySpawnSystem = new EnemySpawnSystem(15);
         var fakePlayer = Object.Instantiate(_fakePlayer).GetComponent<IPlayer>();
         DontDestroyOnLoad(fakePlayer.Transform);

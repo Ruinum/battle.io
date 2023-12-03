@@ -1,10 +1,11 @@
 ﻿using DG.Tweening;
 using Ruinum.Core;
+using Ruinum.Core.Interfaces;
 using Ruinum.Core.Systems;
 using Ruinum.Utils;
 using UnityEngine;
 
-public class ExpOrb : Interactable, IInterestPoint
+public class ExpOrb : Interactable, IInterestPoint, IExecute, IMagnite
 {
     [SerializeField] private AudioConfig _audioConfig;
     [SerializeField] private float _expAmount;
@@ -16,7 +17,7 @@ public class ExpOrb : Interactable, IInterestPoint
     private float _time;
     private bool _delayDestroy;
 
-    private Transform _rootPool;  
+    private Transform _rootPool;
     public Transform RootPool
     {
         get
@@ -52,12 +53,12 @@ public class ExpOrb : Interactable, IInterestPoint
         Interact(collision);
     }
 
-    private void Update()
+    public void Execute()
     {
         if (!_delayDestroy) return;
         _time -= Time.deltaTime;
 
-        if(_time <= 1) _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, _time);
+        if (_time <= 1) _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, _time);
 
         if (_time >= 0) return;
         ReturnToPool();
@@ -66,6 +67,8 @@ public class ExpOrb : Interactable, IInterestPoint
     public void Active(Vector3 position, Quaternion rotation)
     {
         Game.Context.ExpOrbs.Add(this);
+        ExecuteSystem.Singleton.AddExecute(this);
+        
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _color = _spriteRenderer.color;
 
@@ -115,6 +118,8 @@ public class ExpOrb : Interactable, IInterestPoint
         _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 1);
 
         Game.Context.ExpOrbs.Remove(this);
+        ExecuteSystem.Singleton.RemoveExecute(this);
+        
         if (!RootPool) Destroy(gameObject);
     }
 

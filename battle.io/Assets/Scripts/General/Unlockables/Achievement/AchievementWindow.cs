@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,20 +6,12 @@ public class AchievementWindow : MonoBehaviour
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Achievement[] _achievements;
-    [SerializeField] private AchievementView[] _achievementViews;
+    [SerializeField] private AchievementUI[] _achievementViews;
     
     private int _page = 1;
     private int _count = 0;
-    private bool _isInitialized;
 
     private const int ACHIEVEMENT_VIEW_COUNT = 12;
-
-    public void Initialize()
-    {
-        if (_isInitialized) return;
-
-        _isInitialized = true;
-    }
 
     public void Show()
     {

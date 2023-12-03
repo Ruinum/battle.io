@@ -20,7 +20,6 @@ public class EnemySpawnSystem : ISystem
     {
         _maxEnemyCount = enemyCount;
         _context = Game.Context;
-        _context.Enemies.Clear();
 
         _pool = _context.ExpOrbHitImpactPool;
 

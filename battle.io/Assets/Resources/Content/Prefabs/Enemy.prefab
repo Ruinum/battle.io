@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 863313746209127291}
   - component: {fileID: 5515891400083454408}
   - component: {fileID: 5515891400083454410}
+  - component: {fileID: 5515891400083454415}
   - component: {fileID: 5515891400083454414}
   - component: {fileID: 5515891400083454409}
-  - component: {fileID: 5515891400083454415}
   - component: {fileID: 3198534315492493104}
   m_Layer: 0
   m_Name: Enemy
@@ -167,6 +167,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scaleModifier: 0.2
   _speedModifier: 0.05
+--- !u!114 &5515891400083454415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515891400083454411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5084134d3580f99409c6c986271daeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _body: {fileID: 5515891401765106675}
+  _arms:
+  - {fileID: 5515891400887422344}
+  - {fileID: 5515891401709552199}
+  _appearances:
+  - {fileID: 11400000, guid: c551211556efd0e42ae680372faadfd6, type: 2}
+  - {fileID: 11400000, guid: 85289f9e658c6464b8510d088fd708d3, type: 2}
+  - {fileID: 11400000, guid: 8c2082433e9190742b25a9c917fb4f34, type: 2}
+  - {fileID: 11400000, guid: b95163fa0ec87be48b06166f31592ba0, type: 2}
 --- !u!114 &5515891400083454414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,27 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentLevel: 1
   _currentExp: 0
---- !u!114 &5515891400083454415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5515891400083454411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5084134d3580f99409c6c986271daeef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _body: {fileID: 5515891401765106675}
-  _arms:
-  - {fileID: 5515891400887422344}
-  - {fileID: 5515891401709552199}
-  _appearances:
-  - {fileID: 11400000, guid: c551211556efd0e42ae680372faadfd6, type: 2}
-  - {fileID: 11400000, guid: 85289f9e658c6464b8510d088fd708d3, type: 2}
-  - {fileID: 11400000, guid: 8c2082433e9190742b25a9c917fb4f34, type: 2}
-  - {fileID: 11400000, guid: b95163fa0ec87be48b06166f31592ba0, type: 2}
 --- !u!114 &3198534315492493104
 MonoBehaviour:
   m_ObjectHideFlags: 0

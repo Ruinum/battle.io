@@ -4,7 +4,9 @@ namespace Ruinum.Utils
 {
     public static class AudioUtils
     {
-        public static AudioSource PlayAudio(AudioConfig config, Vector3 position)
+        public static AudioSource PlayAudio(this AudioConfig config) => PlayAudio(config, new Vector3(0, 0, 0)); 
+
+        public static AudioSource PlayAudio(this AudioConfig config, Vector3 position)
         {
             AudioSource audioSource = new GameObject(config.Clip.ToString(), typeof(AudioSource)).GetComponent<AudioSource>();
             position.z = -11;

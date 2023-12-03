@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
 {
     [SerializeField] private PlayerStats _stats;
     [SerializeField] private List<Achievement> _achievements;
+    [SerializeField] private List<Skin> _skins;
 
     private RuinumCodec _codec = new RuinumCodec("RRHFXKTG");
     private const string _publicKey = "XJKFNCYR";
@@ -32,14 +33,21 @@ public class SaveManager : MonoBehaviour
         else file = File.Create(destination);
 
         StreamWriter stream = new StreamWriter(file);
-        string statsInfo = $"{_stats.KilledBattlers}:{_stats.GamesWinned}:{_stats.GamesLosed}:{_stats.CollectedExp}:{_stats.TimeSpendInGame}";
+        string statsInfo = $"{_stats.KilledBattlers}:{_stats.GamesWinned}:{_stats.GamesLosed}:{_stats.CollectedExp}:{_stats.TimeSpendInGame}:{_stats.Stars}";
+        
         var achivementInfo = "-";
         for (int i = 0; i < _achievements.Count; i++)
         {
             achivementInfo += $"{_achievements[i].Unlocked}:";
-        }        
+        }
+        
+        var skinsInfo = "-";
+        for (int i = 0; i < _skins.Count; i++)
+        {
+            skinsInfo += $"{_skins[i].Unlocked}:";
+        }
 
-        stream.WriteLine(_codec.Encode(statsInfo+achivementInfo, _publicKey));
+        stream.WriteLine(_codec.Encode(statsInfo+achivementInfo+skinsInfo, _publicKey));
         stream.Close();
     }
 
@@ -58,16 +66,23 @@ public class SaveManager : MonoBehaviour
         var textParts = decodecText.Split('-');
         var statsText = textParts[0].Split(':');
         var achievementText = textParts[1].Split(':');
+        var skinsText = textParts[2].Split(':');
 
         _stats.KilledBattlers = int.Parse(statsText[0]);
         _stats.GamesWinned = int.Parse(statsText[1]);
         _stats.GamesLosed = int.Parse(statsText[2]);
         _stats.CollectedExp = float.Parse(statsText[3]);
         _stats.TimeSpendInGame = float.Parse(statsText[4]);
+        _stats.Stars = int.Parse(statsText[5]);
 
         for (int i = 0; i < achievementText.Length - 1; i++)
         {
             _achievements[i].Unlocked = bool.Parse(achievementText[i]);
+        }
+
+        for (int i = 0; i < skinsText.Length - 1; i++)
+        {
+            _skins[i].Unlocked = bool.Parse(skinsText[i]);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Ruinum.Utils;
+using UnityEngine;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Game
 {
@@ -23,12 +23,17 @@ public class Game
         ExpOrbPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Pool", "ExpOrb_0_0", _gameConfig.ExpOrbCapacity);
         ExpOrbHitImpactPool = new ExpOrbPool(_gameConfig.AssetsContext, "Exp Orb Impact Pool", "ExpOrb_0_1", _gameConfig.ExpOrbHitImpactCapacity);
         PopUpPool = new PopUpPool(_gameConfig.AssetsContext, "PopUp Pool", "PopUp", _gameConfig.PopUpCapacity);
+        StarPool = new StarPool(_gameConfig.AssetsContext, "Star Pool", "Star", _gameConfig.StarCapacity);
+
         ExpOrbs = new List<ExpOrb>();
+        Stars = new List<Star>();
         Enemies = new List<Enemy>();
 
         AssetsContext = _gameConfig.AssetsContext;
         LevelStructure = _gameConfig.LevelStructure;
         AbilitiesConfig = _gameConfig.AbilitiesConfig;
+        PlayerSkin = _gameConfig.BasePlayerSkin;
+        Stats = _gameConfig.PlayerStats;
 
         AbilitiesConfig.Initialize();
     }
@@ -38,15 +43,19 @@ public class Game
     public AssetsContext AssetsContext { get; private set; }
     public AbilitiesConfig AbilitiesConfig { get; private set; }
     public LevelStructure LevelStructure { get; private set; }
+    public PlayerStats Stats { get; private set; }
     public IPlayer Player { get; set; }
     public Canvas RootCanvas { get; private set; }
     public PlayerUI PlayerUI { get; private set; }
     public AchievementPopUpUI AchievementPopUp { get; private set; }
     public ExpOrbPool ExpOrbPool { get; private set; }
     public ExpOrbPool ExpOrbHitImpactPool { get; private set; }
+    public StarPool StarPool { get; private set; }
     public PopUpPool PopUpPool { get; private set; }
     public List<ExpOrb> ExpOrbs { get; private set; }
+    public List<Star> Stars { get; private set; }
     public List<Enemy> Enemies { get; private set; }
+    public Skin PlayerSkin { get; set; }
 
     public void StartGame()
     {

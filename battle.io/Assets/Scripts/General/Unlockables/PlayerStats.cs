@@ -7,12 +7,14 @@ public class PlayerStats : UniqueObject
     public int KilledBattlers;
     public int GamesWinned;
     public int GamesLosed;
+    public int Stars;
     public float CollectedExp;
     public float TimeSpendInGame;
 
     public Action<int> OnKillsChanged;
     public Action<int> OnWinsChanged;
     public Action<int> OnLosesChanged;
+    public Action<int> OnStarChanged;
     public Action<float> OnExpChanged;
     public Action<float> OnTimeSpendedChanged;
 }

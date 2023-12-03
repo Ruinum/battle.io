@@ -215,6 +215,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5cf420aabe467f44adf949bd0cd334b, type: 2}
   - {fileID: 11400000, guid: 185daf6afd407ce46a266b95c1cc7dd5, type: 2}
   - {fileID: 11400000, guid: 90e47d38a14346743975f4429b2b694b, type: 2}
+  _skins:
+  - {fileID: 11400000, guid: f0a41de6ed8c9f1429dd4c626ffde0e9, type: 2}
+  - {fileID: 11400000, guid: 3f378ed10ab17c1438c1e192f8868382, type: 2}
+  - {fileID: 11400000, guid: 71cc6b97773e02747a556c54a467e1cb, type: 2}
+  - {fileID: 11400000, guid: 8c356688e4cddb44aadec3106bdafa3b, type: 2}
 --- !u!4 &821103049
 Transform:
   m_ObjectHideFlags: 0

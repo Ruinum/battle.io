@@ -1,26 +1,26 @@
 using Ruinum.Core.Interfaces;
 using UnityEngine;
 
-public class ExpOrbSystem : ISystem
+public class ExpOrbSpawnSystem : ISystem
 {
     private Transform _player;
+    private ExpOrbPool _pool;
     private Vector2 _innerBorderSize;
     private Vector2 _outsideBorderSize;
     private int _maxExpOrbAmount;
+    private int _distance;
     private float _baseExp;
     private float _maxRandomExp;
 
-    private ExpOrbPool _pool;
-
-    private const int DISTANCE = 15;
-
-    public ExpOrbSystem(Vector2 innerBorder, Vector2 outsideBorder, int orbAmount, float baseExp, float randomExp)
+    public ExpOrbSpawnSystem(Vector2 innerBorder, Vector2 outsideBorder, int orbAmount, float baseExp, float randomExp)
     {
         _innerBorderSize = innerBorder;
         _outsideBorderSize = outsideBorder;
         _maxExpOrbAmount = orbAmount;
         _baseExp = baseExp;
         _maxRandomExp = randomExp;
+
+        _distance = GameConstants.EXP_ORB_SPAWN_DISTANCE;
     }
 
     public void Initialize()
@@ -39,7 +39,7 @@ public class ExpOrbSystem : ISystem
     private void SpawnExpOrb()
     {
         Vector2 position = new Vector2();
-        if ( _player != null ) position = new Vector2(Random.Range(_player.position.x - DISTANCE, _player.position.x + DISTANCE), Random.Range(_player.position.y - DISTANCE, _player.position.y + DISTANCE));
+        if ( _player != null ) position = new Vector2(Random.Range(_player.position.x - _distance, _player.position.x + _distance), Random.Range(_player.position.y - _distance, _player.position.y + _distance));
         else position = new Vector2(Random.Range(_innerBorderSize.x, _outsideBorderSize.x), Random.Range(_innerBorderSize.y , _outsideBorderSize.y));
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;

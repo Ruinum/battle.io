@@ -17,6 +17,7 @@ public sealed class Class : IExecute
     {
         _animator = animator;
         _gameObject = gameObject;
+
         _abilitiesConfig = Game.Context.AbilitiesConfig;
     }
 

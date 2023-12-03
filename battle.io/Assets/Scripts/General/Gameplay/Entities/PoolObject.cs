@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PoolObject : MonoBehaviour
 {
     [SerializeField] private string _poolName;
+
+    protected Action OnReturnToPool;
 
     private Transform _rootPool;    
     public Transform RootPool
@@ -32,6 +35,7 @@ public class PoolObject : MonoBehaviour
         gameObject.SetActive(false);
         transform.SetParent(RootPool);
 
+        OnReturnToPool?.Invoke();
         if (!RootPool) Destroy(gameObject);
     }
 }

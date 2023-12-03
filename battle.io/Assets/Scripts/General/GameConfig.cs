@@ -6,6 +6,7 @@ public sealed class GameConfig : ScriptableObject
 {
     public AssetsContext AssetsContext;
     public PlayerStats PlayerStats;
+    public Skin BasePlayerSkin;
     public AbilitiesConfig AbilitiesConfig;
     public LevelStructure LevelStructure;
     public Canvas RootCanvas;
@@ -21,6 +22,9 @@ public sealed class GameConfig : ScriptableObject
 
     [Header("PopUp Pool Settings")]
     public int PopUpCapacity;
+
+    [Header("Star Pool Settings")]
+    public int StarCapacity;
 
     [Header("Achievements")]
     public List<Achievement> KillAchievement;
