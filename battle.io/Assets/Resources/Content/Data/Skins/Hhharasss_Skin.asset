@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ed4b1ed4352484cbbd169ce82e71e0, type: 3}
-  m_Name: Green_Skin
+  m_Name: Hhharasss_Skin
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 95f50a1c8e37bd24d80f46b8241af5e8, type: 3}
-  Name: Green Battler
-  Description: Simple easy and usual battler
+  Icon: {fileID: 21300000, guid: d9534466ce69b2b4491874ee9506d47e, type: 3}
+  Name: Hharrasshh
+  Description: A little sunshine in our life
   Unlocked: 1
   Cost: 0
-  Body: {fileID: -4544576504921189134, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
-  Arm: {fileID: 2029697072207355831, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  Body: {fileID: 21300000, guid: 18530774b5347254f9da3ac392ea8b8b, type: 3}
+  Arm: {fileID: 21300000, guid: 10a9c64021ffa434889ddb6819f769a0, type: 3}

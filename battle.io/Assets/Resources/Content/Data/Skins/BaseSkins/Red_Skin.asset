@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ed4b1ed4352484cbbd169ce82e71e0, type: 3}
-  m_Name: Purple_Skin
+  m_Name: Red_Skin
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: a24e4399b2e345e458f55176e4c33742, type: 3}
-  Name: Purple Battler
-  Description: Just a purple battler who wants to win
+  Icon: {fileID: 21300000, guid: 7c8eec884764a9a4da20823b7d38da71, type: 3}
+  Name: Red Battler
+  Description: ARRRR HE IS ANGRY!
   Unlocked: 1
   Cost: 0
-  Body: {fileID: 7556818638710607544, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
-  Arm: {fileID: -6864491471067043232, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  Body: {fileID: 21300000, guid: d59ed4109b328854a8c4f8b8255fc118, type: 3}
+  Arm: {fileID: 8177641303374144343, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
