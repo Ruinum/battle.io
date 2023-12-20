@@ -432,6 +432,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -486,6 +487,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -3365,6 +3378,143 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Game_TileSheet_0: 2032608422179033047
+      Game_TileSheet_1: 2597194626440649508
+      Game_TileSheet_10: 2570953046541691779
+      Game_TileSheet_100: -6259512359660311260
+      Game_TileSheet_101: -3684989641207555191
+      Game_TileSheet_102: -14391943239803254
+      Game_TileSheet_103: -8404865917582028311
+      Game_TileSheet_104: -4979801255410496679
+      Game_TileSheet_105: -6408460950796678879
+      Game_TileSheet_106: 7083578451947834253
+      Game_TileSheet_107: -2983913346067039068
+      Game_TileSheet_108: 8522048966779323073
+      Game_TileSheet_109: 4325001352038961137
+      Game_TileSheet_11: 4450754163246615021
+      Game_TileSheet_110: -8934379214230357413
+      Game_TileSheet_111: 1207952751581895444
+      Game_TileSheet_112: -1200673540191612201
+      Game_TileSheet_113: 8177641303374144343
+      Game_TileSheet_114: 7556818638710607544
+      Game_TileSheet_115: -6864491471067043232
+      Game_TileSheet_116: 8436388937478489852
+      Game_TileSheet_117: -489155292249546009
+      Game_TileSheet_118: -4544576504921189134
+      Game_TileSheet_119: 2029697072207355831
+      Game_TileSheet_12: 19409442232432475
+      Game_TileSheet_120: -8213204048689974351
+      Game_TileSheet_121: -4329995966834824413
+      Game_TileSheet_122: 6284451139119903137
+      Game_TileSheet_123: 3026256663636415287
+      Game_TileSheet_124: 7830246503786740851
+      Game_TileSheet_125: -568883909404962777
+      Game_TileSheet_126: 5334056874613756962
+      Game_TileSheet_127: 8134166599806738071
+      Game_TileSheet_128: 4699630453755393737
+      Game_TileSheet_129: 5819941131500414363
+      Game_TileSheet_13: 3638595584770236361
+      Game_TileSheet_130: -1418988371499025352
+      Game_TileSheet_131: 4645616705566296956
+      Game_TileSheet_132: 8610858162125358435
+      Game_TileSheet_133: 2856697782116748902
+      Game_TileSheet_134: -3848746503462363795
+      Game_TileSheet_135: 8211971075162184986
+      Game_TileSheet_14: 5590397409416013834
+      Game_TileSheet_15: -4653140369391767359
+      Game_TileSheet_16: -7236372678897590474
+      Game_TileSheet_17: 9087856304713921282
+      Game_TileSheet_18: 6172414443152877068
+      Game_TileSheet_19: -3586841639393980082
+      Game_TileSheet_2: -9073178965607828002
+      Game_TileSheet_20: -2181947664528336649
+      Game_TileSheet_21: -37090826275268605
+      Game_TileSheet_22: 4863508187283195262
+      Game_TileSheet_23: 3507330894078809621
+      Game_TileSheet_24: 2747828832338809060
+      Game_TileSheet_25: 7406335194753760258
+      Game_TileSheet_26: -7322117862689038599
+      Game_TileSheet_27: 595436022945257902
+      Game_TileSheet_28: -3915716394629447615
+      Game_TileSheet_29: -6859966653043116965
+      Game_TileSheet_3: -2482793571084198738
+      Game_TileSheet_30: -3232775120000211702
+      Game_TileSheet_31: -3677570102206580856
+      Game_TileSheet_32: 1035062577071505198
+      Game_TileSheet_33: 5355638996996030620
+      Game_TileSheet_34: 6601337882688117915
+      Game_TileSheet_35: -6336498889543415963
+      Game_TileSheet_36: 405576299927566082
+      Game_TileSheet_37: 7559386143067900984
+      Game_TileSheet_38: 3109918122574921558
+      Game_TileSheet_39: 2728129307850013104
+      Game_TileSheet_4: -4859517749296908975
+      Game_TileSheet_40: -8912032542283309164
+      Game_TileSheet_41: 7092502544318787580
+      Game_TileSheet_42: 258638440309489359
+      Game_TileSheet_43: 8971013471137962506
+      Game_TileSheet_44: 8043692807315665227
+      Game_TileSheet_45: -3702882049436054725
+      Game_TileSheet_46: 2968618650639160004
+      Game_TileSheet_47: 3775768923599297714
+      Game_TileSheet_48: 3018646473917605668
+      Game_TileSheet_49: -3993353736714591930
+      Game_TileSheet_5: 332161141840195370
+      Game_TileSheet_50: 6249137966551033606
+      Game_TileSheet_51: -8712696393574931548
+      Game_TileSheet_52: -4708851439934466295
+      Game_TileSheet_53: -1544953269395225301
+      Game_TileSheet_54: -1847775199867370526
+      Game_TileSheet_55: -1194324274722378204
+      Game_TileSheet_56: 538676524985883223
+      Game_TileSheet_57: 1750675196330785869
+      Game_TileSheet_58: 2679684292611038474
+      Game_TileSheet_59: -5400379400528786084
+      Game_TileSheet_6: 2488089223809452065
+      Game_TileSheet_60: -7529371586184263923
+      Game_TileSheet_61: 7253498682275994382
+      Game_TileSheet_62: 844745100390130055
+      Game_TileSheet_63: -1926996779836330759
+      Game_TileSheet_64: -4410744351832465983
+      Game_TileSheet_65: -6876527331905458951
+      Game_TileSheet_66: -3927939966410064372
+      Game_TileSheet_67: 9071633546590572312
+      Game_TileSheet_68: 5958764692577886145
+      Game_TileSheet_69: 2617290098725641794
+      Game_TileSheet_7: -3102723256629341275
+      Game_TileSheet_70: -4231116822172847314
+      Game_TileSheet_71: -1570599863828881250
+      Game_TileSheet_72: 8596541794668170921
+      Game_TileSheet_73: -8746712143106762197
+      Game_TileSheet_74: 2454430406371750568
+      Game_TileSheet_75: -8992812014590603827
+      Game_TileSheet_76: 7398538262674464845
+      Game_TileSheet_77: -6713019548944801225
+      Game_TileSheet_78: -4918249440434847778
+      Game_TileSheet_79: -6495092983022388978
+      Game_TileSheet_8: 5320224844609955096
+      Game_TileSheet_80: -6381784731869563537
+      Game_TileSheet_81: -3904974799746252448
+      Game_TileSheet_82: 6891486644980749935
+      Game_TileSheet_83: 5674562187886015302
+      Game_TileSheet_84: -2106843087414988123
+      Game_TileSheet_85: -7863377574769187003
+      Game_TileSheet_86: -6083215999053273896
+      Game_TileSheet_87: -1049036910823030505
+      Game_TileSheet_88: -5301706479466528922
+      Game_TileSheet_89: -4304140098407730342
+      Game_TileSheet_9: -4221203557777191993
+      Game_TileSheet_90: 4694183055136096758
+      Game_TileSheet_91: 724503298167833576
+      Game_TileSheet_92: -5206964355016804981
+      Game_TileSheet_93: 6623807732468039424
+      Game_TileSheet_94: -6712528747940188264
+      Game_TileSheet_95: 7740563747308365325
+      Game_TileSheet_96: 3665099859017491578
+      Game_TileSheet_97: 4058033285194036920
+      Game_TileSheet_98: 7523091775560346941
+      Game_TileSheet_99: -3498958238968059411
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
