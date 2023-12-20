@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: aaf5d4465a9aaa743b2c42b663c1944e, type: 3}
   Name: Punk
-  Description: A little sunshine in our life
+  Description: Maybe he just fan of Sex Pistols
   Unlocked: 1
   Cost: 0
   Body: {fileID: 21300000, guid: 9acd7ef50bf4f084c8b2005ff40a1474, type: 3}

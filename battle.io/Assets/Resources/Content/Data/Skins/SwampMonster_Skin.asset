@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 68e33bc230e7f9b48a73a22e619ee302, type: 3}
   Name: Swamp Monster
-  Description: A little sunshine in our life
+  Description: What are you doing in my swamp?!
   Unlocked: 1
-  Cost: 0
+  Cost: 10
   Body: {fileID: 21300000, guid: aa9cbdd8345bade4f94951b1a666393b, type: 3}
   Arm: {fileID: 21300000, guid: e737ea1ea8e07f442b5a08853a52813a, type: 3}

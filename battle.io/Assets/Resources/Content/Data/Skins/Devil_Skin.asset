@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: ea8479227958d9745a7afe32f125988b, type: 3}
   Name: Devil
-  Description: A little sunshine in our life
+  Description: He can buy your soul and give you nothing
   Unlocked: 1
   Cost: 0
   Body: {fileID: 21300000, guid: 3893106f427721b45934eaa3a9deaa30, type: 3}

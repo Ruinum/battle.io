@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 0a33c6a497490344582ad8ea2aff4683, type: 3}
   Name: Golden Dragon
-  Description: A little sunshine in our life
+  Description: Don't ask him how many siblings he has
   Unlocked: 1
-  Cost: 0
+  Cost: 10
   Body: {fileID: 21300000, guid: 9e0d6dae61af3e74792b385e79947978, type: 3}
   Arm: {fileID: 21300000, guid: 5262b64434729b84daf252f131d4a0d2, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: ff388f774de2d904094cef12611b2aaf, type: 3}
   Name: Devil Ram
-  Description: A little sunshine in our life
+  Description: 
   Unlocked: 1
   Cost: 0
   Body: {fileID: 21300000, guid: a332890a354b9c6469a10efe6a0a7807, type: 3}
