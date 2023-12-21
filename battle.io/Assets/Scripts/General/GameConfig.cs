@@ -4,12 +4,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = nameof(GameConfig), menuName = EditorConstants.DataPath + nameof(GameConfig))]
 public sealed class GameConfig : ScriptableObject
 {
-    public AssetsContext AssetsContext;
-    public PlayerStats PlayerStats;
-    public Skin BasePlayerSkin;
-    public AbilitiesConfig AbilitiesConfig;
     public LevelStructure LevelStructure;
     public Canvas RootCanvas;
+    public Skin BasePlayerSkin;
+
+    [Header("Configs")]
+    public AssetsContext AssetsContext;
+    public PlayerStats PlayerStats;
+    public AchievementsConfig Achievements;
+    public SkinsConfig Skins;
+    public AbilitiesConfig AbilitiesConfig;
 
     [Header("Prefabs")]
     public GameObject PlayerPrefab;
