@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using Ruinum.Codec;
 using System.Linq;
@@ -13,9 +12,9 @@ public class SaveManager : MonoBehaviour
     private List<Achievement> _achievements;
     private List<Skin> _skins;
 
+    private ISave _save = null;
     private RuinumCodec _codec = new RuinumCodec("RRHFXKTG");
-    private const string _publicKey = "XJKFNCYR";
-    private const string _fileName = "Save.data";
+    private const string PUBLIC_KEY = "XJKFNCYR";
 
     public static SaveManager Singleton { get; private set; }
 
@@ -24,34 +23,25 @@ public class SaveManager : MonoBehaviour
         Singleton = this;
 
         DontDestroyOnLoad(this);
-        LoadFromFile();
+        Load();
     }
 
     private void Start()
     {
         _achievements.AddRange(_achievementsConfig.Achievements.ToArray());
         _skins.AddRange(_skinsConfig.Skins.ToArray());
+
+        if (GameConstants.BUILD_TYPE == BuildType.Desktop) _save = new DesktopSave();
     }
 
-    public void SaveInFile()
+    public void Save()
     {
-        string destination = Application.dataPath + _fileName;
+        if (_save == null) 
+        {
+            if (EditorConstants.Logging) Debug.LogError($"There is no saving implementation!, {typeof(SaveManager)}");
+            return; 
+        }
 
-        FileStream file;
-
-        if (File.Exists(destination)) file = File.Open(destination, FileMode.Truncate);
-        else file = File.Create(destination);
-
-        StreamWriter stream = new StreamWriter(file);
-
-        string saveData = Save();
-
-        stream.WriteLine(saveData);
-        stream.Close();
-    }
-
-    public string Save()
-    {
         string statsInfo = $"{_stats.KilledBattlers}:{_stats.GamesWinned}:{_stats.GamesLosed}:{_stats.CollectedExp}:{_stats.TimeSpendInGame}:{_stats.Stars}";
         
         var achivementInfo = "-";
@@ -66,20 +56,24 @@ public class SaveManager : MonoBehaviour
             skinsInfo += $"{_skins[i].Unlocked}:";
         }
 
-        return _codec.Encode(statsInfo + achivementInfo + skinsInfo, _publicKey);
+        _save.Save(_codec.Encode(statsInfo + achivementInfo + skinsInfo, PUBLIC_KEY));
     }
 
-    public void LoadFromFile()
+    public void Load()
     {
-        var destination = Application.dataPath + _fileName;
-        
-        FileStream file;
-        if (File.Exists(destination)) file = File.OpenRead(destination);
-        else return;
+        if (_save == null)
+        {
+            if (EditorConstants.Logging) Debug.LogError($"There is no saving implementation, {typeof(SaveManager)}");
+            return;
+        }
 
-        StreamReader stream = new StreamReader(file);
-        var text = stream.ReadToEnd();
-        var decodecText = _codec.Decode(text, _publicKey);
+        if (!_save.Load(out string text))
+        {
+            if (EditorConstants.Logging) Debug.LogError($"Loading error in save implementation, {typeof(SaveManager)}");
+            return;
+        }
+
+        var decodecText = _codec.Decode(text, PUBLIC_KEY);
 
         var textParts = decodecText.Split('-');
         var statsText = textParts[0].Split(':');
@@ -104,8 +98,8 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public string Decode(string encodedInfo)
+    public void SetSaveImplementation(ISave saveImplementation)
     {
-        return _codec.Decode(encodedInfo, _publicKey);
+        _save = saveImplementation;
     }
 }

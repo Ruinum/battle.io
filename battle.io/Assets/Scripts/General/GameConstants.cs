@@ -9,4 +9,6 @@
     public const int STAR_SPAWN_DISTANCE = 20;
 
     public const float MAX_ENEMY_LEVEL_EXP = 450f;
+
+    public const BuildType BUILD_TYPE = BuildType.Desktop;
 }
