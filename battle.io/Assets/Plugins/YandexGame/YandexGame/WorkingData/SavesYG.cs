@@ -18,7 +18,7 @@ namespace YG
 
         // Ваши сохранения
 
-
+        public string SaveData = "";
 
         // ...
 
