@@ -7,7 +7,7 @@ public class GameSystems : ISystem
     private List<ISystem> _gameSystems = new List<ISystem>();
     private bool _initialized;
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         Game.Context.OnGameStarted += StartGame;
         Game.Context.OnGameEnded += EndGame;
@@ -32,7 +32,7 @@ public class GameSystems : ISystem
 
         for (int i = 0; i < _gameSystems.Count; i++)
         {
-            _gameSystems[i].Initialize();
+            _gameSystems[i].InitializeSystem();
         }
 
         _initialized = true;

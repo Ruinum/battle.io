@@ -5,14 +5,14 @@ public class StatsSystem : System<StatsSystem>
 {
     private PlayerStats _stats;
     public Action OnKillEvent;
-    public Action OnStarPickedEvent;
+    public Action<int> OnStarPickedEvent;
     public Action<float> OnExpPickedEvent;
 
     private float _timeSpendedInGame;
 
     public StatsSystem(PlayerStats stats) => _stats = stats;
 
-    public override void Init()
+    public override void Initialize()
     {
         OnKillEvent += OnKill;
         OnExpPickedEvent += OnExpPicked;
@@ -21,9 +21,9 @@ public class StatsSystem : System<StatsSystem>
         Game.Context.OnGameStarted += OnGameStarted;
     }
 
-    private void OnStarPicked()
+    private void OnStarPicked(int star)
     {
-        _stats.Stars++;
+        _stats.Stars += star;
         _stats.OnStarChanged?.Invoke(_stats.Stars);
     }
 

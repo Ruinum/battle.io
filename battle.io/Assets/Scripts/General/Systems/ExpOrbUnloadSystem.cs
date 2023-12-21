@@ -8,7 +8,7 @@ public class ExpOrbUnloadSystem : ISystem
     private List<ExpOrb> _expOrbs;
     private int _unloadDistance;
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         _expOrbs = Game.Context.ExpOrbs;
         _player = Game.Context.Player.Transform;

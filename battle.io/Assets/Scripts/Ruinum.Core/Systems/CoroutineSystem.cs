@@ -5,7 +5,7 @@ namespace Ruinum.Core.Systems
 {
     public class CoroutineSystem : System<CoroutineSystem>
     {
-        public override void Init() { }
+        public override void Initialize() { }
         public override void Execute() { }
 
         public void RunCoroutine(IEnumerator coroutine)

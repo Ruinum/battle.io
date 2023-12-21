@@ -27,7 +27,7 @@ public class EnemySpawnSystem : ISystem
         _context.AssetsContext.Inject(this);
     }
     
-    public void Initialize()
+    public void InitializeSystem()
     {
         _context.OnFinalStage += OnFinalStage;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-[CreateAssetMenu(menuName = EditorConstants.DataPath + nameof(AudioConfig), fileName = nameof(AudioConfig))]
+[CreateAssetMenu(menuName = EditorConstants.ConfigPath + nameof(AudioConfig), fileName = nameof(AudioConfig))]
 public sealed class AudioConfig : ScriptableObject
 {
     public AudioClip Clip;

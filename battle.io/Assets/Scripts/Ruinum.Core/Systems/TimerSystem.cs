@@ -8,7 +8,7 @@ namespace Ruinum.Core.Systems
     {
         private List<Timer> _timers = new List<Timer>();
 
-        public override void Init()
+        public override void Initialize()
         {
             ExecuteSystem.Singleton.AddExecute(this);
         }

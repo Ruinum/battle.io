@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(PlayerStats), menuName = EditorConstants.DataPath + nameof(PlayerStats))]
+[CreateAssetMenu(fileName = nameof(PlayerStats), menuName = EditorConstants.StatsPath + nameof(PlayerStats))]
 public class PlayerStats : UniqueObject
 {
     public int KilledBattlers;

@@ -36,13 +36,13 @@ public class SkinUnlockableUI : UnlockableUI<Skin>
         if (!_unlockable.Unlocked)
         {
             if (_playerStats.Stars < _unlockable.Cost) return;
-
-            _playerStats.Stars -= _unlockable.Cost;
+            
+            StatsSystem.Singleton.OnStarPickedEvent(-_unlockable.Cost);
+            
             _stars.text = _playerStats.Stars.ToString();
             _unlockable.Unlocked = true;
             _cost.SetActive(false);
             _blockImage.SetActive(false);
-
 
             SaveManager.Singleton.Save();
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(ClassConfig), menuName = EditorConstants.DataPath + nameof(ClassConfig))]
+[CreateAssetMenu(fileName = nameof(ClassConfig), menuName = EditorConstants.ConfigPath + nameof(ClassConfig))]
 public class ClassConfig : ScriptableObject
 {
     public Sprite Icon;

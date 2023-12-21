@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(Skin), menuName = EditorConstants.DataPath + nameof(Skin))]
+[CreateAssetMenu(fileName = nameof(Skin), menuName = EditorConstants.UnlockablesPath + nameof(Skin))]
 public class Skin : Unlockable
 {
     public int Cost;

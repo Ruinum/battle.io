@@ -40,7 +40,7 @@ public class AchievementSystem : ISystem
         _timeAchievements = config.TimeAchievements.ToList();
     }
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         _stats.OnKillsChanged += CheckKillAchievements;
         _stats.OnWinsChanged += CheckWinAchievements;

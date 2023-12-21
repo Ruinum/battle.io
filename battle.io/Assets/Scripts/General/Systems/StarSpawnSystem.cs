@@ -17,7 +17,7 @@ public class StarSpawnSystem : ISystem
         _distance = GameConstants.STAR_SPAWN_DISTANCE;
     }
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         _player = Game.Context.Player.Transform;
     }

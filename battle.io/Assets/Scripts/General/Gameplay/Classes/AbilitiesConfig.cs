@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(AbilitiesConfig), menuName = EditorConstants.DataPath + nameof(AbilitiesConfig))]
+[CreateAssetMenu(fileName = nameof(AbilitiesConfig), menuName = EditorConstants.ConfigPath + nameof(AbilitiesConfig))]
 public class AbilitiesConfig : ScriptableObject 
 {
     private Dictionary<string, IClassAbility> _abilities;

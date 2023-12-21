@@ -23,7 +23,7 @@ public class ExpOrbSpawnSystem : ISystem
         _distance = GameConstants.EXP_ORB_SPAWN_DISTANCE;
     }
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         _pool = Game.Context.ExpOrbPool;
         if (_player != null)

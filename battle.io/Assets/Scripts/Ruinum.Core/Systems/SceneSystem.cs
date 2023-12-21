@@ -19,7 +19,7 @@ namespace Ruinum.Core.Systems
 
         private bool _isLoadScene;
 
-        public override void Init() 
+        public override void Initialize() 
         {
             _loadScreen = ObjectUtils.CreateGameObject<LoadScreen>(Game.Context.AssetsContext.GetObjectOfType(typeof(GameObject), "LoadCanvas") as GameObject);
         }

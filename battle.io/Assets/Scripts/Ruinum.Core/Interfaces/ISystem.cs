@@ -2,7 +2,7 @@
 {
     public interface ISystem
     {
-        void Initialize();
+        void InitializeSystem();
         void Execute();
     }
 }
