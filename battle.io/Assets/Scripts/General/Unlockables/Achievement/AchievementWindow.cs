@@ -5,13 +5,20 @@ public class AchievementWindow : MonoBehaviour
 {
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _description;
-    [SerializeField] private Achievement[] _achievements;
+    [SerializeField] private AchievementsConfig _achievementsConfig;    
     [SerializeField] private AchievementUI[] _achievementViews;
-    
+
+    private Achievement[] _achievements;
+
     private int _page = 1;
     private int _count = 0;
 
     private const int ACHIEVEMENT_VIEW_COUNT = 12;
+
+    private void Start()
+    {
+        _achievements = _achievementsConfig.Achievements;
+    }
 
     public void Show()
     {

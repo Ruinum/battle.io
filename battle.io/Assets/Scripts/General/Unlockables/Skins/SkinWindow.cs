@@ -8,9 +8,16 @@ public class SkinWindow : MonoBehaviour
     [SerializeField] private TMP_Text _costText;
     [SerializeField] private TMP_Text _starsText;
     [SerializeField] private SkinUnlockableUI _skinView;
-    [SerializeField] private Skin[] _skins;
+    [SerializeField] private SkinsConfig _skinsConfig;
+    
+    private Skin[] _skins;
     
     private int _count = 0;
+
+    private void Start()
+    {
+        _skins = _skinsConfig.Skins;
+    }
 
     public void Show()
     {
