@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02bbd15ad887be41aa17857af4eb8c2, type: 3}
   m_Name: LocalizationConfig
   m_EditorClassIdentifier: 
-  LocalizationDatas: []
+  LocalizationDatas:
+  - Key: START_GAME
+    Values:
+    - Language: 1
+      Text: "\u043D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443"
+    - Language: 2
+      Text: start game

@@ -42,6 +42,7 @@ public class Game
 
     public AssetsContext AssetsContext { get; private set; }
     public AbilitiesConfig AbilitiesConfig { get; private set; }
+    public LocalizationConfig LocalizationConfig { get; private set; }   
     public LevelStructure LevelStructure { get; private set; }
     public PlayerStats Stats { get; private set; }
     public IPlayer Player { get; set; }

@@ -19,6 +19,7 @@ MonoBehaviour:
   PlayerStats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
   Achievements: {fileID: 11400000, guid: 98e34e4fa5d34f64988b63a2bdd10d19, type: 2}
   Skins: {fileID: 11400000, guid: 1f078885bd3486c4aa04f05a31e9a1bb, type: 2}
+  Localization: {fileID: 11400000, guid: 8ce7b8034cac2af449bfb497b83b5840, type: 2}
   AbilitiesConfig: {fileID: 11400000, guid: 833875deada43f542960679e132508c7, type: 2}
   PlayerPrefab: {fileID: 5093025667706901601, guid: 8a9bba93e9f7b9c4d8001f0d57e831e2, type: 3}
   PlayerUIPrefab: {fileID: 1725646925621221937, guid: 8a790224237372c49af1d6b392c70e95, type: 3}
