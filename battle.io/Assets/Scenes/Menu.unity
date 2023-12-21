@@ -991,7 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 58282545}
   _scaleSpeed: 0.08
-  _maxScale: 18
+  _maxScale: 11.5
 --- !u!1 &64148539
 GameObject:
   m_ObjectHideFlags: 0
@@ -53762,6 +53762,10 @@ PrefabInstance:
       propertyPath: _description
       value: 
       objectReference: {fileID: 1354374704}
+    - target: {fileID: 5619872817131932985, guid: 6822df653c94d594e95c60639e8eb9fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5619872817131932990, guid: 6822df653c94d594e95c60639e8eb9fe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

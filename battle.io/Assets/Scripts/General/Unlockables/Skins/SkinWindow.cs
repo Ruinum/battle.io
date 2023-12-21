@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -14,9 +15,9 @@ public class SkinWindow : MonoBehaviour
     
     private int _count = 0;
 
-    private void Start()
+    private void Awake()
     {
-        _skins = _skinsConfig.Skins;
+        _skins = _skinsConfig.Skins.ToArray();
     }
 
     public void Show()
