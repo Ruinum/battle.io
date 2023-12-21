@@ -150,6 +150,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -198,35 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
-  _achievements:
-  - {fileID: 11400000, guid: 57b78002ffe7cdf468fbbaf511dafc8f, type: 2}
-  - {fileID: 11400000, guid: 8d07509999b90994a9eaecff670e394f, type: 2}
-  - {fileID: 11400000, guid: abeef9d2ef09a3e44b5fd8d4b094c0d7, type: 2}
-  - {fileID: 11400000, guid: 75a43369127df93489483ed2b544fe9c, type: 2}
-  - {fileID: 11400000, guid: ddd8c06076621484eb8e4cda81d04dde, type: 2}
-  - {fileID: 11400000, guid: b34dd01862b56644086299ea96e66d2d, type: 2}
-  - {fileID: 11400000, guid: 342fc20cbbe9d914c809eaf152d47366, type: 2}
-  - {fileID: 11400000, guid: aad100cce5076b547bb9626334248320, type: 2}
-  - {fileID: 11400000, guid: 4d80747b62433394ea0972c29f7c0fd9, type: 2}
-  - {fileID: 11400000, guid: d8e4cd5f1d4246942b00104b726d06a3, type: 2}
-  - {fileID: 11400000, guid: c7ea5496a22ac6f41bada678904bb7f4, type: 2}
-  - {fileID: 11400000, guid: 95e1636844b505d419e52e66271ba71f, type: 2}
-  - {fileID: 11400000, guid: 8585852a36707b24091d4fc17016f1ad, type: 2}
-  - {fileID: 11400000, guid: c5cf420aabe467f44adf949bd0cd334b, type: 2}
-  - {fileID: 11400000, guid: 185daf6afd407ce46a266b95c1cc7dd5, type: 2}
-  - {fileID: 11400000, guid: 90e47d38a14346743975f4429b2b694b, type: 2}
-  _skins:
-  - {fileID: 11400000, guid: f0a41de6ed8c9f1429dd4c626ffde0e9, type: 2}
-  - {fileID: 11400000, guid: 3f378ed10ab17c1438c1e192f8868382, type: 2}
-  - {fileID: 11400000, guid: 71cc6b97773e02747a556c54a467e1cb, type: 2}
-  - {fileID: 11400000, guid: 8c356688e4cddb44aadec3106bdafa3b, type: 2}
-  - {fileID: 11400000, guid: 77ada3780ee3ab3408604665856c3a16, type: 2}
-  - {fileID: 11400000, guid: 6ba0d3bd048cdfc419993c7ce50cdf29, type: 2}
-  - {fileID: 11400000, guid: ae79c9b745473a442849517fb9aeab14, type: 2}
-  - {fileID: 11400000, guid: 77f1812d6ab854148b18c5d4676673de, type: 2}
-  - {fileID: 11400000, guid: c300aa00e93513b4da493014c36bdda4, type: 2}
-  - {fileID: 11400000, guid: d7acbf971f223704288d14962c9cf940, type: 2}
-  - {fileID: 11400000, guid: 6b37088ccdec1c84db87806334950314, type: 2}
+  _skinsConfig: {fileID: 11400000, guid: 1f078885bd3486c4aa04f05a31e9a1bb, type: 2}
+  _achievementsConfig: {fileID: 11400000, guid: 98e34e4fa5d34f64988b63a2bdd10d19, type: 2}
 --- !u!4 &821103049
 Transform:
   m_ObjectHideFlags: 0
@@ -237,6 +211,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -271,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -303,6 +279,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

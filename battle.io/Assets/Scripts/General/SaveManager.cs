@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Ruinum.Codec;
+using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] private PlayerStats _stats;
-    [SerializeField] private List<Achievement> _achievements;
-    [SerializeField] private List<Skin> _skins;
+    [SerializeField] private SkinsConfig _skinsConfig;
+    [SerializeField] private AchievementsConfig _achievementsConfig;
+
+    private List<Achievement> _achievements;
+    private List<Skin> _skins;
 
     private RuinumCodec _codec = new RuinumCodec("RRHFXKTG");
     private const string _publicKey = "XJKFNCYR";
@@ -20,19 +24,34 @@ public class SaveManager : MonoBehaviour
         Singleton = this;
 
         DontDestroyOnLoad(this);
-        Load();
+        LoadFromFile();
     }
 
-    public void Save()
+    private void Start()
+    {
+        _achievements.AddRange(_achievementsConfig.Achievements.ToArray());
+        _skins.AddRange(_skinsConfig.Skins.ToArray());
+    }
+
+    public void SaveInFile()
     {
         string destination = Application.dataPath + _fileName;
-        
+
         FileStream file;
-        
+
         if (File.Exists(destination)) file = File.Open(destination, FileMode.Truncate);
         else file = File.Create(destination);
 
         StreamWriter stream = new StreamWriter(file);
+
+        string saveData = Save();
+
+        stream.WriteLine(saveData);
+        stream.Close();
+    }
+
+    public string Save()
+    {
         string statsInfo = $"{_stats.KilledBattlers}:{_stats.GamesWinned}:{_stats.GamesLosed}:{_stats.CollectedExp}:{_stats.TimeSpendInGame}:{_stats.Stars}";
         
         var achivementInfo = "-";
@@ -47,11 +66,10 @@ public class SaveManager : MonoBehaviour
             skinsInfo += $"{_skins[i].Unlocked}:";
         }
 
-        stream.WriteLine(_codec.Encode(statsInfo+achivementInfo+skinsInfo, _publicKey));
-        stream.Close();
+        return _codec.Encode(statsInfo + achivementInfo + skinsInfo, _publicKey);
     }
 
-    public void Load()
+    public void LoadFromFile()
     {
         var destination = Application.dataPath + _fileName;
         
@@ -84,5 +102,10 @@ public class SaveManager : MonoBehaviour
         {
             _skins[i].Unlocked = bool.Parse(skinsText[i]);
         }
+    }
+
+    public string Decode(string encodedInfo)
+    {
+        return _codec.Decode(encodedInfo, _publicKey);
     }
 }
