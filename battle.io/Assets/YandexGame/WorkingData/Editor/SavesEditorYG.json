@@ -1,5 +1,5 @@
 {
-    "idSave": 8,
+    "idSave": 17,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": true,
@@ -9,5 +9,6 @@
         false,
         true,
         false
-    ]
+    ],
+    "SaveData": "TGi9WSGNkPceP72xT9hBUooG0Yz1of2aXHp1i0C88bJsrNdZSdFRC3k2Ja76tAP36dzT1Fm1w+xxPCxgwqD3RccoRNmM9ZRpsorveC/VSUqP2V3TZ3NZwgkzb2dbybo2celr26hobTFhh7sxs4PBJBsbCiUfrImGSwvZXIiayAobKbpZXhdnEjoRYtbhupozV+gbdssU4hnWGYRVXvl2WSIFmXiTzeb+HhzLFFLY2kbjioGp74Admw=="
 }

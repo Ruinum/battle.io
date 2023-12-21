@@ -4,7 +4,6 @@ using YG;
 
 namespace YandexGameIntegration
 {
-    //Adapter of YandexGame
     public class YandexGM : MonoBehaviour
     {
         private List<IYandexGM> _yandexServices;

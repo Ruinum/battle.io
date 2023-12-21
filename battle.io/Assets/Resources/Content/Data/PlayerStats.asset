@@ -15,6 +15,6 @@ MonoBehaviour:
   KilledBattlers: 1
   GamesWinned: 0
   GamesLosed: 0
-  Stars: 1
-  CollectedExp: 165.3431
-  TimeSpendInGame: 116.7483
+  Stars: 7
+  CollectedExp: 172.121
+  TimeSpendInGame: 122.6186

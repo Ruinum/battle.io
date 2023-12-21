@@ -9,7 +9,6 @@ public class RewardAdButton : MonoBehaviour
 
     public void OpenRewardAd()
     {
-        Debug.Log("12");
         YandexGame.RewVideoShow(_rewardID);
     }
 }

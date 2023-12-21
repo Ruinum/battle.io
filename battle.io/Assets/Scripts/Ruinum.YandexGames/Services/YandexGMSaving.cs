@@ -1,22 +1,36 @@
-﻿namespace YandexGameIntegration
+﻿using UnityEngine;
+using YG;
+
+namespace YandexGameIntegration
 {
-    public class YandexGMSaving : IYandexGM
+    public class YandexGMSaving : IYandexGM, ISave
     {
-        private PlayerStats _stats;
-
         public void Initialize() 
-        { 
-        
+        {
+            SaveManager.Singleton.SetSaveImplementation(this);
+            SaveManager.Singleton.Load();
         }
 
-        public void Save()
+        public void Save(string text)
         {
-
+            YandexGame.savesData.SaveData = text;
+            YandexGame.SaveProgress();
         }
 
-        public void Load()
+        public bool Load(out string savedData)
         {
+            savedData = "";
 
+            YandexGame.LoadProgress();
+            var yandexSavedData = YandexGame.savesData.SaveData;
+            if (string.IsNullOrEmpty(yandexSavedData) || yandexSavedData == default) 
+            {
+                if (EditorConstants.Logging) Debug.LogWarning($"There is no saved data in Yandex cloud, {typeof(YandexGMSaving)}");
+                return false;
+            }
+
+            savedData = YandexGame.savesData.SaveData;
+            return true;
         }
 
         public void Dispose() { }
