@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = nameof(AnimationDataConfig), menuName = EditorConstants.DataPath + nameof(AnimationDataConfig))]
+[CreateAssetMenu(fileName = nameof(AnimationDataConfig), menuName = EditorConstants.ConfigPath + nameof(AnimationDataConfig))]
 public sealed class AnimationDataConfig : ScriptableObject
 {
     public AnimationClip Clip;
