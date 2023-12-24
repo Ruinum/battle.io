@@ -15,7 +15,26 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 68e33bc230e7f9b48a73a22e619ee302, type: 3}
   Name: Swamp Monster
   Description: What are you doing in my swamp?!
-  Unlocked: 1
-  Cost: 10
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_SWAMP_MONSTER_NAME
+    Values:
+    - Language: 1
+      Text: "\u0411\u043E\u043B\u043E\u0442\u043D\u044B\u0439 \u041C\u043E\u043D\u0441\u0442\u0440"
+    - Language: 2
+      Text: Swamp Monster
+    - Language: 3
+      Text: "Batakl\u0131k Canavar\u0131"
+  DescriptionLocalization:
+    Key: SKIN_SWAMP_MONSTER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0427\u0442\u043E \u0432\u044B \u0437\u0430\u0431\u044B\u043B\u0438
+        \u043D\u0430 \u0431\u043E\u043B\u043E\u0442\u0435?!"
+    - Language: 2
+      Text: What are you doing in my swamp?!
+    - Language: 3
+      Text: "Benim batakl\u0131\u011F\u0131mda ne yap\u0131yorsun?"
+  Cost: 15
   Body: {fileID: 21300000, guid: aa9cbdd8345bade4f94951b1a666393b, type: 3}
   Arm: {fileID: 21300000, guid: e737ea1ea8e07f442b5a08853a52813a, type: 3}

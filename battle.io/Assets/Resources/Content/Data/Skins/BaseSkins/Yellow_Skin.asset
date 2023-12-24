@@ -15,7 +15,26 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: a87594514a078aa4d8d660f24db12cc9, type: 3}
   Name: Yellow Battler
   Description: A little sunshine in our life
-  Unlocked: 1
-  Cost: 0
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_YELLOW_BATTLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u0416\u0451\u043B\u0442\u044B\u0439 \u0411\u0430\u0442\u0442\u043B\u0435\u0440"
+    - Language: 2
+      Text: Yellow Battler
+    - Language: 3
+      Text: "Sar\u0131 Battler"
+  DescriptionLocalization:
+    Key: SKIN_YELLOW_BATTLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u041D\u0435\u043C\u043D\u043E\u0433\u043E \u0441\u043E\u043B\u043D\u044B\u0448\u043A\u0430
+        \u0432 \u043D\u0430\u0448\u0443 \u0436\u0438\u0437\u043D\u044C"
+    - Language: 2
+      Text: A little sunshine in our life
+    - Language: 3
+      Text: "Hayat\u0131m\u0131zda k\xFC\xE7\xFCk bir g\xFCne\u015F \u0131\u015F\u0131\u011F\u0131"
+  Cost: 5
   Body: {fileID: 21300000, guid: a3e4b181a9d48b749af9841e27b740c0, type: 3}
   Arm: {fileID: -489155292249546009, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}

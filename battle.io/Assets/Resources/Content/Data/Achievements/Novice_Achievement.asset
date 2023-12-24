@@ -16,3 +16,22 @@ MonoBehaviour:
   Name: Novice
   Description: Spend 30 minutes in game
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_NOVICE_NAME
+    Values:
+    - Language: 1
+      Text: "\u041D\u043E\u0432\u0438\u0447\u043E\u043A"
+    - Language: 2
+      Text: Novice
+    - Language: 3
+      Text: Acemi
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_NOVICE_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0432\u0435\u0434\u0438 \u0432 \u0438\u0433\u0440\u0435
+        30 \u043C\u0438\u043D\u0443\u0442"
+    - Language: 2
+      Text: Spend 30 minutes in game
+    - Language: 3
+      Text: "Oyunda 30 dakika ge\xE7irin"

@@ -58,4 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f7297f1ed6a3d4dbf36e253b8670ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 8ce7b8034cac2af449bfb497b83b5840, type: 2}
+  _localization: {fileID: 11400000, guid: 8ce7b8034cac2af449bfb497b83b5840, type: 2}
+  _skins: {fileID: 11400000, guid: 1f078885bd3486c4aa04f05a31e9a1bb, type: 2}
+  _achievements: {fileID: 11400000, guid: 98e34e4fa5d34f64988b63a2bdd10d19, type: 2}
+  _currentLanguage: 2
+  _russianLanguageIcon: {fileID: 21300000, guid: ab37c4bf904f3124fb1bee14f6dd77c5, type: 3}
+  _englishLanguageIcon: {fileID: 21300000, guid: a11ceeda9dc1be34f96f22e138e7368e, type: 3}
+  _turkishLanguageIcon: {fileID: 21300000, guid: 5bd35da3708e81248851688e094717e8, type: 3}

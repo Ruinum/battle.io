@@ -16,3 +16,21 @@ MonoBehaviour:
   Name: Loser
   Description: Lose game 10 times
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_LOSER_NAME
+    Values:
+    - Language: 1
+      Text: "\u041B\u0443\u0437\u0435\u0440"
+    - Language: 2
+      Text: Loser
+    - Language: 3
+      Text: Beceriksiz
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_LOSER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0438\u0433\u0440\u0430\u0439 10 \u0438\u0433\u0440"
+    - Language: 2
+      Text: Lose game 10 times
+    - Language: 3
+      Text: 10 kez oyunu kaybet

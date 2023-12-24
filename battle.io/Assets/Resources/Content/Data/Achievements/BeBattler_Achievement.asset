@@ -16,3 +16,21 @@ MonoBehaviour:
   Name: Be a battler!
   Description: Entered the game!
   Unlocked: 1
+  NameLocalization:
+    Key: ACHIEVEMENT_BE_A_BATTLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u0422\u044B \u0411\u0430\u0442\u0442\u043B\u0435\u0440!"
+    - Language: 2
+      Text: Be a battler!
+    - Language: 3
+      Text: "Sen Battler's\u0131n!"
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_BE_A_BATTLER_DESCIPTION
+    Values:
+    - Language: 1
+      Text: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u0438\u0433\u0440\u0443!"
+    - Language: 2
+      Text: Entered the game!
+    - Language: 3
+      Text: Oyuna girdik!

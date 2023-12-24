@@ -17,8 +17,9 @@ public class LocalizationView : MonoBehaviour
 
     private void LanguageChanged()
     {
-        if (!Localization.Singleton.GetText(_key, out string text)) return;
+        if (!Localization.Singleton.GetText(_key, out string text, out TMP_FontAsset font)) return;
         _text.text = text;
+        _text.font = font;
     }
 
     private void OnDestroy()

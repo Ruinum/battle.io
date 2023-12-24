@@ -15,7 +15,25 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 7c8eec884764a9a4da20823b7d38da71, type: 3}
   Name: Red Battler
   Description: ARRRR HE IS ANGRY!
-  Unlocked: 1
-  Cost: 0
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_RED_BATTLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u041A\u0440\u0430\u0441\u043D\u044B\u0439 \u0411\u0430\u0442\u0442\u043B\u0435\u0440"
+    - Language: 2
+      Text: Red Battler
+    - Language: 3
+      Text: "K\u0131rm\u0131z\u0131 Battler"
+  DescriptionLocalization:
+    Key: SKIN_RED_BATTLER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0410\u0420\u0420\u0420\u0420 \u041E\u041D \u0417\u041B\u041E\u0419!"
+    - Language: 2
+      Text: ARRRR HE IS ANGRY!
+    - Language: 3
+      Text: ARRRR O KIZGIN!
+  Cost: 5
   Body: {fileID: 21300000, guid: d59ed4109b328854a8c4f8b8255fc118, type: 3}
   Arm: {fileID: 8177641303374144343, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}

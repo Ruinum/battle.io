@@ -16,3 +16,22 @@ MonoBehaviour:
   Name: Master
   Description: Spend 2 hours in game
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_MASTER_NAME
+    Values:
+    - Language: 1
+      Text: "\u041C\u0430\u0441\u0442\u0435\u0440"
+    - Language: 2
+      Text: Master
+    - Language: 3
+      Text: Usta
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_MASTER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0432\u0435\u0434\u0438 \u0432 \u0438\u0433\u0440\u0435
+        2 \u0447\u0430\u0441\u0430"
+    - Language: 2
+      Text: Spend 2 hours in game
+    - Language: 3
+      Text: "Oyunda 2 saat ge\xE7irin"

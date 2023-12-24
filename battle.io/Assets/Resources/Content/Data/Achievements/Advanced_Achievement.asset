@@ -16,3 +16,22 @@ MonoBehaviour:
   Name: Advanced
   Description: Spend 1 hour in game
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_ADVANCED_NAME
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0434\u0432\u0438\u043D\u0443\u0442\u044B\u0439"
+    - Language: 2
+      Text: Advanced
+    - Language: 3
+      Text: "Geli\u015Fmi\u015F"
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_ADVANCED_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0432\u0435\u0434\u0438 \u0432 \u0438\u0433\u0440\u0435
+        1 \u0447\u0430\u0441"
+    - Language: 2
+      Text: Spend 1 hour in game
+    - Language: 3
+      Text: "Oyunda 1 saat ge\xE7irin"
