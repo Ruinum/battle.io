@@ -13,7 +13,6 @@ public class LanguageIcon : MonoBehaviour
 
     private void OnLanguageChange()
     {
-        Debug.Log(Localization.Singleton.GetLanguageIcon());
         _languageIcon.sprite = Localization.Singleton.GetLanguageIcon();
     }
 }
