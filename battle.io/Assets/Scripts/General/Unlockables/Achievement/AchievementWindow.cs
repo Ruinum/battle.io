@@ -15,7 +15,7 @@ public class AchievementWindow : MonoBehaviour
 
     private const int ACHIEVEMENT_VIEW_COUNT = 12;
 
-    private void Start()
+    private void Awake()
     {
         _achievements = _achievementsConfig.Achievements;
     }

@@ -16,6 +16,25 @@ MonoBehaviour:
   Name: Green Battler
   Description: Simple easy and usual battler
   Unlocked: 1
+  NameLocalization:
+    Key: SKIN_GREEN_BATTLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u0417\u0435\u043B\u0451\u043D\u044B\u0439 \u0411\u0430\u0442\u0442\u043B\u0435\u0440"
+    - Language: 2
+      Text: Green Battler
+    - Language: 3
+      Text: "Ye\u015Fil Battler"
+  DescriptionLocalization:
+    Key: SKIN_GREEN_BATTLER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0441\u0442\u043E\u0439, \u043B\u0435\u0433\u043A\u0438\u0439
+        \u0438 \u043E\u0431\u044B\u0447\u043D\u044B\u0439 \u0431\u0430\u0442\u043B\u0435\u0440"
+    - Language: 2
+      Text: Simple easy and usual battler
+    - Language: 3
+      Text: "Basit, kolay ve ola\u011Fan sava\u015F\xE7\u0131"
   Cost: 0
   Body: {fileID: 21300000, guid: 565ca1ae4da9092438d8b6bc06087abc, type: 3}
   Arm: {fileID: 2029697072207355831, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}

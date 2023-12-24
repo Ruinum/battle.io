@@ -40,8 +40,21 @@ public class UnlockableUI<T> : MonoBehaviour, IPointerClickHandler where T : Unl
 
     public void ChangeText()
     {
-        _name.text = _unlockable.Name;
-        _description.text = _unlockable.Description;
+        if (!Localization.Singleton.GetText(_unlockable.NameLocalization.Key, out string nameText, out TMP_FontAsset nameFont))
+        {
+            if (EditorConstants.Logging) Debug.LogWarning($"There is no key {_unlockable.NameLocalization.Key} in {typeof(Localization)}, {this}");
+        }
+
+        if (!Localization.Singleton.GetText(_unlockable.DescriptionLocalization.Key, out string descriptionText, out TMP_FontAsset descriptionFont))
+        {
+            if (EditorConstants.Logging) Debug.LogWarning($"There is no key {_unlockable.DescriptionLocalization.Key} in {typeof(Localization)}, {this}");
+        }
+
+        _name.text = nameText;
+        _name.font = nameFont;
+
+        _description.text = descriptionText;
+        _description.font = descriptionFont;
 
         if (!_unlockable.Unlocked) { _name.text = "???"; _description.text = "???"; }
     }

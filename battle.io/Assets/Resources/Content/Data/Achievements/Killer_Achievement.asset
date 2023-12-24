@@ -16,3 +16,21 @@ MonoBehaviour:
   Name: Killer
   Description: Kill 300 battlers
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_KILLER_NAME
+    Values:
+    - Language: 1
+      Text: "\u0423\u0431\u0438\u0439\u0446\u0430"
+    - Language: 2
+      Text: Killer
+    - Language: 3
+      Text: Katil
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_KILLER_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0423\u0431\u0435\u0439 300 \u0431\u0430\u0442\u0442\u043B\u0435\u0440\u043E\u0432"
+    - Language: 2
+      Text: Kill 300 battlers
+    - Language: 3
+      Text: "300 battlers \xF6ld\xFCr"

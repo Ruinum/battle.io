@@ -15,7 +15,27 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 0a33c6a497490344582ad8ea2aff4683, type: 3}
   Name: Golden Dragon
   Description: Don't ask him how many siblings he has
-  Unlocked: 1
-  Cost: 10
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_GOLDEN_DRAGON_NAME
+    Values:
+    - Language: 1
+      Text: "\u0417\u043E\u043B\u043E\u0442\u043E\u0439 \u0414\u0440\u0430\u043A\u043E\u043D"
+    - Language: 2
+      Text: Golden Dragon
+    - Language: 3
+      Text: "Alt\u0131n Ejderha"
+  DescriptionLocalization:
+    Key: SKIN_GOLDEN_DRAGON_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041D\u0435 \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0439\u0442\u0435
+        \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0443 \u043D\u0435\u0433\u043E
+        \u0440\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u043E\u0432"
+    - Language: 2
+      Text: Don't ask him how many siblings he has
+    - Language: 3
+      Text: "Ona ka\xE7 karde\u015Fi oldu\u011Funu sorma"
+  Cost: 50
   Body: {fileID: 21300000, guid: 9e0d6dae61af3e74792b385e79947978, type: 3}
   Arm: {fileID: 21300000, guid: 5262b64434729b84daf252f131d4a0d2, type: 3}

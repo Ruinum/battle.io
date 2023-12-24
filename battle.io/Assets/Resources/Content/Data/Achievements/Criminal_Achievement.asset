@@ -16,3 +16,21 @@ MonoBehaviour:
   Name: Criminal
   Description: Kill 50 battlers
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_CRIMINAL_NAME
+    Values:
+    - Language: 1
+      Text: "\u041A\u0440\u0438\u043C\u0438\u043D\u0430\u043B"
+    - Language: 2
+      Text: Criminal
+    - Language: 3
+      Text: Adli
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_CRIMINAL_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0423\u0431\u0435\u0439 50 \u0431\u0430\u0442\u0442\u043B\u0435\u0440\u043E\u0432"
+    - Language: 2
+      Text: Kill 50 battlers
+    - Language: 3
+      Text: "50 battlers \xF6ld\xFCr"

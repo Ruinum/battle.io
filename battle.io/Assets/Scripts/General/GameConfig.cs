@@ -13,6 +13,7 @@ public sealed class GameConfig : ScriptableObject
     public PlayerStats PlayerStats;
     public AchievementsConfig Achievements;
     public SkinsConfig Skins;
+    public LocalizationConfig Localization;
     public AbilitiesConfig AbilitiesConfig;
 
     [Header("Prefabs")]

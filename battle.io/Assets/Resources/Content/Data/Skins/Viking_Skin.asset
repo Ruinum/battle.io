@@ -15,7 +15,25 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 2f6160dacc06be94ba88ad86941cb6e3, type: 3}
   Name: Viking
   Description: FUS RO DAH!
-  Unlocked: 1
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_VIKING_NAME
+    Values:
+    - Language: 1
+      Text: "\u0412\u0438\u043A\u0438\u043D\u0433"
+    - Language: 2
+      Text: Viking
+    - Language: 3
+      Text: Viking
+  DescriptionLocalization:
+    Key: SKIN_VIKING_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: FUS RO DAH!
+    - Language: 2
+      Text: FUS RO DAH!
+    - Language: 3
+      Text: FUS RO DAH!
   Cost: 25
   Body: {fileID: 21300000, guid: 306459bb68db861448f8ccf184fbd2bf, type: 3}
   Arm: {fileID: 21300000, guid: a8aba930c2def7646a4491852a4f6f1b, type: 3}

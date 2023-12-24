@@ -16,3 +16,21 @@ MonoBehaviour:
   Name: First lose
   Description: Lose the game
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_FIRST_LOSE_NAME
+    Values:
+    - Language: 1
+      Text: "\u041F\u0435\u0440\u0432\u044B\u0439 \u043F\u0440\u043E\u0438\u0433\u0440\u044B\u0448"
+    - Language: 2
+      Text: First lose
+    - Language: 3
+      Text: "\u0130lk yenilgi"
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_FIRST_LOSE_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u041F\u0440\u043E\u0438\u0433\u0440\u0430\u0439 \u0438\u0433\u0440\u0443"
+    - Language: 2
+      Text: Lose the game
+    - Language: 3
+      Text: Oyunu kaybetmek

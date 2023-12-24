@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fec383c3c09914abaf1c075f4e055c, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  KilledBattlers: 1
+  KilledBattlers: 0
   GamesWinned: 0
   GamesLosed: 0
-  Stars: 7
-  CollectedExp: 172.121
-  TimeSpendInGame: 122.6186
+  Stars: 0
+  CollectedExp: 0
+  TimeSpendInGame: 0

@@ -9,8 +9,8 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private SkinsConfig _skinsConfig;
     [SerializeField] private AchievementsConfig _achievementsConfig;
 
-    private List<Achievement> _achievements;
-    private List<Skin> _skins;
+    private List<Achievement> _achievements = new List<Achievement>();
+    private List<Skin> _skins = new List<Skin>();
 
     private ISave _save = null;
     private RuinumCodec _codec = new RuinumCodec("RRHFXKTG");

@@ -14,8 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: ff388f774de2d904094cef12611b2aaf, type: 3}
   Name: Devil Ram
-  Description: 
-  Unlocked: 1
-  Cost: 0
+  Description: Another demon acolyte
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_DEVIL_RAM_NAME
+    Values:
+    - Language: 1
+      Text: "\u0411\u0430\u0440\u0430\u043D \u0421\u043C\u0435\u0440\u0442\u0438"
+    - Language: 2
+      Text: Devil Ram
+    - Language: 3
+      Text: "\xD6l\xFCm Ko\xE7u"
+  DescriptionLocalization:
+    Key: SKIN_DEVIL_RAM_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0415\u0449\u0451 \u043E\u0434\u0438\u043D \u043F\u043E\u0441\u043B\u0443\u0448\u043D\u0438\u043A
+        \u0434\u0435\u043C\u043E\u043D\u043E\u0432"
+    - Language: 2
+      Text: Another demon acolyte
+    - Language: 3
+      Text: "Ba\u015Fka bir iblis yard\u0131mc\u0131s\u0131"
+  Cost: 15
   Body: {fileID: 21300000, guid: a332890a354b9c6469a10efe6a0a7807, type: 3}
   Arm: {fileID: 21300000, guid: 730b03eeb35d8cb4d924db16404ac90c, type: 3}

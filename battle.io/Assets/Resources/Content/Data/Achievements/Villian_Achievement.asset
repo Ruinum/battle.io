@@ -13,6 +13,24 @@ MonoBehaviour:
   m_Name: Villian_Achievement
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: dfa9b636bfa47d548b666c8111dc1b13, type: 3}
-  Name: Villian
+  Name: Villain
   Description: Kill 1000 battlers
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_VILLAIN_NAME
+    Values:
+    - Language: 1
+      Text: "\u0417\u043B\u043E\u0434\u0435\u0439"
+    - Language: 2
+      Text: Villain
+    - Language: 3
+      Text: "K\xF6t\xFC adam"
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_VILLAIN_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0423\u0431\u0435\u0439 1000 \u0431\u0430\u0442\u0442\u043B\u0435\u0440\u043E\u0432"
+    - Language: 2
+      Text: Kill 1000 battlers
+    - Language: 3
+      Text: "1000 battlers \xF6ld\xFCr"

@@ -15,7 +15,26 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: d9534466ce69b2b4491874ee9506d47e, type: 3}
   Name: Hharrasshh
   Description: Hsshrrr hssshss ssshsrrh
-  Unlocked: 1
-  Cost: 0
+  Unlocked: 0
+  NameLocalization:
+    Key: SKIN_HHARRASSHH_NAME
+    Values:
+    - Language: 1
+      Text: "\u0425\u0445\u0445\u0445\u0430\u0440\u0440\u0430\u0448\u0448\u0448"
+    - Language: 2
+      Text: Hharrasshh
+    - Language: 3
+      Text: Hharrasshh
+  DescriptionLocalization:
+    Key: SKIN_HHARRASSHH_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0425\u0441\u0441\u0445\u0445\u0440\u0440 \u0445\u0441\u0441\u0441\u0445\u0441\u0441\u0441
+        \u0441\u0441\u0441\u0440\u0440\u0440\u0440\u0445\u0440\u0440"
+    - Language: 2
+      Text: Hsshrrr hssshss ssshsrrh
+    - Language: 3
+      Text: Hsshrrr hssshss ssshsrrh
+  Cost: 10
   Body: {fileID: 21300000, guid: 18530774b5347254f9da3ac392ea8b8b, type: 3}
   Arm: {fileID: 21300000, guid: 10a9c64021ffa434889ddb6819f769a0, type: 3}

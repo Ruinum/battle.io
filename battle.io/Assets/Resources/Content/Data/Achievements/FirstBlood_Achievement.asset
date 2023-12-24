@@ -16,3 +16,22 @@ MonoBehaviour:
   Name: First Blood
   Description: Kill your first battler
   Unlocked: 0
+  NameLocalization:
+    Key: ACHIEVEMENT_FIRST_BLOOD_NAME
+    Values:
+    - Language: 1
+      Text: "\u041F\u0435\u0440\u0432\u0430\u044F \u043A\u0440\u043E\u0432\u044C"
+    - Language: 2
+      Text: First Blood
+    - Language: 3
+      Text: "\u0130lk kan"
+  DescriptionLocalization:
+    Key: ACHIEVEMENT_FIRST_BLOOD_DESCRIPTION
+    Values:
+    - Language: 1
+      Text: "\u0423\u0431\u0435\u0439 \u0441\u0432\u043E\u0435\u0433\u043E \u043F\u0435\u0440\u0432\u043E\u0433\u043E
+        \u0431\u0430\u0442\u0442\u043B\u0435\u0440\u0430"
+    - Language: 2
+      Text: Kill your first battler
+    - Language: 3
+      Text: "\u0130lk battler \xF6ld\xFCr\xFCn"
