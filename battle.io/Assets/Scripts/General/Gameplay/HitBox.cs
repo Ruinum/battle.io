@@ -41,7 +41,7 @@ public class HitBox : MonoBehaviour
         var damage = _damage + Random.Range(0, _randomDamage);
         level.RemoveExp(damage);
 
-        if (level.Died && _owner.TryGetComponent<Player>(out var player)) StatsSystem.Singleton.OnKillEvent?.Invoke();
+        if (level.Died && _owner.TryGetComponent<Player>(out var player)) { player.Level.AddExp(player.Level.PlayerLevel * 25f); StatsSystem.Singleton.OnKillEvent?.Invoke(); }
 
         ImpactUtils.TryCreatePopUp(Mathf.RoundToInt(damage).ToString(), collision.transform.position, Color.red, out var tmp);    
     }

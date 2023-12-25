@@ -32,6 +32,7 @@ public class SaveManager : MonoBehaviour
         _skins.AddRange(_skinsConfig.Skins.ToArray());
 
         if (GameConstants.BUILD_TYPE == BuildType.Desktop) _save = new DesktopSave();
+        if (GameConstants.BUILD_TYPE == BuildType.WEBGL) _save = new WebglSave();
     }
 
     public void Save()
