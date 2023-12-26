@@ -39,8 +39,15 @@ public class ExpOrbSpawnSystem : ISystem
     private void SpawnExpOrb()
     {
         Vector2 position = new Vector2();
-        if ( _player != null ) position = new Vector2(Random.Range(_player.position.x - _distance, _player.position.x + _distance), Random.Range(_player.position.y - _distance, _player.position.y + _distance));
-        else position = new Vector2(Random.Range(_innerBorderSize.x, _outsideBorderSize.x), Random.Range(_innerBorderSize.y , _outsideBorderSize.y));
+
+        if (_player != null)
+        {
+            float x = Random.Range(_player.position.x - _distance, _player.position.x + _distance);
+            float y = Random.Range(_player.position.y - _distance, _player.position.y + _distance);
+
+            position = new Vector2(x, y);            
+        }
+        else position = new Vector2(Random.Range(_innerBorderSize.x, _outsideBorderSize.x), Random.Range(_innerBorderSize.y, _outsideBorderSize.y));
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
         if (!_pool.TryGetPoolObject(out ExpOrb expOrb)) return;

@@ -5,13 +5,15 @@ public class StarSpawnSystem : ISystem
 {
     private Transform _player;
     private StarPool _pool;
-
+    
+    private Vector2 _border;
     private int _maxStarsAmount;
     private int _distance;
 
-    public StarSpawnSystem(int starAmount)
+    public StarSpawnSystem(int starAmount, Vector2 border)
     {
         _maxStarsAmount = starAmount;
+        _border = border;
 
         _pool = Game.Context.StarPool;
         _distance = GameConstants.STAR_SPAWN_DISTANCE;
@@ -31,7 +33,11 @@ public class StarSpawnSystem : ISystem
     private void SpawnStar()
     {
         if (_player == null) return;
-        Vector2 position = new Vector2(Random.Range(_player.position.x - _distance, _player.position.x + _distance), Random.Range(_player.position.y - _distance, _player.position.y + _distance));       
+        float x = Random.Range(_player.position.x - _distance, _player.position.x + _distance);
+        float y = Random.Range(_player.position.y - _distance, _player.position.y + _distance);
+
+        Vector2 position = new Vector2(x, y);
+        
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
         if (!_pool.TryGetPoolObject(out Star star)) return;

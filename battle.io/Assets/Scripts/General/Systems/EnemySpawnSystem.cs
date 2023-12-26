@@ -67,6 +67,7 @@ public class EnemySpawnSystem : ISystem
         if (_context.Player != null && !_context.Player.IsDestroyed) _point = _context.Player.Transform.position;
 
         var position = GetRandomSpawnPosition();
+        if (Physics2D.OverlapCircle(position, 0.3f)) return;
 
         createdEnemy.transform.position = _point + position;
         

@@ -108,9 +108,9 @@ public class Localization : MonoBehaviour
     {
         switch (_currentLanguage)
         {
-            case LanguageEnum.RU: return _russianLanguageIcon;
-            case LanguageEnum.EN: return _englishLanguageIcon;
-            case LanguageEnum.TR: return _turkishLanguageIcon;
+            case LanguageEnum.RU: return _russianLanguageIcon; break;
+            case LanguageEnum.EN: return _englishLanguageIcon; break;
+            case LanguageEnum.TR: return _turkishLanguageIcon; break;
         }
 
         return _englishLanguageIcon;

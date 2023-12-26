@@ -8,12 +8,17 @@ public class LanguageIcon : MonoBehaviour
     private void Start()
     {
         OnLanguageChange();
-        Localization.Singleton.OnLanguageChanged += OnLanguageChange;   
+        Localization.Singleton.OnLanguageChanged += OnLanguageChange;
+        _languageIcon = GetComponent<Image>();
     }
 
     private void OnLanguageChange()
     {
-        Debug.Log(Localization.Singleton.GetLanguageIcon());
         _languageIcon.sprite = Localization.Singleton.GetLanguageIcon();
+    }
+
+    private void OnDestroy()
+    {
+        Localization.Singleton.OnLanguageChanged -= OnLanguageChange;
     }
 }

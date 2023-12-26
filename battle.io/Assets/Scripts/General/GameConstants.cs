@@ -10,5 +10,5 @@
 
     public const float MAX_ENEMY_LEVEL_EXP = 450f;
 
-    public const BuildType BUILD_TYPE = BuildType.WEBGL;
+    public const BuildType BUILD_TYPE = BuildType.Desktop;
 }
