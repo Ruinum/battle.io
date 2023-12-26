@@ -38,13 +38,21 @@ public class FadeScreen : MonoBehaviour
 
     public void OnDied(Level level)
     {
-        _message.text = "You Died!";
+        if (!Localization.Singleton.GetText("PLAYER_DIED_MESSAGE", out string text, out var font)) _message.text = "You Died!";
+        
+        _message.text = text;
+        _message.font = font;
+
         FadeIn();
     }
 
     private void OnGameWin()
     {
-        _message.text = "You Win!";
+        if (!Localization.Singleton.GetText("PLAYER_WIN_MESSAGE", out string text, out var font)) _message.text = "You Win!";
+
+        _message.text = text;
+        _message.font = font;
+
         FadeIn();
     }
 
