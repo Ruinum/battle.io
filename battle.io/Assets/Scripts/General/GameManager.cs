@@ -33,7 +33,7 @@ namespace Ruinum.Core.Systems
 
             for (int i = 0; i < _systems.Count; i++)
             {
-                _systems[i].Initialize();
+                _systems[i].InitializeSystem();
             }
         }
 

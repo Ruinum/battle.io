@@ -7,7 +7,7 @@ public class SimulatePhysicSystem : System<SimulatePhysicSystem>
     private List<Rigidbody2D> _rigidbodies;
     private float _deceleration = 1.25f;
 
-    public override void Init()
+    public override void Initialize()
     {
         _rigidbodies = new List<Rigidbody2D>();
     }

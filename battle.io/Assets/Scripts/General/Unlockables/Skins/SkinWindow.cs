@@ -22,14 +22,19 @@ public class SkinWindow : MonoBehaviour
 
     public void Show()
     {
+        var stats = Game.Context.Stats;
+
         _costText.text = _skins[_count].Cost.ToString();
-        _starsText.text = Game.Context.Stats.Stars.ToString();
+        _starsText.text = stats.Stars.ToString();
+        
         _cost.SetActive(true);
 
         if (_skins[_count].Unlocked) _cost.SetActive(false);
 
         _skinView.Show(_skins[_count]);
         _skinView.ChangeText();
+
+        stats.OnStarChanged += (x) => _starsText.text = stats.Stars.ToString();
     }
 
     public void NextPage()

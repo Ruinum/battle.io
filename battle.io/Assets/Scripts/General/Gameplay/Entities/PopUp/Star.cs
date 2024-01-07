@@ -44,7 +44,7 @@ public class Star : PoolObject, IExecute, IInterestPoint, IMagnite
     {
         AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
         ImpactUtils.TryCreatePopUp("1", collision.transform.position, Color.black, out var tmp);
-        StatsSystem.Singleton.OnStarPickedEvent?.Invoke();
+        StatsSystem.Singleton.OnStarPickedEvent?.Invoke(1);
         ReturnToPool();
     }
 

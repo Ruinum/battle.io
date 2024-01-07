@@ -7,7 +7,7 @@ namespace Ruinum.Core.Systems
     {
         private List<IExecute> _executes = new List<IExecute>();
 
-        public override void Init() { }
+        public override void Initialize() { }
         public override void Execute()
         {
             for (var i = 0; i < _executes.Count; i++)

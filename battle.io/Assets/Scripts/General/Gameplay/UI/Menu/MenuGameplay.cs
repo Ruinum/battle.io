@@ -23,8 +23,8 @@ class MenuGameplay : MonoBehaviour
         _enemySpawnSystem.SetPlayer(fakePlayer);
         Game.Context.Player = fakePlayer;
 
-        _expOrbSystem.Initialize();
-        _enemySpawnSystem.Initialize();
+        _expOrbSystem.InitializeSystem();
+        _enemySpawnSystem.InitializeSystem();
         _initialize = true;
     }
 

@@ -8,7 +8,7 @@ public class EnemyUnloadSystem : ISystem
     private List<Enemy> _enemies;
     private int _unloadDistance;
 
-    public void Initialize()
+    public void InitializeSystem()
     {
         _enemies = Game.Context.Enemies;
         _player = Game.Context.Player.Transform;

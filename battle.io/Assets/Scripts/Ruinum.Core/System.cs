@@ -6,13 +6,13 @@ namespace Ruinum.Core.Systems
     {
         public static T Singleton { get; private set; }
 
-        public void Initialize()
+        public void InitializeSystem()
         {
             Singleton = this as T;
-            Init();
+            Initialize();
         }
 
-        public abstract void Init();
+        public abstract void Initialize();
         public abstract void Execute();
     }
 }
