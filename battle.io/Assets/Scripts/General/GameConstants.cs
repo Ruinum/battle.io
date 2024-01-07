@@ -11,6 +11,4 @@
     public const float MAX_ENEMY_LEVEL_EXP = 450f;
     public const float MAX_EXP_FOR_KILL = 100f;
     public const float BASE_EXP_FOR_KILL = 20f;
-
-    public const BuildType BUILD_TYPE = BuildType.Desktop;
 }

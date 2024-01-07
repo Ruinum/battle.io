@@ -44,7 +44,7 @@ public class HitBox : MonoBehaviour
         if (level.Died && _owner.TryGetComponent<Level>(out var ownerLevel)) 
         { 
             ownerLevel.AddExp(Mathf.Max(ownerLevel.PlayerLevel * GameConstants.BASE_EXP_FOR_KILL, GameConstants.MAX_EXP_FOR_KILL)); 
-            StatsSystem.Singleton.OnKillEvent?.Invoke(); 
+            if(_owner.TryGetComponent<Player>(out var player)) StatsSystem.Singleton.OnKillEvent?.Invoke();
         }
 
         ImpactUtils.TryCreatePopUp(Mathf.RoundToInt(damage).ToString(), collision.transform.position, Color.red, out var tmp);    

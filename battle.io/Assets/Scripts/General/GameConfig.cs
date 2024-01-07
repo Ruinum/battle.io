@@ -7,6 +7,7 @@ public sealed class GameConfig : ScriptableObject
     public LevelStructure LevelStructure;
     public Canvas RootCanvas;
     public Skin BasePlayerSkin;
+    public BuildType BuildType = BuildType.None;
 
     [Header("Configs")]
     public AssetsContext AssetsContext;

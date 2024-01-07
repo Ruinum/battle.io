@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e9561248749804c99fba6f9ec811f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameConfig: {fileID: 11400000, guid: 634cc1a6c9f4ab344981c72f36ce5f3f, type: 2}
   _stats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
   _skinsConfig: {fileID: 11400000, guid: 1f078885bd3486c4aa04f05a31e9a1bb, type: 2}
   _achievementsConfig: {fileID: 11400000, guid: 98e34e4fa5d34f64988b63a2bdd10d19, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 1dfc444486f7a4146b76c7572fc220ed, type: 3}
   Name: Criminal
   Description: Kill 50 battlers
-  Unlocked: 1
+  Unlocked: 0
   NameLocalization:
     Key: ACHIEVEMENT_CRIMINAL_NAME
     Values:
