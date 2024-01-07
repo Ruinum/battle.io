@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,5 +23,20 @@ public static class EditorExtentions
         image.sprite = sprite;
         image.scaleMode = scaleMode;
         return image;
+    }
+
+    public static DropdownField CreateDropdownField(string label = "", List<string> choices = null)
+    {
+        return new DropdownField(label, choices, 0);        
+    }
+
+    public static Toggle CreateToggle(string label = "")
+    {
+        return new Toggle(label);
+    }
+
+    public static TextField CreateTextField(string label = "", int maxLength = 100, bool multiline = false, bool isPasswordField = false, char maskChar = '.')
+    {
+        return new TextField(label, maxLength, multiline, isPasswordField, maskChar);
     }
 }

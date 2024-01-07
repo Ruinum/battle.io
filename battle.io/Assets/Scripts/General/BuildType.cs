@@ -2,7 +2,7 @@
 {
     None    = 0,
     Desktop = 1,
-    Console = 2,
-    WEBGL   = 3,
+    WEBGL   = 2,
+    Console = 3,
     Custom  = 4
 }
