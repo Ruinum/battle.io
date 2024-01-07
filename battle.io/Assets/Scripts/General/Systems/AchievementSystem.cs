@@ -28,7 +28,6 @@ public class AchievementSystem : ISystem
     private int _timeAchievementCount = 0;
     private int _timeSpended = 1800;
 
-
     public AchievementSystem(GameConfig config)
     {
         _stats = config.PlayerStats;

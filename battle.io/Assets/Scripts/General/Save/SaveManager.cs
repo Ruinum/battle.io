@@ -5,7 +5,7 @@ using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private GameConfig _gameConfig;
+    [SerializeField] private BuildInfoConfig _buildInfo;
     [SerializeField] private PlayerStats _stats;
     [SerializeField] private SkinsConfig _skinsConfig;
     [SerializeField] private AchievementsConfig _achievementsConfig;
@@ -32,8 +32,12 @@ public class SaveManager : MonoBehaviour
         _achievements.AddRange(_achievementsConfig.Achievements.ToArray());
         _skins.AddRange(_skinsConfig.Skins.ToArray());
 
-        if (_gameConfig.BuildType == BuildType.Desktop) _save = new DesktopSave();
-        if (_gameConfig.BuildType == BuildType.Webgl) _save = new WebglSave();
+        switch (_buildInfo.BuildType)
+        {
+            case BuildType.Desktop: _save = new DesktopSave(); break;
+            case BuildType.Webgl: _save = new WebglSave(); break;
+            case BuildType.YandexGames: break;
+        }
     }
 
     public void Save()

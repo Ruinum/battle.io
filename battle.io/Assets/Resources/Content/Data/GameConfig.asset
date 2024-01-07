@@ -15,6 +15,7 @@ MonoBehaviour:
   LevelStructure: {fileID: 11400000, guid: 1748dd932e800ce439714706dc78eaa2, type: 2}
   RootCanvas: {fileID: 1440064073383562019, guid: d7004d7c1c722514fb9d835eab5aa14d, type: 3}
   BasePlayerSkin: {fileID: 11400000, guid: f0a41de6ed8c9f1429dd4c626ffde0e9, type: 2}
+  BuildType: 1
   AssetsContext: {fileID: 11400000, guid: 50f93c8f7ffc8a84ab42a8f0c5286dc8, type: 2}
   PlayerStats: {fileID: 11400000, guid: b15b4a636eb369c498524fe7159c2d52, type: 2}
   Achievements: {fileID: 11400000, guid: 98e34e4fa5d34f64988b63a2bdd10d19, type: 2}
