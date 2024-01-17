@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using YG;
@@ -15,13 +16,23 @@ namespace YandexGameIntegration
             DontDestroyOnLoad(this);
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
-            YandexGame.GameReadyAPI();
+            yield return new WaitForSeconds(0.05f);
 
+            if (YandexGame.SDKEnabled == true)
+            {              
+                InitializeYandexSystems();
+                YandexGame.GameReadyAPI();
+            }
+        }
+
+        public void InitializeYandexSystems()
+        {
             _yandexServices.Add(new YandexGMSaving());
             _yandexServices.Add(new YandexGMReward());
             _yandexServices.Add(new YandexGMAd());
+            _yandexServices.Add(new YandexLocalization());
 
             for (int i = 0; i < _yandexServices.Count; i++)
             {
@@ -35,6 +46,6 @@ namespace YandexGameIntegration
             {
                 _yandexServices[i].Dispose();
             }
-        }
+        }        
     }
 }

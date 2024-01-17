@@ -10,7 +10,8 @@ public class Level : MonoBehaviour
 
     [SerializeField] private int _currentLevel = 1;
     [SerializeField] private float _currentExp = 0;
-    
+
+    private float _maxLevel = 7;
     private float _nextLevelExp = 100;
     private float _baseExp = 100;
     private float _baseExpModifier = 0.25f;
@@ -34,6 +35,7 @@ public class Level : MonoBehaviour
         OnExpChange?.Invoke(_currentExp);
 
         if (_currentExp < _nextLevelExp) return;
+        if (_currentLevel == _maxLevel) return;
 
         var plusValue = _currentExp - _nextLevelExp;
         _currentExp = 0 + plusValue;

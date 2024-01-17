@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6fb303a02a49b4ab3fd28828392612, type: 3}
   m_Name: BuildInfoConfig
   m_EditorClassIdentifier: 
-  BuildType: 1
+  BuildType: 3

@@ -2,9 +2,13 @@ public class PlayerSkinView : SkinView
 {
     private void Start()
     {
-        var playerSkin = Game.Context.PlayerSkin;
-        _body.sprite = playerSkin.Body;
-        _arms[0].sprite = playerSkin.Arm;
-        _arms[1].sprite = playerSkin.Arm;
+        SetSkin(Game.Context.PlayerSkin);
+    }
+
+    public void SetSkin(Skin skin)
+    {
+        _body.sprite = skin.Body;
+        _arms[0].sprite = skin.Arm;
+        _arms[1].sprite = skin.Arm;
     }
 }

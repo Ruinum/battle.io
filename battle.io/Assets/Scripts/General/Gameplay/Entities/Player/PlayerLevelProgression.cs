@@ -52,7 +52,7 @@ public sealed class PlayerLevelProgression : ILevelProgression
 
     public void LevelUp(int level)
     {
-        if (level <= _lastMaxLevel) _levelPoints--;
+        if (level <= _lastMaxLevel) _levelPoints = 0;
         else 
         {
             _lastMaxLevel = Mathf.Max(_lastMaxLevel, level);

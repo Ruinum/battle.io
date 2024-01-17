@@ -5,7 +5,7 @@ public class YandexGameInitializator : MonoBehaviour
     [SerializeField] private BuildInfoConfig _buildInfo;
     [SerializeField] private GameObject _yandexGamePrefab;
 
-    private void Awake()
+    private void Start()
     {
         if (_buildInfo.BuildType == BuildType.YandexGames)
         {

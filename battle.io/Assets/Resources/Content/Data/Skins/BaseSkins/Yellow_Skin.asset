@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: a87594514a078aa4d8d660f24db12cc9, type: 3}
   Name: Yellow Battler
   Description: A little sunshine in our life
-  Unlocked: 1
+  Unlocked: 0
   NameLocalization:
     Key: SKIN_YELLOW_BATTLER_NAME
     Values:
