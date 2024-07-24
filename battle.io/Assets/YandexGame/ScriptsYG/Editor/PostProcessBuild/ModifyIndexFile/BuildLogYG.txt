@@ -1,2 +1,0 @@
-Build path: D:/GitHub/!Builds/battlers//Battlers_Web_v.2.0.3/Battlers.exe
-Build number: 145
