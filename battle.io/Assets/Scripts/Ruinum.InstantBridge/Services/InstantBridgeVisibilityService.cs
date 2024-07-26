@@ -1,9 +1,10 @@
-﻿using InstantGamesBridge.Modules.Game;
+﻿using InstantGamesBridge;
+using InstantGamesBridge.Modules.Game;
 using UnityEngine;
 
-namespace InstantGamesBridge
+namespace Ruinum.InstantBridge.Services
 {
-    public class InstantBridgeVisibility : IInstantBridgeGM
+    public class InstantBridgeVisibilityService : IInstantBridgeService
     {       
         public void Initialize()
         {

@@ -1,9 +1,10 @@
-﻿using InstantGamesBridge.Modules.Advertisement;
+﻿using InstantGamesBridge;
+using InstantGamesBridge.Modules.Advertisement;
 using UnityEngine;
 
-namespace InstantGamesBridge
+namespace Ruinum.InstantBridge.Services
 {
-    public class InstantBridgeGMReward : IInstantBridgeGM
+    public class InstantBridgeRewardService : IInstantBridgeService
     {
         public void Initialize()
         {
@@ -12,6 +13,7 @@ namespace InstantGamesBridge
 
         private void OnRewardedStateChanged(RewardedState state)
         {
+            Debug.Log(state.ToString());
             switch (state)
             {
                 case RewardedState.Opened:

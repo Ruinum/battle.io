@@ -56,7 +56,6 @@ public class ExpOrbSpawnSystem : ISystem
         expOrb.SetExp(expOrbExpValue);
 
         expOrb.DelayDestroy(Random.Range(15f, 35f));
-
         expOrb.Active(position, Quaternion.identity);      
     }
 }

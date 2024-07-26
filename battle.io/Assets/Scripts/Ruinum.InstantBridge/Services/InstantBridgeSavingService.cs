@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using InstantGamesBridge;
+using UnityEngine;
 
-namespace InstantGamesBridge
+namespace Ruinum.InstantBridge.Services
 {
-    public class InstantBridgeGMSaving : IInstantBridgeGM, ISave
+    public class InstantBridgeSavingService : IInstantBridgeService, ISave
     {
         private string _loadedData;
         public void Initialize() 

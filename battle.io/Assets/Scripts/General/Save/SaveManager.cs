@@ -36,7 +36,6 @@ public class SaveManager : MonoBehaviour
         {
             case BuildType.Desktop: _save = new DesktopSave(); break;
             case BuildType.Webgl: _save = new WebglSave(); break;
-            case BuildType.YandexGames: break;
         }
     }
 

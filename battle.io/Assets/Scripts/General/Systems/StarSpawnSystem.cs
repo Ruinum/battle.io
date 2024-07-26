@@ -9,6 +9,8 @@ public class StarSpawnSystem : ISystem
     private Vector2 _border;
     private int _maxStarsAmount;
     private int _distance;
+    private float _spawnDelay = 20f;
+    private float _delayTime;
 
     public StarSpawnSystem(int starAmount, Vector2 border)
     {
@@ -22,11 +24,16 @@ public class StarSpawnSystem : ISystem
     public void InitializeSystem()
     {
         _player = Game.Context.Player.Transform;
+        _delayTime = _spawnDelay;
     }
 
     public void Execute()
     {
         if (Game.Context.Stars.Count >= _maxStarsAmount) return;
+        _delayTime -= Time.deltaTime;
+        if(_delayTime >= 0 ) return;
+
+        _delayTime = _spawnDelay;
         SpawnStar();
     }
 
@@ -37,7 +44,6 @@ public class StarSpawnSystem : ISystem
         float y = Random.Range(_player.position.y - _distance, _player.position.y + _distance);
 
         Vector2 position = new Vector2(x, y);
-        
 
         if (Physics2D.OverlapCircle(position, 0.3f)) return;
         if (!_pool.TryGetPoolObject(out Star star)) return;

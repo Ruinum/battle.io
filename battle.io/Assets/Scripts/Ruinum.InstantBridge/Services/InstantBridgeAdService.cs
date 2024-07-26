@@ -1,9 +1,10 @@
-﻿using InstantGamesBridge.Modules.Advertisement;
+﻿using InstantGamesBridge;
+using InstantGamesBridge.Modules.Advertisement;
 using UnityEngine;
 
-namespace InstantGamesBridge
+namespace Ruinum.InstantBridge.Services
 {
-    public class InstantBridgeGMAd : IInstantBridgeGM
+    public class InstantBridgeAdService : IInstantBridgeService
     {
         public void Initialize()
         {

@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System.Linq;
+using Ruinum.InstantBridge;
 using TMPro;
 using UnityEngine;
 
@@ -10,9 +11,12 @@ public class SkinWindow : MonoBehaviour
     [SerializeField] private TMP_Text _starsText;
     [SerializeField] private SkinUnlockableUI _skinView;
     [SerializeField] private SkinsConfig _skinsConfig;
-    
+    [SerializeField] private GameObject _rewardAdButtonObject;
+    [SerializeField] protected RewardAdButton _rewardAdButton;
+
     private Skin[] _skins;
-    
+
+    private Vector3 _punchScale = new Vector3(0.15f, 0.15f, 0.15f);
     private int _count = 0;
 
     private void Awake()
@@ -26,10 +30,23 @@ public class SkinWindow : MonoBehaviour
 
         _costText.text = _skins[_count].Cost.ToString();
         _starsText.text = stats.Stars.ToString();
-        
+
         _cost.SetActive(true);
 
         if (_skins[_count].Unlocked) _cost.SetActive(false);
+        _skinView.transform.DOPunchScale(_punchScale, 0.25f).OnComplete(() => _skinView.transform.DOScale(new Vector3(1, 1, 1), 0.15f));
+
+        if (_skins[_count].Unlocked)
+        {
+            _rewardAdButtonObject.SetActive(false);
+            _rewardAdButton.Hide();
+            _cost.SetActive(false);
+        }
+        else
+        {
+            _rewardAdButtonObject.SetActive(true);
+            _rewardAdButton.Show(_skins[_count]);
+        }
 
         _skinView.Show(_skins[_count]);
         _skinView.ChangeText();
@@ -42,6 +59,7 @@ public class SkinWindow : MonoBehaviour
         if (_count + 1 >= _skins.Length) return;
         _count++;
         _skinView.transform.DOPunchScale(new Vector3(0.15f, 0.15f, 0.15f), 0.25f);
+        _skinView.transform.DOPunchScale(_punchScale, 0.25f).OnComplete(() => _skinView.transform.DOScale(new Vector3(1, 1, 1), 0.15f));
         Show();
     }
 
@@ -50,6 +68,7 @@ public class SkinWindow : MonoBehaviour
         if (_count - 1 < 0) return;
         _count--;
         _skinView.transform.DOPunchScale(new Vector3(0.15f, 0.15f, 0.15f), 0.25f);
+        _skinView.transform.DOPunchScale(_punchScale, 0.25f).OnComplete(() => _skinView.transform.DOScale(new Vector3(1, 1, 1), 0.15f));
         Show();
     }
 }
