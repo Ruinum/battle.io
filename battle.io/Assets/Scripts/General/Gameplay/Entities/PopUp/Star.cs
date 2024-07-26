@@ -21,8 +21,13 @@ public class Star : PoolObject, IExecute, IInterestPoint, IMagnite
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        SimpleScale();
+        _color = _spriteRenderer.color;
 
+        _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 0);
+        _spriteRenderer.DOFade(1, 0.8f);
+        
+        SimpleScale();
+        
         Game.Context.Stars.Add(this);
         ExecuteSystem.Singleton.AddExecute(this);
     }
@@ -36,14 +41,15 @@ public class Star : PoolObject, IExecute, IInterestPoint, IMagnite
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.TryGetComponent<IPlayer>(out var player)) return;
-        if (collision.tag == "Player") Interact(collision);
-        else ReturnToPool();
+        if (collision.CompareTag("Player")) Interact(collision);
     }
 
     private void Interact(Collider2D collision)
     {
-        AudioUtils.PlayAudio(_audioConfig, collision.transform.position);
-        ImpactUtils.TryCreatePopUp("1", collision.transform.position, Color.black, out var tmp);
+        var position = collision.transform.position;
+        
+        AudioUtils.PlayAudio(_audioConfig, position);
+        ImpactUtils.TryCreatePopUp("1", position, Color.black, out var tmp);
         StatsSystem.Singleton.OnStarPickedEvent?.Invoke(1);
         ReturnToPool();
     }

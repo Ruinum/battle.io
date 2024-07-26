@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded400131f7661244969d096c3e73bd9, type: 3}
   m_Name: CrusaderMiddle_LevelStructure
   m_EditorClassIdentifier: 
-  Icon: {fileID: 6284451139119903137, guid: a6db8b3d59206454ca98a8df66d34e11, type: 3}
+  Icon: {fileID: 21300000, guid: 3a624c826839ec94c9d2a4263d03883f, type: 3}
   IconSize: {x: 1, y: 1}
   MainWeapon: {fileID: 11400000, guid: 2b2c51f16fa52014ca38a6edf133bbb9, type: 2}
   AdditionalWeapon: {fileID: 0}

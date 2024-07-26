@@ -27,7 +27,7 @@ public class GameSystems : ISystem
     {
         _gameSystems.Add(new ExpOrbSpawnSystem(new Vector2(32, 28), new Vector2(-32, -32), 100, 5, 8));
         _gameSystems.Add(new EnemySpawnSystem(20));
-        _gameSystems.Add(new StarSpawnSystem(5, new Vector2(32,29)));
+        _gameSystems.Add(new StarSpawnSystem(5, new Vector2(25,25)));
         _gameSystems.Add(new UnloadSystems());
 
         for (int i = 0; i < _gameSystems.Count; i++)

@@ -30,6 +30,8 @@ public class PoolObject : MonoBehaviour
 
     protected void ReturnToPool()
     {
+        Debug.Log("Returning to pool");
+        
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
         gameObject.SetActive(false);
